@@ -682,7 +682,7 @@ abstract class tx_seminars_BackEnd_AbstractEventMailForm {
 	/**
 	 * Gets the hooks.
 	 *
-	 * @throws t3lib_exception
+	 * @throws \TYPO3\CMS\Core\Exception
 	 *         if there are registered hook classes that do not implement the
 	 *         tx_seminars_Interface_Hook_BackEndModule interface
 	 *
@@ -696,7 +696,7 @@ abstract class tx_seminars_BackEnd_AbstractEventMailForm {
 				foreach ($hookClasses as $hookClass) {
 					$hookInstance = GeneralUtility::getUserObj($hookClass);
 					if (!($hookInstance instanceof tx_seminars_Interface_Hook_BackEndModule)) {
-						throw new t3lib_exception(
+						throw new \TYPO3\CMS\Core\Exception(
 							'The class ' . get_class($hookInstance) . ' is used for the event list view hook, ' .
 								'but does not implement the tx_seminars_Interface_Hook_BackEndModule interface.',
 								1301928334

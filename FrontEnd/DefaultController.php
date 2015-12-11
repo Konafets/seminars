@@ -376,7 +376,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	/**
 	 * Gets the hooks for the list view.
 	 *
-	 * @throws t3lib_exception
+	 * @throws \TYPO3\CMS\Core\Exception
 	 *         if there are registered hook classes that do not implement the
 	 *         tx_seminars_Interface_Hook_EventListView interface
 	 *
@@ -390,7 +390,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 				foreach ($hookClasses as $hookClass) {
 					$hookInstance = GeneralUtility::getUserObj($hookClass);
 					if (!($hookInstance instanceof tx_seminars_Interface_Hook_EventListView)) {
-						throw new t3lib_exception(
+						throw new \TYPO3\CMS\Core\Exception(
 							'The class ' . get_class($hookInstance) . ' is used for the event list view hook, ' .
 								'but does not implement the tx_seminars_Interface_Hook_EventListView interface.',
 								1301928334
@@ -409,7 +409,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	/**
 	 * Gets the hooks for the single view.
 	 *
-	 * @throws t3lib_exception
+	 * @throws \TYPO3\CMS\Core\Exception
 	 *         if there are registered hook classes that do not implement the
 	 *         tx_seminars_Interface_Hook_EventSingleView interface
 	 *
@@ -423,7 +423,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 				foreach ($hookClasses as $hookClass) {
 					$hookInstance = GeneralUtility::getUserObj($hookClass);
 					if (!($hookInstance instanceof tx_seminars_Interface_Hook_EventSingleView)) {
-						throw new t3lib_exception(
+						throw new \TYPO3\CMS\Core\Exception(
 							'The class ' . get_class($hookInstance) . ' is used for the event single view hook, ' .
 								'but does not implement the tx_seminars_Interface_Hook_EventSingleView interface.',
 								1306432026
@@ -712,7 +712,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 *
 	 * @return string the rendered single view
 	 *
-	 * @throws t3lib_exception
+	 * @throws \TYPO3\CMS\Core\Exception
 	 */
 	protected function createSingleViewForExistingEvent() {
 		/** @var tx_seminars_Mapper_Event $mapper */
