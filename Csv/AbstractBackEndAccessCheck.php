@@ -24,7 +24,7 @@ abstract class Tx_Seminars_Csv_AbstractBackEndAccessCheck implements Tx_Seminars
 	/**
 	 * @var int
 	 *
-	 * @see t3lib_BEfunc::getRecord
+	 * @see \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord
 	 */
 	const SHOW_PAGE_PERMISSION_BITS = 1;
 
@@ -101,6 +101,6 @@ abstract class Tx_Seminars_Csv_AbstractBackEndAccessCheck implements Tx_Seminars
 	 */
 	protected function hasReadAccessToPage($pageUid) {
 		return $this->getLoggedInBackEndUser()
-			->doesUserHaveAccess(t3lib_BEfunc::getRecord('pages', $pageUid), self::SHOW_PAGE_PERMISSION_BITS);
+			->doesUserHaveAccess(\TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('pages', $pageUid), self::SHOW_PAGE_PERMISSION_BITS);
 	}
 }

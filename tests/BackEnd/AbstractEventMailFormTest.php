@@ -804,7 +804,7 @@ class Tx_Seminars_BackEnd_AbstractEventMailFormTest extends Tx_Phpunit_TestCase 
 		$this->fixture->render();
 
 		self::assertSame(
-			'Location: ' . t3lib_BEfunc::getModuleUrl(
+			'Location: ' . \TYPO3\CMS\Backend\Utility\BackendUtility::getModuleUrl(
 				tx_seminars_BackEnd_AbstractEventMailForm::MODULE_NAME,
 				array('id' => tx_oelib_PageFinder::getInstance()->getPageUid()), FALSE, TRUE
 			),

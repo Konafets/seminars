@@ -21,6 +21,7 @@
 *
 * This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
+use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -139,7 +140,7 @@ abstract class tx_seminars_BackEnd_AbstractList {
 		) {
 			$params = '&cmd['.$this->tableName.']['.$uid.'][delete]=1';
 
-			$referenceWarning = t3lib_BEfunc::referenceCount(
+			$referenceWarning = BackendUtility::referenceCount(
 				$this->tableName,
 				$uid,
 				' '.$LANG->getLL('referencesWarning')
@@ -296,7 +297,7 @@ abstract class tx_seminars_BackEnd_AbstractList {
 	protected function getCsvIcon() {
 		$pageData = $this->page->getPageData();
 		$langCsv = $GLOBALS['LANG']->sL('LLL:EXT:lang/locallang_core.xml:labels.csv', 1);
-		$csvUrl = t3lib_BEfunc::getModuleUrl(
+		$csvUrl = BackendUtility::getModuleUrl(
 			self::MODULE_NAME,
 			array('id' => $pageData['uid'], 'csv' => '1', 'tx_seminars_pi2[table]' => $this->tableName)
 		);
@@ -370,7 +371,7 @@ abstract class tx_seminars_BackEnd_AbstractList {
 		if (!isset($this->accessRights[$pageUid])) {
 			$this->accessRights[$pageUid] = $GLOBALS['BE_USER']
 				->doesUserHaveAccess(
-					t3lib_BEfunc::getRecord('pages', $pageUid), 16
+					BackendUtility::getRecord('pages', $pageUid), 16
 			);
 		}
 
