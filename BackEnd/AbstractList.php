@@ -22,6 +22,7 @@
 * This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -226,12 +227,12 @@ abstract class tx_seminars_BackEnd_AbstractList {
 				TAB . TAB .
 				'</div>' . LF;
 
-			/** @var t3lib_FlashMessage $message */
+			/** @var FlashMessage $message */
 			$message = GeneralUtility::makeInstance(
-				't3lib_FlashMessage',
+				'TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
 				$storageLabel,
 				'',
-				t3lib_FlashMessage::INFO
+				FlashMessage::INFO
 			);
 			$this->addFlashMessage($message);
 
@@ -254,11 +255,11 @@ abstract class tx_seminars_BackEnd_AbstractList {
 	/**
 	 * Adds a flash message to the queue.
 	 *
-	 * @param t3lib_FlashMessage $flashMessage
+	 * @param FlashMessage $flashMessage
 	 *
 	 * @return void
 	 */
-	protected function addFlashMessage(t3lib_FlashMessage $flashMessage) {
+	protected function addFlashMessage(FlashMessage $flashMessage) {
 		if (class_exists('TYPO3\\CMS\\Core\\Messaging\\FlashMessageService', TRUE)) {
 			/** @var $flashMessageService \TYPO3\CMS\Core\Messaging\FlashMessageService */
 			$flashMessageService = GeneralUtility::makeInstance(
