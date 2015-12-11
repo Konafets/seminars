@@ -95,7 +95,7 @@ class Tx_Seminars_Csv_EventListView extends Tx_Seminars_Csv_AbstractListView {
 	 */
 	protected function createCsvBodyLines() {
 		/** @var $builder tx_seminars_BagBuilder_Event */
-		$builder = t3lib_div::makeInstance('tx_seminars_BagBuilder_Event');
+		$builder = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_seminars_BagBuilder_Event');
 		$builder->setBackEndMode();
 		$builder->setSourcePages($this->getPageUid(), self::RECURSION_DEPTH);
 

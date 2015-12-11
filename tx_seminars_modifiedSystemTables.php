@@ -1,4 +1,6 @@
 <?php
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 defined('TYPO3_MODE') or die('Access denied.');
 
 if (!function_exists('txSeminarsGetTableRelationsClause')) {
@@ -31,7 +33,7 @@ $selectType = $usePageBrowser ? 'group' : 'select';
 $addToFeInterface = (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 6002000);
 if (!isset($GLOBALS['TCA']['fe_users']['columns']['tx_seminars_registration'])) {
 	if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
-		t3lib_div::loadTCA('fe_users');
+		GeneralUtility::loadTCA('fe_users');
 	}
 	t3lib_extMgm::addTCAcolumns(
 		'fe_users',
@@ -61,7 +63,7 @@ if (!isset($GLOBALS['TCA']['fe_groups']['columns']['tx_seminars_publish_events']
 	);
 
 	if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
-		t3lib_div::loadTCA('fe_groups');
+		GeneralUtility::loadTCA('fe_groups');
 	}
 	t3lib_extMgm::addTCAcolumns(
 		'fe_groups',
@@ -180,7 +182,7 @@ if (!isset($GLOBALS['TCA']['fe_groups']['columns']['tx_seminars_publish_events']
 
 if (!isset($GLOBALS['TCA']['be_groups']['columns']['tx_seminars_events_folder'])) {
 	if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
-		t3lib_div::loadTCA('be_groups');
+		GeneralUtility::loadTCA('be_groups');
 	}
 	t3lib_extMgm::addTCAcolumns(
 		'be_groups',

@@ -157,7 +157,7 @@ class tx_seminars_FrontEnd_Editor extends tx_seminars_FrontEnd_AbstractView {
 		}
 
 		/** @var tx_ameosformidable $formCreator */
-		$formCreator = t3lib_div::makeInstance('tx_ameosformidable');
+		$formCreator = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_ameosformidable');
 		$formCreator->initFromTs(
 			$this, $this->formConfiguration, ($this->getObjectUid() > 0) ? $this->getObjectUid() : FALSE
 		);

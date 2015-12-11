@@ -84,7 +84,7 @@ abstract class tx_seminars_BagBuilder_Abstract {
 	 */
 	public function build() {
 		/** @var tx_seminars_Bag_Abstract $bag */
-		$bag = t3lib_div::makeInstance(
+		$bag = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
 			$this->bagClassName,
 			$this->getWhereClause(),
 			implode(',', $this->additionalTableNames),

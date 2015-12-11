@@ -93,7 +93,7 @@ class tx_seminars_FrontEnd_EventHeadline extends tx_seminars_FrontEnd_AbstractVi
 		}
 
 		/** @var tx_seminars_ViewHelper_DateRange $dateRangeViewHelper */
-		$dateRangeViewHelper = t3lib_div::makeInstance('tx_seminars_ViewHelper_DateRange');
+		$dateRangeViewHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_seminars_ViewHelper_DateRange');
 
 		return $result . ', ' . $dateRangeViewHelper->render($event);
 	}

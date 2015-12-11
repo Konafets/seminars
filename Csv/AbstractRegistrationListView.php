@@ -180,7 +180,7 @@ abstract class Tx_Seminars_Csv_AbstractRegistrationListView extends Tx_Seminars_
 	 */
 	protected function createRegistrationBagBuilder() {
 		/** @var tx_seminars_BagBuilder_Registration $registrationBagBuilder */
-		$registrationBagBuilder = t3lib_div::makeInstance('tx_seminars_BagBuilder_Registration');
+		$registrationBagBuilder = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_seminars_BagBuilder_Registration');
 
 		if (!$this->shouldAlsoContainRegistrationsOnQueue()) {
 			$registrationBagBuilder->limitToRegular();

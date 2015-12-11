@@ -87,7 +87,7 @@ class tx_seminars_EmailSalutation {
 		$hooks = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['seminars']['modifyEmailSalutation'];
 		if (is_array($hooks)) {
 			foreach ($hooks as $classReference) {
-				$result[] = t3lib_div::getUserObj($classReference);
+				$result[] = \TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj($classReference);
 			}
 		}
 

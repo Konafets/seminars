@@ -23,7 +23,7 @@ if (TYPO3_MODE === 'BE') {
 }
 
 if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
-	t3lib_div::loadTCA('tt_content');
+	\TYPO3\CMS\Core\Utility\GeneralUtility::loadTCA('tt_content');
 }
 
 $GLOBALS['TCA']['tx_seminars_test'] = array(

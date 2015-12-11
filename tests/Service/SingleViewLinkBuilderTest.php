@@ -301,7 +301,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 			->will(self::returnValue($relativeUrl));
 
 		self::assertEquals(
-			t3lib_div::locationHeaderUrl($relativeUrl),
+			\TYPO3\CMS\Core\Utility\GeneralUtility::locationHeaderUrl($relativeUrl),
 			$fixture->createAbsoluteUrlForEvent($event)
 		);
 	}

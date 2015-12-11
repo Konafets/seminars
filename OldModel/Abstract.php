@@ -526,7 +526,7 @@ abstract class tx_seminars_OldModel_Abstract extends tx_oelib_templatehelper {
 		$iconProperties = array();
 
 		if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
-			t3lib_div::loadTCA($this->tableName);
+			\TYPO3\CMS\Core\Utility\GeneralUtility::loadTCA($this->tableName);
 		}
 		$tableConfiguration =& $GLOBALS['TCA'][$this->tableName]['ctrl'];
 

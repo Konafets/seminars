@@ -68,7 +68,7 @@ class tx_seminars_BackEnd_SpeakersList extends tx_seminars_BackEnd_AbstractList 
 		);
 
 		/** @var tx_seminars_BagBuilder_Speaker $builder */
-		$builder = t3lib_div::makeInstance('tx_seminars_BagBuilder_Speaker');
+		$builder = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_seminars_BagBuilder_Speaker');
 		$builder->showHiddenRecords();
 
 		$builder->setSourcePages($pageData['uid'], self::RECURSION_DEPTH);

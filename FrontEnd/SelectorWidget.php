@@ -12,6 +12,8 @@
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 require_once(t3lib_extMgm::extPath('static_info_tables') . 'pi1/class.tx_staticinfotables_pi1.php');
 
 /**
@@ -96,7 +98,7 @@ class tx_seminars_FrontEnd_SelectorWidget extends tx_seminars_FrontEnd_AbstractV
 	 * @return void
 	 */
 	private function initialize() {
-		$this->displayedSearchFields = t3lib_div::trimExplode(
+		$this->displayedSearchFields = GeneralUtility::trimExplode(
 			',',
 			$this->getConfValueString(
 				'displaySearchFormFields', 's_listView'),
@@ -105,9 +107,9 @@ class tx_seminars_FrontEnd_SelectorWidget extends tx_seminars_FrontEnd_AbstractV
 
 		$this->instantiateStaticInfo();
 		/** @var tx_seminars_BagBuilder_Event $builder */
-		$builder = t3lib_div::makeInstance('tx_seminars_BagBuilder_Event');
+		$builder = GeneralUtility::makeInstance('tx_seminars_BagBuilder_Event');
 		$builder->limitToEventTypes(
-			t3lib_div::trimExplode(',', $this->getConfValueString('limitListViewToEventTypes', 's_listView'), TRUE)
+			GeneralUtility::trimExplode(',', $this->getConfValueString('limitListViewToEventTypes', 's_listView'), TRUE)
 		);
 		$builder->limitToOrganizers($this->getConfValueString('limitListViewToOrganizers', 's_listView'));
 		$builder->limitToCategories($this->getConfValueString('limitListViewToCategories', 's_listView'));
@@ -251,7 +253,7 @@ class tx_seminars_FrontEnd_SelectorWidget extends tx_seminars_FrontEnd_AbstractV
 			return;
 		}
 
-		$this->staticInfo = t3lib_div::makeInstance('tx_staticinfotables_pi1');
+		$this->staticInfo = GeneralUtility::makeInstance('tx_staticinfotables_pi1');
 		$this->staticInfo->init();
 	}
 

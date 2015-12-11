@@ -83,7 +83,7 @@ class tx_seminars_BackEnd_ConfirmEventMailForm extends tx_seminars_BackEnd_Abstr
 		$mapper->save($this->getEvent());
 
 		/** @var t3lib_FlashMessage $message */
-		$message = t3lib_div::makeInstance(
+		$message = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
 			't3lib_FlashMessage',
 			$GLOBALS['LANG']->getLL('message_eventConfirmed'),
 			'',

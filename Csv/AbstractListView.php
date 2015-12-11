@@ -75,7 +75,7 @@ abstract class Tx_Seminars_Csv_AbstractListView {
 			if (isset($GLOBALS['LANG'])) {
 				$this->translator = $GLOBALS['LANG'];
 			} else {
-				$this->translator = t3lib_div::makeInstance('language');
+				$this->translator = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('language');
 				if (isset($GLOBALS['BE_USER'])) {
 					$this->translator->init($GLOBALS['BE_USER']->uc['lang']);
 				} else {

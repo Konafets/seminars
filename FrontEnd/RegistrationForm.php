@@ -12,6 +12,8 @@
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 require_once(t3lib_extMgm::extPath('static_info_tables') . 'pi1/class.tx_staticinfotables_pi1.php');
 
 /**
@@ -126,7 +128,7 @@ class tx_seminars_FrontEnd_RegistrationForm extends tx_seminars_FrontEnd_Editor 
 	public function __construct(array $configuration, tslib_cObj $cObj) {
 		parent::__construct($configuration, $cObj);
 
-		$formFieldsToShow = t3lib_div::trimExplode(
+		$formFieldsToShow = GeneralUtility::trimExplode(
 			',', $this->getConfValueString('showRegistrationFields', 's_template_special'), TRUE
 		);
 
@@ -366,8 +368,8 @@ class tx_seminars_FrontEnd_RegistrationForm extends tx_seminars_FrontEnd_Editor 
 		/** @var $userGroupMapper tx_seminars_Mapper_FrontEndUserGroup */
 		$userGroupMapper = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_FrontEndUserGroup');
 		/** @var  Tx_Oelib_List $userGroups */
-		$userGroups = t3lib_div::makeInstance('Tx_Oelib_List');
-		$userGroupUids = t3lib_div::intExplode(
+		$userGroups = GeneralUtility::makeInstance('Tx_Oelib_List');
+		$userGroupUids = GeneralUtility::intExplode(
 			',', $this->getConfValueString('userGroupUidsForAdditionalAttendeesFrontEndUsers', 's_registration'), TRUE
 		);
 		foreach ($userGroupUids as $uid) {
@@ -381,9 +383,9 @@ class tx_seminars_FrontEnd_RegistrationForm extends tx_seminars_FrontEnd_Editor 
 		/** @var $personData array */
 		foreach ($allPersonsData as $personData) {
 			/** @var tx_seminars_Model_FrontEndUser $user */
-			$user = t3lib_div::makeInstance('tx_seminars_Model_FrontEndUser');
+			$user = GeneralUtility::makeInstance('tx_seminars_Model_FrontEndUser');
 			$user->setPageUid($pageUid);
-			$user->setPassword(t3lib_div::getRandomHexString(8));
+			$user->setPassword(GeneralUtility::getRandomHexString(8));
 			$eMailAddress = $personData[3];
 			$user->setEMailAddress($eMailAddress);
 
@@ -726,7 +728,7 @@ class tx_seminars_FrontEnd_RegistrationForm extends tx_seminars_FrontEnd_Editor 
 		$linkConfiguration = array('parameter' => $pageId);
 
 		if ($sendParameters) {
-			$linkConfiguration['additionalParams'] = t3lib_div::implodeArrayForUrl(
+			$linkConfiguration['additionalParams'] = GeneralUtility::implodeArrayForUrl(
 				'tx_seminars_pi1', array('showUid' => $this->getSeminar()->getUid()),'', FALSE, TRUE
 			);
 		}
@@ -736,7 +738,7 @@ class tx_seminars_FrontEnd_RegistrationForm extends tx_seminars_FrontEnd_Editor 
 		// http://bugs.typo3.org/view.php?id=3808
 		$result = preg_replace(array('/\[/', '/\]/'), array('%5B', '%5D'), $this->cObj->typoLink_URL($linkConfiguration));
 
-		return t3lib_div::locationHeaderUrl($result);
+		return GeneralUtility::locationHeaderUrl($result);
 	}
 
 	/**
@@ -796,8 +798,8 @@ class tx_seminars_FrontEnd_RegistrationForm extends tx_seminars_FrontEnd_Editor 
 		/** @var $userData array */
 		$userData = $GLOBALS['TSFE']->fe_user->user;
 
-		$fieldKeys = t3lib_div::trimExplode(',', $this->getConfValueString('showFeUserFieldsInRegistrationForm'));
-		$fieldsWithLabels = t3lib_div::trimExplode(',', $this->getConfValueString('showFeUserFieldsInRegistrationFormWithLabel'));
+		$fieldKeys = GeneralUtility::trimExplode(',', $this->getConfValueString('showFeUserFieldsInRegistrationForm'));
+		$fieldsWithLabels = GeneralUtility::trimExplode(',', $this->getConfValueString('showFeUserFieldsInRegistrationFormWithLabel'));
 
 		foreach ($fieldKeys as $key) {
 			$hasLabel = in_array($key, $fieldsWithLabels, TRUE);
@@ -1484,7 +1486,7 @@ class tx_seminars_FrontEnd_RegistrationForm extends tx_seminars_FrontEnd_Editor 
 	 */
 	private function initStaticInfo() {
 		if ($this->staticInfo === NULL) {
-			$this->staticInfo = t3lib_div::makeInstance('tx_staticinfotables_pi1');
+			$this->staticInfo = GeneralUtility::makeInstance('tx_staticinfotables_pi1');
 			$this->staticInfo->init();
 		}
 	}
@@ -1601,7 +1603,7 @@ class tx_seminars_FrontEnd_RegistrationForm extends tx_seminars_FrontEnd_Editor 
 	 */
 	public function processUnregistration() {
 		if ($this->getFormCreator()->aORenderlets['button_cancel']->hasThrown('click')) {
-			$redirectUrl = t3lib_div::locationHeaderUrl($this->pi_getPageLink($this->getConfValueInteger('myEventsPID')));
+			$redirectUrl = GeneralUtility::locationHeaderUrl($this->pi_getPageLink($this->getConfValueInteger('myEventsPID')));
 			tx_oelib_headerProxyFactory::getInstance()->getHeaderProxy()->addHeader('Location:' . $redirectUrl);
 			exit;
 		}
@@ -1690,7 +1692,7 @@ class tx_seminars_FrontEnd_RegistrationForm extends tx_seminars_FrontEnd_Editor 
 		$allPersonsData = $this->getAdditionalRegisteredPersonsData();
 
 		foreach ($allPersonsData as $onePersonData) {
-			if (!isset($onePersonData[3]) || !t3lib_div::validEmail($onePersonData[3])) {
+			if (!isset($onePersonData[3]) || !GeneralUtility::validEmail($onePersonData[3])) {
 				$isValid = FALSE;
 				break;
 			}

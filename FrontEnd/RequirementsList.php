@@ -89,7 +89,7 @@ class tx_seminars_FrontEnd_RequirementsList extends tx_seminars_FrontEnd_Abstrac
 
 		if ($this->linkBuilder == NULL) {
 			/** @var tx_seminars_Service_SingleViewLinkBuilder $linkBuilder */
-			$linkBuilder = t3lib_div::makeInstance('tx_seminars_Service_SingleViewLinkBuilder');
+			$linkBuilder = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_seminars_Service_SingleViewLinkBuilder');
 			$this->injectLinkBuilder($linkBuilder);
 		}
 		$this->linkBuilder->setPlugin($this);

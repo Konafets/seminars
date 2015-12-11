@@ -12,6 +12,8 @@
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 require(t3lib_extMgm::extPath('seminars') . 'tx_seminars_modifiedSystemTables.php');
 
 /**
@@ -286,7 +288,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 				// because createRegistrationsListPage() will differentiate later.
 			case 'list_registrations':
 				/** @var tx_seminars_FrontEnd_RegistrationsList $registrationsList */
-				$registrationsList = t3lib_div::makeInstance(
+				$registrationsList = GeneralUtility::makeInstance(
 					'tx_seminars_FrontEnd_RegistrationsList', $this->conf,
 					$this->whatToDisplay, (int)$this->piVars['seminar'],
 					$this->cObj
@@ -295,7 +297,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 				break;
 			case 'countdown':
 				/** @var tx_seminars_FrontEnd_Countdown $countdown */
-				$countdown = t3lib_div::makeInstance(
+				$countdown = GeneralUtility::makeInstance(
 					'tx_seminars_FrontEnd_Countdown',
 					$this->conf,
 					$this->cObj
@@ -305,7 +307,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 				break;
 			case 'category_list':
 				/** @var tx_seminars_FrontEnd_CategoryList $categoryList */
-				$categoryList = t3lib_div::makeInstance(
+				$categoryList = GeneralUtility::makeInstance(
 					'tx_seminars_FrontEnd_CategoryList',
 					$this->conf, $this->cObj
 				);
@@ -313,7 +315,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 				break;
 			case 'event_headline':
 				/** @var tx_seminars_FrontEnd_EventHeadline $eventHeadline */
-				$eventHeadline = t3lib_div::makeInstance(
+				$eventHeadline = GeneralUtility::makeInstance(
 					'tx_seminars_FrontEnd_EventHeadline',
 					$this->conf, $this->cObj
 				);
@@ -386,7 +388,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 			$hookClasses = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['seminars']['listView'];
 			if (is_array($hookClasses)) {
 				foreach ($hookClasses as $hookClass) {
-					$hookInstance = t3lib_div::getUserObj($hookClass);
+					$hookInstance = GeneralUtility::getUserObj($hookClass);
 					if (!($hookInstance instanceof tx_seminars_Interface_Hook_EventListView)) {
 						throw new t3lib_exception(
 							'The class ' . get_class($hookInstance) . ' is used for the event list view hook, ' .
@@ -419,7 +421,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 			$hookClasses = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['seminars']['singleView'];
 			if (is_array($hookClasses)) {
 				foreach ($hookClasses as $hookClass) {
-					$hookInstance = t3lib_div::getUserObj($hookClass);
+					$hookInstance = GeneralUtility::getUserObj($hookClass);
 					if (!($hookInstance instanceof tx_seminars_Interface_Hook_EventSingleView)) {
 						throw new t3lib_exception(
 							'The class ' . get_class($hookInstance) . ' is used for the event single view hook, ' .
@@ -454,7 +456,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 
 		if (tx_seminars_OldModel_Abstract::recordExists($seminarUid, 'tx_seminars_seminars', $showHiddenRecords)) {
 			/** @var tx_seminars_seminar $seminar */
-			$seminar = t3lib_div::makeInstance('tx_seminars_seminar', $seminarUid, FALSE, $showHiddenRecords);
+			$seminar = GeneralUtility::makeInstance('tx_seminars_seminar', $seminarUid, FALSE, $showHiddenRecords);
 			$this->setSeminar($seminar);
 
 			$result = $showHiddenRecords ? $this->canShowCurrentEvent() : TRUE;
@@ -496,7 +498,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 				'tx_seminars_attendances',
 				'tx_seminars_attendances.uid = ' . $registrationUid . tx_oelib_db::enableFields('tx_seminars_attendances')
 			);
-			$this->registration = t3lib_div::makeInstance('tx_seminars_registration', $this->cObj, $dbResult);
+			$this->registration = GeneralUtility::makeInstance('tx_seminars_registration', $this->cObj, $dbResult);
 			if ($dbResult !== FALSE) {
 				$GLOBALS['TYPO3_DB']->sql_free_result($dbResult);
 			}
@@ -518,11 +520,11 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 */
 	public function createHelperObjects() {
 		if ($this->configGetter === NULL) {
-			$this->configGetter = t3lib_div::makeInstance('tx_seminars_configgetter');
+			$this->configGetter = GeneralUtility::makeInstance('tx_seminars_configgetter');
 		}
 
 		if ($this->eventMapper === NULL) {
-			$this->eventMapper = t3lib_div::makeInstance('tx_seminars_Mapper_Event');
+			$this->eventMapper = GeneralUtility::makeInstance('tx_seminars_Mapper_Event');
 		}
 	}
 
@@ -627,7 +629,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 
 		if ($eventId) {
 			$linkConfiguration['additionalParams']
-				= t3lib_div::implodeArrayForUrl(
+				= GeneralUtility::implodeArrayForUrl(
 					'tx_seminars_pi1',
 					array(
 						'seminar' => $eventId,
@@ -639,7 +641,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 				);
 		}
 
-		$redirectUrl = t3lib_div::locationHeaderUrl(
+		$redirectUrl = GeneralUtility::locationHeaderUrl(
 			$this->cObj->typoLink_URL($linkConfiguration)
 		);
 
@@ -656,7 +658,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 			$label,
 			array(
 				'parameter' => $this->getConfValueInteger('loginPID'),
-				'additionalParams' => t3lib_div::implodeArrayForUrl(
+				'additionalParams' => GeneralUtility::implodeArrayForUrl(
 					'',
 					array(
 						rawurlencode('tx_seminars_pi1[uid]') => $eventId,
@@ -1769,12 +1771,12 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 			);
 		} else {
 			// number of results to show in a listing
-			$this->internal['results_at_a_time'] = t3lib_div::intInRange(
+			$this->internal['results_at_a_time'] = GeneralUtility::intInRange(
 				$this->getListViewConfValueInteger('results_at_a_time'),
 				0, 1000, 20
 			);
 			// maximum number of 'pages' in the browse-box: 'Page 1', 'Page 2', etc.
-			$this->internal['maxPages'] = t3lib_div::intInRange(
+			$this->internal['maxPages'] = GeneralUtility::intInRange(
 				$this->getListViewConfValueInteger('maxPages'),
 				0, 1000, 2
 			);
@@ -1841,7 +1843,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 		if (class_exists('t3lib_utility_Math')) {
 			$resultsAtATime = t3lib_utility_Math::forceIntegerInRange($this->internal['results_at_a_time'], 1, 1000);
 		} else {
-			$resultsAtATime = t3lib_div::intInRange($this->internal['results_at_a_time'], 1, 1000);
+			$resultsAtATime = GeneralUtility::intInRange($this->internal['results_at_a_time'], 1, 1000);
 		}
 
 		$builder->setLimit(($pointer * $resultsAtATime) . ',' . $resultsAtATime);
@@ -2025,7 +2027,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 			$this->setMarker('image', $image);
 
 			/** @var tx_seminars_FrontEnd_CategoryList $categoryList */
-			$categoryList = t3lib_div::makeInstance('tx_seminars_FrontEnd_CategoryList', $this->conf, $this->cObj);
+			$categoryList = GeneralUtility::makeInstance('tx_seminars_FrontEnd_CategoryList', $this->conf, $this->cObj);
 			$listOfCategories = $categoryList->createCategoryList(
 				$this->seminar->getCategories()
 			);
@@ -2159,7 +2161,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 */
 	private function createSeminarBagBuilder() {
 		/** @var tx_seminars_BagBuilder_Event $seminarBagBuilder */
-		$seminarBagBuilder = t3lib_div::makeInstance('tx_seminars_BagBuilder_Event');
+		$seminarBagBuilder = GeneralUtility::makeInstance('tx_seminars_BagBuilder_Event');
 
 		$seminarBagBuilder->setSourcePages(
 			$this->getConfValueString('pidList'),
@@ -2180,7 +2182,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 */
 	private function createRegistrationBagBuilder() {
 		/** @var tx_seminars_BagBuilder_Registration $registrationBagBuilder */
-		$registrationBagBuilder = t3lib_div::makeInstance('tx_seminars_BagBuilder_Registration');
+		$registrationBagBuilder = GeneralUtility::makeInstance('tx_seminars_BagBuilder_Registration');
 
 		/** @var tx_seminars_Model_FrontEndUser $loggedInUser */
 		$loggedInUser = tx_oelib_FrontEndLoginManager::getInstance()->getLoggedInUser('tx_seminars_Mapper_FrontEndUser');
@@ -2198,7 +2200,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 */
 	private function createRequirementsList() {
 		/** @var tx_seminars_FrontEnd_RequirementsList $list */
-		$list = t3lib_div::makeInstance('tx_seminars_FrontEnd_RequirementsList', $this->conf, $this->cObj);
+		$list = GeneralUtility::makeInstance('tx_seminars_FrontEnd_RequirementsList', $this->conf, $this->cObj);
 		return $list;
 	}
 
@@ -2274,7 +2276,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 		}
 
 		/** @var tx_seminars_FrontEnd_SelectorWidget $selectorWidget */
-		$selectorWidget = t3lib_div::makeInstance('tx_seminars_FrontEnd_SelectorWidget', $this->conf, $this->cObj);
+		$selectorWidget = GeneralUtility::makeInstance('tx_seminars_FrontEnd_SelectorWidget', $this->conf, $this->cObj);
 
 		return $selectorWidget->render();
 	}
@@ -2312,7 +2314,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 			// TypoScript configuration class from tx_oelib which offers a
 			// getAsIntegerArray() method.
 			$builder->limitToPlaces(
-				t3lib_div::trimExplode(
+				GeneralUtility::trimExplode(
 					',',
 					$this->getConfValueString(
 						'limitListViewToPlaces', 's_listView'
@@ -2377,7 +2379,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 			// TypoScript configuration class from tx_oelib which offers a
 			// getAsIntegerArray() method.
 			$builder->limitToEventTypes(
-				t3lib_div::trimExplode(
+				GeneralUtility::trimExplode(
 					',',
 					$this->getConfValueString(
 						'limitListViewToEventTypes', 's_listView'
@@ -2603,7 +2605,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 * @return void
 	 */
 	protected function unhideColumns(array $columnsToUnhide) {
-		$permanentlyHiddenColumns = t3lib_div::trimExplode(
+		$permanentlyHiddenColumns = GeneralUtility::trimExplode(
 			',',
 			$this->getConfValueString('hideColumns', 's_template_special'),
 			TRUE
@@ -2776,7 +2778,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 */
 	private function hideColumnsForAllViewsFromTypoScriptSetup() {
 		$this->hideColumns(
-			t3lib_div::trimExplode(
+			GeneralUtility::trimExplode(
 				',',
 				$this->getConfValueString('hideColumns', 's_template_special'),
 				TRUE
@@ -2794,7 +2796,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 			$this->translate('label_registrationsAsCsv'),
 			array(
 				'parameter' => $GLOBALS['TSFE']->id,
-				'additionalParams' => t3lib_div::implodeArrayForUrl(
+				'additionalParams' => GeneralUtility::implodeArrayForUrl(
 					'',
 					array(
 						'type' => tx_seminars_pi2::CSV_TYPE_NUMBER,
@@ -2922,7 +2924,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 */
 	protected function createRegistrationForm() {
 		/** @var tx_seminars_FrontEnd_RegistrationForm $registrationEditor */
-		$registrationEditor = t3lib_div::makeInstance('tx_seminars_FrontEnd_RegistrationForm', $this->conf, $this->cObj);
+		$registrationEditor = GeneralUtility::makeInstance('tx_seminars_FrontEnd_RegistrationForm', $this->conf, $this->cObj);
 		$registrationEditor->setSeminar($this->seminar);
 		$registrationEditor->setAction($this->piVars['action']);
 		if ($this->piVars['action'] == 'unregister') {
@@ -2941,7 +2943,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	protected function toggleEventFieldsOnRegistrationPage() {
 		$fieldsToShow = array();
 		if ($this->hasConfValueString('eventFieldsOnRegistrationPage', 's_template_special')) {
-			$fieldsToShow = t3lib_div::trimExplode(
+			$fieldsToShow = GeneralUtility::trimExplode(
 				',', $this->getConfValueString('eventFieldsOnRegistrationPage', 's_template_special'), TRUE
 			);
 		}
@@ -3009,7 +3011,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 */
 	protected function createEventEditorInstance() {
 		/** @var tx_seminars_FrontEnd_EventEditor $eventEditor */
-		$eventEditor = t3lib_div::makeInstance('tx_seminars_FrontEnd_EventEditor', $this->conf, $this->cObj);
+		$eventEditor = GeneralUtility::makeInstance('tx_seminars_FrontEnd_EventEditor', $this->conf, $this->cObj);
 		$eventEditor->setObjectUid((int)$this->piVars['seminar']);
 
 		return $eventEditor;
@@ -3498,7 +3500,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 * @return void
 	 */
 	protected function redirectToCurrentUrl() {
-		$currentUrl = t3lib_div::locationHeaderUrl(t3lib_div::getIndpEnv('REQUEST_URI'));
+		$currentUrl = GeneralUtility::locationHeaderUrl(GeneralUtility::getIndpEnv('REQUEST_URI'));
 		tx_oelib_headerProxyFactory::getInstance()->getHeaderProxy()->addHeader('Location: ' . $currentUrl);
 	}
 
@@ -3533,7 +3535,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	protected function getLinkBuilder() {
 		if ($this->linkBuilder === NULL) {
 			/** @var tx_seminars_Service_SingleViewLinkBuilder $linkBuilder */
-			$linkBuilder = t3lib_div::makeInstance('tx_seminars_Service_SingleViewLinkBuilder');
+			$linkBuilder = GeneralUtility::makeInstance('tx_seminars_Service_SingleViewLinkBuilder');
 			$this->injectLinkBuilder($linkBuilder);
 		}
 		$this->linkBuilder->setPlugin($this);

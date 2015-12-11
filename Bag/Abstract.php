@@ -176,7 +176,7 @@ abstract class tx_seminars_Bag_Abstract implements Iterator {
 			);
 		}
 
-		$allTableNames = t3lib_div::trimExplode(
+		$allTableNames = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(
 			',',
 			$this->dbTableName.$this->additionalTableNames
 		);
