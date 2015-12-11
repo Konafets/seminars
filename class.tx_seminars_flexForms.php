@@ -96,7 +96,7 @@ class tx_seminars_flexForms {
 		if (tx_oelib_configurationProxy::getInstance('seminars')
 			->getAsBoolean('useStoragePid')
 		) {
-			$rootlinePages = t3lib_befunc::BEgetRootLine(
+			$rootlinePages = \TYPO3\CMS\Backend\Utility\BackendUtility::BEgetRootLine(
 				$configuration['row']['pid']
 			);
 

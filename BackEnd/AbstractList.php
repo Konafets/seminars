@@ -194,7 +194,7 @@ abstract class tx_seminars_BackEnd_AbstractList {
 					$pageData['uid']
 				);
 			} else {
-				$storagePageData = t3lib_befunc::readPageAccess($pid, '');
+				$storagePageData = \TYPO3\CMS\Backend\Utility\BackendUtility::readPageAccess($pid, '');
 				$params .= $pid;
 				$storageLabel = sprintf(
 					$LANG->getLL('label_create_record_in_foreign_folder'),
