@@ -1067,8 +1067,8 @@ class tx_seminars_registration extends tx_seminars_OldModel_Abstract {
 			$this->createMmRecords('tx_seminars_attendances_checkboxes_mm', $this->checkboxes);
 		}
 
-		/** @var t3lib_refindex $referenceIndex */
-		$referenceIndex = GeneralUtility::makeInstance('t3lib_refindex');
+		/** @var \TYPO3\CMS\Core\Database\ReferenceIndex $referenceIndex */
+		$referenceIndex = GeneralUtility::makeInstance('TYPO3\CMS\Core\Database\ReferenceIndex');
 		$referenceIndex->updateRefIndexTable('tx_seminars_attendances', $this->getUid());
 
 		return TRUE;
