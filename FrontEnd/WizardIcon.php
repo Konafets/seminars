@@ -50,9 +50,9 @@ class tx_seminars_FrontEnd_WizardIcon {
 	 * @return array[] the found language labels
 	 */
 	public function includeLocalLang() {
-		if (class_exists('t3lib_l10n_parser_Llxml')) {
-			/** @var t3lib_l10n_parser_Llxml $xmlParser */
-			$xmlParser = GeneralUtility::makeInstance('t3lib_l10n_parser_Llxml');
+		if (class_exists('TYPO3\\CMS\\Core\\Localization\\Parser\\LocallangXmlParser')) {
+			/** @var \TYPO3\CMS\Core\Localization\Parser\LocallangXmlParser $xmlParser */
+			$xmlParser = GeneralUtility::makeInstance('TYPO3\CMS\Core\Localization\Parser\LocallangXmlParser');
 			$localLanguage = $xmlParser->getParsedData(
 				ExtensionManagementUtility::extPath('seminars') . 'locallang.xml', $GLOBALS['LANG']->lang
 			);
