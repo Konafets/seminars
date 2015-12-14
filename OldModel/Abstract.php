@@ -39,7 +39,7 @@ abstract class tx_seminars_OldModel_Abstract extends tx_oelib_templatehelper {
 	protected $renderCharset = 'utf-8';
 
 	/**
-	 * @var t3lib_cs helper for charset conversion
+	 * @var \TYPO3\CMS\Core\Charset\CharsetConverter helper for charset conversion
 	 */
 	protected $charsetConversion = NULL;
 

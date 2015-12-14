@@ -135,7 +135,7 @@ class tx_seminars_pi2 extends Tx_Oelib_TemplateHelper {
 	/**
 	 * Retrieves an active charset conversion instance.
 	 *
-	 * @return t3lib_cs a charset conversion instance
+	 * @return \TYPO3\CMS\Core\Charset\CharsetConverter a charset conversion instance
 	 *
 	 * @throws RuntimeException
 	 */
