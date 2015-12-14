@@ -55,7 +55,7 @@ ExtensionManagementUtility::addTypoScript($_EXTKEY, 'setup', '
 	plugin.' . ExtensionManagementUtility::getCN($_EXTKEY) . '_pi1.userFunc = tx_seminars_FrontEnd_DefaultController->main
 ', 43);
 
-if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) >= 6002000) {
+if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 6002000) {
 	ExtensionManagementUtility::addTypoScript(
 		$_EXTKEY,
 		'setup', '

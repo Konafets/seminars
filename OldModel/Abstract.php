@@ -525,7 +525,7 @@ abstract class tx_seminars_OldModel_Abstract extends tx_oelib_templatehelper {
 	public function getRecordIcon() {
 		$iconProperties = array();
 
-		if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
+		if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
 			\TYPO3\CMS\Core\Utility\GeneralUtility::loadTCA($this->tableName);
 		}
 		$tableConfiguration =& $GLOBALS['TCA'][$this->tableName]['ctrl'];

@@ -24,7 +24,7 @@ if (TYPO3_MODE === 'BE') {
 	ExtensionManagementUtility::addModule('web', 'txseminarsM2', '', $extPath . 'BackEnd/');
 }
 
-if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
+if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
 	\TYPO3\CMS\Core\Utility\GeneralUtility::loadTCA('tt_content');
 }
 

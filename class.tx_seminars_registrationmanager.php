@@ -1116,7 +1116,7 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 
 		$wrapperPrefix = ($useHtml ? 'html_' : '') . 'field_wrapper';
 
-		if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) >= 4007000) {
+		if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 4007000) {
 			$charset = 'utf-8';
 		} else {
 			$charset = $GLOBALS['TYPO3_CONF_VARS']['BE']['forceCharset']

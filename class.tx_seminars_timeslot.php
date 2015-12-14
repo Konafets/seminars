@@ -174,7 +174,7 @@ class tx_seminars_timeslot extends tx_seminars_timespan {
 	public function getUpdateArray() {
 		$updateArray = array();
 
-		if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) >= 4007000) {
+		if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 4007000) {
 			$charset = 'utf-8';
 		} else {
 			$charset = $GLOBALS['TYPO3_CONF_VARS']['BE']['forceCharset']

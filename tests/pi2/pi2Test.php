@@ -12,6 +12,7 @@
  * The TYPO3 project - inspiring people to share!
  */
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 
 /**
  * Test case.
@@ -60,7 +61,7 @@ class Tx_Seminars_Tests_pi2_pi2Test extends Tx_Phpunit_TestCase {
 	protected $configuration = NULL;
 
 	protected function setUp() {
-		if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 4007000) {
+		if (VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 4007000) {
 			$this->backEndConfigurationBackup = $GLOBALS['TYPO3_CONF_VARS']['BE'];
 			$GLOBALS['TYPO3_CONF_VARS']['BE']['forceCharset'] = 'utf-8';
 		}
@@ -95,7 +96,7 @@ class Tx_Seminars_Tests_pi2_pi2Test extends Tx_Phpunit_TestCase {
 
 		tx_seminars_registrationmanager::purgeInstance();
 
-		if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 4007000) {
+		if (VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 4007000) {
 			$GLOBALS['TYPO3_CONF_VARS']['BE'] = $this->backEndConfigurationBackup;
 		}
 	}

@@ -114,7 +114,7 @@ class tx_seminars_pi2 extends Tx_Oelib_TemplateHelper {
 					$result = $this->addErrorHeaderAndReturnMessage(self::NOT_FOUND);
 			}
 
-			if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) >= 4007000) {
+			if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 4007000) {
 				$dataCharset = 'utf-8';
 			} else {
 				$dataCharset = $GLOBALS['TYPO3_CONF_VARS']['BE']['forceCharset']

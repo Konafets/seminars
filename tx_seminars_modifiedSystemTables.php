@@ -1,6 +1,7 @@
 <?php
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 
 defined('TYPO3_MODE') or die('Access denied.');
 
@@ -31,9 +32,9 @@ $globalConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']
 $usePageBrowser = (bool)$globalConfiguration['usePageBrowser'];
 $selectType = $usePageBrowser ? 'group' : 'select';
 
-$addToFeInterface = (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 6002000);
+$addToFeInterface = (VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 6002000);
 if (!isset($GLOBALS['TCA']['fe_users']['columns']['tx_seminars_registration'])) {
-	if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
+	if (VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
 		GeneralUtility::loadTCA('fe_users');
 	}
 	ExtensionManagementUtility::addTCAcolumns(
@@ -63,7 +64,7 @@ if (!isset($GLOBALS['TCA']['fe_groups']['columns']['tx_seminars_publish_events']
 		'EXT:seminars/Resources/Private/Language/locallang_csh_fe_groups.xml'
 	);
 
-	if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
+	if (VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
 		GeneralUtility::loadTCA('fe_groups');
 	}
 	ExtensionManagementUtility::addTCAcolumns(
@@ -182,7 +183,7 @@ if (!isset($GLOBALS['TCA']['fe_groups']['columns']['tx_seminars_publish_events']
 }
 
 if (!isset($GLOBALS['TCA']['be_groups']['columns']['tx_seminars_events_folder'])) {
-	if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
+	if (VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
 		GeneralUtility::loadTCA('be_groups');
 	}
 	ExtensionManagementUtility::addTCAcolumns(
