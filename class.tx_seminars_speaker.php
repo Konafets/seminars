@@ -74,11 +74,11 @@ class tx_seminars_speaker extends tx_seminars_OldModel_Abstract {
 	/**
 	 * Gets our description.
 	 *
-	 * @param tslib_pibase $plugin the live pibase object
+	 * @param \TYPO3\CMS\Frontend\Plugin\AbstractPlugin $plugin the live pibase object
 	 *
 	 * @return string our description (or '' if there is an error)
 	 */
-	public function getDescription(tslib_pibase $plugin) {
+	public function getDescription(\TYPO3\CMS\Frontend\Plugin\AbstractPlugin $plugin) {
 		return $plugin->pi_RTEcssText(
 			$this->getRecordPropertyString('description')
 		);

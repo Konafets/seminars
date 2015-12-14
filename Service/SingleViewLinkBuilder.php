@@ -12,6 +12,7 @@
  * The TYPO3 project - inspiring people to share!
  */
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Frontend\Plugin\AbstractPlugin;
 
 /**
  * This class provides functions for creating the link/URL to the single view page of an event.
@@ -25,7 +26,7 @@ class tx_seminars_Service_SingleViewLinkBuilder {
 	/**
 	 * a plugin instance that provides access to the flexforms plugin settings
 	 *
-	 * @var tslib_pibase
+	 * @var AbstractPlugin
 	 */
 	private $plugin = NULL;
 
@@ -74,11 +75,11 @@ class tx_seminars_Service_SingleViewLinkBuilder {
 	/**
 	 * Sets the plugin used accessing to the flexforms plugin settings.
 	 *
-	 * @param tslib_pibase $plugin a seminars plugin instance
+	 * @param AbstractPlugin $plugin a seminars plugin instance
 	 *
 	 * @return void
 	 */
-	public function setPlugin(tslib_pibase $plugin) {
+	public function setPlugin(AbstractPlugin $plugin) {
 		$this->plugin = $plugin;
 	}
 
