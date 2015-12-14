@@ -920,8 +920,8 @@ class tx_seminars_FrontEnd_EventEditor extends tx_seminars_FrontEnd_Editor {
 	 */
 	private function checkFileSize($fileName) {
 		$maximumFileSize = $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'];
-		/** @var t3lib_basicFileFunctions $fileUtility */
-		$fileUtility = GeneralUtility::makeInstance('t3lib_basicFileFunctions');
+		/** @var \TYPO3\CMS\Core\Utility\File\BasicFileUtility $fileUtility */
+		$fileUtility = GeneralUtility::makeInstance('TYPO3\CMS\Core\Utility\File\BasicFileUtility');
 		$fileInformation = $fileUtility->getTotalFileInfo(PATH_site . 'uploads/tx_seminars/' . $fileName);
 
 		if ($fileInformation['size'] > ($maximumFileSize * 1024)) {
