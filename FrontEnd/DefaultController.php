@@ -203,7 +203,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	private $linkBuilder = NULL;
 
 	/**
-	 * @var tslib_feUserAuth
+	 * @var \TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication
 	 */
 	protected $feuser = NULL;
 
