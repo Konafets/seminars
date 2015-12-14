@@ -498,7 +498,7 @@ class tx_seminars_FrontEnd_RegistrationFormTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getFeUserDataWithKeyCountryAndStaticInfoCountrySetReturnsStaticInfoCountry() {
-		if (!t3lib_extMgm::isLoaded('sr_feuser_register')) {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('sr_feuser_register')) {
 			self::markTestSkipped('This test only is available is sr_feuser_register is installed.');
 		}
 

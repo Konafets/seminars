@@ -59,7 +59,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	protected $placeRelationSorting = 1;
 
 	protected function setUp() {
-		$GLOBALS['LANG']->includeLLFile(t3lib_extMgm::extPath('seminars') . 'locallang.xml');
+		$GLOBALS['LANG']->includeLLFile(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('seminars') . 'locallang.xml');
 		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
 
 		$this->now = $GLOBALS['SIM_EXEC_TIME'];

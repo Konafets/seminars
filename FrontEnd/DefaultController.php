@@ -14,7 +14,7 @@
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-require(t3lib_extMgm::extPath('seminars') . 'tx_seminars_modifiedSystemTables.php');
+require(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('seminars') . 'tx_seminars_modifiedSystemTables.php');
 
 /**
  * Plugin "Seminar Manager".

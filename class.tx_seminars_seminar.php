@@ -14,7 +14,7 @@
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-require_once(t3lib_extMgm::extPath('static_info_tables') . 'pi1/class.tx_staticinfotables_pi1.php');
+require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('static_info_tables') . 'pi1/class.tx_staticinfotables_pi1.php');
 
 /**
  * This class represents a seminar (or similar event).

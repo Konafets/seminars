@@ -262,7 +262,7 @@ class tx_seminars_cli_MailNotifier {
 		/** @var Tx_Oelib_Model_BackEndUser $user */
 		$user = $mapper->findByCliKey();
 		$GLOBALS['LANG']->lang = $user->getLanguage();
-		$GLOBALS['LANG']->includeLLFile(t3lib_extMgm::extPath('seminars') . 'locallang.xml');
+		$GLOBALS['LANG']->includeLLFile(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('seminars') . 'locallang.xml');
 		$result = $GLOBALS['LANG']->getLL($locallangKey);
 
 		foreach (array(

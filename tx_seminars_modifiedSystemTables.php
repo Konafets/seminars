@@ -1,4 +1,5 @@
 <?php
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 defined('TYPO3_MODE') or die('Access denied.');
@@ -35,7 +36,7 @@ if (!isset($GLOBALS['TCA']['fe_users']['columns']['tx_seminars_registration'])) 
 	if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
 		GeneralUtility::loadTCA('fe_users');
 	}
-	t3lib_extMgm::addTCAcolumns(
+	ExtensionManagementUtility::addTCAcolumns(
 		'fe_users',
 		array(
 			'tx_seminars_registration' => array(
@@ -57,7 +58,7 @@ if (!isset($GLOBALS['TCA']['fe_users']['columns']['tx_seminars_registration'])) 
 }
 
 if (!isset($GLOBALS['TCA']['fe_groups']['columns']['tx_seminars_publish_events'])) {
-	t3lib_extMgm::addLLrefForTCAdescr(
+	ExtensionManagementUtility::addLLrefForTCAdescr(
 		'fe_groups',
 		'EXT:seminars/Resources/Private/Language/locallang_csh_fe_groups.xml'
 	);
@@ -65,7 +66,7 @@ if (!isset($GLOBALS['TCA']['fe_groups']['columns']['tx_seminars_publish_events']
 	if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
 		GeneralUtility::loadTCA('fe_groups');
 	}
-	t3lib_extMgm::addTCAcolumns(
+	ExtensionManagementUtility::addTCAcolumns(
 		'fe_groups',
 		array(
 			'tx_seminars_publish_events' => array(
@@ -171,7 +172,7 @@ if (!isset($GLOBALS['TCA']['fe_groups']['columns']['tx_seminars_publish_events']
 		$addToFeInterface
 	);
 
-	t3lib_extMgm::addToAllTCAtypes(
+	ExtensionManagementUtility::addToAllTCAtypes(
 		'fe_groups',
 		'--div--;LLL:EXT:seminars/locallang_db.xml:fe_groups.tab_event_management,' .
 			'tx_seminars_publish_events;;;;1-1-1,tx_seminars_events_pid,' .
@@ -184,7 +185,7 @@ if (!isset($GLOBALS['TCA']['be_groups']['columns']['tx_seminars_events_folder'])
 	if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
 		GeneralUtility::loadTCA('be_groups');
 	}
-	t3lib_extMgm::addTCAcolumns(
+	ExtensionManagementUtility::addTCAcolumns(
 		'be_groups',
 		array(
 			'tx_seminars_events_folder' => array(
@@ -227,7 +228,7 @@ if (!isset($GLOBALS['TCA']['be_groups']['columns']['tx_seminars_events_folder'])
 		$addToFeInterface
 	);
 
-	t3lib_extMgm::addToAllTCAtypes(
+	ExtensionManagementUtility::addToAllTCAtypes(
 		'be_groups',
 		'--div--;LLL:EXT:seminars/locallang_db.xml:be_groups.tab_event_management,' .
 			'tx_seminars_events_folder,tx_seminars_registrations_folder,' .
