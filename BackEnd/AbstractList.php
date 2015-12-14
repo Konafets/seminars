@@ -23,6 +23,7 @@
 ***************************************************************/
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Core\Messaging\FlashMessageQueue;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -240,11 +241,11 @@ abstract class tx_seminars_BackEnd_AbstractList {
 			if (class_exists('TYPO3\\CMS\\Core\\Messaging\\FlashMessageService', TRUE)) {
 				/** @var \TYPO3\CMS\Core\Messaging\FlashMessageService $flashMessageService */
 				$flashMessageService = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Messaging\\FlashMessageService');
-				/** @var \TYPO3\CMS\Core\Messaging\FlashMessageQueue $defaultFlashMessageQueue */
+				/** @var FlashMessageQueue $defaultFlashMessageQueue */
 				$defaultFlashMessageQueue = $flashMessageService->getMessageQueueByIdentifier();
 				$renderedFlashMessages = $defaultFlashMessageQueue->renderFlashMessages();
 			} else {
-				$renderedFlashMessages = t3lib_FlashMessageQueue::renderFlashMessages();
+				$renderedFlashMessages = FlashMessageQueue::renderFlashMessages();
 			}
 
 			$result .= '<div id="eventsList-clear"></div>' . $renderedFlashMessages;
@@ -266,11 +267,11 @@ abstract class tx_seminars_BackEnd_AbstractList {
 			$flashMessageService = GeneralUtility::makeInstance(
 				'TYPO3\\CMS\\Core\\Messaging\\FlashMessageService'
 			);
-			/** @var $defaultFlashMessageQueue \TYPO3\CMS\Core\Messaging\FlashMessageQueue */
+			/** @var $defaultFlashMessageQueue FlashMessageQueue */
 			$defaultFlashMessageQueue = $flashMessageService->getMessageQueueByIdentifier();
 			$defaultFlashMessageQueue->enqueue($flashMessage);
 		} else {
-			t3lib_FlashMessageQueue::addMessage($flashMessage);
+			FlashMessageQueue::addMessage($flashMessage);
 		}
 	}
 

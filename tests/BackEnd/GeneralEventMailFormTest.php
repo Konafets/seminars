@@ -153,7 +153,7 @@ class Tx_Seminars_BackEnd_GeneralEventMailFormTest extends Tx_Phpunit_TestCase {
 			$defaultFlashMessageQueue = $flashMessageService->getMessageQueueByIdentifier();
 			$defaultFlashMessageQueue->getAllMessagesAndFlush();
 		} else {
-			t3lib_FlashMessageQueue::getAllMessagesAndFlush();
+			\TYPO3\CMS\Core\Messaging\FlashMessageQueue::getAllMessagesAndFlush();
 		}
 	}
 
