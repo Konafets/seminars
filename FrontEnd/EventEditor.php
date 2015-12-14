@@ -60,9 +60,9 @@ class tx_seminars_FrontEnd_EventEditor extends tx_seminars_FrontEnd_Editor {
 	 * to ensure that the logged-in user is allowed to edit a given seminar.
 	 *
 	 * @param array $configuration TypoScript configuration for the plugin
-	 * @param tslib_cObj $cObj the parent cObj content, needed for the flexforms
+	 * @param \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer $cObj the parent cObj content, needed for the flexforms
 	 */
-	public function __construct(array $configuration, tslib_cObj $cObj) {
+	public function __construct(array $configuration, \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer $cObj) {
 		parent::__construct($configuration, $cObj);
 		$this->setRequiredFormFields();
 	}

@@ -317,7 +317,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 		$event->expects(self::any())->method('getUid')
 			->will(self::returnValue($eventUid));
 
-		$contentObject = $this->getMock('tslib_cObj', array('typoLink_URL'));
+		$contentObject = $this->getMock('TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer', array('typoLink_URL'));
 		$contentObject->expects(self::once())->method('typoLink_URL')
 			->with(array(
 				'parameter' => (string) $singleViewPageUid,
@@ -343,7 +343,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 	public function createRelativeUrlReturnsUrlFromTypolinkUrl() {
 		$relativeUrl = 'index.php?id=42&tx_seminars%5BshowUid%5D=17';
 
-		$contentObject = $this->getMock('tslib_cObj', array('typoLink_URL'));
+		$contentObject = $this->getMock('TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer', array('typoLink_URL'));
 		$contentObject->expects(self::once())->method('typoLink_URL')
 			->will(self::returnValue($relativeUrl));
 
@@ -420,7 +420,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 		$fixture = new tx_seminars_tests_fixtures_Service_TestingSingleViewLinkBuilder();
 
 		self::assertTrue(
-			$fixture->getContentObject() instanceof tslib_cObj
+			$fixture->getContentObject() instanceof \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
 		);
 	}
 }

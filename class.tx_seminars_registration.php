@@ -94,12 +94,12 @@ class tx_seminars_registration extends tx_seminars_OldModel_Abstract {
 	/**
 	 * The constructor.
 	 *
-	 * @param tslib_cObj $cObj content object
+	 * @param \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer $cObj content object
 	 * @param resource|boolean $dbResult
 	 *        MySQL result pointer (of SELECT query)/DBAL object. If this parameter is not provided or FALSE,
 	 *        setRegistrationData() needs to be called directly after construction or this object will not be usable.
 	 */
-	public function __construct(tslib_cObj $cObj, $dbResult = FALSE) {
+	public function __construct(\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer $cObj, $dbResult = FALSE) {
 		$this->cObj = $cObj;
 		$this->initializeCharsetConversion();
 		$this->init();

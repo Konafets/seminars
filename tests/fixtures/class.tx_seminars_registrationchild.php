@@ -39,7 +39,7 @@ class tx_seminars_registrationchild extends tx_seminars_registration {
 			$dbResult = FALSE;
 		}
 
-		$contentObject = new tslib_cObj();
+		$contentObject = new \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer();
 		$contentObject->start(array());
 
 		parent::__construct($contentObject, $dbResult);

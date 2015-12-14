@@ -38,11 +38,11 @@ class tx_seminars_FrontEnd_RegistrationsList extends tx_seminars_FrontEnd_Abstra
 	 *        a string selecting the flavor of the list view, either "list_registrations" or "list_vip_registrations"
 	 * @param int $seminarUid
 	 *        UID of the seminar of which we want to list the registrations, invalid UIDs will be handled later
-	 * @param tslib_cObj $cObj
+	 * @param \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer $cObj
 	 *        the parent cObj, needed for the flexforms
 	 */
 	public function __construct(
-		array $configuration, $whatToDisplay, $seminarUid, tslib_cObj $cObj
+		array $configuration, $whatToDisplay, $seminarUid, \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer $cObj
 	) {
 		if (($whatToDisplay != 'list_registrations')
 			&& ($whatToDisplay != 'list_vip_registrations')

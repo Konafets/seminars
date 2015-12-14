@@ -134,7 +134,7 @@ class tx_seminars_Service_SingleViewLinkBuilder {
 	/**
 	 * Retrieves a content object to be used for creating typolinks.
 	 *
-	 * @return tslib_cObj a content object for creating typolinks
+	 * @return \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer a content object for creating typolinks
 	 */
 	protected function getContentObject() {
 		if (!isset($GLOBALS['TSFE']) || !is_object($GLOBALS['TSFE'])) {

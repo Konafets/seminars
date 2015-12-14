@@ -43,7 +43,7 @@ class tx_seminars_Bag_Registration extends tx_seminars_Bag_Abstract {
 		$queryParameters = '1=1', $additionalTableNames = '', $groupBy = '',
 		$orderBy = 'uid', $limit = '', $showHiddenRecords = -1
 	) {
-		$this->cObj = GeneralUtility::makeInstance('tslib_cObj');
+		$this->cObj = GeneralUtility::makeInstance('TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer');
 
 		parent::__construct(
 			'tx_seminars_attendances',
