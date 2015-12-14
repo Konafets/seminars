@@ -155,8 +155,8 @@ class tx_seminars_Service_SingleViewLinkBuilder {
 
 		$GLOBALS['TT'] = GeneralUtility::makeInstance('TYPO3\CMS\Core\TimeTracker\NullTimeTracker');
 
-		/** @var tslib_fe $frontEnd */
-		$frontEnd = GeneralUtility::makeInstance('tslib_fe', $GLOBALS['TYPO3_CONF_VARS'], 0, 0);
+		/** @var \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController $frontEnd */
+		$frontEnd = GeneralUtility::makeInstance('TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController', $GLOBALS['TYPO3_CONF_VARS'], 0, 0);
 
 		// simulates a normal FE without any logged-in FE or BE user
 		$frontEnd->beUserLogin = FALSE;
