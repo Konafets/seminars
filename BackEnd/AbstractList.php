@@ -212,7 +212,7 @@ abstract class tx_seminars_BackEnd_AbstractList {
 				'<a href="' . htmlspecialchars($editOnClick) . '">' . LF .
 				TAB . TAB . TAB . TAB .
 				'<img' .
-				t3lib_iconWorks::skinImg(
+				\TYPO3\CMS\Backend\Utility\IconUtility::skinImg(
 					$BACK_PATH,
 					'gfx/new_record.gif',
 					'width="7" height="4"'
