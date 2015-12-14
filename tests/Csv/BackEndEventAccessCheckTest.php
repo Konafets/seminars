@@ -28,18 +28,18 @@ class Tx_Seminars_Tests_Csv_BackEndEventAccessCheckTest extends Tx_Phpunit_TestC
 	protected $subject = NULL;
 
 	/**
-	 * @var PHPUnit_Framework_MockObject_MockObject|t3lib_beUserAuth
+	 * @var PHPUnit_Framework_MockObject_MockObject|\TYPO3\CMS\Core\Authentication\BackendUserAuthentication
 	 */
 	protected $backEndUser = NULL;
 
 	/**
-	 * @var t3lib_beUserAuth
+	 * @var \TYPO3\CMS\Core\Authentication\BackendUserAuthentication
 	 */
 	protected $backEndUserBackup = NULL;
 
 	protected function setUp() {
 		$this->backEndUserBackup = $GLOBALS['BE_USER'];
-		$this->backEndUser = $this->getMock('t3lib_beUserAuth');
+		$this->backEndUser = $this->getMock('TYPO3\CMS\Core\Authentication\BackendUserAuthentication');
 		$GLOBALS['BE_USER'] = $this->backEndUser;
 
 		$this->subject = new Tx_Seminars_Csv_BackEndEventAccessCheck();

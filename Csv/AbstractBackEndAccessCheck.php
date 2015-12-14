@@ -75,7 +75,7 @@ abstract class Tx_Seminars_Csv_AbstractBackEndAccessCheck implements Tx_Seminars
 	/**
 	 * Returns the logged-in back-end user.
 	 *
-	 * @return t3lib_beUserAuth
+	 * @return \TYPO3\CMS\Core\Authentication\BackendUserAuthentication
 	 */
 	protected function getLoggedInBackEndUser() {
 		return $GLOBALS['BE_USER'];
