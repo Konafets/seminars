@@ -71,7 +71,7 @@ class tx_seminars_module2 extends tx_seminars_BackEnd_Module {
 		$this->doc->docType = 'xhtml_strict';
 
 		$this->doc->getPageRenderer()->addCssFile(
-			'BackEnd.css',
+			'../Resources/Public/CSS/BackEnd/BackEnd.css',
 			'stylesheet',
 			'all',
 			'',
