@@ -22,7 +22,7 @@
  */
 class Tx_Seminars_BackEnd_GeneralEventMailFormTest extends Tx_Phpunit_TestCase {
 	/**
-	 * @var tx_seminars_BackEnd_GeneralEventMailForm
+	 * @var Tx_Seminars_BackEnd_GeneralEventMailForm
 	 */
 	private $fixture;
 
@@ -126,7 +126,7 @@ class Tx_Seminars_BackEnd_GeneralEventMailFormTest extends Tx_Phpunit_TestCase {
 			'organizers'
 		);
 
-		$this->fixture = new tx_seminars_BackEnd_GeneralEventMailForm($this->eventUid);
+		$this->fixture = new Tx_Seminars_BackEnd_GeneralEventMailForm($this->eventUid);
 	}
 
 	protected function tearDown() {
