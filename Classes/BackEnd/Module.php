@@ -20,7 +20,7 @@
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class tx_seminars_BackEnd_Module extends \TYPO3\CMS\Backend\Module\BaseScriptClass {
+class Tx_Seminars_BackEnd_Module extends \TYPO3\CMS\Backend\Module\BaseScriptClass {
 	/**
 	 * data of the current BE page
 	 *

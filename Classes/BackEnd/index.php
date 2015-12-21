@@ -25,7 +25,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * @author Niels Pardon <mail@niels-pardon.de>
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class Tx_Seminars_Module2 extends tx_seminars_BackEnd_Module {
+class Tx_Seminars_Module2 extends Tx_Seminars_BackEnd_Module {
 	/**
 	 * @var string
 	 */

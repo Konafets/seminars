@@ -36,7 +36,7 @@ class tx_seminars_BackEnd_OrganizersListTest extends tx_phpunit_testcase {
 	private $dummySysFolderPid = 0;
 
 	/**
-	 * @var tx_seminars_BackEnd_Module a dummy BE module
+	 * @var Tx_Seminars_BackEnd_Module a dummy BE module
 	 */
 	private $backEndModule;
 
@@ -62,7 +62,7 @@ class tx_seminars_BackEnd_OrganizersListTest extends tx_phpunit_testcase {
 		$this->dummySysFolderPid
 			= $this->testingFramework->createSystemFolder();
 
-		$this->backEndModule = new tx_seminars_BackEnd_Module();
+		$this->backEndModule = new Tx_Seminars_BackEnd_Module();
 		$this->backEndModule->id = $this->dummySysFolderPid;
 		$this->backEndModule->setPageData(array(
 			'uid' => $this->dummySysFolderPid,
