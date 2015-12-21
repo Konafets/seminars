@@ -1,27 +1,25 @@
 <?php
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-
 defined('TYPO3_MODE') or die('Access denied.');
 
-include_once(ExtensionManagementUtility::extPath($_EXTKEY) . 'class.tx_seminars_flexForms.php');
-include_once(ExtensionManagementUtility::extPath($_EXTKEY) . 'tx_seminars_modifiedSystemTables.php');
+include_once(TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Classes/class.tx_seminars_flexForms.php');
+include_once(TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'tx_seminars_modifiedSystemTables.php');
 
-ExtensionManagementUtility::addLLrefForTCAdescr(
+TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
 	'tx_seminars_seminars',
 	'EXT:seminars/Resources/Private/Language/locallang_csh_seminars.xml'
 );
 
 // Retrieve the path to the extension's directory.
-$extRelPath = ExtensionManagementUtility::extRelPath($_EXTKEY);
-$extPath = ExtensionManagementUtility::extPath($_EXTKEY);
+$extRelPath = TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY);
+$extPath = TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY);
 $extIconRelPath = $extRelPath . 'Resources/Public/Icons/';
 $tcaPath = $extPath . 'Configuration/TCA/tca.php';
 
 if (TYPO3_MODE === 'BE') {
-	ExtensionManagementUtility::addModulePath(
-		'web_txseminarsM2', ExtensionManagementUtility::extPath($_EXTKEY) . 'BackEnd/'
+	TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModulePath(
+		'web_txseminarsM2', TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Classes/BackEnd/'
 	);
-	ExtensionManagementUtility::addModule('web', 'txseminarsM2', '', $extPath . 'BackEnd/');
+	TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule('web', 'txseminarsM2', '', $extPath . 'Classes/BackEnd/');
 }
 
 if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 6001000) {
@@ -283,30 +281,30 @@ $GLOBALS['TCA']['tx_seminars_skills'] = array(
 	)
 );
 
-ExtensionManagementUtility::addToInsertRecords('tx_seminars_seminars');
-ExtensionManagementUtility::addToInsertRecords('tx_seminars_speakers');
+TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToInsertRecords('tx_seminars_seminars');
+TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToInsertRecords('tx_seminars_speakers');
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1']='layout,select_key,pages,recursive';
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_pi1'] = 'pi_flexform';
 
-ExtensionManagementUtility::addPiFlexFormValue(
+TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
 	$_EXTKEY . '_pi1',
 	'FILE:EXT:seminars/Configuration/FlexForms/flexforms_pi1.xml'
 );
 
-ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Seminars');
+TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Seminars');
 
-ExtensionManagementUtility::addPlugin(
+TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
 	array(
 		'LLL:EXT:seminars/locallang_db.xml:tt_content.list_type_pi1',
 		$_EXTKEY.'_pi1',
-		ExtensionManagementUtility::extRelPath($_EXTKEY) . 'ext_icon.gif',
+		TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'ext_icon.gif',
 	),
 	'list_type'
 );
 
 if (TYPO3_MODE == 'BE') {
 	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_seminars_FrontEnd_WizardIcon']
-		= ExtensionManagementUtility::extPath($_EXTKEY).'FrontEnd/WizardIcon.php';
+		= TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY).'FrontEnd/WizardIcon.php';
 }

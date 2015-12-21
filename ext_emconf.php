@@ -37,12 +37,12 @@ $EM_CONF[$_EXTKEY] = array(
 	'constraints' => array(
 		'depends' => array(
 			'php' => '5.5.0-7.0.99',
-			'typo3' => '6.2.0-6.2.99',
+			'typo3' => '6.2.0-7.9.99',
 			'cms' => '',
 			'css_styled_content' => '',
 			'oelib' => '0.9.0-1.9.99',
 			'ameos_formidable' => '1.1.564-1.9.99',
-			'static_info_tables' => '2.1.0-6.2.99',
+			'static_info_tables' => '2.1.0-6.3.99',
 		),
 		'conflicts' => array(
 			'dbal' => '',
@@ -54,5 +54,11 @@ $EM_CONF[$_EXTKEY] = array(
 		),
 	),
 	'suggests' => array(
+	),
+	'autoload' => array(
+		'classmap' => array(
+			'Classes',
+			'Tests',
+		),
 	),
 );
