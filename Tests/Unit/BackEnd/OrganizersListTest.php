@@ -20,9 +20,9 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_BackEnd_OrganizersListTest extends tx_phpunit_testcase {
+class Tx_Seminars_BackEnd_OrganizersListTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_seminars_BackEnd_OrganizersList
+	 * @var Tx_Seminars_BackEnd_OrganizersList
 	 */
 	private $fixture;
 	/**
@@ -74,7 +74,7 @@ class tx_seminars_BackEnd_OrganizersListTest extends tx_phpunit_testcase {
 		$document->backPath = $GLOBALS['BACK_PATH'];
 		$document->docType = 'xhtml_strict';
 
-		$this->fixture = new tx_seminars_BackEnd_OrganizersList(
+		$this->fixture = new Tx_Seminars_BackEnd_OrganizersList(
 			$this->backEndModule
 		);
 	}
