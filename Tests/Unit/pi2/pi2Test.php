@@ -94,7 +94,7 @@ class Tx_Seminars_Tests_pi2_pi2Test extends Tx_Phpunit_TestCase {
 	protected function tearDown() {
 		$this->testingFramework->cleanUp();
 
-		tx_seminars_registrationmanager::purgeInstance();
+		Tx_Seminars_RegistrationManager::purgeInstance();
 
 		if (VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 4007000) {
 			$GLOBALS['TYPO3_CONF_VARS']['BE'] = $this->backEndConfigurationBackup;

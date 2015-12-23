@@ -103,7 +103,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 	protected function tearDown() {
 		$this->testingFramework->cleanUp();
 
-		tx_seminars_registrationmanager::purgeInstance();
+		Tx_Seminars_RegistrationManager::purgeInstance();
 	}
 
 	/**

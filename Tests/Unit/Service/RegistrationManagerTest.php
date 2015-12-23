@@ -22,7 +22,7 @@
  */
 class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	/**
-	 * @var tx_seminars_registrationmanager
+	 * @var Tx_Seminars_RegistrationManager
 	 */
 	protected $fixture = NULL;
 
@@ -114,7 +114,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 
 		tx_seminars_registrationchild::purgeCachedSeminars();
 		tx_oelib_configurationProxy::getInstance('seminars')
-			->setAsInteger('eMailFormatForAttendees', tx_seminars_registrationmanager::SEND_TEXT_MAIL);
+			->setAsInteger('eMailFormatForAttendees', Tx_Seminars_RegistrationManager::SEND_TEXT_MAIL);
 		$configurationRegistry = tx_oelib_ConfigurationRegistry::getInstance();
 		$configurationRegistry->set('plugin.tx_seminars', new Tx_Oelib_Configuration());
 		$configurationRegistry->set('plugin.tx_seminars._LOCAL_LANG.default', new Tx_Oelib_Configuration());
@@ -152,7 +152,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$this->headerCollector = $headerProxyFactory->getHeaderProxy();
 
 		$this->seminar = new tx_seminars_seminarchild($this->seminarUid);
-		$this->fixture = tx_seminars_registrationmanager::getInstance();
+		$this->fixture = Tx_Seminars_RegistrationManager::getInstance();
 
 		$this->linkBuilder = $this->getMock('Tx_Seminars_Service_SingleViewLinkBuilder', array('createAbsoluteUrlForEvent'));
 		$this->linkBuilder->expects(self::any())
@@ -164,7 +164,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	protected function tearDown() {
 		$this->testingFramework->cleanUp();
 
-		tx_seminars_registrationmanager::purgeInstance();
+		Tx_Seminars_RegistrationManager::purgeInstance();
 
 		$GLOBALS['TYPO3_CONF_VARS']['EXTCONF'] = $this->extConfBackup;
 		$GLOBALS['T3_VAR']['getUserObj'] = $this->t3VarBackup;
@@ -268,12 +268,12 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 * @return string the class name of the subclass, will not be empty
 	 */
 	private function createAccessibleProxyClass() {
-		$testingClassName = 'tx_seminars_registrationmanager' . uniqid();
+		$testingClassName = 'Tx_Seminars_RegistrationManager' . uniqid();
 
 		if (!class_exists($testingClassName, FALSE)) {
 			eval(
 				'class ' . $testingClassName .
-					' extends tx_seminars_registrationmanager {' .
+					' extends Tx_Seminars_RegistrationManager {' .
 				'public function setRegistrationData(' .
 				'  Tx_Seminars_Model_Registration $registration, array $formData' .
 				') {' .
@@ -378,7 +378,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$instance = new $className();
 
 		self::assertInstanceOf(
-			'tx_seminars_registrationmanager',
+			'Tx_Seminars_RegistrationManager',
 			$instance
 		);
 	}
@@ -393,8 +393,8 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function getInstanceReturnsRegistrationManagerInstance() {
 		self::assertInstanceOf(
-			'tx_seminars_registrationmanager',
-			tx_seminars_registrationmanager::getInstance()
+			'Tx_Seminars_RegistrationManager',
+			Tx_Seminars_RegistrationManager::getInstance()
 		);
 	}
 
@@ -403,8 +403,8 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function getInstanceTwoTimesReturnsSameInstance() {
 		self::assertSame(
-			tx_seminars_registrationmanager::getInstance(),
-			tx_seminars_registrationmanager::getInstance()
+			Tx_Seminars_RegistrationManager::getInstance(),
+			Tx_Seminars_RegistrationManager::getInstance()
 		);
 	}
 
@@ -412,12 +412,12 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 * @test
 	 */
 	public function getInstanceAfterPurgeInstanceReturnsNewInstance() {
-		$firstInstance = tx_seminars_registrationmanager::getInstance();
-		tx_seminars_registrationmanager::purgeInstance();
+		$firstInstance = Tx_Seminars_RegistrationManager::getInstance();
+		Tx_Seminars_RegistrationManager::purgeInstance();
 
 		self::assertNotSame(
 			$firstInstance,
-			tx_seminars_registrationmanager::getInstance()
+			Tx_Seminars_RegistrationManager::getInstance()
 		);
 	}
 
@@ -2121,7 +2121,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function notifyAttendeeForSendConfirmationTrueAndPlainTextEmailCallsModifyAttendeeEmailTextHookOnce() {
 		tx_oelib_configurationProxy::getInstance('seminars')
-			->setAsInteger('eMailFormatForAttendees', tx_seminars_registrationmanager::SEND_TEXT_MAIL);
+			->setAsInteger('eMailFormatForAttendees', Tx_Seminars_RegistrationManager::SEND_TEXT_MAIL);
 
 		$registration = $this->createRegistration();
 
@@ -2144,7 +2144,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function notifyAttendeeForSendConfirmationTrueAndHtmlEmailCallsModifyAttendeeEmailTextHookTwice() {
 		tx_oelib_configurationProxy::getInstance('seminars')
-			->setAsInteger('eMailFormatForAttendees', tx_seminars_registrationmanager::SEND_HTML_MAIL);
+			->setAsInteger('eMailFormatForAttendees', Tx_Seminars_RegistrationManager::SEND_HTML_MAIL);
 
 		$registration = $this->createRegistration();
 
@@ -2305,7 +2305,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		tx_oelib_configurationProxy::getInstance('seminars')
 			->setAsInteger(
 				'eMailFormatForAttendees',
-				tx_seminars_registrationmanager::SEND_HTML_MAIL
+				Tx_Seminars_RegistrationManager::SEND_HTML_MAIL
 			);
 		$pi1 = new Tx_Seminars_FrontEnd_DefaultController();
 		$pi1->init();
@@ -2361,7 +2361,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		tx_oelib_configurationProxy::getInstance('seminars')
 			->setAsInteger(
 				'eMailFormatForAttendees',
-				tx_seminars_registrationmanager::SEND_HTML_MAIL
+				Tx_Seminars_RegistrationManager::SEND_HTML_MAIL
 			);
 		$pi1 = new Tx_Seminars_FrontEnd_DefaultController();
 		$pi1->init();
@@ -2383,7 +2383,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		tx_oelib_configurationProxy::getInstance('seminars')
 			->setAsInteger(
 				'eMailFormatForAttendees',
-				tx_seminars_registrationmanager::SEND_USER_MAIL
+				Tx_Seminars_RegistrationManager::SEND_USER_MAIL
 			);
 		$registration = $this->createRegistration();
 		$registration->getFrontEndUser()->setData(
@@ -2411,7 +2411,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		tx_oelib_configurationProxy::getInstance('seminars')
 			->setAsInteger(
 				'eMailFormatForAttendees',
-				tx_seminars_registrationmanager::SEND_USER_MAIL
+				Tx_Seminars_RegistrationManager::SEND_USER_MAIL
 			);
 		$registration = $this->createRegistration();
 		$registration->getFrontEndUser()->setData(
@@ -2439,7 +2439,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		tx_oelib_configurationProxy::getInstance('seminars')
 			->setAsInteger(
 				'eMailFormatForAttendees',
-				tx_seminars_registrationmanager::SEND_HTML_MAIL
+				Tx_Seminars_RegistrationManager::SEND_HTML_MAIL
 			);
 		$registration = $this->createRegistration();
 		$this->testingFramework->changeRecord(
@@ -2465,7 +2465,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		tx_oelib_configurationProxy::getInstance('seminars')
 			->setAsInteger(
 				'eMailFormatForAttendees',
-				tx_seminars_registrationmanager::SEND_HTML_MAIL
+				Tx_Seminars_RegistrationManager::SEND_HTML_MAIL
 			);
 		$registration = $this->createRegistration();
 		$registration->getFrontEndUser()->setData(
@@ -2595,7 +2595,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		tx_oelib_configurationProxy::getInstance('seminars')
 			->setAsInteger(
 				'eMailFormatForAttendees',
-				tx_seminars_registrationmanager::SEND_HTML_MAIL
+				Tx_Seminars_RegistrationManager::SEND_HTML_MAIL
 			);
 		$this->fixture->setConfigurationValue(
 			'cssFileForAttendeeMail',
@@ -2658,7 +2658,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		tx_oelib_configurationProxy::getInstance('seminars')
 			->setAsInteger(
 				'eMailFormatForAttendees',
-				tx_seminars_registrationmanager::SEND_HTML_MAIL
+				Tx_Seminars_RegistrationManager::SEND_HTML_MAIL
 			);
 		$this->fixture->setConfigurationValue(
 			'cssFileForAttendeeMail',
@@ -2776,7 +2776,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		tx_oelib_configurationProxy::getInstance('seminars')
 			->setAsInteger(
 				'eMailFormatForAttendees',
-				tx_seminars_registrationmanager::SEND_HTML_MAIL
+				Tx_Seminars_RegistrationManager::SEND_HTML_MAIL
 			);
 		$this->fixture->setConfigurationValue(
 			'cssFileForAttendeeMail',
@@ -2961,7 +2961,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		tx_oelib_configurationProxy::getInstance('seminars')
 			->setAsInteger(
 				'eMailFormatForAttendees',
-				tx_seminars_registrationmanager::SEND_HTML_MAIL
+				Tx_Seminars_RegistrationManager::SEND_HTML_MAIL
 			);
 		$this->fixture->setConfigurationValue(
 			'cssFileForAttendeeMail',
@@ -2996,7 +2996,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		tx_oelib_configurationProxy::getInstance('seminars')
 			->setAsInteger(
 				'eMailFormatForAttendees',
-				tx_seminars_registrationmanager::SEND_HTML_MAIL
+				Tx_Seminars_RegistrationManager::SEND_HTML_MAIL
 			);
 		$this->fixture->setConfigurationValue(
 			'cssFileForAttendeeMail',
@@ -3134,7 +3134,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		tx_oelib_configurationProxy::getInstance('seminars')
 			->setAsInteger(
 				'eMailFormatForAttendees',
-				tx_seminars_registrationmanager::SEND_HTML_MAIL
+				Tx_Seminars_RegistrationManager::SEND_HTML_MAIL
 			);
 		$this->fixture->setConfigurationValue(
 			'cssFileForAttendeeMail',
@@ -3878,7 +3878,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function notifyAttendeeForUnregistrationMailDoesNotAppendUnregistrationNotice() {
 		$fixture = $this->getMock(
-			'tx_seminars_registrationmanager', array('getUnregistrationNotice')
+			'Tx_Seminars_RegistrationManager', array('getUnregistrationNotice')
 		);
 		$fixture->expects(self::never())->method('getUnregistrationNotice');
 
@@ -3906,7 +3906,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		);
 
 		$fixture = $this->getMock(
-			'tx_seminars_registrationmanager', array('getUnregistrationNotice')
+			'Tx_Seminars_RegistrationManager', array('getUnregistrationNotice')
 		);
 		$fixture->expects(self::never())->method('getUnregistrationNotice');
 		$fixture->setConfigurationValue('sendConfirmation', TRUE);
@@ -3933,7 +3933,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		);
 
 		$fixture = $this->getMock(
-			'tx_seminars_registrationmanager', array('getUnregistrationNotice')
+			'Tx_Seminars_RegistrationManager', array('getUnregistrationNotice')
 		);
 		$fixture->expects(self::once())->method('getUnregistrationNotice');
 		$fixture->setConfigurationValue('sendConfirmation', TRUE);
@@ -3960,7 +3960,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function notifyAttendeeForRegistrationOnQueueMailAndUnregistrationPossibleAddsUnregistrationNotice() {
 		$fixture = $this->getMock(
-			'tx_seminars_registrationmanager', array('getUnregistrationNotice')
+			'Tx_Seminars_RegistrationManager', array('getUnregistrationNotice')
 		);
 		$fixture->expects(self::once())->method('getUnregistrationNotice');
 
@@ -3993,7 +3993,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function notifyAttendeeForQueueUpdateMailAndUnregistrationPossibleAddsUnregistrationNotice() {
 		$fixture = $this->getMock(
-			'tx_seminars_registrationmanager', array('getUnregistrationNotice')
+			'Tx_Seminars_RegistrationManager', array('getUnregistrationNotice')
 		);
 		$fixture->expects(self::once())->method('getUnregistrationNotice');
 
@@ -4307,8 +4307,8 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		);
 
 		unset($this->fixture);
-		tx_seminars_registrationmanager::purgeInstance();
-		$this->fixture = tx_seminars_registrationmanager::getInstance();
+		Tx_Seminars_RegistrationManager::purgeInstance();
+		$this->fixture = Tx_Seminars_RegistrationManager::getInstance();
 		$this->fixture->setConfigurationValue(
 			'templateFile',
 			'EXT:seminars/Resources/Private/Templates/Mail/e-mail.html'
@@ -4336,8 +4336,8 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		);
 
 		unset($this->fixture);
-		tx_seminars_registrationmanager::purgeInstance();
-		$this->fixture = tx_seminars_registrationmanager::getInstance();
+		Tx_Seminars_RegistrationManager::purgeInstance();
+		$this->fixture = Tx_Seminars_RegistrationManager::getInstance();
 		$this->fixture->setConfigurationValue(
 			'templateFile',
 			'EXT:seminars/Resources/Private/Templates/Mail/e-mail.html'
@@ -4399,7 +4399,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		);
 
 
-		$fixture = new tx_seminars_registrationmanager();
+		$fixture = new Tx_Seminars_RegistrationManager();
 		$fixture->setConfigurationValue(
 			'templateFile',
 			'EXT:seminars/Resources/Private/Templates/Mail/e-mail.html'
@@ -4700,7 +4700,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$plugin = new Tx_Seminars_FrontEnd_DefaultController();
 		$plugin->cObj = $GLOBALS['TSFE']->cObj;
 		$fixture = $this->getMock(
-			'tx_seminars_registrationmanager',
+			'Tx_Seminars_RegistrationManager',
 			array(
 				'notifyAttendee', 'notifyOrganizers',
 				'sendAdditionalNotification', 'setRegistrationData'
@@ -4734,7 +4734,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$plugin = new Tx_Seminars_FrontEnd_DefaultController();
 		$plugin->cObj = $GLOBALS['TSFE']->cObj;
 		$fixture = $this->getMock(
-			'tx_seminars_registrationmanager',
+			'Tx_Seminars_RegistrationManager',
 			array(
 				'notifyAttendee', 'notifyOrganizers',
 				'sendAdditionalNotification', 'setRegistrationData'
@@ -4775,7 +4775,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$plugin = new Tx_Seminars_FrontEnd_DefaultController();
 		$plugin->cObj = $GLOBALS['TSFE']->cObj;
 		$fixture = $this->getMock(
-			'tx_seminars_registrationmanager',
+			'Tx_Seminars_RegistrationManager',
 			array(
 				'notifyAttendee', 'notifyOrganizers',
 				'sendAdditionalNotification', 'setRegistrationData'
@@ -4816,7 +4816,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$plugin = new Tx_Seminars_FrontEnd_DefaultController();
 		$plugin->cObj = $GLOBALS['TSFE']->cObj;
 		$fixture = $this->getMock(
-			'tx_seminars_registrationmanager',
+			'Tx_Seminars_RegistrationManager',
 			array(
 				'notifyAttendee', 'notifyOrganizers',
 				'sendAdditionalNotification', 'setRegistrationData'
@@ -4842,7 +4842,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForPositiveSeatsSetsSeats() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** $event Tx_Seminars_Model_Event $event */
@@ -4865,7 +4865,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMissingSeatsSetsOneSeat() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -4888,7 +4888,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForZeroSeatsSetsOneSeat() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -4911,7 +4911,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForNegativeSeatsSetsOneSeat() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -4934,7 +4934,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForRegisteredThemselvesOneSetsItToTrue() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -4956,7 +4956,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForRegisteredThemselvesZeroSetsItToFalse() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -4978,7 +4978,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForRegisteredThemselvesMissingSetsItToFalse() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5000,7 +5000,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForSelectedAvailablePricePutsSelectedPriceCodeToPrice() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		$event = $this->getMock('Tx_Seminars_Model_Event', array('getAvailablePrices'));
@@ -5026,7 +5026,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForSelectedNotAvailablePricePutsFirstPriceCodeToPrice() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		$event = $this->getMock('Tx_Seminars_Model_Event', array('getAvailablePrices'));
@@ -5052,7 +5052,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForNoSelectedPricePutsFirstPriceCodeToPrice() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		$event = $this->getMock('Tx_Seminars_Model_Event', array('getAvailablePrices'));
@@ -5078,7 +5078,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForNoSelectedAndOnlyFreeRegularPriceAvailablePutsRegularPriceCodeToPrice() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		$event = $this->getMock('Tx_Seminars_Model_Event', array('getAvailablePrices'));
@@ -5104,7 +5104,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForOneSeatsCalculatesTotalPriceFromSelectedPriceAndSeats() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		$event = $this->getMock('Tx_Seminars_Model_Event', array('getAvailablePrices'));
@@ -5130,7 +5130,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForTwoSeatsCalculatesTotalPriceFromSelectedPriceAndSeats() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		$event = $this->getMock('Tx_Seminars_Model_Event', array('getAvailablePrices'));
@@ -5156,7 +5156,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForNonEmptyAttendeesNamesSetsAttendeesNames() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5179,7 +5179,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataDropsHtmlTagsFromAttendeesNames() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5202,7 +5202,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForEmptyAttendeesNamesSetsEmptyAttendeesNames() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5225,7 +5225,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMissingAttendeesNamesSetsEmptyAttendeesNames() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5248,7 +5248,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForPositiveKidsSetsNumberOfKids() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5271,7 +5271,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMissingKidsSetsZeroKids() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5294,7 +5294,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForZeroKidsSetsZeroKids() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5317,7 +5317,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForNegativeKidsSetsZeroKids() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5340,7 +5340,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForSelectedAvailablePaymentMethodFromOneSetsIt() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		$paymentMethod = tx_oelib_MapperRegistry
@@ -5370,7 +5370,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForSelectedAvailablePaymentMethodFromTwoSetsIt() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		$paymentMethod1 = tx_oelib_MapperRegistry
@@ -5403,7 +5403,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForSelectedAvailablePaymentMethodFromOneForFreeEventsSetsNoPaymentMethod() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		$paymentMethod = tx_oelib_MapperRegistry
@@ -5432,7 +5432,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMissingPaymentMethodAndNoneAvailableSetsNone() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		$event = $this->getMock('Tx_Seminars_Model_Event', array('getAvailablePrices', 'getPaymentMethods'));
@@ -5458,7 +5458,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMissingPaymentMethodAndTwoAvailableSetsNone() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		$paymentMethod1 = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_PaymentMethod')->getNewGhost();
@@ -5488,7 +5488,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMissingPaymentMethodAndOneAvailableSetsIt() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		$paymentMethod = tx_oelib_MapperRegistry
@@ -5518,7 +5518,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForUnavailablePaymentMethodAndTwoAvailableSetsNone() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		$paymentMethod1 = tx_oelib_MapperRegistry
@@ -5552,7 +5552,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForUnavailablePaymentMethodAndOneAvailableSetsAvailable() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		$paymentMethod = tx_oelib_MapperRegistry
@@ -5582,7 +5582,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForNonEmptyAccountNumberSetsAccountNumber() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5603,7 +5603,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataDropsHtmlTagsFromAccountNumber() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5624,7 +5624,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataChangesWhitespaceToSpaceInAccountNumber() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5647,7 +5647,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForEmptyAccountNumberSetsEmptyAccountNumber() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5668,7 +5668,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMissingAccountNumberSetsEmptyAccountNumber() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5689,7 +5689,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForNonEmptyBankCodeSetsBankCode() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5710,7 +5710,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataDropsHtmlTagsFromBankCode() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5731,7 +5731,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataChangesWhitespaceToSpaceInBankCode() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5754,7 +5754,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForEmptyBankCodeSetsEmptyBankCode() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5775,7 +5775,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMissingBankCodeSetsEmptyBankCode() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5796,7 +5796,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForNonEmptyBankNameSetsBankName() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5817,7 +5817,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataDropsHtmlTagsFromBankName() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5838,7 +5838,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataChangesWhitespaceToSpaceInBankName() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5861,7 +5861,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForEmptyBankNameSetsEmptyBankName() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event') ->getLoadedTestingModel(array());
@@ -5881,7 +5881,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMissingBankNameSetsEmptyBankName() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5902,7 +5902,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForNonEmptyAccountOwnerSetsAccountOwner() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5923,7 +5923,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataDropsHtmlTagsFromAccountOwner() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5944,7 +5944,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataChangesWhitespaceToSpaceInAccountOwner() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5967,7 +5967,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForEmptyAccountOwnerSetsEmptyAccountOwner() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -5988,7 +5988,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMissingAccountOwnerSetsEmptyAccountOwner() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6009,7 +6009,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForNonEmptyCompanySetsCompany() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6032,7 +6032,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataDropsHtmlTagsFromCompany() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6053,7 +6053,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForEmptyCompanySetsEmptyCompany() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6074,7 +6074,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMissingCompanySetsEmptyCompany() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6095,7 +6095,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMaleGenderSetsGender() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6118,7 +6118,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForFemaleGenderSetsGender() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6141,7 +6141,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForInvalidIntegerGenderSetsUnknownGender() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6162,7 +6162,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForInvalidStringGenderSetsUnknownGender() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6183,7 +6183,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForEmptyGenderSetsUnknownGender() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6204,7 +6204,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMissingGenderSetsUnknownGender() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6225,7 +6225,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForNonEmptyNameSetsName() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6246,7 +6246,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataDropsHtmlTagsFromName() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6267,7 +6267,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataChangesWhitespaceToSpaceInName() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6288,7 +6288,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForEmptyNameSetsEmptyName() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6309,7 +6309,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMissingNameSetsEmptyName() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6330,7 +6330,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForNonEmptyAddressSetsAddress() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6351,7 +6351,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataDropsHtmlTagsFromAddress() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6372,7 +6372,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForEmptyAddressSetsEmptyAddress() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6393,7 +6393,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMissingAddressSetsEmptyAddress() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6414,7 +6414,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForNonEmptyZipSetsZip() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6435,7 +6435,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataDropsHtmlTagsFromZip() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6456,7 +6456,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataChangesWhitespaceToSpaceInZip() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6477,7 +6477,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForEmptyZipSetsEmptyZip() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6498,7 +6498,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMissingZipSetsEmptyZip() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6519,7 +6519,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForNonEmptyCitySetsCity() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6540,7 +6540,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataDropsHtmlTagsFromCity() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6561,7 +6561,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataChangesWhitespaceToSpaceInCity() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6582,7 +6582,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForEmptyCitySetsEmptyCity() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6603,7 +6603,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMissingCitySetsEmptyCity() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6624,7 +6624,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForNonEmptyCountrySetsCountry() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6645,7 +6645,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataDropsHtmlTagsFromCountry() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6666,7 +6666,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataChangesWhitespaceToSpaceInCountry() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6687,7 +6687,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForEmptyCountrySetsEmptyCountry() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */
@@ -6708,7 +6708,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 	 */
 	public function setRegistrationDataForMissingCountrySetsEmptyCountry() {
 		$className = $this->createAccessibleProxyClass();
-		/** @var tx_seminars_registrationmanager $fixture */
+		/** @var Tx_Seminars_RegistrationManager $fixture */
 		$fixture = new $className();
 
 		/** @var Tx_Seminars_Model_Event $event */

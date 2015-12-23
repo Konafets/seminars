@@ -127,7 +127,7 @@ class Tx_Seminars_FrontEnd_RequirementsList extends Tx_Seminars_FrontEnd_Abstrac
 	 */
 	private function getRequirements() {
 		if ($this->limitRequirementsToMissing) {
-			$result = tx_seminars_registrationmanager::getInstance()
+			$result = Tx_Seminars_RegistrationManager::getInstance()
 				->getMissingRequiredTopics($this->event);
 		} else {
 			$result = $this->event->getRequirements();

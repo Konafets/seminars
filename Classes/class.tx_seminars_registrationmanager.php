@@ -26,11 +26,11 @@ use TYPO3\CMS\Frontend\Plugin\AbstractPlugin;
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
+class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	/**
 	 * @var string same as class name
 	 */
-	public $prefixId = 'tx_seminars_registrationmanager';
+	public $prefixId = 'Tx_Seminars_RegistrationManager';
 	/**
 	 * @var string path to this script relative to the extension directory
 	 */
@@ -42,7 +42,7 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	public $extKey = 'seminars';
 
 	/**
-	 * @var tx_seminars_registrationmanager
+	 * @var Tx_Seminars_RegistrationManager
 	 */
 	private static $instance = NULL;
 
@@ -116,11 +116,11 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	/**
 	 * Returns the instance of this class.
 	 *
-	 * @return tx_seminars_registrationmanager the current Singleton instance
+	 * @return Tx_Seminars_RegistrationManager the current Singleton instance
 	 */
 	public static function getInstance() {
 		if (self::$instance === NULL) {
-			self::$instance = GeneralUtility::makeInstance('tx_seminars_registrationmanager');
+			self::$instance = GeneralUtility::makeInstance('Tx_Seminars_RegistrationManager');
 		}
 
 		return self::$instance;

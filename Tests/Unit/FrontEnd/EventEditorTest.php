@@ -70,7 +70,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 	protected function tearDown() {
 		$this->testingFramework->cleanUp();
 
-		tx_seminars_registrationmanager::purgeInstance();
+		Tx_Seminars_RegistrationManager::purgeInstance();
 		tx_oelib_configurationProxy::purgeInstances();
 	}
 
