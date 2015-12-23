@@ -77,7 +77,7 @@ class Tx_Seminars_BackEnd_ConfirmEventMailForm extends Tx_Seminars_BackEnd_Abstr
 	 * @return void
 	 */
 	protected function setEventStatus() {
-		$this->getEvent()->setStatus(tx_seminars_Model_Event::STATUS_CONFIRMED);
+		$this->getEvent()->setStatus(Tx_Seminars_Model_Event::STATUS_CONFIRMED);
 		/** @var Tx_Seminars_Mapper_Event $mapper */
 		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 		$mapper->save($this->getEvent());

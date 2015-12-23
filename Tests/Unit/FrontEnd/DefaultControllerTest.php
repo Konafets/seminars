@@ -310,13 +310,13 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 				'public function processEventEditorActions() {' .
 				'  parent::processEventEditorActions();' .
 				'}' .
-				'public function hideEvent(tx_seminars_Model_Event $event) {' .
+				'public function hideEvent(Tx_Seminars_Model_Event $event) {' .
 				'  parent::hideEvent($event);' .
 				'}' .
-				'public function unhideEvent(tx_seminars_Model_Event $event) {' .
+				'public function unhideEvent(Tx_Seminars_Model_Event $event) {' .
 				'  parent::unhideEvent($event);' .
 				'}' .
-				'public function copyEvent(tx_seminars_Model_Event $event) {' .
+				'public function copyEvent(Tx_Seminars_Model_Event $event) {' .
 				'  parent::copyEvent($event);' .
 				'}' .
 				'}'
@@ -777,7 +777,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'title' => 'Test topic',
 			)
 		);
@@ -785,7 +785,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_DATE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_DATE,
 				'topic' => $topicUid,
 				'title' => 'Test date',
 				'begin_date' => $GLOBALS['SIM_EXEC_TIME'] + tx_oelib_Time::SECONDS_PER_WEEK,
@@ -796,7 +796,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_DATE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_DATE,
 				'topic' => $topicUid,
 				'title' => 'Test date 2',
 				'begin_date' => $GLOBALS['SIM_EXEC_TIME'] + tx_oelib_Time::SECONDS_PER_WEEK + 2*tx_oelib_Time::SECONDS_PER_DAY,
@@ -824,7 +824,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'title' => 'Test topic',
 			)
 		);
@@ -832,7 +832,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_DATE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_DATE,
 				'topic' => $topicUid,
 				'title' => 'Test date',
 				'begin_date' => $GLOBALS['SIM_EXEC_TIME'] + tx_oelib_Time::SECONDS_PER_WEEK,
@@ -843,7 +843,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_COMPLETE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_COMPLETE,
 				'topic' => $topicUid,
 				'title' => 'Test single 2',
 				'begin_date' => $GLOBALS['SIM_EXEC_TIME'] + tx_oelib_Time::SECONDS_PER_WEEK + 2*tx_oelib_Time::SECONDS_PER_DAY,
@@ -870,7 +870,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'title' => 'Test topic',
 			)
 		);
@@ -878,7 +878,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_DATE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_DATE,
 				'topic' => $topicUid,
 				'title' => 'Test date',
 				'begin_date' => $GLOBALS['SIM_EXEC_TIME'] + tx_oelib_Time::SECONDS_PER_WEEK,
@@ -889,7 +889,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_DATE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_DATE,
 				'topic' => $topicUid,
 				'title' => 'Test date 2',
 				'begin_date' => $GLOBALS['SIM_EXEC_TIME'] + tx_oelib_Time::SECONDS_PER_WEEK + 2*tx_oelib_Time::SECONDS_PER_DAY,
@@ -921,7 +921,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'title' => 'Test topic',
 			)
 		);
@@ -929,7 +929,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_DATE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_DATE,
 				'topic' => $topicUid,
 				'title' => 'Test date',
 				'begin_date' => $GLOBALS['SIM_EXEC_TIME'] + tx_oelib_Time::SECONDS_PER_WEEK,
@@ -940,7 +940,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_DATE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_DATE,
 				'topic' => $topicUid,
 				'title' => 'Test date 2',
 				'begin_date' => $GLOBALS['SIM_EXEC_TIME'] + tx_oelib_Time::SECONDS_PER_WEEK + 2*tx_oelib_Time::SECONDS_PER_DAY,
@@ -1190,7 +1190,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	public function singleViewCallsModifyEventSingleViewHook() {
 		$this->fixture->setConfigurationValue('what_to_display', 'single_view');
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->find($this->seminarUid);
 		$hook = $this->getMock('Tx_Seminars_Interface_Hook_EventSingleView');
 		$hook->expects(self::once())->method('modifyEventSingleView')
@@ -2054,11 +2054,11 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	public function testSingleViewForSeminarWithOneRequirementDisplaysRequirementsSubpart() {
 		$this->testingFramework->changeRecord(
 			'tx_seminars_seminars', $this->seminarUid,
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$requiredEvent = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $this->seminarUid,
@@ -2080,12 +2080,12 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		);
 		$this->testingFramework->changeRecord(
 			'tx_seminars_seminars', $this->seminarUid,
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$requiredEvent = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'title' => 'required_foo',
 			)
 		);
@@ -2120,13 +2120,13 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$this->testingFramework->changeRecord(
 			'tx_seminars_seminars', $this->seminarUid,
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'dependencies' => 1,
 			)
 		);
 		$dependingEventUid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$this->testingFramework->createRelation(
 			'tx_seminars_seminars_requirements_mm',
@@ -2145,14 +2145,14 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$this->testingFramework->changeRecord(
 			'tx_seminars_seminars', $this->seminarUid,
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'dependencies' => 1,
 			)
 		);
 		$dependingEventUid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'title' => 'depending_foo',
 			)
 		);
@@ -2176,14 +2176,14 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$this->testingFramework->changeRecord(
 			'tx_seminars_seminars', $this->seminarUid,
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'dependencies' => 1,
 			)
 		);
 		$dependingEventUid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'title' => 'depending_foo',
 			)
 		);
@@ -2207,14 +2207,14 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$this->testingFramework->changeRecord(
 			'tx_seminars_seminars', $this->seminarUid,
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'dependencies' => 2,
 			)
 		);
 		$dependingEventUid1 = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'title' => 'depending_foo',
 			)
 		);
@@ -2225,7 +2225,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$dependingEventUid2 = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'title' => 'depending_bar',
 			)
 		);
@@ -2408,7 +2408,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$uid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_DATE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_DATE,
 				'topic' => $this->seminarUid,
 				'expiry' => mktime(0, 0, 0, 1, 1, 2008),
 			)
@@ -2427,7 +2427,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$uid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_DATE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_DATE,
 				'topic' => $this->seminarUid,
 				'expiry' => 0,
 			)
@@ -2936,7 +2936,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'title' => 'Test topic'
 			)
 		);
@@ -2944,7 +2944,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_DATE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_DATE,
 				'topic' => $topicUid,
 				'title' => 'Test date'
 			)
@@ -2966,7 +2966,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_COMPLETE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_COMPLETE,
 				'title' => 'Test single event',
 				'hidden' => 1
 			)
@@ -2983,7 +2983,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_COMPLETE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_COMPLETE,
 				'title' => 'Test single event',
 				'deleted' => 1
 			)
@@ -3000,7 +3000,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'title' => 'Test topic'
 			)
 		);
@@ -3008,7 +3008,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_DATE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_DATE,
 				'topic' => $topicUid,
 				'title' => 'Test date',
 				'hidden' => 1
@@ -3062,7 +3062,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'title' => $topicTitle,
 				'image' => $fileName,
 			)
@@ -3071,7 +3071,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			array(
 				'pid' => $this->systemFolderPid,
-				'object_type' => tx_seminars_Model_Event::TYPE_DATE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_DATE,
 				'topic' => $topicUid,
 				'title' => 'Test date',
 			)
@@ -6804,7 +6804,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$eventUid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_COMPLETE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_COMPLETE,
 				'title' => 'foo & bar',
 				'begin_date' => $GLOBALS['SIM_EXEC_TIME'] + 1000,
 				'end_date' => $GLOBALS['SIM_EXEC_TIME'] + 2000,
@@ -6827,16 +6827,16 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 
 		$requiredTopic = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$topic = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$date = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_DATE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_DATE,
 				'begin_date' => $GLOBALS['SIM_EXEC_TIME'] + 1000,
 				'end_date' => $GLOBALS['SIM_EXEC_TIME'] + 2000,
 				'attendees_max' => 10,
@@ -6862,16 +6862,16 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 
 		$requiredTopic = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$topic = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$date = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_DATE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_DATE,
 				'begin_date' => $GLOBALS['SIM_EXEC_TIME'] + 1000,
 				'end_date' => $GLOBALS['SIM_EXEC_TIME'] + 2000,
 				'attendees_max' => 10,
@@ -6904,12 +6904,12 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 
 		$topic = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$date = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_DATE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_DATE,
 				'begin_date' => $GLOBALS['SIM_EXEC_TIME'] + 1000,
 				'end_date' => $GLOBALS['SIM_EXEC_TIME'] + 2000,
 				'attendees_max' => 10,
@@ -6921,7 +6921,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$requiredTopic = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'title' => 'required & foo',
 			)
 		);
@@ -6943,12 +6943,12 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 
 		$topic = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$date = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_DATE,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_DATE,
 				'begin_date' => $GLOBALS['SIM_EXEC_TIME'] + 1000,
 				'end_date' => $GLOBALS['SIM_EXEC_TIME'] + 2000,
 				'attendees_max' => 10,
@@ -6960,7 +6960,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$requiredTopic1 = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'title' => 'required_foo',
 			)
 		);
@@ -6971,7 +6971,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$requiredTopic2 = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'title' => 'required_bar',
 			)
 		);
@@ -7974,7 +7974,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue(''));
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 
 		/** @var Tx_Seminars_FrontEnd_DefaultController|PHPUnit_Framework_MockObject_MockObject $fixture */
@@ -7999,7 +7999,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue(''));
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array('publication_hash' => 'foo'));
 
 		/** @var Tx_Seminars_FrontEnd_DefaultController|PHPUnit_Framework_MockObject_MockObject $fixture */
@@ -8024,7 +8024,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue('access denied'));
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 
 		/** @var Tx_Seminars_FrontEnd_DefaultController|PHPUnit_Framework_MockObject_MockObject $fixture */
@@ -8049,7 +8049,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::once())->method('hasAccessMessage')->will(self::returnValue(''));
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 
 		/** @var Tx_Seminars_FrontEnd_DefaultController|PHPUnit_Framework_MockObject_MockObject $fixture */
@@ -8074,7 +8074,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'),array(), '', FALSE);
 		$eventEditor->expects(self::once())->method('hasAccessMessage')->will(self::returnValue(''));
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array('publication_hash' => 'foo'));
 
 		/** @var Tx_Seminars_FrontEnd_DefaultController|PHPUnit_Framework_MockObject_MockObject $fixture */
@@ -8099,7 +8099,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::once())->method('hasAccessMessage')->will(self::returnValue('access denied'));
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 
 		/** @var Tx_Seminars_FrontEnd_DefaultController|PHPUnit_Framework_MockObject_MockObject $fixture */
@@ -8124,7 +8124,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue(''));
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 
 		/** @var Tx_Seminars_FrontEnd_DefaultController|PHPUnit_Framework_MockObject_MockObject $fixture */
@@ -8149,7 +8149,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue(''));
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array('publication_hash' => 'foo'));
 
 		/** @var Tx_Seminars_FrontEnd_DefaultController|PHPUnit_Framework_MockObject_MockObject $fixture */
@@ -8174,7 +8174,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue('access denied'));
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 
 		/** @var Tx_Seminars_FrontEnd_DefaultController|PHPUnit_Framework_MockObject_MockObject $fixture */
@@ -8199,7 +8199,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::once())->method('hasAccessMessage')->will(self::returnValue(''));
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 
 		/** @var Tx_Seminars_FrontEnd_DefaultController|PHPUnit_Framework_MockObject_MockObject $fixture */
@@ -8225,7 +8225,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::once())->method('hasAccessMessage')->will(self::returnValue(''));
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 
 		/** @var Tx_Seminars_FrontEnd_DefaultController|PHPUnit_Framework_MockObject_MockObject $fixture */
@@ -8251,7 +8251,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$mapper = $this->getMock('Tx_Seminars_Mapper_Event', array('save'));
 		Tx_Oelib_MapperRegistry::set('Tx_Seminars_Mapper_Event', $mapper);
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = $mapper->getLoadedTestingModel(array());
 
 		$className = $this->createAccessibleProxyClass();
@@ -8272,7 +8272,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$mapper = $this->getMock('Tx_Seminars_Mapper_Event', array('save'));
 		Tx_Oelib_MapperRegistry::set('Tx_Seminars_Mapper_Event', $mapper);
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = $mapper->getLoadedTestingModel(array('hidden' => 1));
 
 		$className = $this->createAccessibleProxyClass();
@@ -8293,7 +8293,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$mapper = $this->getMock('Tx_Seminars_Mapper_Event', array('save'));
 		Tx_Oelib_MapperRegistry::set('Tx_Seminars_Mapper_Event', $mapper);
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = $mapper->getLoadedTestingModel(array());
 		$mapper->expects(self::once())->method('save')->with($event);
 
@@ -8311,7 +8311,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$mapper = $this->getMock('Tx_Seminars_Mapper_Event', array('save'));
 		Tx_Oelib_MapperRegistry::set('Tx_Seminars_Mapper_Event', $mapper);
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = $mapper->getLoadedTestingModel(array());
 
 		$className = $this->createAccessibleProxyClass();
@@ -8334,7 +8334,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$mapper = $this->getMock('Tx_Seminars_Mapper_Event', array('save'));
 		Tx_Oelib_MapperRegistry::set('Tx_Seminars_Mapper_Event', $mapper);
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = $mapper->getLoadedTestingModel(array('hidden' => 1));
 
 		$className = $this->createAccessibleProxyClass();
@@ -8355,7 +8355,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$mapper = $this->getMock('Tx_Seminars_Mapper_Event', array('save'));
 		Tx_Oelib_MapperRegistry::set('Tx_Seminars_Mapper_Event', $mapper);
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = $mapper->getLoadedTestingModel(array());
 
 		$className = $this->createAccessibleProxyClass();
@@ -8376,7 +8376,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$mapper = $this->getMock('Tx_Seminars_Mapper_Event', array('save'));
 		Tx_Oelib_MapperRegistry::set('Tx_Seminars_Mapper_Event', $mapper);
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = $mapper->getLoadedTestingModel(array());
 		$mapper->expects(self::once())->method('save')->with($event);
 
@@ -8394,7 +8394,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$mapper = $this->getMock('Tx_Seminars_Mapper_Event', array('save'));
 		Tx_Oelib_MapperRegistry::set('Tx_Seminars_Mapper_Event', $mapper);
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = $mapper->getLoadedTestingModel(array());
 
 		$className = $this->createAccessibleProxyClass();
@@ -8417,7 +8417,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$mapper = $this->getMock('Tx_Seminars_Mapper_Event', array('save'));
 		Tx_Oelib_MapperRegistry::set('Tx_Seminars_Mapper_Event', $mapper);
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = $mapper->getLoadedTestingModel(array('title' => 'TDD for starters'));
 
 		$hiddenClone = clone $event;
@@ -8438,7 +8438,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$mapper = $this->getMock('Tx_Seminars_Mapper_Event', array('save'));
 		Tx_Oelib_MapperRegistry::set('Tx_Seminars_Mapper_Event', $mapper);
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = $mapper->getLoadedTestingModel(array('title' => 'TDD for starters'));
 		$registrations = new Tx_Oelib_List();
 		$registrations->add(new tx_seminars_Model_Registration());
@@ -8463,7 +8463,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 		$mapper = $this->getMock('Tx_Seminars_Mapper_Event', array('save'));
 		Tx_Oelib_MapperRegistry::set('Tx_Seminars_Mapper_Event', $mapper);
 
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = $mapper->getLoadedTestingModel(array());
 
 		$className = $this->createAccessibleProxyClass();
@@ -8743,7 +8743,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function eventsListCallsModifyListRowHook() {
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->find($this->seminarUid);
 
 		$hook = $this->getMock('Tx_Seminars_Interface_Hook_EventListView');
@@ -8799,7 +8799,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function myEventsListCallsModifyListRowHook() {
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->find($this->seminarUid);
 
 		$this->testingFramework->createAndLoginFrontEndUser();
@@ -8858,7 +8858,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function createSingleViewLinkCreatesLinkToSingleViewPage() {
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 
 		self::assertContains(
@@ -8872,7 +8872,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 */
 	public function createSingleViewForEventWithoutDescriptionWithAlwaysLinkSettingLinkUsesLinkText() {
 		$this->fixture->setConfigurationValue('linkToSingleView', 'always');
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
 			array('description' => '')
 		);
@@ -8888,7 +8888,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 */
 	public function createSingleViewForEventWithDescriptionWithAlwaysLinkSettingLinkUsesLinkText() {
 		$this->fixture->setConfigurationValue('linkToSingleView', 'always');
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
 			array('description' => 'Hello world!')
 		);
@@ -8904,7 +8904,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 */
 	public function createSingleViewForEventWithoutDescriptionWithNeverLinkSettingReturnsOnlyLabel() {
 		$this->fixture->setConfigurationValue('linkToSingleView', 'never');
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
 			array('description' => '')
 		);
@@ -8920,7 +8920,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 */
 	public function createSingleViewForEventWithDescriptionWithConditionalLinkSettingLinkUsesLinkText() {
 		$this->fixture->setConfigurationValue('linkToSingleView', 'onlyForNonEmptyDescription');
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
 			array('description' => 'Hello world!')
 		);
@@ -8936,7 +8936,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 */
 	public function createSingleViewForEventWithoutDescriptionWithConditionalLinkSettingReturnsOnlyLabel() {
 		$this->fixture->setConfigurationValue('linkToSingleView', 'onlyForNonEmptyDescription');
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
 			array('description' => '')
 		);
@@ -8952,7 +8952,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 */
 	public function createSingleViewForEventWithDescriptionWithNeverLinkSettingReturnsOnlyLabel() {
 		$this->fixture->setConfigurationValue('linkToSingleView', 'never');
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
 			array('description' => 'Hello world!')
 		);
@@ -8967,7 +8967,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function createSingleViewLinkByDefaultHtmlSpecialCharsLinkText() {
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 
 		self::assertContains(
@@ -8980,7 +8980,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function createSingleViewLinkByWithHtmlSpecialCharsTrueHtmlSpecialCharsLinkText() {
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 
 		self::assertContains(
@@ -8993,7 +8993,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function createSingleViewLinkByWithHtmlSpecialCharsFalseNotHtmlSpecialCharsLinkText() {
-		/** @var tx_seminars_Model_Event $event */
+		/** @var Tx_Seminars_Model_Event $event */
 		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 
 		self::assertContains(

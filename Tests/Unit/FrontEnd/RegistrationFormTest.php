@@ -1728,7 +1728,7 @@ class Tx_Seminars_FrontEnd_RegistrationFormTest extends tx_phpunit_testcase {
 	public function getEventReturnsEventWithSeminarUid() {
 		$event = $this->fixture->getEvent();
 		self::assertInstanceOf(
-			'tx_seminars_Model_Event',
+			'Tx_Seminars_Model_Event',
 			$event
 		);
 

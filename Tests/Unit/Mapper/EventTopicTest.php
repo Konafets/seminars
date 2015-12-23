@@ -56,7 +56,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 		);
 
 		$this->fixture->getLoadedTestingModel(
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		)->getTopic();
 	}
 
@@ -71,7 +71,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	public function getCategoriesForEventTopicReturnsListInstance() {
 		self::assertTrue(
 			$this->fixture->getLoadedTestingModel(
-				array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+				array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 			)->getCategories() instanceof tx_oelib_List
 		);
 	}
@@ -82,7 +82,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	public function getCategoriesForEventTopicWithOneCategoryReturnsListOfCategories() {
 		$uid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$category = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Category')
 			->getNewGhost();
@@ -90,7 +90,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars', $uid, $category->getUid(), 'categories'
 		);
 
-		/** @var tx_seminars_Model_Event $model */
+		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
 			$model->getCategories()->first() instanceof Tx_Seminars_Model_Category
@@ -103,7 +103,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	public function getCategoriesForEventTopicWithOneCategoryReturnsOneCategory() {
 		$uid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$category = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Category')
 			->getNewGhost();
@@ -111,7 +111,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars', $uid, $category->getUid(), 'categories'
 		);
 
-		/** @var tx_seminars_Model_Event $model */
+		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertEquals(
 			$category->getUid(),
@@ -130,7 +130,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	public function getEventTypeForEventTopicWithoutEventTypeReturnsNull() {
 		self::assertNull(
 			$this->fixture->getLoadedTestingModel(
-				array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+				array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 			)->getEventType()
 		);
 	}
@@ -145,7 +145,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 		self::assertTrue(
 			$this->fixture->getLoadedTestingModel(
 				array(
-					'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+					'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 					'event_type' => $eventType->getUid(),
 				)
 			)->getEventType() instanceof Tx_Seminars_Model_EventType
@@ -163,7 +163,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	public function getPaymentMethodsForEventTopicReturnsListInstance() {
 		self::assertTrue(
 			$this->fixture->getLoadedTestingModel(
-				array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+				array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 			)->getPaymentMethods() instanceof tx_oelib_List
 		);
 	}
@@ -177,7 +177,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 		$uid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'payment_methods' => 1,
 			)
 		);
@@ -185,7 +185,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars_payment_methods_mm', $uid, $paymentMethod->getUid()
 		);
 
-		/** @var tx_seminars_Model_Event $model */
+		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
 			$model->getPaymentMethods()->first() instanceof tx_seminars_Model_PaymentMethod
@@ -201,7 +201,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 		$uid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
 			array(
-				'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
+				'object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC,
 				'payment_methods' => 1,
 			)
 		);
@@ -209,7 +209,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars_payment_methods_mm', $uid, $paymentMethod->getUid()
 		);
 
-		/** @var tx_seminars_Model_Event $model */
+		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertEquals(
 			$paymentMethod->getUid(),
@@ -228,7 +228,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	public function getTargetGroupsForEventTopicReturnsListInstance() {
 		self::assertTrue(
 			$this->fixture->getLoadedTestingModel(
-				array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+				array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 			)->getTargetGroups() instanceof tx_oelib_List
 		);
 	}
@@ -239,7 +239,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	public function getTargetGroupsForEventTopicWithOneTargetGroupReturnsListOfTargetGroups() {
 		$uid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$targetGroup = tx_oelib_MapperRegistry::
 			get('Tx_Seminars_Mapper_TargetGroup')->getNewGhost();
@@ -247,7 +247,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars', $uid, $targetGroup->getUid(), 'target_groups'
 		);
 
-		/** @var tx_seminars_Model_Event $model */
+		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
 			$model->getTargetGroups()->first() instanceof tx_seminars_Model_TargetGroup
@@ -260,7 +260,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	public function getTargetGroupsForEventTopicWithOneTargetGroupReturnsOneTargetGroup() {
 		$uid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$targetGroup = tx_oelib_MapperRegistry::
 			get('Tx_Seminars_Mapper_TargetGroup')->getNewGhost();
@@ -268,7 +268,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars', $uid, $targetGroup->getUid(), 'target_groups'
 		);
 
-		/** @var tx_seminars_Model_Event $model */
+		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertEquals(
 			$targetGroup->getUid(),
@@ -287,7 +287,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	public function getCheckboxesForEventTopicReturnsListInstance() {
 		self::assertTrue(
 			$this->fixture->getLoadedTestingModel(
-				array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+				array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 			)->getCheckboxes() instanceof tx_oelib_List
 		);
 	}
@@ -298,7 +298,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	public function getCheckboxesForEventTopicWithOneCheckboxReturnsListOfCheckboxes() {
 		$uid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$checkbox = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Checkbox')
 			->getNewGhost();
@@ -306,7 +306,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars', $uid, $checkbox->getUid(), 'checkboxes'
 		);
 
-		/** @var tx_seminars_Model_Event $model */
+		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
 			$model->getCheckboxes()->first() instanceof Tx_Seminars_Model_Checkbox
@@ -319,7 +319,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	public function getCheckboxesForEventTopicWithOneCheckboxReturnsOneCheckbox() {
 		$uid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$checkbox = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Checkbox')
 			->getNewGhost();
@@ -327,7 +327,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars', $uid, $checkbox->getUid(), 'checkboxes'
 		);
 
-		/** @var tx_seminars_Model_Event $model */
+		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertEquals(
 			$checkbox->getUid(),
@@ -346,7 +346,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	public function getRequirementsForEventTopicReturnsListInstance() {
 		self::assertTrue(
 			$this->fixture->getLoadedTestingModel(
-				array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+				array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 			)->getRequirements() instanceof tx_oelib_List
 		);
 	}
@@ -357,17 +357,17 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	public function getRequirementsForEventTopicWithOneRequirementReturnsListOfEvents() {
 		$uid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$event = $this->fixture->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $uid, $event->getUid(), 'requirements'
 		);
 
-		/** @var tx_seminars_Model_Event $model */
+		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
-			$model->getRequirements()->first() instanceof tx_seminars_Model_Event
+			$model->getRequirements()->first() instanceof Tx_Seminars_Model_Event
 		);
 	}
 
@@ -377,14 +377,14 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	public function getRequirementsForEventTopicWithOneRequirementsReturnsOneRequirement() {
 		$uid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$event = $this->fixture->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $uid, $event->getUid(), 'requirements'
 		);
 
-		/** @var tx_seminars_Model_Event $model */
+		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertEquals(
 			$event->getUid(),
@@ -403,7 +403,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	public function getDependenciesForEventTopicReturnsListInstance() {
 		self::assertTrue(
 			$this->fixture->getLoadedTestingModel(
-				array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+				array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 			)->getDependencies() instanceof tx_oelib_List
 		);
 	}
@@ -414,20 +414,20 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	public function getDependenciesForEventTopicWithOneDependencyReturnsListOfEvents() {
 		$uid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$relatedUid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $relatedUid, $uid, 'dependencies'
 		);
 
-		/** @var tx_seminars_Model_Event $model */
+		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($relatedUid);
 		self::assertTrue(
-			$model->getDependencies()->first() instanceof tx_seminars_Model_Event
+			$model->getDependencies()->first() instanceof Tx_Seminars_Model_Event
 		);
 	}
 
@@ -437,17 +437,17 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	public function getDependenciesForEventTopicWithOneDependencyReturnsOneDependency() {
 		$uid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$relatedUid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars',
-			array('object_type' => tx_seminars_Model_Event::TYPE_TOPIC)
+			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $relatedUid, $uid, 'dependencies'
 		);
 
-		/** @var tx_seminars_Model_Event $model */
+		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($relatedUid);
 		self::assertEquals(
 			$uid,

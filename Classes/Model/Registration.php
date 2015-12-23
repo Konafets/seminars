@@ -71,7 +71,7 @@ class tx_seminars_Model_Registration extends tx_oelib_Model implements tx_semina
 	/**
 	 * Returns the event of this registration.
 	 *
-	 * @return tx_seminars_Model_Event the event of this registration
+	 * @return Tx_Seminars_Model_Event the event of this registration
 	 */
 	public function getEvent() {
 		return $this->getAsModel('seminar');
@@ -82,7 +82,7 @@ class tx_seminars_Model_Registration extends tx_oelib_Model implements tx_semina
 	 *
 	 * This is an alias for getEvent necessary for the relation to the event.
 	 *
-	 * @return tx_seminars_Model_Event the event of this registration
+	 * @return Tx_Seminars_Model_Event the event of this registration
 	 *
 	 * @see getEvent
 	 */
@@ -93,11 +93,11 @@ class tx_seminars_Model_Registration extends tx_oelib_Model implements tx_semina
 	/**
 	 * Sets the event of this registration.
 	 *
-	 * @param tx_seminars_Model_Event $event the event to set for this registration
+	 * @param Tx_Seminars_Model_Event $event the event to set for this registration
 	 *
 	 * @return void
 	 */
-	public function setEvent(tx_seminars_Model_Event $event) {
+	public function setEvent(Tx_Seminars_Model_Event $event) {
 		$this->set('seminar', $event);
 	}
 
@@ -106,13 +106,13 @@ class tx_seminars_Model_Registration extends tx_oelib_Model implements tx_semina
 	 *
 	 * This is an alias for setEvent necessary for the relation to the event.
 	 *
-	 * @param tx_seminars_Model_Event $event the event to set for this registration
+	 * @param Tx_Seminars_Model_Event $event the event to set for this registration
 	 *
 	 * @see setEvent
 	 *
 	 * @return void
 	 */
-	public function setSeminar(tx_seminars_Model_Event $event) {
+	public function setSeminar(Tx_Seminars_Model_Event $event) {
 		$this->setEvent($event);
 	}
 

@@ -88,7 +88,7 @@ class Tx_Seminars_Mapper_RegistrationTest extends tx_phpunit_testcase {
 			$this->fixture->getLoadedTestingModel(
 				array('seminar' => $event->getUid())
 			)->getEvent() instanceof
-				tx_seminars_Model_Event
+				Tx_Seminars_Model_Event
 		);
 	}
 
@@ -103,7 +103,7 @@ class Tx_Seminars_Mapper_RegistrationTest extends tx_phpunit_testcase {
 			$this->fixture->getLoadedTestingModel(
 				array('seminar' => $event->getUid())
 			)->getSeminar() instanceof
-				tx_seminars_Model_Event
+				Tx_Seminars_Model_Event
 		);
 	}
 
