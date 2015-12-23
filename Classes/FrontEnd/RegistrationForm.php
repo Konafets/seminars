@@ -26,7 +26,7 @@ require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('static
  * @author Niels Pardon <mail@niels-pardon.de>
  * @author Philipp Kitzberger <philipp@cron-it.de>
  */
-class tx_seminars_FrontEnd_RegistrationForm extends Tx_Seminars_FrontEnd_Editor {
+class Tx_Seminars_FrontEnd_RegistrationForm extends Tx_Seminars_FrontEnd_Editor {
 	/**
 	 * the same as the class name
 	 *

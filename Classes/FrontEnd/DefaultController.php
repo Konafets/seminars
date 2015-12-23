@@ -2923,8 +2923,8 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 * @return string HTML code for the form
 	 */
 	protected function createRegistrationForm() {
-		/** @var tx_seminars_FrontEnd_RegistrationForm $registrationEditor */
-		$registrationEditor = GeneralUtility::makeInstance('tx_seminars_FrontEnd_RegistrationForm', $this->conf, $this->cObj);
+		/** @var Tx_Seminars_FrontEnd_RegistrationForm $registrationEditor */
+		$registrationEditor = GeneralUtility::makeInstance('Tx_Seminars_FrontEnd_RegistrationForm', $this->conf, $this->cObj);
 		$registrationEditor->setSeminar($this->seminar);
 		$registrationEditor->setAction($this->piVars['action']);
 		if ($this->piVars['action'] == 'unregister') {
