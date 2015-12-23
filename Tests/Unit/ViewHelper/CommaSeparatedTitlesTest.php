@@ -20,9 +20,9 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_ViewHelper_CommaSeparatedTitlesTest extends tx_phpunit_testcase {
+class Tx_Seminars_ViewHelper_CommaSeparatedTitlesTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_seminars_ViewHelper_CommaSeparatedTitles
+	 * @var Tx_Seminars_ViewHelper_CommaSeparatedTitles
 	 */
 	private $fixture;
 
@@ -44,7 +44,7 @@ class tx_seminars_ViewHelper_CommaSeparatedTitlesTest extends tx_phpunit_testcas
 	protected function setUp() {
 		$this->testingFramework	= new tx_oelib_testingFramework('tx_seminars');
 		$this->list = new tx_oelib_List();
-		$this->fixture = new tx_seminars_ViewHelper_CommaSeparatedTitles();
+		$this->fixture = new Tx_Seminars_ViewHelper_CommaSeparatedTitles();
 	}
 
 	protected function tearDown() {
