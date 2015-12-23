@@ -92,8 +92,8 @@ class Tx_Seminars_FrontEnd_EventHeadline extends Tx_Seminars_FrontEnd_AbstractVi
 			return $result;
 		}
 
-		/** @var tx_seminars_ViewHelper_DateRange $dateRangeViewHelper */
-		$dateRangeViewHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_seminars_ViewHelper_DateRange');
+		/** @var Tx_Seminars_ViewHelper_DateRange $dateRangeViewHelper */
+		$dateRangeViewHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Tx_Seminars_ViewHelper_DateRange');
 
 		return $result . ', ' . $dateRangeViewHelper->render($event);
 	}

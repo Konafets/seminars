@@ -20,9 +20,9 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_ViewHelper_DateRangeTest extends tx_phpunit_testcase {
+class Tx_Seminars_ViewHelper_DateRangeTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_seminars_ViewHelper_DateRange
+	 * @var Tx_Seminars_ViewHelper_DateRange
 	 */
 	private $fixture;
 
@@ -69,7 +69,7 @@ class tx_seminars_ViewHelper_DateRangeTest extends tx_phpunit_testcase {
 
 		$this->translator = tx_oelib_TranslatorRegistry::getInstance()->get('seminars');
 
-		$this->fixture = new tx_seminars_ViewHelper_DateRange();
+		$this->fixture = new Tx_Seminars_ViewHelper_DateRange();
 	}
 
 	protected function tearDown() {
