@@ -65,8 +65,8 @@ class Tx_Seminars_BackEnd_OrganizersList extends Tx_Seminars_BackEnd_AbstractLis
 			'label_full_name', $GLOBALS['LANG']->getLL('organizerlist.title')
 		);
 
-		/** @var tx_seminars_BagBuilder_Organizer $builder */
-		$builder = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_seminars_BagBuilder_Organizer');
+		/** @var Tx_Seminars_BagBuilder_Organizer $builder */
+		$builder = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Tx_Seminars_BagBuilder_Organizer');
 
 		$builder->setSourcePages($pageData['uid'], self::RECURSION_DEPTH);
 
