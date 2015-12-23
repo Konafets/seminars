@@ -26,19 +26,19 @@ require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('static
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_seminar extends Tx_Seminars_Timespan {
+class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 	/**
 	 * the same as the class name
 	 *
 	 * @var string
 	 */
-	public $prefixId = 'tx_seminars_seminar';
+	public $prefixId = 'Tx_Seminars_Seminar';
 	/**
 	 * the path to this script relative to the extension directory
 	 *
 	 * @var string
 	 */
-	public $scriptRelPath = 'class.tx_seminars_seminar.php';
+	public $scriptRelPath = 'class.Tx_Seminars_Seminar.php';
 
 	/**
 	 * @var string the name of the SQL table this class corresponds to
@@ -78,7 +78,7 @@ class tx_seminars_seminar extends Tx_Seminars_Timespan {
 	 *
 	 * This will be NULL if we are not a date record.
 
-	 * @var tx_seminars_seminar
+	 * @var Tx_Seminars_Seminar
 	 */
 	private $topic = NULL;
 
@@ -2990,7 +2990,7 @@ class tx_seminars_seminar extends Tx_Seminars_Timespan {
 	 *
 	 * In case of an error, the return value will be NULL.
 	 *
-	 * @return tx_seminars_seminar the topic object (will be NULL if an error
+	 * @return Tx_Seminars_Seminar the topic object (will be NULL if an error
 	 *                             has occured)
 	 */
 	private function retrieveTopic() {
@@ -3002,9 +3002,9 @@ class tx_seminars_seminar extends Tx_Seminars_Timespan {
 				$this->getRecordPropertyInteger('topic'),
 				'tx_seminars_seminars')
 			) {
-				/** @var tx_seminars_seminar $result */
+				/** @var Tx_Seminars_Seminar $result */
 				$result = GeneralUtility::makeInstance(
-					'tx_seminars_seminar',
+					'Tx_Seminars_Seminar',
 					$this->getRecordPropertyInteger('topic')
 				);
 			}
@@ -4717,6 +4717,6 @@ class tx_seminars_seminar extends Tx_Seminars_Timespan {
 	}
 }
 
-if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/class.tx_seminars_seminar.php']) {
-	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/class.tx_seminars_seminar.php']);
+if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/class.Tx_Seminars_Seminar.php']) {
+	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/class.Tx_Seminars_Seminar.php']);
 }

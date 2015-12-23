@@ -55,7 +55,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	private $configGetter = NULL;
 
 	/**
-	 * @var tx_seminars_seminar the seminar which we want to list/show or
+	 * @var Tx_Seminars_Seminar the seminar which we want to list/show or
 	 *                          for which the user wants to register
 	 */
 	private $seminar = NULL;
@@ -455,8 +455,8 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 		}
 
 		if (Tx_Seminars_OldModel_Abstract::recordExists($seminarUid, 'tx_seminars_seminars', $showHiddenRecords)) {
-			/** @var tx_seminars_seminar $seminar */
-			$seminar = GeneralUtility::makeInstance('tx_seminars_seminar', $seminarUid, FALSE, $showHiddenRecords);
+			/** @var Tx_Seminars_Seminar $seminar */
+			$seminar = GeneralUtility::makeInstance('Tx_Seminars_Seminar', $seminarUid, FALSE, $showHiddenRecords);
 			$this->setSeminar($seminar);
 
 			$result = $showHiddenRecords ? $this->canShowCurrentEvent() : TRUE;
@@ -471,11 +471,11 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	/**
 	 * Sets the current seminar for the list view.
 	 *
-	 * @param tx_seminars_seminar $seminar the current seminar
+	 * @param Tx_Seminars_Seminar $seminar the current seminar
 	 *
 	 * @return void
 	 */
-	protected function setSeminar(tx_seminars_seminar $seminar = NULL) {
+	protected function setSeminar(Tx_Seminars_Seminar $seminar = NULL) {
 		$this->seminar = $seminar;
 	}
 
@@ -531,7 +531,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	/**
 	 * Gets our seminar object.
 	 *
-	 * @return tx_seminars_seminar our seminar object
+	 * @return Tx_Seminars_Seminar our seminar object
 	 */
 	public function getSeminar() {
 		return $this->seminar;
@@ -1341,7 +1341,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 		$eventMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 
 		$dependencies = $this->seminar->getDependencies();
-		/** @var tx_seminars_seminar $dependency */
+		/** @var Tx_Seminars_Seminar $dependency */
 		foreach ($dependencies as $dependency) {
 			/** @var Tx_Seminars_Model_Event $event */
 			$event = $eventMapper->find($dependency->getUid());
@@ -1884,7 +1884,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 				$this->registration = $currentItem;
 				$this->setSeminar($this->registration->getSeminarObject());
 			} else {
-				/** @var tx_seminars_seminar $currentItem */
+				/** @var Tx_Seminars_Seminar $currentItem */
 				$this->setSeminar($currentItem);
 			}
 
@@ -2418,11 +2418,11 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	/**
 	 * Gets the CSS classes (space-separated) for the Vacancies TD.
 	 *
-	 * @param tx_seminars_seminar $seminar the current seminar object
+	 * @param Tx_Seminars_Seminar $seminar the current seminar object
 	 *
 	 * @return string class attribute value filled with a list a space-separated CSS classes
 	 */
-	public function getVacanciesClasses(tx_seminars_seminar $seminar) {
+	public function getVacanciesClasses(Tx_Seminars_Seminar $seminar) {
 		if (!$seminar->needsRegistration()
 			|| (!$seminar->hasDate() && !$this->configGetter->getConfValueBoolean('allowRegistrationForEventsWithoutDate'))
 		) {

@@ -22,25 +22,25 @@
  */
 class Tx_Seminars_Csv_FrontEndRegistrationAccessCheck implements Tx_Seminars_Interface_CsvAccessCheck {
 	/**
-	 * @var tx_seminars_seminar
+	 * @var Tx_Seminars_Seminar
 	 */
 	protected $event = NULL;
 
 	/**
 	 * Sets the event for the access check.
 	 *
-	 * @param tx_seminars_seminar $event
+	 * @param Tx_Seminars_Seminar $event
 	 *
 	 * @return void
 	 */
-	public function setEvent(tx_seminars_seminar $event) {
+	public function setEvent(Tx_Seminars_Seminar $event) {
 		$this->event = $event;
 	}
 
 	/**
 	 * Returns the event for the access check.
 	 *
-	 * @return tx_seminars_seminar
+	 * @return Tx_Seminars_Seminar
 	 */
 	protected function getEvent() {
 		return $this->event;

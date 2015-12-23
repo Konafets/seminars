@@ -270,8 +270,8 @@ class Tx_Seminars_Pi2 extends Tx_Oelib_TemplateHelper {
 				/** @var Tx_Seminars_Csv_FrontEndRegistrationAccessCheck $accessCheck */
 				$accessCheck = GeneralUtility::makeInstance('Tx_Seminars_Csv_FrontEndRegistrationAccessCheck');
 
-				/** @var tx_seminars_seminar $seminar */
-				$seminar = GeneralUtility::makeInstance('tx_seminars_seminar', $eventUid);
+				/** @var Tx_Seminars_Seminar $seminar */
+				$seminar = GeneralUtility::makeInstance('Tx_Seminars_Seminar', $eventUid);
 				$accessCheck->setEvent($seminar);
 
 				$result = $accessCheck->hasAccess();

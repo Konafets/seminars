@@ -1065,7 +1065,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 				'title' => 'a test topic',
 			)
 		);
-		$topic = new tx_seminars_seminar($topicRecordUid);
+		$topic = new Tx_Seminars_Seminar($topicRecordUid);
 
 		self::assertSame(
 			'a test topic',
@@ -1092,7 +1092,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 				'title' => 'a test date',
 			)
 		);
-		$date = new tx_seminars_seminar($dateRecordUid);
+		$date = new Tx_Seminars_Seminar($dateRecordUid);
 
 		self::assertSame(
 			'a test topic',
@@ -1218,7 +1218,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 		// Activates the configuration switch "canRegisterForEventsWithoutDate".
 		$this->fixture->setAllowRegistrationForEventsWithoutDate(1);
 
-		$this->fixture->setStatus(tx_seminars_seminar::STATUS_CANCELED);
+		$this->fixture->setStatus(Tx_Seminars_Seminar::STATUS_CANCELED);
 
 		self::assertFalse(
 			$this->fixture->canSomebodyRegister()
@@ -1442,7 +1442,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function canSomebodyRegisterMessageForCancelledEventReturnsSeminarCancelledMessage() {
-		$this->fixture->setStatus(tx_seminars_seminar::STATUS_CANCELED);
+		$this->fixture->setStatus(Tx_Seminars_Seminar::STATUS_CANCELED);
 
 		self::assertSame(
 			$this->fixture->translate('message_seminarCancelled'),
@@ -1672,7 +1672,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 			)
 		);
 
-		$seminar = new tx_seminars_seminar($dateRecordUid);
+		$seminar = new Tx_Seminars_Seminar($dateRecordUid);
 
 		self::assertSame(
 			'Italiano',
@@ -1704,7 +1704,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 			)
 		);
 
-		$seminar = new tx_seminars_seminar($singleRecordUid);
+		$seminar = new Tx_Seminars_Seminar($singleRecordUid);
 
 		self::assertSame(
 			'Italiano',
@@ -3413,7 +3413,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 				'topic' => $topicRecordUid,
 			)
 		);
-		$seminar = new tx_seminars_seminar($dateRecordUid);
+		$seminar = new Tx_Seminars_Seminar($dateRecordUid);
 
 		self::assertSame(
 			'foo type',
@@ -3434,7 +3434,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 				),
 			)
 		);
-		$seminar = new tx_seminars_seminar($topicRecordUid);
+		$seminar = new Tx_Seminars_Seminar($topicRecordUid);
 
 		self::assertSame(
 			'foo type',
@@ -3462,7 +3462,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 				'event_type' => 199999
 			)
 		);
-		$seminar = new tx_seminars_seminar($dateRecordUid);
+		$seminar = new Tx_Seminars_Seminar($dateRecordUid);
 
 		self::assertSame(
 			99999,
@@ -5703,7 +5703,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 				'topic' => $topicRecordUid,
 			)
 		);
-		$eventDate = new tx_seminars_seminar($dateRecordUid);
+		$eventDate = new Tx_Seminars_Seminar($dateRecordUid);
 
 		self::assertTrue(
 			$eventDate->hasAttachedFiles()
@@ -5729,7 +5729,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 				'topic' => $topicRecordUid,
 			)
 		);
-		$eventDate = new tx_seminars_seminar($dateRecordUid);
+		$eventDate = new Tx_Seminars_Seminar($dateRecordUid);
 
 		self::assertFalse(
 			$eventDate->hasAttachedFiles()
@@ -5795,7 +5795,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 				'topic' => $topicRecordUid,
 			)
 		);
-		$eventDate = new tx_seminars_seminar($dateRecordUid);
+		$eventDate = new Tx_Seminars_Seminar($dateRecordUid);
 
 		$attachedFiles = $eventDate->getAttachedFiles($this->pi1);
 
@@ -5829,7 +5829,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 				'topic' => $topicRecordUid,
 			)
 		);
-		$eventDate = new tx_seminars_seminar($dateRecordUid);
+		$eventDate = new Tx_Seminars_Seminar($dateRecordUid);
 
 		$attachedFiles = $eventDate->getAttachedFiles($this->pi1);
 
@@ -5867,7 +5867,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 				'topic' => $topicRecordUid,
 			)
 		);
-		$eventDate = new tx_seminars_seminar($dateRecordUid);
+		$eventDate = new Tx_Seminars_Seminar($dateRecordUid);
 
 		$attachedFiles = $eventDate->getAttachedFiles($this->pi1);
 
@@ -6130,7 +6130,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 		$this->fixture->setConfigurationValue('showVacanciesThreshold', 10);
 		$this->fixture->setAttendancesMax(5);
 		$this->fixture->setNumberOfAttendances(0);
-		$this->fixture->setStatus(tx_seminars_seminar::STATUS_CANCELED);
+		$this->fixture->setStatus(Tx_Seminars_Seminar::STATUS_CANCELED);
 
 		self::assertSame(
 			'',
@@ -7187,7 +7187,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function isConfirmedForStatusPlannedReturnsFalse() {
-		$this->fixture->setStatus(tx_seminars_seminar::STATUS_PLANNED);
+		$this->fixture->setStatus(Tx_Seminars_Seminar::STATUS_PLANNED);
 
 		self::assertFalse(
 			$this->fixture->isConfirmed()
@@ -7198,7 +7198,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function isConfirmedForStatusConfirmedReturnsTrue() {
-		$this->fixture->setStatus(tx_seminars_seminar::STATUS_CONFIRMED);
+		$this->fixture->setStatus(Tx_Seminars_Seminar::STATUS_CONFIRMED);
 
 		self::assertTrue(
 			$this->fixture->isConfirmed()
@@ -7209,7 +7209,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function isConfirmedForStatusCanceledReturnsFalse() {
-		$this->fixture->setStatus(tx_seminars_seminar::STATUS_CANCELED);
+		$this->fixture->setStatus(Tx_Seminars_Seminar::STATUS_CANCELED);
 
 		self::assertFalse(
 			$this->fixture->isConfirmed()
@@ -7225,7 +7225,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function isCanceledForPlannedEventReturnsFalse() {
-	$this->fixture->setStatus(tx_seminars_seminar::STATUS_PLANNED);
+	$this->fixture->setStatus(Tx_Seminars_Seminar::STATUS_PLANNED);
 
 	self::assertFalse(
 			$this->fixture->isCanceled()
@@ -7236,7 +7236,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function isCanceledForCanceledEventReturnsTrue() {
-		$this->fixture->setStatus(tx_seminars_seminar::STATUS_CANCELED);
+		$this->fixture->setStatus(Tx_Seminars_Seminar::STATUS_CANCELED);
 
 		self::assertTrue(
 			$this->fixture->isCanceled()
@@ -7247,7 +7247,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function isCanceledForConfirmedEventReturnsFalse() {
-		$this->fixture->setStatus(tx_seminars_seminar::STATUS_CONFIRMED);
+		$this->fixture->setStatus(Tx_Seminars_Seminar::STATUS_CONFIRMED);
 
 		self::assertFalse(
 			$this->fixture->isCanceled()
@@ -7263,7 +7263,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function isPlannedForStatusPlannedReturnsTrue() {
-		$this->fixture->setStatus(tx_seminars_seminar::STATUS_PLANNED);
+		$this->fixture->setStatus(Tx_Seminars_Seminar::STATUS_PLANNED);
 
 		self::assertTrue(
 			$this->fixture->isPlanned()
@@ -7274,7 +7274,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function isPlannedForStatusConfirmedReturnsFalse() {
-		$this->fixture->setStatus(tx_seminars_seminar::STATUS_CONFIRMED);
+		$this->fixture->setStatus(Tx_Seminars_Seminar::STATUS_CONFIRMED);
 
 		self::assertFalse(
 			$this->fixture->isPlanned()
@@ -7285,7 +7285,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function isPlannedForStatusCanceledReturnsFalse() {
-		$this->fixture->setStatus(tx_seminars_seminar::STATUS_CANCELED);
+		$this->fixture->setStatus(Tx_Seminars_Seminar::STATUS_CANCELED);
 
 		self::assertFalse(
 			$this->fixture->isPlanned()
@@ -7645,7 +7645,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 			'directions' => '',
 		);
 
-		$fixture = $this->getMock('tx_seminars_seminar', array('getPlacesAsArray', 'hasPlace'), array(), '', FALSE);
+		$fixture = $this->getMock('Tx_Seminars_Seminar', array('getPlacesAsArray', 'hasPlace'), array(), '', FALSE);
 		$fixture->expects(self::any())->method('getPlacesAsArray')->will(self::returnValue(array($place)));
 		$fixture->expects(self::any())->method('hasPlace')->will(self::returnValue(TRUE));
 
@@ -7676,7 +7676,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 			'directions' => '',
 		);
 
-		$fixture = $this->getMock('tx_seminars_seminar', array('getPlacesAsArray', 'hasPlace'), array(), '', FALSE);
+		$fixture = $this->getMock('Tx_Seminars_Seminar', array('getPlacesAsArray', 'hasPlace'), array(), '', FALSE);
 		$fixture->expects(self::any())->method('getPlacesAsArray')->will(self::returnValue(array($place1, $place2)));
 		$fixture->expects(self::any())->method('hasPlace')->will(self::returnValue(TRUE));
 
@@ -7697,7 +7697,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 			'city' => 'Bonn',
 		);
 
-		$fixture = $this->getMock('tx_seminars_seminar', array('getPlacesAsArray', 'hasPlace'), array(), '', FALSE);
+		$fixture = $this->getMock('Tx_Seminars_Seminar', array('getPlacesAsArray', 'hasPlace'), array(), '', FALSE);
 		$fixture->expects(self::any())->method('getPlacesAsArray')->will(self::returnValue(array($place)));
 		$fixture->expects(self::any())->method('hasPlace')->will(self::returnValue(TRUE));
 
@@ -7718,7 +7718,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 			'city' => 'Bonn',
 		);
 
-		$fixture = $this->getMock('tx_seminars_seminar', array('getPlacesAsArray', 'hasPlace'), array(), '', FALSE);
+		$fixture = $this->getMock('Tx_Seminars_Seminar', array('getPlacesAsArray', 'hasPlace'), array(), '', FALSE);
 		$fixture->expects(self::any())->method('getPlacesAsArray')->will(self::returnValue(array($place)));
 		$fixture->expects(self::any())->method('hasPlace')->will(self::returnValue(TRUE));
 
@@ -8645,7 +8645,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 		$whichPlugin, $registrationsListPID, $registrationsVipListPID
 	) {
 		$fixture = $this->getMock(
-			'tx_seminars_seminar',
+			'Tx_Seminars_Seminar',
 			array('needsRegistration', 'isUserRegistered', 'isUserVip'),
 			array(),
 			'',
@@ -8691,7 +8691,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 		$whichPlugin, $registrationsListPID, $registrationsVipListPID
 	) {
 		$fixture = $this->getMock(
-			'tx_seminars_seminar',
+			'Tx_Seminars_Seminar',
 			array('needsRegistration', 'isUserRegistered', 'isUserVip'),
 			array(),
 			'',
@@ -8769,7 +8769,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 		$expected, $loggedIn, $isVip, $allowCsvExportForVips
 	) {
 		$fixture = $this->getMock(
-			'tx_seminars_seminar',
+			'Tx_Seminars_Seminar',
 			array('needsRegistration', 'isUserVip'),
 			array(),
 			'',
@@ -8970,7 +8970,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 		$whichPlugin, $registrationsListPID, $registrationsVipListPID
 	) {
 		$fixture = $this->getMock(
-			'tx_seminars_seminar',
+			'Tx_Seminars_Seminar',
 			array('needsRegistration', 'isUserRegistered', 'isUserVip'),
 			array(),
 			'',
@@ -9173,7 +9173,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 		$whichPlugin, $registrationsListPID, $registrationsVipListPID
 	) {
 		$fixture = $this->getMock(
-			'tx_seminars_seminar',
+			'Tx_Seminars_Seminar',
 			array('needsRegistration', 'isUserRegistered', 'isUserVip'),
 			array(),
 			'',
@@ -9209,8 +9209,8 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function canViewRegistrationsListMessageWithoutNeededRegistrationReturnsNoRegistrationMessage() {
-		/** @var tx_seminars_seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
-		$fixture = $this->getMock('tx_seminars_seminar', array('needsRegistration'), array(), '', FALSE);
+		/** @var Tx_Seminars_Seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
+		$fixture = $this->getMock('Tx_Seminars_Seminar', array('needsRegistration'), array(), '', FALSE);
 		$fixture->expects(self::any())->method('needsRegistration')->will(self::returnValue(FALSE));
 		$fixture->init();
 
@@ -9224,8 +9224,8 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function canViewRegistrationsListMessageForListAndNoLoginAndAttendeesAccessReturnsPleaseLoginMessage() {
-		/** @var tx_seminars_seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
-		$fixture = $this->getMock('tx_seminars_seminar', array('needsRegistration'), array(), '', FALSE);
+		/** @var Tx_Seminars_Seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
+		$fixture = $this->getMock('Tx_Seminars_Seminar', array('needsRegistration'), array(), '', FALSE);
 		$fixture->expects(self::any())->method('needsRegistration')->will(self::returnValue(TRUE));
 		$fixture->init();
 
@@ -9239,8 +9239,8 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function canViewRegistrationsListMessageForListAndNoLoginAndLoginAccessReturnsPleaseLoginMessage() {
-		/** @var tx_seminars_seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
-		$fixture = $this->getMock('tx_seminars_seminar', array('needsRegistration'), array(), '', FALSE);
+		/** @var Tx_Seminars_Seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
+		$fixture = $this->getMock('Tx_Seminars_Seminar', array('needsRegistration'), array(), '', FALSE);
 		$fixture->expects(self::any())->method('needsRegistration')->will(self::returnValue(TRUE));
 		$fixture->init();
 
@@ -9254,8 +9254,8 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function canViewRegistrationsListMessageForListAndNoLoginAndWorldAccessReturnsEmptyString() {
-		/** @var tx_seminars_seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
-		$fixture = $this->getMock('tx_seminars_seminar', array('needsRegistration'), array(), '', FALSE);
+		/** @var Tx_Seminars_Seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
+		$fixture = $this->getMock('Tx_Seminars_Seminar', array('needsRegistration'), array(), '', FALSE);
 		$fixture->expects(self::any())->method('needsRegistration')->will(self::returnValue(TRUE));
 		$fixture->init();
 
@@ -9288,8 +9288,8 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @return void
 	 */
 	public function canViewRegistrationsListMessageForVipListAndNoLoginReturnsPleaseLoginMessage($accessLevel) {
-		/** @var tx_seminars_seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
-		$fixture = $this->getMock('tx_seminars_seminar', array('needsRegistration'), array(), '', FALSE);
+		/** @var Tx_Seminars_Seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
+		$fixture = $this->getMock('Tx_Seminars_Seminar', array('needsRegistration'), array(), '', FALSE);
 		$fixture->expects(self::any())->method('needsRegistration')->will(self::returnValue(TRUE));
 		$fixture->init();
 
@@ -9305,8 +9305,8 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @return void
 	 */
 	public function canViewRegistrationsListMessageForVipListAndWorldAccessAndNoLoginReturnsEmptyString() {
-		/** @var tx_seminars_seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
-		$fixture = $this->getMock('tx_seminars_seminar', array('needsRegistration'), array(), '', FALSE);
+		/** @var Tx_Seminars_Seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
+		$fixture = $this->getMock('Tx_Seminars_Seminar', array('needsRegistration'), array(), '', FALSE);
 		$fixture->expects(self::any())->method('needsRegistration')->will(self::returnValue(TRUE));
 		$fixture->init();
 
@@ -9344,9 +9344,9 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @return void
 	 */
 	public function canViewRegistrationsListMessageWithLoginRoutesParameters($whichPlugin, $accessLevel) {
-		/** @var tx_seminars_seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
+		/** @var Tx_Seminars_Seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
 		$fixture = $this->getMock(
-			'tx_seminars_seminar',
+			'Tx_Seminars_Seminar',
 			array('needsRegistration', 'canViewRegistrationsList'),
 			array(), '', FALSE
 		);
@@ -9365,9 +9365,9 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function canViewRegistrationsListMessageWithLoginAndAccessGrantedReturnsEmptyString() {
-		/** @var tx_seminars_seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
+		/** @var Tx_Seminars_Seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
 		$fixture = $this->getMock(
-			'tx_seminars_seminar',
+			'Tx_Seminars_Seminar',
 			array('needsRegistration', 'canViewRegistrationsList'),
 			array(), '', FALSE
 		);
@@ -9387,9 +9387,9 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function canViewRegistrationsListMessageWithLoginAndAccessDeniedReturnsAccessDeniedMessage() {
-		/** @var tx_seminars_seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
+		/** @var Tx_Seminars_Seminar|PHPUnit_Framework_MockObject_MockObject $fixture */
 		$fixture = $this->getMock(
-			'tx_seminars_seminar',
+			'Tx_Seminars_Seminar',
 			array('needsRegistration', 'canViewRegistrationsList'),
 			array(), '', FALSE
 		);
@@ -9542,7 +9542,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 		$hasPriceRegularBoard, $hasPriceSpecialBoard
 	) {
 		$fixture = $this->getMock(
-			'tx_seminars_seminar',
+			'Tx_Seminars_Seminar',
 			array(
 				'hasPriceRegular', 'hasPriceSpecial', 'earlyBirdApplies',
 				'hasEarlyBirdPriceRegular', 'hasEarlyBirdPriceSpecial',

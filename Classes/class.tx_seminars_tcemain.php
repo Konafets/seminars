@@ -146,9 +146,9 @@ class Tx_Seminars_TceMainProcDm {
 	 * @return void
 	 */
 	private function processSingleEvent($uid, array $fieldArray) {
-		/** @var tx_seminars_seminar $seminar */
+		/** @var Tx_Seminars_Seminar $seminar */
 		$seminar = GeneralUtility::makeInstance(
-			'tx_seminars_seminar', $uid, FALSE, TRUE
+			'Tx_Seminars_Seminar', $uid, FALSE, TRUE
 		);
 
 		if ($seminar->isOk()) {

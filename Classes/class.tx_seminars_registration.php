@@ -45,7 +45,7 @@ class tx_seminars_registration extends Tx_Seminars_OldModel_Abstract {
 	public $scriptRelPath = 'class.tx_seminars_registration.php';
 
 	/**
-	 * @var tx_seminars_seminar the event to which this registration relates
+	 * @var Tx_Seminars_Seminar the event to which this registration relates
 	 */
 	private $seminar = NULL;
 
@@ -87,7 +87,7 @@ class tx_seminars_registration extends Tx_Seminars_OldModel_Abstract {
 	/**
 	 * cached seminar objects with the seminar UIDs as keys and the objects as values
 	 *
-	 * @var tx_seminars_seminar[]
+	 * @var Tx_Seminars_Seminar[]
 	 */
 	private static $cachedSeminars = array();
 
@@ -138,13 +138,13 @@ class tx_seminars_registration extends Tx_Seminars_OldModel_Abstract {
 	 *
 	 * This function must be called directly after construction or this object will not be usable.
 	 *
-	 * @param tx_seminars_seminar $seminar the seminar object (that's the seminar we would like to register for)
+	 * @param Tx_Seminars_Seminar $seminar the seminar object (that's the seminar we would like to register for)
 	 * @param int $userUid UID of the FE user who wants to sign up
 	 * @param array $registrationData associative array with the registration data the user has just entered, may be empty
 	 *
 	 * @return void
 	 */
-	public function setRegistrationData(tx_seminars_seminar $seminar, $userUid, array $registrationData) {
+	public function setRegistrationData(Tx_Seminars_Seminar $seminar, $userUid, array $registrationData) {
 		$this->seminar = $seminar;
 
 		$this->recordData = array();
@@ -594,7 +594,7 @@ class tx_seminars_registration extends Tx_Seminars_OldModel_Abstract {
 	/**
 	 * Gets the seminar to which this registration belongs.
 	 *
-	 * @return tx_seminars_seminar the seminar to which this registration belongs
+	 * @return Tx_Seminars_Seminar the seminar to which this registration belongs
 	 */
 	public function getSeminarObject() {
 		if (!$this->seminar && $this->isOk()) {
@@ -603,7 +603,7 @@ class tx_seminars_registration extends Tx_Seminars_OldModel_Abstract {
 				$this->seminar = self::$cachedSeminars[$seminarUid];
 			} else {
 				$this->seminar = GeneralUtility::makeInstance(
-					'tx_seminars_seminar', $seminarUid
+					'Tx_Seminars_Seminar', $seminarUid
 				);
 				self::$cachedSeminars[$seminarUid] = $this->seminar;
 			}

@@ -71,7 +71,7 @@ class Tx_Seminars_FrontEnd_RegistrationForm extends Tx_Seminars_FrontEnd_Editor 
 	private $staticInfo = NULL;
 
 	/**
-	 * @var tx_seminars_seminar seminar object
+	 * @var Tx_Seminars_Seminar seminar object
 	 */
 	private $seminar = NULL;
 
@@ -159,18 +159,18 @@ class Tx_Seminars_FrontEnd_RegistrationForm extends Tx_Seminars_FrontEnd_Editor 
 	/**
 	 * Sets the seminar for which to create the form.
 	 *
-	 * @param tx_seminars_seminar $event the event for which to create the form
+	 * @param Tx_Seminars_Seminar $event the event for which to create the form
 	 *
 	 * @return void
 	 */
-	public function setSeminar(tx_seminars_seminar $event) {
+	public function setSeminar(Tx_Seminars_Seminar $event) {
 		$this->seminar = $event;
 	}
 
 	/**
 	 * Returns the configured seminar object.
 	 *
-	 * @return tx_seminars_seminar the seminar instance
+	 * @return Tx_Seminars_Seminar the seminar instance
 	 *
 	 * @throws BadMethodCallException if no seminar has been set yet
 	 */

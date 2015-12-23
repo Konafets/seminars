@@ -145,12 +145,12 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	 *
 	 * This function works even if no user is logged in.
 	 *
-	 * @param tx_seminars_seminar $event
+	 * @param Tx_Seminars_Seminar $event
 	 *        am event for which we'll check if it is possible to register
 	 *
 	 * @return bool TRUE if it is okay to register, FALSE otherwise
 	 */
-	public function canRegisterIfLoggedIn(tx_seminars_seminar $event) {
+	public function canRegisterIfLoggedIn(Tx_Seminars_Seminar $event) {
 		if (!$event->canSomebodyRegister()) {
 			return FALSE;
 		}
@@ -183,11 +183,11 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	 *
 	 * Note: This function does not check whether a logged-in front-end user fulfills all requirements for an event.
 	 *
-	 * @param tx_seminars_seminar $event a seminar for which we'll check if it is possible to register
+	 * @param Tx_Seminars_Seminar $event a seminar for which we'll check if it is possible to register
 	 *
 	 * @return string error message or empty string
 	 */
-	public function canRegisterIfLoggedInMessage(tx_seminars_seminar $event) {
+	public function canRegisterIfLoggedInMessage(Tx_Seminars_Seminar $event) {
 		$message = '';
 
 		$isLoggedIn = tx_oelib_FrontEndLoginManager::getInstance()->isLoggedIn();
@@ -223,11 +223,11 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	 *
 	 * Note: This function does not check whether a logged-in front-end user fulfills all requirements for an event.
 	 *
-	 * @param tx_seminars_seminar $seminar a seminar for which we'll check if it is possible to register
+	 * @param Tx_Seminars_Seminar $seminar a seminar for which we'll check if it is possible to register
 	 *
 	 * @return bool TRUE if the user could register for the given event, FALSE otherwise
 	 */
-	private function couldThisUserRegister(tx_seminars_seminar $seminar) {
+	private function couldThisUserRegister(Tx_Seminars_Seminar $seminar) {
 		// A user can register either if the event allows multiple registrations
 		// or the user isn't registered yet and isn't blocked either.
 		return $seminar->allowsMultipleRegistrations() || (!$this->isUserRegistered($seminar) && !$this->isUserBlocked($seminar));
@@ -237,13 +237,13 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	 * Creates an HTML link to the registration or login page.
 	 *
 	 * @param tx_oelib_templatehelper $plugin the pi1 object with configuration data
-	 * @param tx_seminars_seminar $event the seminar to create the registration link for
+	 * @param Tx_Seminars_Seminar $event the seminar to create the registration link for
 	 *
 	 * @return string the HTML tag, will be empty if the event needs no registration, nobody can register to this event or the
 	 *                currently logged in user is already registered to this event and the event does not allow multiple
 	 *                registrations by one user
 	 */
-	public function getRegistrationLink(tx_oelib_templatehelper $plugin, tx_seminars_seminar $event) {
+	public function getRegistrationLink(tx_oelib_templatehelper $plugin, Tx_Seminars_Seminar $event) {
 		if (!$event->needsRegistration() || !$this->canRegisterIfLoggedIn($event)) {
 			return '';
 		}
@@ -258,11 +258,11 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	 * user has not registered for this seminar etc.).
 	 *
 	 * @param tx_oelib_templatehelper $plugin an object for a live page
-	 * @param tx_seminars_seminar $seminar a seminar for which we'll check if it is possible to register
+	 * @param Tx_Seminars_Seminar $seminar a seminar for which we'll check if it is possible to register
 	 *
 	 * @return string HTML code with the link
 	 */
-	public function getLinkToRegistrationOrLoginPage(tx_oelib_templatehelper $plugin, tx_seminars_seminar $seminar) {
+	public function getLinkToRegistrationOrLoginPage(tx_oelib_templatehelper $plugin, Tx_Seminars_Seminar $seminar) {
 		return $this->getLinkToStandardRegistrationOrLoginPage($plugin, $seminar, $this->getRegistrationLabel($plugin, $seminar));
 	}
 
@@ -270,11 +270,11 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	 * Creates the label for the registration link.
 	 *
 	 * @param tx_oelib_templatehelper $plugin an object for a live page
-	 * @param tx_seminars_seminar $seminar a seminar to which the registration should relate
+	 * @param Tx_Seminars_Seminar $seminar a seminar to which the registration should relate
 	 *
 	 * @return string label for the registration link, will not be empty
 	 */
-	private function getRegistrationLabel(tx_oelib_templatehelper $plugin, tx_seminars_seminar $seminar) {
+	private function getRegistrationLabel(tx_oelib_templatehelper $plugin, Tx_Seminars_Seminar $seminar) {
 		if ($seminar->hasVacancies()) {
 			if ($seminar->hasDate()) {
 				$label = $plugin->translate('label_onlineRegistration');
@@ -301,13 +301,13 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	 * page; it should not be used if the seminar has a separate details page.
 	 *
 	 * @param tx_oelib_templatehelper $plugin an object for a live page
-	 * @param tx_seminars_seminar $seminar a seminar for which we'll check if it is possible to register
+	 * @param Tx_Seminars_Seminar $seminar a seminar for which we'll check if it is possible to register
 	 * @param string $label label for the link, will not be empty
 	 *
 	 * @return string HTML code with the link
 	 */
 	private function getLinkToStandardRegistrationOrLoginPage(
-		tx_oelib_templatehelper $plugin, tx_seminars_seminar $seminar, $label
+		tx_oelib_templatehelper $plugin, Tx_Seminars_Seminar $seminar, $label
 	) {
 		if (tx_oelib_FrontEndLoginManager::getInstance()->isLoggedIn()) {
 			// provides the registration link
@@ -382,11 +382,11 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	 *
 	 * This method must not be called when no front-end user is logged in!
 	 *
-	 * @param tx_seminars_seminar $seminar a seminar for which we'll check if it is possible to register
+	 * @param Tx_Seminars_Seminar $seminar a seminar for which we'll check if it is possible to register
 	 *
 	 * @return bool TRUE if user is already registered, FALSE otherwise.
 	 */
-	public function isUserRegistered(tx_seminars_seminar $seminar) {
+	public function isUserRegistered(Tx_Seminars_Seminar $seminar) {
 		return $seminar->isUserRegistered($this->getLoggedInFrontEndUserUid());
 	}
 
@@ -395,11 +395,11 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	 *
 	 * This method must not be called when no front-end user is logged in!
 	 *
-	 * @param tx_seminars_seminar $seminar a seminar for which we'll check if it is possible to register
+	 * @param Tx_Seminars_Seminar $seminar a seminar for which we'll check if it is possible to register
 	 *
 	 * @return string empty string if everything is OK, else a localized error message
 	 */
-	public function isUserRegisteredMessage(tx_seminars_seminar $seminar) {
+	public function isUserRegisteredMessage(Tx_Seminars_Seminar $seminar) {
 		return $seminar->isUserRegisteredMessage($this->getLoggedInFrontEndUserUid());
 	}
 
@@ -408,11 +408,11 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	 *
 	 * For this, only events that forbid multiple registrations are checked.
 	 *
-	 * @param tx_seminars_seminar $seminar a seminar for which we'll check whether the user already is blocked by an other seminars
+	 * @param Tx_Seminars_Seminar $seminar a seminar for which we'll check whether the user already is blocked by an other seminars
 	 *
 	 * @return bool TRUE if user is blocked by another registration, FALSE otherwise
 	 */
-	private function isUserBlocked(tx_seminars_seminar $seminar) {
+	private function isUserBlocked(Tx_Seminars_Seminar $seminar) {
 		return $seminar->isUserBlocked($this->getLoggedInFrontEndUserUid());
 	}
 
@@ -423,12 +423,12 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	 *
 	 * Please note that this function does not create a registration - it just checks.
 	 *
-	 * @param tx_seminars_seminar $seminar the seminar object (that's the seminar we would like to register for)
+	 * @param Tx_Seminars_Seminar $seminar the seminar object (that's the seminar we would like to register for)
 	 * @param array $registrationData associative array with the registration data the user has just entered
 	 *
 	 * @return bool TRUE if the data is okay, FALSE otherwise
 	 */
-	public function canCreateRegistration(tx_seminars_seminar $seminar, array $registrationData) {
+	public function canCreateRegistration(Tx_Seminars_Seminar $seminar, array $registrationData) {
 		return $this->canRegisterSeats($seminar, $registrationData['seats']);
 	}
 
@@ -436,12 +436,12 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	 * Checks whether a registration with a given number of seats could be
 	 * created, ie. an actual number is given and there are at least that many vacancies.
 	 *
-	 * @param tx_seminars_seminar $seminar the seminar object (that's the seminar we would like to register for)
+	 * @param Tx_Seminars_Seminar $seminar the seminar object (that's the seminar we would like to register for)
 	 * @param int|string $numberOfSeats the number of seats to check (should be an integer, but we can't be sure of this)
 	 *
 	 * @return bool TRUE if there are at least that many vacancies, FALSE otherwise
 	 */
-	public function canRegisterSeats(tx_seminars_seminar $seminar, $numberOfSeats) {
+	public function canRegisterSeats(Tx_Seminars_Seminar $seminar, $numberOfSeats) {
 		$numberOfSeats = trim($numberOfSeats);
 
 		// If no number of seats is given, ie. the user has not entered anything
@@ -473,13 +473,13 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	 * The additional notifications will only be sent if this is enabled in the
 	 * TypoScript setup (which is the default).
 	 *
-	 * @param tx_seminars_seminar $seminar the seminar we would like to register for
+	 * @param Tx_Seminars_Seminar $seminar the seminar we would like to register for
 	 * @param array $formData the raw registration data from the registration form
 	 * @param AbstractPlugin $plugin live plugin object
 	 *
 	 * @return Tx_Seminars_Model_Registration the created, saved registration
 	 */
-	public function createRegistration(tx_seminars_seminar $seminar, array $formData, AbstractPlugin $plugin) {
+	public function createRegistration(Tx_Seminars_Seminar $seminar, array $formData, AbstractPlugin $plugin) {
 		$this->registration = GeneralUtility::makeInstance('tx_seminars_registration', $plugin->cObj);
 		$this->registration->setRegistrationData($seminar, $this->getLoggedInFrontEndUserUid(), $formData);
 		$this->registration->commitToDb();
@@ -735,11 +735,11 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	 *
 	 * A front-end user needs to be logged in when this function is called.
 	 *
-	 * @param tx_seminars_seminar $event the event to check
+	 * @param Tx_Seminars_Seminar $event the event to check
 	 *
 	 * @return bool TRUE if the user fulfills all requirements, FALSE otherwise
 	 */
-	public function userFulfillsRequirements(tx_seminars_seminar $event) {
+	public function userFulfillsRequirements(Tx_Seminars_Seminar $event) {
 		if (!$event->hasRequirements()) {
 			return TRUE;
 		}
@@ -752,11 +752,11 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	/**
 	 * Returns the event topics the user still needs to register for in order to be able to register for $event.
 	 *
-	 * @param tx_seminars_seminar $event the event to check
+	 * @param Tx_Seminars_Seminar $event the event to check
 	 *
 	 * @return Tx_Seminars_Bag_Event the event topics which still need the user's registration, may be empty
 	 */
-	public function getMissingRequiredTopics(tx_seminars_seminar $event) {
+	public function getMissingRequiredTopics(Tx_Seminars_Seminar $event) {
 		/** @var Tx_Seminars_BagBuilder_Event $builder */
 		$builder = GeneralUtility::makeInstance('Tx_Seminars_BagBuilder_Event');
 		$builder->limitToRequiredEventTopics($event->getTopicUid());
@@ -789,7 +789,7 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 			return;
 		}
 
-		/** @var $event tx_seminars_seminar */
+		/** @var $event Tx_Seminars_Seminar */
 		$event = $oldRegistration->getSeminarObject();
 		if (!$event->hasOrganizers()) {
 			return;
@@ -1255,11 +1255,11 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	/**
 	 * Checks whether the given event allows registration, as far as its date is concerned.
 	 *
-	 * @param tx_seminars_seminar $event the event to check the registration for
+	 * @param Tx_Seminars_Seminar $event the event to check the registration for
 	 *
 	 * @return bool TRUE if the event allows registration by date, FALSE otherwise
 	 */
-	public function allowsRegistrationByDate(tx_seminars_seminar $event) {
+	public function allowsRegistrationByDate(Tx_Seminars_Seminar $event) {
 		if ($event->hasDate()) {
 			$result = !$event->isRegistrationDeadlineOver();
 		} else {
@@ -1272,22 +1272,22 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	/**
 	 * Checks whether the given event allows registration as far as the number of vacancies are concerned.
 	 *
-	 * @param tx_seminars_seminar $event the event to check the registration for
+	 * @param Tx_Seminars_Seminar $event the event to check the registration for
 	 *
 	 * @return bool TRUE if the event has enough seats for registration, FALSE otherwise
 	 */
-	public function allowsRegistrationBySeats(tx_seminars_seminar $event) {
+	public function allowsRegistrationBySeats(Tx_Seminars_Seminar $event) {
 		return $event->hasRegistrationQueue() || $event->hasUnlimitedVacancies() || $event->hasVacancies();
 	}
 
 	/**
 	 * Checks whether the registration for this event has started.
 	 *
-	 * @param tx_seminars_seminar $event the event to check the registration for
+	 * @param Tx_Seminars_Seminar $event the event to check the registration for
 	 *
 	 * @return bool TRUE if registration for this event already has started, FALSE otherwise
 	 */
-	public function registrationHasStarted(tx_seminars_seminar $event) {
+	public function registrationHasStarted(Tx_Seminars_Seminar $event) {
 		if (!$event->hasRegistrationBegin()) {
 			return TRUE;
 		}
@@ -1315,12 +1315,12 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	/**
 	 * Sets the places marker for the attendee notification.
 	 *
-	 * @param tx_seminars_seminar $event event of this registration
+	 * @param Tx_Seminars_Seminar $event event of this registration
 	 * @param bool $useHtml whether to create HTML instead of plain text
 	 *
 	 * @return void
 	 */
-	private function fillPlacesMarker(tx_seminars_seminar $event, $useHtml) {
+	private function fillPlacesMarker(Tx_Seminars_Seminar $event, $useHtml) {
 		if (!$event->hasPlace()) {
 			$this->setMarker('place', $this->translate('message_willBeAnnounced'));
 			return;
@@ -1416,11 +1416,11 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	/**
 	 * Returns the unregistration notice for the notification mails.
 	 *
-	 * @param tx_seminars_seminar $event the event to get the unregistration deadline from
+	 * @param Tx_Seminars_Seminar $event the event to get the unregistration deadline from
 	 *
 	 * @return string the unregistration notice with the event's unregistration deadline, will not be empty
 	 */
-	protected function getUnregistrationNotice(tx_seminars_seminar $event) {
+	protected function getUnregistrationNotice(Tx_Seminars_Seminar $event) {
 		$unregistrationDeadline = $event->getUnregistrationDeadlineFromModelAndConfiguration();
 
 		return sprintf(

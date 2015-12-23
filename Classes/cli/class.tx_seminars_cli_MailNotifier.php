@@ -97,12 +97,12 @@ class Tx_Seminars_cli_MailNotifier {
 	/**
 	 * Sends an e-mail to the organizers of the provided event.
 	 *
-	 * @param tx_seminars_seminar $event event for which to send the reminder to its organizers
+	 * @param Tx_Seminars_Seminar $event event for which to send the reminder to its organizers
 	 * @param string $messageKey locallang key for the message content and the subject for the e-mail to send, must not be empty
 	 *
 	 * @return void
 	 */
-	private function sendRemindersToOrganizers(tx_seminars_seminar $event, $messageKey) {
+	private function sendRemindersToOrganizers(Tx_Seminars_Seminar $event, $messageKey) {
 		$attachment = NULL;
 
 		// The first organizer is taken as sender.
@@ -135,7 +135,7 @@ class Tx_Seminars_cli_MailNotifier {
 	 * Returns events in confirmed state which are about to take place and for
 	 * which no reminder has been sent yet.
 	 *
-	 * @return tx_seminars_seminar[] events for which to send the event-takes-place reminder to
+	 * @return Tx_Seminars_Seminar[] events for which to send the event-takes-place reminder to
 	 *               their organizers, will be empty if there are none
 	 */
 	private function getEventsToSendEventTakesPlaceReminderFor() {
@@ -146,12 +146,12 @@ class Tx_Seminars_cli_MailNotifier {
 
 		$result = array();
 
-		$builder = $this->getSeminarBagBuilder(tx_seminars_seminar::STATUS_CONFIRMED);
+		$builder = $this->getSeminarBagBuilder(Tx_Seminars_Seminar::STATUS_CONFIRMED);
 		$builder->limitToEventTakesPlaceReminderNotSent();
 		$builder->limitToDaysBeforeBeginDate($days);
 		$bag = $builder->build();
 
-		/** @var tx_seminars_seminar $event */
+		/** @var Tx_Seminars_Seminar $event */
 		foreach ($bag as $event) {
 			$result[] = $event;
 		}
@@ -163,7 +163,7 @@ class Tx_Seminars_cli_MailNotifier {
 	 * Returns events in planned state for which the cancellation deadline has
 	 * just passed and for which no reminder has been sent yet.
 	 *
-	 * @return tx_seminars_seminar[] events for which to send the cancellation reminder to their
+	 * @return Tx_Seminars_Seminar[] events for which to send the cancellation reminder to their
 	 *               organizers, will be empty if there are none
 	 */
 	private function getEventsToSendCancellationDeadlineReminderFor() {
@@ -174,12 +174,12 @@ class Tx_Seminars_cli_MailNotifier {
 		$result = array();
 
 		/** @var $builder Tx_Seminars_BagBuilder_Event */
-		$builder = $this->getSeminarBagBuilder(tx_seminars_seminar::STATUS_PLANNED);
+		$builder = $this->getSeminarBagBuilder(Tx_Seminars_Seminar::STATUS_PLANNED);
 		$builder->limitToCancelationDeadlineReminderNotSent();
 		/** @var $bag Tx_Seminars_Bag_Event */
 		$bag = $builder->build();
 
-		/** @var tx_seminars_seminar $event */
+		/** @var Tx_Seminars_Seminar $event */
 		foreach ($bag as $event) {
 			if ($event->getCancelationDeadline() < $GLOBALS['SIM_EXEC_TIME']) {
 				$result[] = $event;
@@ -206,7 +206,7 @@ class Tx_Seminars_cli_MailNotifier {
 	 * Returns a seminar bag builder already limited to upcoming events with a
 	 * begin date and status $status.
 	 *
-	 * @param int $status status to limit the builder to, must be either tx_seminars_seminar::STATUS_PLANNED or ::CONFIRMED
+	 * @param int $status status to limit the builder to, must be either Tx_Seminars_Seminar::STATUS_PLANNED or ::CONFIRMED
 	 *
 	 * @return Tx_Seminars_BagBuilder_Event builder for the seminar bag
 	 */
@@ -249,14 +249,14 @@ class Tx_Seminars_cli_MailNotifier {
 	 *
 	 * @param string $locallangKey
 	 *        locallang key for the text in which to replace key words beginning with "%" by the event's data, must not be empty
-	 * @param tx_seminars_seminar $event
+	 * @param Tx_Seminars_Seminar $event
 	 *        event for which to customize the text
 	 * @param string $organizerName
 	 *        name of the organizer, may be empty if no organizer name needs to be inserted in the text
 	 *
 	 * @return string the localized e-mail content, will not be empty
 	 */
-	private function customizeMessage($locallangKey, tx_seminars_seminar $event, $organizerName = '') {
+	private function customizeMessage($locallangKey, Tx_Seminars_Seminar $event, $organizerName = '') {
 		/** @var tx_oelib_Mapper_BackEndUser $mapper */
 		$mapper = tx_oelib_MapperRegistry::get('tx_oelib_Mapper_BackEndUser');
 		/** @var Tx_Oelib_Model_BackEndUser $user */
@@ -296,11 +296,11 @@ class Tx_Seminars_cli_MailNotifier {
 	/**
 	 * Checks whether the CSV file should be added to the e-mail.
 	 *
-	 * @param tx_seminars_seminar $event the event to send the e-mail for
+	 * @param Tx_Seminars_Seminar $event the event to send the e-mail for
 	 *
 	 * @return bool TRUE if the CSV file should be added, FALSE otherwise
 	 */
-	private function shouldCsvFileBeAdded(tx_seminars_seminar $event) {
+	private function shouldCsvFileBeAdded(Tx_Seminars_Seminar $event) {
 		return tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars')
 			->getAsBoolean('addRegistrationCsvToOrganizerReminderMail')
 			&& ($event->getAttendances() > 0);

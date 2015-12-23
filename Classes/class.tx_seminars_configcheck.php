@@ -38,7 +38,7 @@ class tx_seminars_configcheck extends tx_oelib_configcheck {
 	}
 
 	/**
-	 * Checks the configuration for: tx_seminars_seminar/.
+	 * Checks the configuration for: Tx_Seminars_Seminar/.
 	 *
 	 * @return void
 	 */
