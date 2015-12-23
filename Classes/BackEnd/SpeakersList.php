@@ -67,8 +67,8 @@ class Tx_Seminars_BackEnd_SpeakersList extends Tx_Seminars_BackEnd_AbstractList 
 			'label_skills', $GLOBALS['LANG']->getLL('speakerlist.skills')
 		);
 
-		/** @var tx_seminars_BagBuilder_Speaker $builder */
-		$builder = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_seminars_BagBuilder_Speaker');
+		/** @var Tx_Seminars_BagBuilder_Speaker $builder */
+		$builder = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Tx_Seminars_BagBuilder_Speaker');
 		$builder->showHiddenRecords();
 
 		$builder->setSourcePages($pageData['uid'], self::RECURSION_DEPTH);
