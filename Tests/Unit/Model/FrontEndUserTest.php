@@ -578,7 +578,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	public function getDefaultCategoriesFromGroupForUserWithOneGroupWithCategoryReturnsThisCategory() {
 		$categories = new tx_oelib_List();
 		$categories->add(
-			tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Category')
+			tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Category')
 				->getNewGhost()
 		);
 
@@ -603,7 +603,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function getDefaultCategoriesFromGroupForUserWithOneGroupWithTwoCategoriesReturnsTwoCategories() {
 		$categoryMapper = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_Category');
+			'Tx_Seminars_Mapper_Category');
 		$categories = new tx_oelib_List();
 		$categories->add($categoryMapper->getNewGhost());
 		$categories->add($categoryMapper->getNewGhost());
@@ -637,7 +637,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 
 		$categories = new tx_oelib_List();
 		$categories->add(
-			tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Category')
+			tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Category')
 				->getNewGhost()
 		);
 
@@ -662,7 +662,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function getDefaultCategoriesFromGroupForUserWithTwoGroupsBothWithSameCategoryReturnsOneCategory() {
 		$categoryGhost = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_Category')->getNewGhost();
+			'Tx_Seminars_Mapper_Category')->getNewGhost();
 		$categories = new tx_oelib_List();
 		$categories->add($categoryGhost);
 
@@ -694,7 +694,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function getDefaultCategoriesFromGroupForUserWithTwoGroupsBothWithCategoriesReturnsTwoCategories() {
 		$categoryMapper = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_Category'
+			'Tx_Seminars_Mapper_Category'
 		);
 		$frontEndGroupMapper = tx_oelib_MapperRegistry::get(
 			'tx_seminars_Mapper_FrontEndUserGroup');
@@ -756,7 +756,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	public function hasDefaultCategoriesForUserWithOneGroupWithCategoryReturnsTrue() {
 		$categories = new tx_oelib_List();
 		$categories->add(
-			tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Category')
+			tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Category')
 				->getNewGhost()
 		);
 

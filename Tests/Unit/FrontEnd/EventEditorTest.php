@@ -2523,7 +2523,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 	 */
 	public function modifyDataToInsertForNewEventAndUserWithOneDefaultCategoryAddsThisCategory() {
 		$categories = new tx_oelib_List();
-		$category = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Category')
+		$category = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Category')
 			->getNewGhost();
 		$categories->add($category);
 
@@ -2553,7 +2553,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 	 * @test
 	 */
 	public function modifyDataToInsertForNewEventAndUserWithTwoDefaultCategoriesAddsTheseCategories() {
-		$categoryMapper = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Category');
+		$categoryMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Category');
 		$category1 = $categoryMapper->getNewGhost();
 		$category2 = $categoryMapper->getNewGhost();
 
@@ -2588,7 +2588,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 	 */
 	public function modifyDataToInsertForEditedEventAndUserWithOneDefaultCategoryDoesNotAddTheUsersCategory() {
 		$categories = new tx_oelib_List();
-		$category = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Category')
+		$category = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Category')
 			->getNewGhost();
 		$categories->add($category);
 
@@ -2863,7 +2863,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 	public function validateCheckboxesForUserWithDefaultCategoriesAndCategoriesRequiredAndEmptyReturnsTrue() {
 		$categories = new tx_oelib_List();
 		$categories->add(
-			tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Category')
+			tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Category')
 				->getNewGhost()
 		);
 

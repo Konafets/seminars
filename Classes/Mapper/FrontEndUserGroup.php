@@ -32,7 +32,7 @@ class tx_seminars_Mapper_FrontEndUserGroup extends tx_oelib_Mapper_FrontEndUserG
 	 */
 	protected $relations = array(
 		'tx_seminars_reviewer' => 'tx_oelib_Mapper_BackEndUser',
-		'tx_seminars_default_categories' => 'tx_seminars_Mapper_Category',
+		'tx_seminars_default_categories' => 'Tx_Seminars_Mapper_Category',
 		'tx_seminars_default_organizer' => 'tx_seminars_Mapper_Organizer',
 	);
 }

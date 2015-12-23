@@ -265,7 +265,7 @@ class tx_seminars_Model_FrontEndUserGroupTest extends tx_phpunit_testcase {
 	 */
 	public function getDefaultCategoriesForOneAssignedCategoryReturnsThisCategoryInList() {
 		$list = new tx_oelib_List();
-		$category = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Category')
+		$category = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Category')
 			->getNewGhost();
 
 		$list->add($category);
@@ -299,7 +299,7 @@ class tx_seminars_Model_FrontEndUserGroupTest extends tx_phpunit_testcase {
 	public function hasDefaultCategoriesForOneAssignedCategoryReturnsTrue() {
 		$list = new tx_oelib_List();
 		$list->add(
-			tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Category')
+			tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Category')
 				->getNewGhost()
 		);
 

@@ -37,7 +37,7 @@ class tx_seminars_Mapper_Event extends tx_oelib_DataMapper {
 	 */
 	protected $relations = array(
 		'topic' => 'tx_seminars_Mapper_Event',
-		'categories' => 'tx_seminars_Mapper_Category',
+		'categories' => 'Tx_Seminars_Mapper_Category',
 		'event_type' => 'tx_seminars_Mapper_EventType',
 		'timeslots' => 'tx_seminars_Mapper_TimeSlot',
 		'place' => 'tx_seminars_Mapper_Place',
