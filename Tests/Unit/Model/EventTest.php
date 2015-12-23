@@ -714,7 +714,7 @@ class tx_seminars_Model_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getCombinedSingleViewPageForAvailableEventTypeWithoutSingleViewPageReturnsEmptyString() {
-		$eventType = new tx_seminars_Model_EventType();
+		$eventType = new Tx_Seminars_Model_EventType();
 		$eventType->setData(array());
 		$this->fixture->setData(array(
 			'event_type' => $eventType, 'categories' => new tx_oelib_List()
@@ -730,7 +730,7 @@ class tx_seminars_Model_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getCombinedSingleViewPageForAvailableEventTypeWithSingleViewPageReturnsSingleViewPageFromEventType() {
-		$eventType = new tx_seminars_Model_EventType();
+		$eventType = new Tx_Seminars_Model_EventType();
 		$eventType->setData(array('single_view_page' => 42));
 		$this->fixture->setData(array(
 			'event_type' => $eventType, 'categories' => new tx_oelib_List()
@@ -827,7 +827,7 @@ class tx_seminars_Model_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getCombinedSingleViewPageUsesDetailsPageInsteadOfEventTypeIfBothAreAvailable() {
-		$eventType = new tx_seminars_Model_EventType();
+		$eventType = new Tx_Seminars_Model_EventType();
 		$eventType->setData(array('single_view_page' => 42));
 
 		$this->fixture->setData(array(
@@ -846,7 +846,7 @@ class tx_seminars_Model_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getCombinedSingleViewPageUsesEventTypeInsteadOfCategoriesIfBothAreAvailable() {
-		$eventType = new tx_seminars_Model_EventType();
+		$eventType = new Tx_Seminars_Model_EventType();
 		$eventType->setData(array('single_view_page' => 42));
 		$category = new Tx_Seminars_Model_Category();
 		$category->setData(array('single_view_page' => 91));

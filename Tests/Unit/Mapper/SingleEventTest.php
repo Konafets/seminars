@@ -148,7 +148,7 @@ class tx_seminars_Mapper_SingleEventTest extends tx_phpunit_testcase {
 					'object_type' => tx_seminars_Model_Event::TYPE_COMPLETE,
 					'event_type' => $eventType->getUid(),
 				)
-			)->getEventType() instanceof tx_seminars_Model_EventType
+			)->getEventType() instanceof Tx_Seminars_Model_EventType
 		);
 	}
 

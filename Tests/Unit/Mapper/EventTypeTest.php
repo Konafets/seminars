@@ -51,7 +51,7 @@ class Tx_Seminars_Mapper_EventTypeTest extends tx_phpunit_testcase {
 	 */
 	public function findWithUidReturnsEventTypeInstance() {
 		self::assertTrue(
-			$this->fixture->find(1) instanceof tx_seminars_Model_EventType
+			$this->fixture->find(1) instanceof Tx_Seminars_Model_EventType
 		);
 	}
 
@@ -63,7 +63,7 @@ class Tx_Seminars_Mapper_EventTypeTest extends tx_phpunit_testcase {
 			'tx_seminars_event_types', array('title' => 'Workshop')
 		);
 
-		/** @var tx_seminars_Model_EventType $model */
+		/** @var Tx_Seminars_Model_EventType $model */
 		$model = $this->fixture->find($uid);
 		self::assertEquals(
 			'Workshop',

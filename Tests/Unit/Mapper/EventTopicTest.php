@@ -148,7 +148,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 					'object_type' => tx_seminars_Model_Event::TYPE_TOPIC,
 					'event_type' => $eventType->getUid(),
 				)
-			)->getEventType() instanceof tx_seminars_Model_EventType
+			)->getEventType() instanceof Tx_Seminars_Model_EventType
 		);
 	}
 

@@ -182,7 +182,7 @@ class Tx_Seminars_Mapper_EventDateTest extends tx_phpunit_testcase {
 					'object_type' => tx_seminars_Model_Event::TYPE_DATE,
 					'topic' => $topic->getUid(),
 				)
-			)->getEventType() instanceof tx_seminars_Model_EventType
+			)->getEventType() instanceof Tx_Seminars_Model_EventType
 		);
 	}
 
