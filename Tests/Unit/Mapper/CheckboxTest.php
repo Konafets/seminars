@@ -51,7 +51,7 @@ class Tx_Seminars_Mapper_CheckboxTest extends tx_phpunit_testcase {
 	 */
 	public function findWithUidReturnsCheckboxInstance() {
 		self::assertTrue(
-			$this->fixture->find(1) instanceof tx_seminars_Model_Checkbox
+			$this->fixture->find(1) instanceof Tx_Seminars_Model_Checkbox
 		);
 	}
 
@@ -62,7 +62,7 @@ class Tx_Seminars_Mapper_CheckboxTest extends tx_phpunit_testcase {
 		$uid = $this->testingFramework->createRecord(
 			'tx_seminars_checkboxes', array('title' => 'I agree with the T&C.')
 		);
-		/** @var tx_seminars_Model_Checkbox $model */
+		/** @var Tx_Seminars_Model_Checkbox $model */
 		$model = $this->fixture->find($uid);
 
 		self::assertEquals(

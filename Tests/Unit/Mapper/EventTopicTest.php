@@ -309,7 +309,7 @@ class Tx_Seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 		/** @var tx_seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
-			$model->getCheckboxes()->first() instanceof tx_seminars_Model_Checkbox
+			$model->getCheckboxes()->first() instanceof Tx_Seminars_Model_Checkbox
 		);
 	}
 
