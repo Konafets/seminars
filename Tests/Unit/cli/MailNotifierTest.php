@@ -24,7 +24,7 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
  */
 class Tx_Seminars_Cli_MailNotifierTest extends Tx_Phpunit_TestCase {
 	/**
-	 * @var tx_seminars_cli_MailNotifier
+	 * @var Tx_Seminars_cli_MailNotifier
 	 */
 	protected $fixture = NULL;
 
@@ -74,7 +74,7 @@ class Tx_Seminars_Cli_MailNotifierTest extends Tx_Phpunit_TestCase {
 		));
 		tx_oelib_ConfigurationRegistry::getInstance()->set('plugin.tx_seminars', $this->configuration);
 
-		$this->fixture = new tx_seminars_cli_MailNotifier();
+		$this->fixture = new Tx_Seminars_cli_MailNotifier();
 	}
 
 	protected function tearDown() {
