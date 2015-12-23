@@ -139,7 +139,7 @@ class tx_seminars_Mapper_EventTopicTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getEventTypeForEventTopicWithEventTypeReturnsEventTypeInstance() {
-		$eventType = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_EventType')
+		$eventType = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_EventType')
 			->getLoadedTestingModel(array());
 
 		self::assertTrue(
