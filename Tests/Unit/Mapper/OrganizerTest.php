@@ -51,7 +51,7 @@ class Tx_Seminars_Mapper_OrganizerTest extends tx_phpunit_testcase {
 	 */
 	public function findWithUidReturnsOrganizerInstance() {
 		self::assertTrue(
-			$this->fixture->find(1) instanceof tx_seminars_Model_Organizer
+			$this->fixture->find(1) instanceof Tx_Seminars_Model_Organizer
 		);
 	}
 

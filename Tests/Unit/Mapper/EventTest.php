@@ -522,7 +522,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
-			$model->getOrganizers()->first() instanceof tx_seminars_Model_Organizer
+			$model->getOrganizers()->first() instanceof Tx_Seminars_Model_Organizer
 		);
 	}
 
@@ -576,7 +576,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
-			$model->getOrganizingPartners()->first() instanceof tx_seminars_Model_Organizer
+			$model->getOrganizingPartners()->first() instanceof Tx_Seminars_Model_Organizer
 		);
 	}
 
