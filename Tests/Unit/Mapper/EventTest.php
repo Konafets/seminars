@@ -147,7 +147,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getPlacesWithOnePlaceReturnsListOfPlaces() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_seminars');
-		$place = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Place')
+		$place = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Place')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $uid, $place->getUid(), 'place'
@@ -165,7 +165,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getPlacesWithOnePlaceReturnsOnePlace() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_seminars');
-		$place = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Place')
+		$place = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Place')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $uid, $place->getUid(), 'place'

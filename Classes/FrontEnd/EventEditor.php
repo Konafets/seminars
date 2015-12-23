@@ -300,8 +300,8 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 	public function populateListPlaces(array $items, $unused = NULL, tx_ameosformidable $formidable = NULL) {
 		$result = $items;
 
-		/** @var tx_seminars_Mapper_Place $placeMapper */
-		$placeMapper = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Place');
+		/** @var Tx_Seminars_Mapper_Place $placeMapper */
+		$placeMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Place');
 		$places = $placeMapper->findByPageUid($this->getPidsForAuxiliaryRecords(), 'title ASC');
 
 		if ($formidable !== NULL) {
@@ -1439,8 +1439,8 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		$place->setData(self::createBasicAuxiliaryData());
 		self::setPlaceData($place, 'newPlace_', $formData);
 		$place->markAsDirty();
-		/** @var tx_seminars_Mapper_Place $mapper */
-		$mapper = Tx_Oelib_MapperRegistry::get('tx_seminars_Mapper_Place');
+		/** @var Tx_Seminars_Mapper_Place $mapper */
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Place');
 		$mapper->save($place);
 
 		$editButtonConfiguration =& $formidable->_navConf(
@@ -1483,8 +1483,8 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 	public static function updatePlace(tx_ameosformidable $formidable) {
 		$formData = $formidable->oMajixEvent->getParams();
 		$frontEndUser = self::getLoggedInUser();
-		/** @var tx_seminars_Mapper_Place $placeMapper */
-		$placeMapper = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Place');
+		/** @var Tx_Seminars_Mapper_Place $placeMapper */
+		$placeMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Place');
 
 		try {
 			/** @var tx_seminars_Model_Place $place */
@@ -1640,8 +1640,8 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 			return $formidable->majixExecJs('alert("$placeUid must be >= 0.");');
 		}
 
-		/** @var tx_seminars_Mapper_Place $placeMapper */
-		$placeMapper = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Place');
+		/** @var Tx_Seminars_Mapper_Place $placeMapper */
+		$placeMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Place');
 
 		try {
 			/** @var tx_seminars_Model_Place $place */
