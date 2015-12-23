@@ -735,7 +735,7 @@ class tx_seminars_seminar extends tx_seminars_timespan {
 	 * @param string $speakerRelation
 	 *        the relation in which the speakers stand to this event: "speakers" (default), "partners", "tutors" or "leaders"
 	 *
-	 * @return tx_seminars_Bag_Speaker a speakerbag object
+	 * @return Tx_Seminars_Bag_Speaker a speakerbag object
 	 */
 	private function getSpeakerBag($speakerRelation = 'speakers') {
 		switch ($speakerRelation) {
@@ -756,7 +756,7 @@ class tx_seminars_seminar extends tx_seminars_timespan {
 		}
 
 		return GeneralUtility::makeInstance(
-			'tx_seminars_Bag_Speaker',
+			'Tx_Seminars_Bag_Speaker',
 			$mmTable . '.uid_local = ' . $this->getUid() . ' AND ' . 'tx_seminars_speakers.uid = ' . $mmTable . '.uid_foreign',
 			$mmTable,
 			'sorting'
