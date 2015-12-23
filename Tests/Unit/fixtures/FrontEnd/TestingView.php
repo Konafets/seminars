@@ -20,7 +20,7 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class Tx_Seminars_Tests_Fixtures_FrontEnd_TestingView extends tx_seminars_FrontEnd_AbstractView {
+class Tx_Seminars_Tests_Fixtures_FrontEnd_TestingView extends Tx_Seminars_FrontEnd_AbstractView {
 	/**
 	 * Renders the view and returns its content.
 	 *

@@ -26,7 +26,7 @@ require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('static
  * @author Niels Pardon <mail@niels-pardon.de>
  * @author Mario Rimann <typo3-coding@rimann.org>
  */
-class tx_seminars_FrontEnd_SelectorWidget extends tx_seminars_FrontEnd_AbstractView {
+class tx_seminars_FrontEnd_SelectorWidget extends Tx_Seminars_FrontEnd_AbstractView {
 	/**
 	 * @var tx_staticinfotables_pi1 needed for the list view to convert ISO
 	 *                              codes to country names and languages

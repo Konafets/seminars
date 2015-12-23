@@ -2014,7 +2014,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 				$imageConfiguration = array(
 					'altText' => $this->seminar->getTitle(),
 					'titleText' => $this->seminar->getTitle(),
-					'file' => tx_seminars_FrontEnd_AbstractView::UPLOAD_PATH . $this->seminar->getImage(),
+					'file' => Tx_Seminars_FrontEnd_AbstractView::UPLOAD_PATH . $this->seminar->getImage(),
 					'file.' => array(
 						'width' => $this->getConfValueInteger('seminarImageListViewWidth') . 'c',
 						'height' => $this->getConfValueInteger('seminarImageListViewHeight') . 'c',
@@ -3034,7 +3034,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 
 		return $this->cObj->IMAGE(
 			array(
-				'file' => tx_seminars_FrontEnd_AbstractView::UPLOAD_PATH . $iconData['icon'],
+				'file' => Tx_Seminars_FrontEnd_AbstractView::UPLOAD_PATH . $iconData['icon'],
 				'titleText' => $iconData['title'],
 			)
 		);

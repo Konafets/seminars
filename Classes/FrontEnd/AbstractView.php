@@ -30,7 +30,7 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-abstract class tx_seminars_FrontEnd_AbstractView extends tx_oelib_templatehelper {
+abstract class Tx_Seminars_FrontEnd_AbstractView extends tx_oelib_templatehelper {
 	/**
 	 * @var string same as plugin name
 	 */

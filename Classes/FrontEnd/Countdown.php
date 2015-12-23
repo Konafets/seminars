@@ -21,7 +21,7 @@
  * @author Niels Pardon <mail@niels-pardon.de>
  * @author Mario Rimann <typo3-coding@rimann.org>
  */
-class tx_seminars_FrontEnd_Countdown extends tx_seminars_FrontEnd_AbstractView {
+class tx_seminars_FrontEnd_Countdown extends Tx_Seminars_FrontEnd_AbstractView {
 	/**
 	 * @var tx_seminars_Mapper_Event
 	 */
