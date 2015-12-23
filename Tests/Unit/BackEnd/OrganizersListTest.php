@@ -116,7 +116,7 @@ class Tx_Seminars_BackEnd_OrganizersListTest extends tx_phpunit_testcase {
 	public function testNewButtonForOrganizerStorageSettingSetInUsersGroupSetsThisPidAsNewRecordPid() {
 		$newOrganizerFolder = $this->dummySysFolderPid + 1;
 		$backEndGroup = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_BackEndUserGroup')->getLoadedTestingModel(
+			'Tx_Seminars_Mapper_BackEndUserGroup')->getLoadedTestingModel(
 			array('tx_seminars_auxiliaries_folder' => $newOrganizerFolder)
 		);
 		$backEndUser = tx_oelib_MapperRegistry::get(

@@ -504,7 +504,7 @@ class Tx_Seminars_BackEnd_RegistrationsListTest extends tx_phpunit_testcase {
 	public function testNewButtonForRegistrationStorageSettingSetInUsersGroupSetsThisPidAsNewRecordPid() {
 		$newRegistrationFolder = $this->dummySysFolderPid + 1;
 		$backEndGroup = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_BackEndUserGroup')->getLoadedTestingModel(
+			'Tx_Seminars_Mapper_BackEndUserGroup')->getLoadedTestingModel(
 			array('tx_seminars_registrations_folder' => $newRegistrationFolder)
 		);
 		$backEndUser = tx_oelib_MapperRegistry::get(

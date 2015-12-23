@@ -20,20 +20,20 @@
  *
  * @author Bernd Schönbach <bernd@oliverklee.de>
  */
-class tx_seminars_Mapper_BackEndUserGroupTest extends tx_phpunit_testcase {
+class Tx_Seminars_Mapper_BackEndUserGroupTest extends tx_phpunit_testcase {
 	/**
 	 * @var tx_oelib_testingFramework for creating dummy records
 	 */
 	private $testingFramework;
 	/**
-	 * @var tx_seminars_Mapper_BackEndUserGroup the object to test
+	 * @var Tx_Seminars_Mapper_BackEndUserGroup the object to test
 	 */
 	private $fixture;
 
 	protected function setUp() {
 		$this->testingFramework = new tx_oelib_testingFramework('tx_oelib');
 
-		$this->fixture = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_BackEndUserGroup');
+		$this->fixture = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_BackEndUserGroup');
 	}
 
 	protected function tearDown() {

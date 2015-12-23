@@ -152,7 +152,7 @@ class Tx_Seminars_BackEnd_SpeakersListTest extends tx_phpunit_testcase {
 	public function testNewButtonForSpeakerStorageSettingSetInUsersGroupSetsThisPidAsNewRecordPid() {
 		$newSpeakerFolder = $this->dummySysFolderPid + 1;
 		$backEndGroup = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_BackEndUserGroup')->getLoadedTestingModel(
+			'Tx_Seminars_Mapper_BackEndUserGroup')->getLoadedTestingModel(
 			array('tx_seminars_auxiliaries_folder' => $newSpeakerFolder)
 		);
 		$backEndUser = tx_oelib_MapperRegistry::get(
