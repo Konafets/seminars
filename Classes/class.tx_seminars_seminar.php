@@ -4205,8 +4205,8 @@ class tx_seminars_seminar extends tx_seminars_timespan {
 			return array();
 		}
 
-		/** @var tx_seminars_BagBuilder_Category $builder */
-		$builder = GeneralUtility::makeInstance('tx_seminars_BagBuilder_Category');
+		/** @var Tx_Seminars_BagBuilder_Category $builder */
+		$builder = GeneralUtility::makeInstance('Tx_Seminars_BagBuilder_Category');
 		$builder->limitToEvents($this->getTopicUid());
 		$builder->sortByRelationOrder();
 		$bag = $builder->build();
