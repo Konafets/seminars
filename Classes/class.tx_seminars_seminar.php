@@ -4398,8 +4398,8 @@ class tx_seminars_seminar extends tx_seminars_timespan {
 	 *                               event has no required events
 	 */
 	public function getRequirements() {
-		/** @var tx_seminars_BagBuilder_Event $builder */
-		$builder = GeneralUtility::makeInstance('tx_seminars_BagBuilder_Event');
+		/** @var Tx_Seminars_BagBuilder_Event $builder */
+		$builder = GeneralUtility::makeInstance('Tx_Seminars_BagBuilder_Event');
 		$builder->limitToRequiredEventTopics($this->getTopicUid());
 
 		return $builder->build();
@@ -4413,8 +4413,8 @@ class tx_seminars_seminar extends tx_seminars_timespan {
 	 *                               this event has no depending events
 	 */
 	public function getDependencies() {
-		/** @var tx_seminars_BagBuilder_Event $builder */
-		$builder = GeneralUtility::makeInstance('tx_seminars_BagBuilder_Event');
+		/** @var Tx_Seminars_BagBuilder_Event $builder */
+		$builder = GeneralUtility::makeInstance('Tx_Seminars_BagBuilder_Event');
 		$builder->limitToDependingEventTopics($this->getTopicUid());
 
 		return $builder->build();

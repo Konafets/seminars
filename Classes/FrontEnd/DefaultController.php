@@ -2156,12 +2156,12 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 * Returns a seminarBagBuilder object with the source pages set for the list
 	 * view.
 	 *
-	 * @return tx_seminars_BagBuilder_Event the seminarBagBuilder object for
+	 * @return Tx_Seminars_BagBuilder_Event the seminarBagBuilder object for
 	 *                                       the list view
 	 */
 	private function createSeminarBagBuilder() {
-		/** @var tx_seminars_BagBuilder_Event $seminarBagBuilder */
-		$seminarBagBuilder = GeneralUtility::makeInstance('tx_seminars_BagBuilder_Event');
+		/** @var Tx_Seminars_BagBuilder_Event $seminarBagBuilder */
+		$seminarBagBuilder = GeneralUtility::makeInstance('Tx_Seminars_BagBuilder_Event');
 
 		$seminarBagBuilder->setSourcePages(
 			$this->getConfValueString('pidList'),
@@ -2285,12 +2285,12 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 * Limits the given seminarbagbuilder for additional parameters needed to
 	 * build the list view.
 	 *
-	 * @param tx_seminars_BagBuilder_Event $builder
+	 * @param Tx_Seminars_BagBuilder_Event $builder
 	 *        the seminarbagbuilder to limit for additional parameters
 	 *
 	 * @return void
 	 */
-	protected function limitForAdditionalParameters(tx_seminars_BagBuilder_Event $builder) {
+	protected function limitForAdditionalParameters(Tx_Seminars_BagBuilder_Event $builder) {
 		// Adds the query parameter that result from the user selection in the
 		// selector widget (including the search form).
 		if (is_array($this->piVars['language'])) {
@@ -3160,11 +3160,11 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	/**
 	 * Filters the given seminar bag builder to the date set in piVars.
 	 *
-	 * @param tx_seminars_BagBuilder_Event $builder the bag builder to limit by date
+	 * @param Tx_Seminars_BagBuilder_Event $builder the bag builder to limit by date
 	 *
 	 * @return void
 	 */
-	private function filterByDate(tx_seminars_BagBuilder_Event $builder) {
+	private function filterByDate(Tx_Seminars_BagBuilder_Event $builder) {
 		$dateFrom = $this->getTimestampFromDatePiVars('from');
 		if ($dateFrom > 0) {
 			$builder->limitToEarliestBeginOrEndDate($dateFrom);
@@ -3385,7 +3385,7 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	/**
 	 * Limits the bag to events within the time frame set by setup.
 	 *
-	 * @param tx_seminars_BagBuilder_Event $builder
+	 * @param Tx_Seminars_BagBuilder_Event $builder
 	 *        the seminarbagbuilder to limit by time frame
 	 *
 	 * @return void
