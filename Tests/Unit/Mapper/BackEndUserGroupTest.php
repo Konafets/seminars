@@ -53,7 +53,7 @@ class Tx_Seminars_Mapper_BackEndUserGroupTest extends tx_phpunit_testcase {
 
 		self::assertTrue(
 			$this->fixture->find($uid)
-				instanceof tx_seminars_Model_BackEndUserGroup
+				instanceof Tx_Seminars_Model_BackEndUserGroup
 		);
 	}
 
@@ -61,7 +61,7 @@ class Tx_Seminars_Mapper_BackEndUserGroupTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function loadForExistingUserGroupCanLoadUserGroupData() {
-		/** @var tx_seminars_Model_BackEndUserGroup $userGroup */
+		/** @var Tx_Seminars_Model_BackEndUserGroup $userGroup */
 		$userGroup = $this->fixture->find(
 			$this->testingFramework->createBackEndUserGroup(
 				array('title' => 'foo')

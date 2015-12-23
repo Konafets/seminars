@@ -77,7 +77,7 @@ class tx_seminars_Model_BackEndUser extends tx_oelib_Model_BackEndUser {
 
 		$result = 0;
 
-		/** @var tx_seminars_Model_BackEndUserGroup $group */
+		/** @var Tx_Seminars_Model_BackEndUserGroup $group */
 		foreach ($groups as $group) {
 			switch ($type) {
 				case 'event':
