@@ -25,7 +25,7 @@ require(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('seminars') 
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
+class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	/**
 	 * @var string same as class name
 	 */

@@ -52,7 +52,7 @@ ExtensionManagementUtility::addPItoST43(
 	$_EXTKEY, 'Classes/FrontEnd/DefaultController.php', '_pi1', 'list_type', 0
 );
 ExtensionManagementUtility::addTypoScript($_EXTKEY, 'setup', '
-	plugin.' . ExtensionManagementUtility::getCN($_EXTKEY) . '_pi1.userFunc = tx_seminars_FrontEnd_DefaultController->main
+	plugin.' . ExtensionManagementUtility::getCN($_EXTKEY) . '_pi1.userFunc = Tx_Seminars_FrontEnd_DefaultController->main
 ', 43);
 
 if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 6002000) {
