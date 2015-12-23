@@ -51,7 +51,7 @@ class Tx_Seminars_Mapper_PlaceTest extends tx_phpunit_testcase {
 	 */
 	public function findWithUidReturnsPlaceInstance() {
 		self::assertTrue(
-			$this->fixture->find(1) instanceof tx_seminars_Model_Place
+			$this->fixture->find(1) instanceof Tx_Seminars_Model_Place
 		);
 	}
 
@@ -63,7 +63,7 @@ class Tx_Seminars_Mapper_PlaceTest extends tx_phpunit_testcase {
 			'tx_seminars_sites', array('title' => 'Nice place')
 		);
 
-		/** @var tx_seminars_Model_Place $model */
+		/** @var Tx_Seminars_Model_Place $model */
 		$model = $this->fixture->find($uid);
 		self::assertEquals(
 			'Nice place',

@@ -160,7 +160,7 @@ class Tx_Seminars_Mapper_TimeSlotTest extends tx_phpunit_testcase {
 		/** @var tx_seminars_Model_TimeSlot $model */
 		$model = $this->fixture->find($timeSlotUid);
 		self::assertTrue(
-			$model->getPlace() instanceof tx_seminars_Model_Place
+			$model->getPlace() instanceof Tx_Seminars_Model_Place
 		);
 	}
 }
