@@ -26,7 +26,7 @@ require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('static
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_seminar extends tx_seminars_timespan {
+class tx_seminars_seminar extends Tx_Seminars_Timespan {
 	/**
 	 * the same as the class name
 	 *
@@ -4486,7 +4486,7 @@ class tx_seminars_seminar extends tx_seminars_timespan {
 		foreach ($speakers as $speaker) {
 			$speakerDeadline = $beginDate -
 				($speaker->getCancelationPeriodInDays()
-					* tx_seminars_timespan::SECONDS_PER_DAY
+					* Tx_Seminars_Timespan::SECONDS_PER_DAY
 				);
 			$deadline = min($speakerDeadline, $deadline);
 		}

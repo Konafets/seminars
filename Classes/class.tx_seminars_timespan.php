@@ -21,9 +21,9 @@
  * @author Niels Pardon <mail@niels-pardon.de>
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-abstract class tx_seminars_timespan extends Tx_Seminars_OldModel_Abstract {
+abstract class Tx_Seminars_Timespan extends Tx_Seminars_OldModel_Abstract {
 	/** @var string same as class name */
-	public $prefixId = 'tx_seminars_timespan';
+	public $prefixId = 'Tx_Seminars_Timespan';
 	/** @var string path to this script relative to the extension dir */
 	public $scriptRelPath = 'class.tx_seminars_timespan.php';
 
