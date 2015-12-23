@@ -2100,7 +2100,7 @@ class tx_seminars_seminar extends tx_seminars_timespan {
 	/**
 	 * Returns the first organizer.
 	 *
-	 * @return tx_seminars_OldModel_Organizer|NULL
+	 * @return Tx_Seminars_OldModel_Organizer|NULL
 	 */
 	public function getFirstOrganizer() {
 		if (!$this->hasOrganizers()) {
@@ -2129,7 +2129,7 @@ class tx_seminars_seminar extends tx_seminars_timespan {
 		$result = array();
 
 		$organizers = $this->getOrganizerBag();
-		/** @var tx_seminars_OldModel_Organizer $organizer */
+		/** @var Tx_Seminars_OldModel_Organizer $organizer */
 		foreach ($organizers as $organizer) {
 			$result[] = $plugin->cObj->getTypoLink(
 				htmlspecialchars($organizer->getName()),
@@ -2155,7 +2155,7 @@ class tx_seminars_seminar extends tx_seminars_timespan {
 		$result = array();
 
 		$organizers = $this->getOrganizerBag();
-		/** @var tx_seminars_OldModel_Organizer $organizer */
+		/** @var Tx_Seminars_OldModel_Organizer $organizer */
 		foreach ($organizers as $organizer) {
 			$result[] = $organizer->getName() . ($organizer->hasHomepage() ? ', ' . $organizer->getHomepage() : '');
 		}
@@ -2178,7 +2178,7 @@ class tx_seminars_seminar extends tx_seminars_timespan {
 		$result = array();
 
 		$organizers = $this->getOrganizerBag();
-		/** @var tx_seminars_OldModel_Organizer $organizer */
+		/** @var Tx_Seminars_OldModel_Organizer $organizer */
 		foreach ($organizers as $organizer) {
 			$result[] = '"' . $organizer->getName() . '"' . ' <' . $organizer->getEMailAddress() . '>';
 		}
@@ -2200,7 +2200,7 @@ class tx_seminars_seminar extends tx_seminars_timespan {
 		$result = array();
 
 		$organizers = $this->getOrganizerBag();
-		/** @var tx_seminars_OldModel_Organizer $organizer */
+		/** @var Tx_Seminars_OldModel_Organizer $organizer */
 		foreach ($organizers as $organizer) {
 			$result[] = $organizer->getEMailAddress();
 		}
@@ -2222,7 +2222,7 @@ class tx_seminars_seminar extends tx_seminars_timespan {
 		$result = array();
 
 		$organizers = $this->getOrganizerBag();
-		/** @var tx_seminars_OldModel_Organizer $organizer */
+		/** @var Tx_Seminars_OldModel_Organizer $organizer */
 		foreach ($organizers as $organizer) {
 			$emailFooter = $organizer->getEmailFooter();
 			if ($emailFooter !== '') {
@@ -2277,7 +2277,7 @@ class tx_seminars_seminar extends tx_seminars_timespan {
 			'tx_seminars_seminars_organizing_partners_mm'
 		);
 
-		/** @var tx_seminars_OldModel_Organizer $organizer */
+		/** @var Tx_Seminars_OldModel_Organizer $organizer */
 		foreach ($organizerBag as $organizer) {
 			$result[] = $plugin->cObj->getTypoLink(
 				$organizer->getName(),

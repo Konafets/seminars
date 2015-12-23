@@ -20,9 +20,9 @@
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class tx_seminars_OldModel_OrganizerTest extends tx_phpunit_testcase {
+class Tx_Seminars_OldModel_OrganizerTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_seminars_OldModel_Organizer
+	 * @var Tx_Seminars_OldModel_Organizer
 	 */
 	private $fixture;
 	/**
@@ -32,7 +32,7 @@ class tx_seminars_OldModel_OrganizerTest extends tx_phpunit_testcase {
 	/**
 	 * a maximal filled organizer
 	 *
-	 * @var tx_seminars_OldModel_Organizer
+	 * @var Tx_Seminars_OldModel_Organizer
 	 */
 	private $maximalFixture;
 
@@ -45,7 +45,7 @@ class tx_seminars_OldModel_OrganizerTest extends tx_phpunit_testcase {
 				'email' => 'foo@test.com'
 			)
 		);
-		$this->fixture = new tx_seminars_OldModel_Organizer($fixtureUid);
+		$this->fixture = new Tx_Seminars_OldModel_Organizer($fixtureUid);
 
 		$maximalFixtureUid = $this->testingFramework->createRecord(
 			'tx_seminars_organizers',
@@ -58,7 +58,7 @@ class tx_seminars_OldModel_OrganizerTest extends tx_phpunit_testcase {
 				'description' => 'foo',
 			)
 		);
-		$this->maximalFixture = new tx_seminars_OldModel_Organizer($maximalFixtureUid);
+		$this->maximalFixture = new Tx_Seminars_OldModel_Organizer($maximalFixtureUid);
 	}
 
 	protected function tearDown() {
