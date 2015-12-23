@@ -49,7 +49,7 @@ class Tx_Seminars_Mapper_FrontEndUserTest extends tx_phpunit_testcase {
 	public function mapperForGhostReturnsSeminarsFrontEndUserInstance() {
 		self::assertTrue(
 			$this->fixture->getNewGhost()
-				instanceof tx_seminars_Model_FrontEndUser
+				instanceof Tx_Seminars_Model_FrontEndUser
 		);
 	}
 

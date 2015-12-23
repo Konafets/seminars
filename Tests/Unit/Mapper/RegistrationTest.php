@@ -123,7 +123,7 @@ class Tx_Seminars_Mapper_RegistrationTest extends tx_phpunit_testcase {
 			$this->fixture->getLoadedTestingModel(
 				array('user' => $frontEndUser->getUid())
 			)->getFrontEndUser() instanceof
-				tx_seminars_Model_FrontEndUser
+				Tx_Seminars_Model_FrontEndUser
 		);
 	}
 

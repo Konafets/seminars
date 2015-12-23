@@ -21,14 +21,14 @@
  * @author Bernd Schönbach <bernd@oliverklee.de>
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
+class Tx_Seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_seminars_Model_FrontEndUser the object to test
+	 * @var Tx_Seminars_Model_FrontEndUser the object to test
 	 */
 	private $fixture;
 
 	protected function setUp() {
-		$this->fixture = new tx_seminars_Model_FrontEndUser();
+		$this->fixture = new Tx_Seminars_Model_FrontEndUser();
 		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
 	}
 
@@ -902,7 +902,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function hasDefaultOrganizersForEmptyDefaultOrganizersReturnsFalse() {
 		$fixture = $this->getMock(
-			'tx_seminars_Model_FrontEndUser', array('getDefaultOrganizers')
+			'Tx_Seminars_Model_FrontEndUser', array('getDefaultOrganizers')
 		);
 		$fixture->expects(self::any())->method('getDefaultOrganizers')
 			->will(self::returnValue(new tx_oelib_List()));
@@ -922,7 +922,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$organizers->add($organizer);
 
 			$fixture = $this->getMock(
-			'tx_seminars_Model_FrontEndUser', array('getDefaultOrganizers')
+			'Tx_Seminars_Model_FrontEndUser', array('getDefaultOrganizers')
 		);
 		$fixture->expects(self::any())->method('getDefaultOrganizers')
 			->will(self::returnValue($organizers));

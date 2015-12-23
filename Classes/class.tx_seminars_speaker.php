@@ -301,7 +301,7 @@ class tx_seminars_speaker extends tx_seminars_OldModel_Abstract {
 	/**
 	 * Returns our owner.
 	 *
-	 * @return tx_seminars_Model_FrontEndUser the owner of this model, will be NULL
+	 * @return Tx_Seminars_Model_FrontEndUser the owner of this model, will be NULL
 	 *                                     if this model has no owner
 	 */
 	public function getOwner() {
@@ -317,11 +317,11 @@ class tx_seminars_speaker extends tx_seminars_OldModel_Abstract {
 	/**
 	 * Sets our owner.
 	 *
-	 * @param tx_seminars_Model_FrontEndUser $frontEndUser the owner of this model to set
+	 * @param Tx_Seminars_Model_FrontEndUser $frontEndUser the owner of this model to set
 	 *
 	 * @return void
 	 */
-	public function setOwner(tx_seminars_Model_FrontEndUser $frontEndUser) {
+	public function setOwner(Tx_Seminars_Model_FrontEndUser $frontEndUser) {
 		$this->setRecordPropertyInteger('owner', $frontEndUser->getUid());
 	}
 

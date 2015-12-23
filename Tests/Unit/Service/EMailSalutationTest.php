@@ -71,7 +71,7 @@ class tx_seminars_Service_EMailSalutationTest extends tx_phpunit_testcase {
 	 *        "tx_oelib_Model_FrontEndUser::GENDER_FEMALE" or
 	 *        "tx_oelib_Model_FrontEndUser::GENDER_UNKNOWN", may be empty
 	 *
-	 * @return tx_seminars_Model_FrontEndUser the loaded testing model of a
+	 * @return Tx_Seminars_Model_FrontEndUser the loaded testing model of a
 	 *                                        FE user
 	 */
 	private function createFrontEndUser(
@@ -106,7 +106,7 @@ class tx_seminars_Service_EMailSalutationTest extends tx_phpunit_testcase {
 	 */
 	public function createFrontEndUserReturnsFeUserModel() {
 		self::assertTrue(
-			$this->createFrontEndUser() instanceof tx_seminars_Model_FrontEndUser
+			$this->createFrontEndUser() instanceof Tx_Seminars_Model_FrontEndUser
 		);
 	}
 

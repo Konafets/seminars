@@ -166,7 +166,7 @@ class Tx_Seminars_Mapper_SpeakerTest extends tx_phpunit_testcase {
 			$this->fixture->getLoadedTestingModel(
 				array('owner' => $frontEndUser->getUid())
 			)->getOwner() instanceof
-				tx_seminars_Model_FrontEndUser
+				Tx_Seminars_Model_FrontEndUser
 		);
 	}
 }
