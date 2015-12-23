@@ -110,7 +110,7 @@ class tx_seminars_Model_RegistrationTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getEventReturnsEvent() {
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getNewGhost();
 		$this->fixture->setData(array('seminar' => $event));
 
@@ -124,7 +124,7 @@ class tx_seminars_Model_RegistrationTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getSeminarReturnsEvent() {
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getNewGhost();
 		$this->fixture->setData(array('seminar' => $event));
 
@@ -138,7 +138,7 @@ class tx_seminars_Model_RegistrationTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function setEventSetsEvent() {
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getNewGhost();
 		$this->fixture->setEvent($event);
 
@@ -152,7 +152,7 @@ class tx_seminars_Model_RegistrationTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function setSeminarSetsEvent() {
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getNewGhost();
 		$this->fixture->setSeminar($event);
 

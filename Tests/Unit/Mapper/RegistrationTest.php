@@ -81,7 +81,7 @@ class tx_seminars_Mapper_RegistrationTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getEventWithEventReturnsEventInstance() {
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getNewGhost();
 
 		self::assertTrue(
@@ -96,7 +96,7 @@ class tx_seminars_Mapper_RegistrationTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getSeminarWithEventReturnsEventInstance() {
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getNewGhost();
 
 		self::assertTrue(

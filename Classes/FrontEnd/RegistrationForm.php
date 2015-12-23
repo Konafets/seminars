@@ -188,8 +188,8 @@ class Tx_Seminars_FrontEnd_RegistrationForm extends Tx_Seminars_FrontEnd_Editor 
 	 * @return tx_seminars_Model_Event
 	 */
 	public function getEvent() {
-		/** @var $eventMapper tx_seminars_Mapper_Event */
-		$eventMapper = Tx_Oelib_MapperRegistry::get('tx_seminars_Mapper_Event');
+		/** @var $eventMapper Tx_Seminars_Mapper_Event */
+		$eventMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 		/** @var tx_seminars_Model_Event $event */
 		$event = $eventMapper->find($this->getSeminar()->getUid());
 

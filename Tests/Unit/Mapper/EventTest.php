@@ -21,14 +21,14 @@
  * @author Niels Pardon <mail@niels-pardon.de>
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class tx_seminars_Mapper_EventTest extends tx_phpunit_testcase {
+class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 	/**
 	 * @var tx_oelib_testingFramework
 	 */
 	private $testingFramework;
 
 	/**
-	 * @var tx_seminars_Mapper_Event
+	 * @var Tx_Seminars_Mapper_Event
 	 */
 	private $fixture;
 
@@ -36,7 +36,7 @@ class tx_seminars_Mapper_EventTest extends tx_phpunit_testcase {
 		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
 		tx_oelib_MapperRegistry::getInstance()->activateTestingMode($this->testingFramework);
 
-		$this->fixture = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event');
+		$this->fixture = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 	}
 
 	protected function tearDown() {

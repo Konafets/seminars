@@ -366,7 +366,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 	 * @test
 	 */
 	public function createAbsoluteUrlForEventWithExternalDetailsPageAddsProtocolAndNoSeminarParameter() {
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getLoadedTestingModel(array('details_page' => 'www.example.com'));
 
 		$fixture = new Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder();
@@ -383,7 +383,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 	public function createAbsoluteUrlForEventWithInternalDetailsPageAddsSeminarParameter() {
 		$pageUid = $this->testingFramework->createFrontEndPage();
 
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getLoadedTestingModel(array('details_page' => $pageUid));
 
 		$fixture = new Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder();

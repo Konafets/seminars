@@ -2224,7 +2224,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 	 */
 	public function modifyDataToInsertForPublishSettingPublishImmediatelyDoesNotHideEditedEvent() {
 		$event = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+			'Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$this->fixture->setObjectUid($event->getUid());
 		$this->createAndLoginUserWithPublishSetting(
 			tx_seminars_Model_FrontEndUserGroup::PUBLISH_IMMEDIATELY
@@ -2274,7 +2274,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 	 */
 	public function modifyDataToInsertForPublishSettingHideEditedHidesEditedEvent() {
 		$event = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+			'Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$this->fixture->setObjectUid($event->getUid());
 		$this->createAndLoginUserWithPublishSetting(
 			tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_EDITED
@@ -2293,7 +2293,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 	 */
 	public function modifyDataToInsertForPublishSettingHideNewDoesNotHideEditedEvent() {
 		$event = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+			'Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$this->fixture->setObjectUid($event->getUid());
 		$this->createAndLoginUserWithPublishSetting(
 			tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW
@@ -2343,7 +2343,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 	 */
 	public function modifyDataToInsertForEventNotHiddenOnEditingDoesNotAddPublicationHashToEvent() {
 		$event = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+			'Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$this->fixture->setObjectUid($event->getUid());
 		$this->createAndLoginUserWithPublishSetting(
 			tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW
@@ -2376,7 +2376,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 	 */
 	public function modifyDataToInsertForHiddenEventDoesNotAddPublicationHashToEvent() {
 		$event = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_Event')->getLoadedTestingModel(
+			'Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
 			array('hidden' => 1)
 		);
 		$this->fixture->setObjectUid($event->getUid());
@@ -2607,7 +2607,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 		);
 
 		$this->fixture->setObjectUid(tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_Event')->getLoadedTestingModel(
+			'Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
 				array())->getUid()
 		);
 		$modifiedFormData = $this->fixture->modifyDataToInsert(array());

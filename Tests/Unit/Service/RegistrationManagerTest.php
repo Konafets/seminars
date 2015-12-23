@@ -4846,7 +4846,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** $event tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -4869,7 +4869,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -4892,7 +4892,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -4915,7 +4915,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -4938,7 +4938,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -4960,7 +4960,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -4982,7 +4982,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5160,7 +5160,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5183,7 +5183,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5206,7 +5206,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5229,7 +5229,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5252,7 +5252,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5275,7 +5275,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5298,7 +5298,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5321,7 +5321,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5586,7 +5586,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5607,7 +5607,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5628,7 +5628,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5651,7 +5651,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5672,7 +5672,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5693,7 +5693,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5714,7 +5714,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5735,7 +5735,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5758,7 +5758,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5779,7 +5779,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5800,7 +5800,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5821,7 +5821,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5842,7 +5842,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5864,7 +5864,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		/** @var tx_seminars_registrationmanager $fixture */
 		$fixture = new $className();
 
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event') ->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event') ->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5885,7 +5885,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5906,7 +5906,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5927,7 +5927,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5948,7 +5948,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5971,7 +5971,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -5992,7 +5992,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6013,7 +6013,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6036,7 +6036,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6057,7 +6057,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6078,7 +6078,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6099,7 +6099,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6122,7 +6122,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6145,7 +6145,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6166,7 +6166,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6187,7 +6187,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6208,7 +6208,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6229,7 +6229,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6250,7 +6250,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6271,7 +6271,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6292,7 +6292,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6313,7 +6313,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6334,7 +6334,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6355,7 +6355,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6376,7 +6376,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6397,7 +6397,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6418,7 +6418,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6439,7 +6439,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6460,7 +6460,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6481,7 +6481,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6502,7 +6502,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6523,7 +6523,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6544,7 +6544,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6565,7 +6565,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6586,7 +6586,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6607,7 +6607,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6628,7 +6628,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6649,7 +6649,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6670,7 +6670,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6691,7 +6691,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 
@@ -6712,7 +6712,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		/** @var tx_seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 		$registration = new tx_seminars_Model_Registration();
 		$registration->setEvent($event);
 

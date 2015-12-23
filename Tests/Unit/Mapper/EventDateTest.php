@@ -20,21 +20,21 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_Mapper_EventDateTest extends tx_phpunit_testcase {
+class Tx_Seminars_Mapper_EventDateTest extends tx_phpunit_testcase {
 	/**
 	 * @var tx_oelib_testingFramework
 	 */
 	private $testingFramework;
 
 	/**
-	 * @var tx_seminars_Mapper_Event
+	 * @var Tx_Seminars_Mapper_Event
 	 */
 	private $fixture;
 
 	protected function setUp() {
 		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
 
-		$this->fixture = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event');
+		$this->fixture = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 	}
 
 	protected function tearDown() {
@@ -154,7 +154,7 @@ class tx_seminars_Mapper_EventDateTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getEventTypeForEventDateWithoutEventTypeReturnsNull() {
-		$topic = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')
+		$topic = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getLoadedTestingModel(array());
 
 		self::assertNull(
@@ -173,7 +173,7 @@ class tx_seminars_Mapper_EventDateTest extends tx_phpunit_testcase {
 	public function getEventTypeForEventDateWithEventTypeReturnsEventTypeInstance() {
 		$eventType = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_EventType')
 			->getLoadedTestingModel(array());
-		$topic = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')
+		$topic = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getLoadedTestingModel(array('event_type' => $eventType->getUid()));
 
 		self::assertTrue(

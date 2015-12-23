@@ -35,7 +35,7 @@ class tx_seminars_Mapper_Registration extends tx_oelib_DataMapper {
 	 * @var string[] the (possible) relations of the created models in the format DB column name => mapper name
 	 */
 	protected $relations = array(
-		'seminar' => 'tx_seminars_Mapper_Event',
+		'seminar' => 'Tx_Seminars_Mapper_Event',
 		'user' => 'tx_seminars_Mapper_FrontEndUser',
 		'currency' => 'tx_oelib_Mapper_Currency',
 		'method_of_payment' => 'tx_seminars_Mapper_PaymentMethod',

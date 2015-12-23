@@ -23,7 +23,7 @@
  */
 class Tx_Seminars_FrontEnd_EventHeadline extends Tx_Seminars_FrontEnd_AbstractView {
 	/**
-	 * @var tx_seminars_Mapper_Event
+	 * @var Tx_Seminars_Mapper_Event
 	 */
 	protected $mapper = NULL;
 
@@ -39,7 +39,7 @@ class Tx_Seminars_FrontEnd_EventHeadline extends Tx_Seminars_FrontEnd_AbstractVi
 	/**
 	 * Injects an Event Mapper for this View.
 	 *
-	 * @param tx_seminars_Mapper_Event $mapper
+	 * @param Tx_Seminars_Mapper_Event $mapper
 	 *
 	 * @return void
 	 */

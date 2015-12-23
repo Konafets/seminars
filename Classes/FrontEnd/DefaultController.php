@@ -44,7 +44,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	public $extKey = 'seminars';
 
 	/**
-	 * @var tx_seminars_Mapper_Event an event mapper used to retrieve event models
+	 * @var Tx_Seminars_Mapper_Event an event mapper used to retrieve event models
 	 */
 	protected $eventMapper = NULL;
 
@@ -524,7 +524,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 		}
 
 		if ($this->eventMapper === NULL) {
-			$this->eventMapper = GeneralUtility::makeInstance('tx_seminars_Mapper_Event');
+			$this->eventMapper = GeneralUtility::makeInstance('Tx_Seminars_Mapper_Event');
 		}
 	}
 
@@ -715,8 +715,8 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 * @throws \TYPO3\CMS\Core\Exception
 	 */
 	protected function createSingleViewForExistingEvent() {
-		/** @var tx_seminars_Mapper_Event $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event');
+		/** @var Tx_Seminars_Mapper_Event $mapper */
+		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 		/** @var tx_seminars_Model_Event $event */
 		$event = $mapper->find($this->showUid);
 
@@ -1337,8 +1337,8 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 
 		$output = '';
 
-		/** @var tx_seminars_Mapper_Event $eventMapper */
-		$eventMapper = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event');
+		/** @var Tx_Seminars_Mapper_Event $eventMapper */
+		$eventMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 
 		$dependencies = $this->seminar->getDependencies();
 		/** @var tx_seminars_seminar $dependency */
@@ -1974,8 +1974,8 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 		$result = '';
 
 		if ($this->seminar->isOk()) {
-			/** @var tx_seminars_Mapper_Event $mapper */
-			$mapper = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event');
+			/** @var Tx_Seminars_Mapper_Event $mapper */
+			$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 			/** @var tx_seminars_Model_Event $event */
 			$event = $mapper->find($this->getSeminar()->getUid());
 
@@ -3421,8 +3421,8 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 			return;
 		}
 
-		/** @var tx_seminars_Mapper_Event $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event');
+		/** @var Tx_Seminars_Mapper_Event $mapper */
+		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 		/** @var tx_seminars_Model_Event $event */
 		$event = $mapper->find($this->piVars['seminar']);
 		if (!$event->isPublished()) {
@@ -3452,8 +3452,8 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 */
 	protected function hideEvent(tx_seminars_Model_Event $event) {
 		$event->markAsHidden();
-		/** @var tx_seminars_Mapper_Event $mapper */
-		$mapper = Tx_Oelib_MapperRegistry::get('tx_seminars_Mapper_Event');
+		/** @var Tx_Seminars_Mapper_Event $mapper */
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 		$mapper->save($event);
 
 		$this->redirectToCurrentUrl();
@@ -3468,8 +3468,8 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 */
 	protected function unhideEvent(tx_seminars_Model_Event $event) {
 		$event->markAsVisible();
-		/** @var tx_seminars_Mapper_Event $mapper */
-		$mapper = Tx_Oelib_MapperRegistry::get('tx_seminars_Mapper_Event');
+		/** @var Tx_Seminars_Mapper_Event $mapper */
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 		$mapper->save($event);
 
 		$this->redirectToCurrentUrl();
@@ -3487,8 +3487,8 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 		$copy->markAsHidden();
 		$copy->setRegistrations(new Tx_Oelib_List());
 
-		/** @var tx_seminars_Mapper_Event $mapper */
-		$mapper = Tx_Oelib_MapperRegistry::get('tx_seminars_Mapper_Event');
+		/** @var Tx_Seminars_Mapper_Event $mapper */
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 		$mapper->save($copy);
 
 		$this->redirectToCurrentUrl();
