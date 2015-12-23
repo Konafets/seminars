@@ -109,7 +109,7 @@ class tx_seminars_Mapper_SpeakerTest extends tx_phpunit_testcase {
 	 */
 	public function getSkillsWithOneSkillReturnsNonEmptyList() {
 		$speakerUid = $this->testingFramework->createRecord('tx_seminars_speakers');
-		$skill = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Skill')
+		$skill = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Skill')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_speakers', $speakerUid, $skill->getUid(), 'skills'
@@ -127,7 +127,7 @@ class tx_seminars_Mapper_SpeakerTest extends tx_phpunit_testcase {
 	 */
 	public function getSkillsWithOneSkillReturnsOneSkill() {
 		$speakerUid = $this->testingFramework->createRecord('tx_seminars_speakers');
-		$skill = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Skill')
+		$skill = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Skill')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_speakers', $speakerUid, $skill->getUid(), 'skills'
