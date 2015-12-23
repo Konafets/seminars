@@ -21,7 +21,7 @@
  * @author Bernd Schönbach <bernd@oliverklee.de>
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_FrontEnd_EventHeadline extends Tx_Seminars_FrontEnd_AbstractView {
+class Tx_Seminars_FrontEnd_EventHeadline extends Tx_Seminars_FrontEnd_AbstractView {
 	/**
 	 * @var tx_seminars_Mapper_Event
 	 */

@@ -314,9 +314,9 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 				$result = $categoryList->render();
 				break;
 			case 'event_headline':
-				/** @var tx_seminars_FrontEnd_EventHeadline $eventHeadline */
+				/** @var Tx_Seminars_FrontEnd_EventHeadline $eventHeadline */
 				$eventHeadline = GeneralUtility::makeInstance(
-					'tx_seminars_FrontEnd_EventHeadline',
+					'Tx_Seminars_FrontEnd_EventHeadline',
 					$this->conf, $this->cObj
 				);
 				$eventHeadline->injectEventMapper($this->eventMapper);
