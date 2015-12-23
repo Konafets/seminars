@@ -296,9 +296,9 @@ class tx_seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 				$result = $registrationsList->render();
 				break;
 			case 'countdown':
-				/** @var tx_seminars_FrontEnd_Countdown $countdown */
+				/** @var Tx_Seminars_FrontEnd_Countdown $countdown */
 				$countdown = GeneralUtility::makeInstance(
-					'tx_seminars_FrontEnd_Countdown',
+					'Tx_Seminars_FrontEnd_Countdown',
 					$this->conf,
 					$this->cObj
 				);
