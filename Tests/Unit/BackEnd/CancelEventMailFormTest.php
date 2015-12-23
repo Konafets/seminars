@@ -75,7 +75,7 @@ class Tx_Seminars_BackEnd_CancelEventMailFormTest extends Tx_Phpunit_TestCase {
 	private $languageBackup;
 
 	/**
-	 * @var tx_seminars_Service_SingleViewLinkBuilder
+	 * @var Tx_Seminars_Service_SingleViewLinkBuilder
 	 */
 	private $linkBuilder = NULL;
 
@@ -137,7 +137,7 @@ class Tx_Seminars_BackEnd_CancelEventMailFormTest extends Tx_Phpunit_TestCase {
 		$this->fixture = new Tx_Seminars_BackEnd_CancelEventMailForm($this->eventUid);
 
 		$this->linkBuilder = $this->getMock(
-			'tx_seminars_Service_SingleViewLinkBuilder',
+			'Tx_Seminars_Service_SingleViewLinkBuilder',
 			array('createAbsoluteUrlForEvent')
 		);
 		$this->linkBuilder->expects(self::any())
@@ -408,7 +408,7 @@ class Tx_Seminars_BackEnd_CancelEventMailFormTest extends Tx_Phpunit_TestCase {
 		$fixture = new Tx_Seminars_BackEnd_CancelEventMailForm($dateUid);
 
 		$linkBuilder = $this->getMock(
-			'tx_seminars_Service_SingleViewLinkBuilder',
+			'Tx_Seminars_Service_SingleViewLinkBuilder',
 			array('createAbsoluteUrlForEvent')
 		);
 		$linkBuilder->expects(self::any())
@@ -432,7 +432,7 @@ class Tx_Seminars_BackEnd_CancelEventMailFormTest extends Tx_Phpunit_TestCase {
 		);
 
 		$linkBuilder = $this->getMock(
-			'tx_seminars_Service_SingleViewLinkBuilder',
+			'Tx_Seminars_Service_SingleViewLinkBuilder',
 			array('createAbsoluteUrlForEvent')
 		);
 		$linkBuilder->expects(self::any())

@@ -198,7 +198,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	/**
 	 * a link builder instance
 	 *
-	 * @var tx_seminars_Service_SingleViewLinkBuilder
+	 * @var Tx_Seminars_Service_SingleViewLinkBuilder
 	 */
 	private $linkBuilder = NULL;
 
@@ -3530,12 +3530,12 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	/**
 	 * Returns a link builder instance.
 	 *
-	 * @return tx_seminars_Service_SingleViewLinkBuilder the link builder instance
+	 * @return Tx_Seminars_Service_SingleViewLinkBuilder the link builder instance
 	 */
 	protected function getLinkBuilder() {
 		if ($this->linkBuilder === NULL) {
-			/** @var tx_seminars_Service_SingleViewLinkBuilder $linkBuilder */
-			$linkBuilder = GeneralUtility::makeInstance('tx_seminars_Service_SingleViewLinkBuilder');
+			/** @var Tx_Seminars_Service_SingleViewLinkBuilder $linkBuilder */
+			$linkBuilder = GeneralUtility::makeInstance('Tx_Seminars_Service_SingleViewLinkBuilder');
 			$this->injectLinkBuilder($linkBuilder);
 		}
 		$this->linkBuilder->setPlugin($this);
@@ -3546,12 +3546,12 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	/**
 	 * Injects a link builder.
 	 *
-	 * @param tx_seminars_Service_SingleViewLinkBuilder $linkBuilder
+	 * @param Tx_Seminars_Service_SingleViewLinkBuilder $linkBuilder
 	 *        the link builder instance to use
 	 *
 	 * @return void
 	 */
-	public function injectLinkBuilder(tx_seminars_Service_SingleViewLinkBuilder $linkBuilder) {
+	public function injectLinkBuilder(Tx_Seminars_Service_SingleViewLinkBuilder $linkBuilder) {
 		$this->linkBuilder = $linkBuilder;
 	}
 }
