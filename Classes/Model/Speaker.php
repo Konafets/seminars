@@ -20,7 +20,7 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_Model_Speaker extends tx_oelib_Model implements tx_oelib_Interface_MailRole {
+class Tx_Seminars_Model_Speaker extends tx_oelib_Model implements tx_oelib_Interface_MailRole {
 	/**
 	 * @var int the gender type for speakers without gender
 	 */
@@ -369,8 +369,8 @@ class tx_seminars_Model_Speaker extends tx_oelib_Model implements tx_oelib_Inter
 	 * Sets our gender.
 	 *
 	 * @param int $gender
-	 *        our gender to set, must be one of tx_seminars_Model_Speaker::GENDER_FEMALE, tx_seminars_Model_Speaker::GENDER_MALE
-	 *        or tx_seminars_Model_Speaker::GENDER_UNKNOWN
+	 *        our gender to set, must be one of Tx_Seminars_Model_Speaker::GENDER_FEMALE, Tx_Seminars_Model_Speaker::GENDER_MALE
+	 *        or Tx_Seminars_Model_Speaker::GENDER_UNKNOWN
 	 *
 	 * @return void
 	 */

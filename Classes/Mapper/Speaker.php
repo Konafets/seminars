@@ -29,7 +29,7 @@ class Tx_Seminars_Mapper_Speaker extends tx_oelib_DataMapper {
 	/**
 	 * @var string the model class name for this mapper, must not be empty
 	 */
-	protected $modelClassName = 'tx_seminars_Model_Speaker';
+	protected $modelClassName = 'Tx_Seminars_Model_Speaker';
 
 	/**
 	 * @var string[] the (possible) relations of the created models in the format DB column name => mapper name

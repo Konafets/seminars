@@ -312,7 +312,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
-			$model->getSpeakers()->first() instanceof tx_seminars_Model_Speaker
+			$model->getSpeakers()->first() instanceof Tx_Seminars_Model_Speaker
 		);
 	}
 
@@ -364,7 +364,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
-			$model->getPartners()->first() instanceof tx_seminars_Model_Speaker
+			$model->getPartners()->first() instanceof Tx_Seminars_Model_Speaker
 		);
 	}
 
@@ -416,7 +416,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
-			$model->getTutors()->first() instanceof tx_seminars_Model_Speaker
+			$model->getTutors()->first() instanceof Tx_Seminars_Model_Speaker
 		);
 	}
 
@@ -468,7 +468,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
-			$model->getLeaders()->first() instanceof tx_seminars_Model_Speaker
+			$model->getLeaders()->first() instanceof Tx_Seminars_Model_Speaker
 		);
 	}
 

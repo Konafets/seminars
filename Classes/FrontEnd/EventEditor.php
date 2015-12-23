@@ -390,7 +390,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 
 		$type = $parameters['type'];
 
-		/** @var tx_seminars_Model_Speaker $speaker */
+		/** @var Tx_Seminars_Model_Speaker $speaker */
 		foreach ($speakers as $speaker) {
 			$frontEndUserIsOwner = ($speaker->getOwner() === $frontEndUser);
 
@@ -1733,8 +1733,8 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 			);
 		};
 
-		/** @var tx_seminars_Model_Speaker $speaker */
-		$speaker = GeneralUtility::makeInstance('tx_seminars_Model_Speaker');
+		/** @var Tx_Seminars_Model_Speaker $speaker */
+		$speaker = GeneralUtility::makeInstance('Tx_Seminars_Model_Speaker');
 		$speaker->setData(array_merge(
 			self::createBasicAuxiliaryData(),
 			array('skills' => new tx_oelib_List())
@@ -1789,7 +1789,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		$speakerMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker');
 
 		try {
-			/** @var tx_seminars_Model_Speaker $speaker */
+			/** @var Tx_Seminars_Model_Speaker $speaker */
 			$speaker = $speakerMapper->find((int)$formData['editSpeaker_uid']);
 		} catch (Exception $exception) {
 			return $formidable->majixExecJs(
@@ -1868,14 +1868,14 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 	/**
 	 * Sets the data of a speaker model based on the data given in $formData.
 	 *
-	 * @param tx_seminars_Model_Speaker $speaker
+	 * @param Tx_Seminars_Model_Speaker $speaker
 	 *        the speaker model to set the data for
 	 * @param string $prefix the prefix of the form fields in $formData
 	 * @param array[] $formData the form data to use for setting the speaker data
 	 *
 	 * @return void
 	 */
-	private static function setSpeakerData(tx_seminars_Model_Speaker $speaker, $prefix, array $formData) {
+	private static function setSpeakerData(Tx_Seminars_Model_Speaker $speaker, $prefix, array $formData) {
 		/** @var Tx_Seminars_Mapper_Skill $skillMapper */
 		$skillMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Skill');
 		/** @var tx_oelib_List $skills */
@@ -1929,7 +1929,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		$speakerMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker');
 
 		try {
-			/** @var tx_seminars_Model_Speaker $speaker */
+			/** @var Tx_Seminars_Model_Speaker $speaker */
 			$speaker = $speakerMapper->find((int)$speakerUid);
 		} catch (tx_oelib_Exception_NotFound $exception) {
 			return $formidable->majixExecJs(

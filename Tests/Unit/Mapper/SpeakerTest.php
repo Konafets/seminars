@@ -53,7 +53,7 @@ class Tx_Seminars_Mapper_SpeakerTest extends tx_phpunit_testcase {
 		$uid = $this->testingFramework->createRecord('tx_seminars_speakers');
 
 		self::assertTrue(
-			$this->fixture->find($uid) instanceof tx_seminars_Model_Speaker
+			$this->fixture->find($uid) instanceof Tx_Seminars_Model_Speaker
 		);
 	}
 
@@ -65,7 +65,7 @@ class Tx_Seminars_Mapper_SpeakerTest extends tx_phpunit_testcase {
 			'tx_seminars_speakers', array('title' => 'John Doe')
 		);
 
-		/** @var tx_seminars_Model_Speaker $model */
+		/** @var Tx_Seminars_Model_Speaker $model */
 		$model = $this->fixture->find($uid);
 		self::assertEquals(
 			'John Doe',
@@ -84,7 +84,7 @@ class Tx_Seminars_Mapper_SpeakerTest extends tx_phpunit_testcase {
 	public function getSkillsReturnsListInstance() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_speakers');
 
-		/** @var tx_seminars_Model_Speaker $model */
+		/** @var Tx_Seminars_Model_Speaker $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
 			$model->getSkills() instanceof tx_oelib_List
@@ -97,7 +97,7 @@ class Tx_Seminars_Mapper_SpeakerTest extends tx_phpunit_testcase {
 	public function getSkillsWithoutSkillsReturnsEmptyList() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_speakers');
 
-		/** @var tx_seminars_Model_Speaker $model */
+		/** @var Tx_Seminars_Model_Speaker $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
 			$model->getSkills()->isEmpty()
@@ -115,7 +115,7 @@ class Tx_Seminars_Mapper_SpeakerTest extends tx_phpunit_testcase {
 			'tx_seminars_speakers', $speakerUid, $skill->getUid(), 'skills'
 		);
 
-		/** @var tx_seminars_Model_Speaker $model */
+		/** @var Tx_Seminars_Model_Speaker $model */
 		$model = $this->fixture->find($speakerUid);
 		self::assertFalse(
 			$model->getSkills()->isEmpty()
@@ -133,7 +133,7 @@ class Tx_Seminars_Mapper_SpeakerTest extends tx_phpunit_testcase {
 			'tx_seminars_speakers', $speakerUid, $skill->getUid(), 'skills'
 		);
 
-		/** @var tx_seminars_Model_Speaker $model */
+		/** @var Tx_Seminars_Model_Speaker $model */
 		$model = $this->fixture->find($speakerUid);
 		self::assertEquals(
 			$skill->getUid(),
