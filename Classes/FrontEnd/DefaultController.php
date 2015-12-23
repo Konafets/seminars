@@ -287,9 +287,9 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 				// The fallthrough is intended
 				// because createRegistrationsListPage() will differentiate later.
 			case 'list_registrations':
-				/** @var tx_seminars_FrontEnd_RegistrationsList $registrationsList */
+				/** @var Tx_Seminars_FrontEnd_RegistrationsList $registrationsList */
 				$registrationsList = GeneralUtility::makeInstance(
-					'tx_seminars_FrontEnd_RegistrationsList', $this->conf,
+					'Tx_Seminars_FrontEnd_RegistrationsList', $this->conf,
 					$this->whatToDisplay, (int)$this->piVars['seminar'],
 					$this->cObj
 				);
