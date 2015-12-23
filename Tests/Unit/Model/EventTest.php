@@ -1697,7 +1697,7 @@ class tx_seminars_Model_EventTest extends tx_phpunit_testcase {
 	public function getRegularRegistrationsReturnsRegularRegistrations() {
 		$registrations = new tx_oelib_List();
 		$registration = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_Registration')->getLoadedTestingModel(
+			::get('Tx_Seminars_Mapper_Registration')->getLoadedTestingModel(
 				array('registration_queue' => 0)
 			);
 		$registrations->add($registration);
@@ -1715,7 +1715,7 @@ class tx_seminars_Model_EventTest extends tx_phpunit_testcase {
 	public function getRegularRegistrationsNotReturnsQueueRegistrations() {
 		$registrations = new tx_oelib_List();
 		$registration = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_Registration')->getLoadedTestingModel(
+			::get('Tx_Seminars_Mapper_Registration')->getLoadedTestingModel(
 				array('registration_queue' => 1)
 			);
 		$registrations->add($registration);
@@ -1732,7 +1732,7 @@ class tx_seminars_Model_EventTest extends tx_phpunit_testcase {
 	public function getQueueRegistrationsReturnsQueueRegistrations() {
 		$registrations = new tx_oelib_List();
 		$registration = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_Registration')->getLoadedTestingModel(
+			::get('Tx_Seminars_Mapper_Registration')->getLoadedTestingModel(
 				array('registration_queue' => 1)
 			);
 		$registrations->add($registration);
@@ -1750,7 +1750,7 @@ class tx_seminars_Model_EventTest extends tx_phpunit_testcase {
 	public function getQueueRegistrationsNotReturnsRegularRegistrations() {
 		$registrations = new tx_oelib_List();
 		$registration = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_Registration')->getLoadedTestingModel(
+			::get('Tx_Seminars_Mapper_Registration')->getLoadedTestingModel(
 				array('registration_queue' => 0)
 			);
 		$registrations->add($registration);
@@ -1767,7 +1767,7 @@ class tx_seminars_Model_EventTest extends tx_phpunit_testcase {
 	public function hasQueueRegistrationsForOneQueueRegistrationReturnsTrue() {
 		$registrations = new tx_oelib_List();
 		$registration = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_Registration')->getLoadedTestingModel(
+			::get('Tx_Seminars_Mapper_Registration')->getLoadedTestingModel(
 				array('registration_queue' => 1)
 			);
 		$registrations->add($registration);
@@ -1852,7 +1852,7 @@ class tx_seminars_Model_EventTest extends tx_phpunit_testcase {
 	public function getRegisteredSeatsCountsSingleSeatRegularRegistrations() {
 		$registrations = new tx_oelib_List();
 		$registration = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_Registration')->getLoadedTestingModel(
+			::get('Tx_Seminars_Mapper_Registration')->getLoadedTestingModel(
 				array('seats' => 1)
 			);
 		$registrations->add($registration);
@@ -1875,7 +1875,7 @@ class tx_seminars_Model_EventTest extends tx_phpunit_testcase {
 	public function getRegisteredSeatsCountsMultiSeatRegularRegistrations() {
 		$registrations = new tx_oelib_List();
 		$registration = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_Registration')->getLoadedTestingModel(
+			::get('Tx_Seminars_Mapper_Registration')->getLoadedTestingModel(
 				array('seats' => 2)
 			);
 		$registrations->add($registration);
@@ -1898,7 +1898,7 @@ class tx_seminars_Model_EventTest extends tx_phpunit_testcase {
 	public function getRegisteredSeatsNotCountsQueueRegistrations() {
 		$queueRegistrations = new tx_oelib_List();
 		$registration = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_Registration')->getLoadedTestingModel(
+			::get('Tx_Seminars_Mapper_Registration')->getLoadedTestingModel(
 				array('seats' => 1)
 			);
 		$queueRegistrations->add($registration);
@@ -2243,7 +2243,7 @@ class tx_seminars_Model_EventTest extends tx_phpunit_testcase {
 		$this->fixture->setRegistrations(new tx_oelib_List());
 
 		$registration = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_Registration')
+			::get('Tx_Seminars_Mapper_Registration')
 			->getLoadedTestingModel(array());
 		$this->fixture->attachRegistration($registration);
 
@@ -2258,12 +2258,12 @@ class tx_seminars_Model_EventTest extends tx_phpunit_testcase {
 	public function attachRegistrationNotRemovesExistingRegistration() {
 		$registrations = new tx_oelib_List();
 		$oldRegistration = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_Registration')->getNewGhost();
+			::get('Tx_Seminars_Mapper_Registration')->getNewGhost();
 		$registrations->add($oldRegistration);
 		$this->fixture->setRegistrations($registrations);
 
 		$newRegistration = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_Registration')
+			::get('Tx_Seminars_Mapper_Registration')
 			->getLoadedTestingModel(array());
 		$this->fixture->attachRegistration($newRegistration);
 
@@ -2279,7 +2279,7 @@ class tx_seminars_Model_EventTest extends tx_phpunit_testcase {
 		$this->fixture->setRegistrations(new tx_oelib_List());
 
 		$registration = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_Registration')
+			::get('Tx_Seminars_Mapper_Registration')
 			->getLoadedTestingModel(array());
 		$this->fixture->attachRegistration($registration);
 

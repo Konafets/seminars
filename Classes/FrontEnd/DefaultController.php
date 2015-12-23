@@ -2136,8 +2136,8 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 			}
 
 			if ($whatToDisplay === 'my_events') {
-				/** @var tx_seminars_Mapper_Registration $mapper */
-				$mapper = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Registration');
+				/** @var Tx_Seminars_Mapper_Registration $mapper */
+				$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Registration');
 				/** @var tx_seminars_Model_Registration $registration */
 				$registration = $mapper->find($this->registration->getUid());
 
