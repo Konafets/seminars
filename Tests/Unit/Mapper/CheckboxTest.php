@@ -90,7 +90,7 @@ class Tx_Seminars_Mapper_CheckboxTest extends tx_phpunit_testcase {
 	 */
 	public function getOwnerWithOwnerReturnsOwnerInstance() {
 		$frontEndUser = tx_oelib_MapperRegistry::
-			get('tx_seminars_Mapper_FrontEndUser')->getLoadedTestingModel(array());
+			get('Tx_Seminars_Mapper_FrontEndUser')->getLoadedTestingModel(array());
 
 		self::assertTrue(
 			$this->fixture->getLoadedTestingModel(

@@ -438,7 +438,7 @@ class Tx_Seminars_BagBuilder_RegistrationTest extends tx_phpunit_testcase {
 		);
 
 		/** @var tx_seminars_Model_FrontEndUser $user */
-		$user = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_FrontEndUser')->find($feUserUid);
+		$user = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUser')->find($feUserUid);
 		$this->fixture->limitToAttendee($user);
 		$bag = $this->fixture->build();
 
@@ -464,7 +464,7 @@ class Tx_Seminars_BagBuilder_RegistrationTest extends tx_phpunit_testcase {
 		);
 
 		/** @var tx_seminars_Model_FrontEndUser $user */
-		$user = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_FrontEndUser')->find($feUserUid);
+		$user = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUser')->find($feUserUid);
 		$this->fixture->limitToAttendee($user);
 		$bag = $this->fixture->build();
 
@@ -482,7 +482,7 @@ class Tx_Seminars_BagBuilder_RegistrationTest extends tx_phpunit_testcase {
 		$this->testingFramework->createRecord('tx_seminars_seminars');
 
 		/** @var tx_seminars_Model_FrontEndUser $user */
-		$user = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_FrontEndUser')->find($feUserUid);
+		$user = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUser')->find($feUserUid);
 		$this->fixture->limitToAttendee($user);
 		$bag = $this->fixture->build();
 
@@ -505,7 +505,7 @@ class Tx_Seminars_BagBuilder_RegistrationTest extends tx_phpunit_testcase {
 		);
 
 		/** @var tx_seminars_Model_FrontEndUser $user */
-		$user = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_FrontEndUser')->find($feUserUid);
+		$user = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUser')->find($feUserUid);
 		$this->fixture->limitToAttendee($user);
 		$bag = $this->fixture->build();
 
@@ -528,7 +528,7 @@ class Tx_Seminars_BagBuilder_RegistrationTest extends tx_phpunit_testcase {
 		);
 
 		/** @var tx_seminars_Model_FrontEndUser $user */
-		$user = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_FrontEndUser')->find($feUserUid);
+		$user = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUser')->find($feUserUid);
 		$this->fixture->limitToAttendee($user);
 		$this->fixture->limitToAttendee(NULL);
 		$bag = $this->fixture->build();

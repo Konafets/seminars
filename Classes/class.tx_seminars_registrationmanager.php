@@ -161,7 +161,7 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 		$canRegister = $this->couldThisUserRegister($event);
 
 		/** @var $user tx_seminars_Model_FrontEndUser */
-		$user = tx_oelib_FrontEndLoginManager::getInstance()->getLoggedInUser('tx_seminars_Mapper_FrontEndUser');
+		$user = tx_oelib_FrontEndLoginManager::getInstance()->getLoggedInUser('Tx_Seminars_Mapper_FrontEndUser');
 		foreach ($this->getHooks() as $hook) {
 			if (method_exists($hook, 'canRegisterForSeminar')) {
 				$canRegister = $canRegister && $hook->canRegisterForSeminar($event, $user);
@@ -202,7 +202,7 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 
 		if ($isLoggedIn && ($message === '')) {
 			/** @var $user tx_seminars_Model_FrontEndUser */
-			$user = tx_oelib_FrontEndLoginManager::getInstance()->getLoggedInUser('tx_seminars_Mapper_FrontEndUser');
+			$user = tx_oelib_FrontEndLoginManager::getInstance()->getLoggedInUser('Tx_Seminars_Mapper_FrontEndUser');
 			foreach ($this->getHooks() as $hook) {
 				if (method_exists($hook, 'canRegisterForSeminarMessage')) {
 					$message = $hook->canRegisterForSeminarMessage($event, $user);
@@ -485,7 +485,7 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 		$this->registration->commitToDb();
 		$seminar->calculateStatistics();
 
-		$user = tx_oelib_FrontEndLoginManager::getInstance()->getLoggedInUser('tx_seminars_Mapper_FrontEndUser');
+		$user = tx_oelib_FrontEndLoginManager::getInstance()->getLoggedInUser('Tx_Seminars_Mapper_FrontEndUser');
 		foreach ($this->getHooks() as $hook) {
 			if (method_exists($hook, 'seminarRegistrationCreated')) {
 				$hook->seminarRegistrationCreated($this->registration, $user);
@@ -659,7 +659,7 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 		}
 
 		/** @var $user tx_seminars_Model_FrontEndUser */
-		$user = tx_oelib_FrontEndLoginManager::getInstance()->getLoggedInUser('tx_seminars_Mapper_FrontEndUser');
+		$user = tx_oelib_FrontEndLoginManager::getInstance()->getLoggedInUser('Tx_Seminars_Mapper_FrontEndUser');
 		foreach ($this->getHooks() as $hook) {
 			if (method_exists($hook, 'seminarRegistrationRemoved')) {
 				$hook->seminarRegistrationRemoved($this->registration, $user);
@@ -1476,7 +1476,7 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	 */
 	protected function getLoggedInFrontEndUserUid() {
 		$loginManager = Tx_Oelib_FrontEndLoginManager::getInstance();
-		return $loginManager->isLoggedIn() ? $loginManager->getLoggedInUser('tx_seminars_Mapper_FrontEndUser')->getUid() : 0;
+		return $loginManager->isLoggedIn() ? $loginManager->getLoggedInUser('Tx_Seminars_Mapper_FrontEndUser')->getUid() : 0;
 	}
 }
 

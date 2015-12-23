@@ -20,9 +20,9 @@
  *
  * @author Bernd Schönbach <bernd@oliverklee.de>
  */
-class tx_seminars_Mapper_FrontEndUserTest extends tx_phpunit_testcase {
+class Tx_Seminars_Mapper_FrontEndUserTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_seminars_Mapper_FrontEndUser the object to test
+	 * @var Tx_Seminars_Mapper_FrontEndUser the object to test
 	 */
 	private $fixture;
 
@@ -30,7 +30,7 @@ class tx_seminars_Mapper_FrontEndUserTest extends tx_phpunit_testcase {
 		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
 
 		$this->fixture = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUser'
+			'Tx_Seminars_Mapper_FrontEndUser'
 		);
 	}
 
