@@ -29,7 +29,7 @@ class Tx_Seminars_Mapper_Food extends tx_oelib_DataMapper {
 	/**
 	 * @var string the model class name for this mapper, must not be empty
 	 */
-	protected $modelClassName = 'tx_seminars_Model_Food';
+	protected $modelClassName = 'Tx_Seminars_Model_Food';
 }
 
 if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/Mapper/Food.php']) {

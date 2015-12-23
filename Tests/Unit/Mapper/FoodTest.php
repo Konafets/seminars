@@ -51,7 +51,7 @@ class Tx_Seminars_Mapper_FoodTest extends tx_phpunit_testcase {
 	 */
 	public function findWithUidReturnsFoodInstance() {
 		self::assertTrue(
-			$this->fixture->find(1) instanceof tx_seminars_Model_Food
+			$this->fixture->find(1) instanceof Tx_Seminars_Model_Food
 		);
 	}
 
@@ -63,7 +63,7 @@ class Tx_Seminars_Mapper_FoodTest extends tx_phpunit_testcase {
 			'tx_seminars_foods', array('title' => 'Crunchy crisps')
 		);
 
-		/** @var tx_seminars_Model_Food $model */
+		/** @var Tx_Seminars_Model_Food $model */
 		$model = $this->fixture->find($uid);
 		self::assertEquals(
 			'Crunchy crisps',

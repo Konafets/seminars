@@ -237,7 +237,7 @@ class Tx_Seminars_Mapper_RegistrationTest extends tx_phpunit_testcase {
 		/** @var tx_seminars_Model_Registration $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
-			$model->getFoods()->first() instanceof tx_seminars_Model_Food
+			$model->getFoods()->first() instanceof Tx_Seminars_Model_Food
 		);
 
 	}
