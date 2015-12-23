@@ -31,7 +31,7 @@ require_once(ExtensionManagementUtility::extPath('seminars') . 'tx_seminars_modi
  * @author Niels Pardon <mail@niels-pardon.de>
  * @author Bernd Schönbach <bernd@oliverklee.de>
  */
-class tx_seminars_pi2 extends Tx_Oelib_TemplateHelper {
+class Tx_Seminars_Pi2 extends Tx_Oelib_TemplateHelper {
 	/**
 	 * @var int
 	 */
@@ -50,7 +50,7 @@ class tx_seminars_pi2 extends Tx_Oelib_TemplateHelper {
 	/**
 	 * @var string same as class name
 	 */
-	public $prefixId = 'tx_seminars_pi2';
+	public $prefixId = 'Tx_Seminars_Pi2';
 
 	/**
 	 * @var string path to this script relative to the extension dir
@@ -338,7 +338,7 @@ class tx_seminars_pi2 extends Tx_Oelib_TemplateHelper {
 	 * Adds a status header and returns an error message.
 	 *
 	 * @param int $errorCode
-	 *        the type of error message, must be tx_seminars_pi2::ACCESS_DENIED or tx_seminars_pi2::NOT_FOUND
+	 *        the type of error message, must be Tx_Seminars_Pi2::ACCESS_DENIED or Tx_Seminars_Pi2::NOT_FOUND
 	 *
 	 * @return string the error message belonging to the error code, will not be empty
 	 *

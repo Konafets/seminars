@@ -363,7 +363,7 @@ if (GeneralUtility::_GET('csv') !== '1') {
 
 	$SOBE->main();
 } else {
-	/** @var tx_seminars_pi2 $csvExporter */
-	$csvExporter = GeneralUtility::makeInstance('tx_seminars_pi2');
+	/** @var Tx_Seminars_Pi2 $csvExporter */
+	$csvExporter = GeneralUtility::makeInstance('Tx_Seminars_Pi2');
 	echo $csvExporter->main();
 }

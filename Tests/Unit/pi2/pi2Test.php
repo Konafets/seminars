@@ -25,7 +25,7 @@ use TYPO3\CMS\Core\Utility\VersionNumberUtility;
  */
 class Tx_Seminars_Tests_pi2_pi2Test extends Tx_Phpunit_TestCase {
 	/**
-	 * @var tx_seminars_pi2
+	 * @var Tx_Seminars_Pi2
 	 */
 	protected $fixture = NULL;
 
@@ -87,7 +87,7 @@ class Tx_Seminars_Tests_pi2_pi2Test extends Tx_Phpunit_TestCase {
 		$this->configuration->setData(array('charsetForCsv' => 'utf-8'));
 		$configurationRegistry->set('plugin.tx_seminars', $this->configuration);
 
-		$this->fixture = new tx_seminars_pi2();
+		$this->fixture = new Tx_Seminars_Pi2();
 		$this->fixture->init(array());
 	}
 
