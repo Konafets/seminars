@@ -7929,8 +7929,8 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	public function processEventEditorActionsWithPositiveSeminarPivarCreatesEventEditor() {
 		Tx_Oelib_MapperRegistry::denyDatabaseAccess();
 
-		/** @var tx_seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
-		$eventEditor = $this->getMock('tx_seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
+		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
+		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 
 		/** @var Tx_Seminars_FrontEnd_DefaultController|PHPUnit_Framework_MockObject_MockObject $fixture */
 		$fixture = $this->getMock(
@@ -7949,8 +7949,8 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	public function processEventEditorActionsWithUidOfExistingEventChecksPermissions() {
 		Tx_Oelib_MapperRegistry::denyDatabaseAccess();
 
-		/** @var tx_seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
-		$eventEditor = $this->getMock('tx_seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
+		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
+		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::once())->method('hasAccessMessage');
 
 		/** @var Tx_Seminars_FrontEnd_DefaultController|PHPUnit_Framework_MockObject_MockObject $fixture */
@@ -7970,8 +7970,8 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function processEventEditorActionsForHideActionWithAccessGrantedCallsHideEvent() {
-		/** @var tx_seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
-		$eventEditor = $this->getMock('tx_seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
+		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
+		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue(''));
 
 		/** @var tx_seminars_Model_Event $event */
@@ -7995,8 +7995,8 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function processEventEditorActionsForHideActionWithUnpublishedEventAndAccessGrantedNotCallsHideEvent() {
-		/** @var tx_seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
-		$eventEditor = $this->getMock('tx_seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
+		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
+		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue(''));
 
 		/** @var tx_seminars_Model_Event $event */
@@ -8020,8 +8020,8 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function processEventEditorActionsForHideActionWithAccessDeniedNotCallsHideEvent() {
-		/** @var tx_seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
-		$eventEditor = $this->getMock('tx_seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
+		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
+		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue('access denied'));
 
 		/** @var tx_seminars_Model_Event $event */
@@ -8045,8 +8045,8 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function processEventEditorActionsForUnhideActionWithAccessGrantedCallsUnhideEvent() {
-		/** @var tx_seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
-		$eventEditor = $this->getMock('tx_seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
+		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
+		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::once())->method('hasAccessMessage')->will(self::returnValue(''));
 
 		/** @var tx_seminars_Model_Event $event */
@@ -8070,8 +8070,8 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function processEventEditorActionsForUnhideActionWithUnpublishedEventAccessGrantedNotCallsUnhideEvent() {
-		/** @var tx_seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
-		$eventEditor = $this->getMock('tx_seminars_FrontEnd_EventEditor', array('hasAccessMessage'),array(), '', FALSE);
+		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
+		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'),array(), '', FALSE);
 		$eventEditor->expects(self::once())->method('hasAccessMessage')->will(self::returnValue(''));
 
 		/** @var tx_seminars_Model_Event $event */
@@ -8095,8 +8095,8 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function processEventEditorActionsForUnhideActionWithAccessDeniedNotCallsUnhideEvent() {
-		/** @var tx_seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
-		$eventEditor = $this->getMock('tx_seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
+		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
+		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::once())->method('hasAccessMessage')->will(self::returnValue('access denied'));
 
 		/** @var tx_seminars_Model_Event $event */
@@ -8120,8 +8120,8 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function processEventEditorActionsForCopyActionWithAccessGrantedCallsCopyEvent() {
-		/** @var tx_seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
-		$eventEditor = $this->getMock('tx_seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
+		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
+		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue(''));
 
 		/** @var tx_seminars_Model_Event $event */
@@ -8145,8 +8145,8 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function processEventEditorActionsForCopyActionWithUnpublishedEventAndAccessGrantedNotCallsCopyEvent() {
-		/** @var tx_seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
-		$eventEditor = $this->getMock('tx_seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
+		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
+		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue(''));
 
 		/** @var tx_seminars_Model_Event $event */
@@ -8170,8 +8170,8 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function processEventEditorActionsForCopyActionWithAccessDeniedNotCallsCopyEvent() {
-		/** @var tx_seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
-		$eventEditor = $this->getMock('tx_seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
+		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
+		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue('access denied'));
 
 		/** @var tx_seminars_Model_Event $event */
@@ -8195,8 +8195,8 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function processEventEditorActionsForEmptyActionWithPublishedEventAndAccessGrantedNotCallsHideEventOrUnhideEvent() {
-		/** @var tx_seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
-		$eventEditor = $this->getMock('tx_seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
+		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
+		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::once())->method('hasAccessMessage')->will(self::returnValue(''));
 
 		/** @var tx_seminars_Model_Event $event */
@@ -8221,8 +8221,8 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function processEventEditorActionsForInvalidActionWithPublishedEventAndAccessGrantedNotCallsHideEventOrUnhideEvent() {
-		/** @var tx_seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
-		$eventEditor = $this->getMock('tx_seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
+		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
+		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::once())->method('hasAccessMessage')->will(self::returnValue(''));
 
 		/** @var tx_seminars_Model_Event $event */
