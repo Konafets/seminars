@@ -1885,7 +1885,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 			foreach ($formData[$prefix . 'skills'] as $rawUid) {
 				$safeUid = (int)$rawUid;
 				if ($safeUid > 0) {
-					/** @var tx_seminars_Model_Skill $skill */
+					/** @var Tx_Seminars_Model_Skill $skill */
 					$skill = $skillMapper->find($safeUid);
 					$skills->add($skill);
 				}
@@ -1974,7 +1974,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		$result[] = $formidable->aORenderlets['editSpeaker_skills']->majixCheckNone();
 
 		$skills = $speaker->getSkills();
-		/** @var tx_seminars_Model_Skill $skill */
+		/** @var Tx_Seminars_Model_Skill $skill */
 		foreach ($skills as $skill) {
 			$result[] = $formidable->aORenderlets['editSpeaker_skills']
 				->majixCheckItem($skill->getUid());
