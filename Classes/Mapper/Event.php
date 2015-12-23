@@ -53,7 +53,7 @@ class tx_seminars_Mapper_Event extends tx_oelib_DataMapper {
 		'target_groups' => 'tx_seminars_Mapper_TargetGroup',
 		'owner_feuser' => 'tx_oelib_Mapper_FrontEndUser',
 		'vips' => 'tx_oelib_Mapper_FrontEndUser',
-		'checkboxes' => 'tx_seminars_Mapper_Checkbox',
+		'checkboxes' => 'Tx_Seminars_Mapper_Checkbox',
 		'requirements' => 'tx_seminars_Mapper_Event',
 		'dependencies' => 'tx_seminars_Mapper_Event',
 		'registrations' => 'tx_seminars_Mapper_Registration',

@@ -41,7 +41,7 @@ class tx_seminars_Mapper_Registration extends tx_oelib_DataMapper {
 		'method_of_payment' => 'tx_seminars_Mapper_PaymentMethod',
 		'lodgings' => 'Tx_Seminars_Mapper_Lodging',
 		'foods' => 'tx_seminars_Mapper_Food',
-		'checkboxes' => 'tx_seminars_Mapper_Checkbox',
+		'checkboxes' => 'Tx_Seminars_Mapper_Checkbox',
 		'additional_persons' => 'tx_seminars_Mapper_FrontEndUser',
 	);
 }
