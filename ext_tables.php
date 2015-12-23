@@ -305,6 +305,6 @@ TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
 );
 
 if (TYPO3_MODE == 'BE') {
-	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_seminars_FrontEnd_WizardIcon']
-		= TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY).'FrontEnd/WizardIcon.php';
+	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['Tx_Seminars_FrontEnd_WizardIcon']
+		= TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Classes/FrontEnd/WizardIcon.php';
 }
