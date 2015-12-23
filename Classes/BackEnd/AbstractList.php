@@ -399,7 +399,7 @@ abstract class Tx_Seminars_BackEnd_AbstractList {
 	 */
 	protected function getLoggedInUser() {
 		return tx_oelib_BackEndLoginManager::getInstance()->getLoggedInUser(
-			'tx_seminars_Mapper_BackEndUser'
+			'Tx_Seminars_Mapper_BackEndUser'
 		);
 	}
 
