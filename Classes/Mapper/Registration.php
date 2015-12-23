@@ -29,7 +29,7 @@ class Tx_Seminars_Mapper_Registration extends tx_oelib_DataMapper {
 	/**
 	 * @var string the model class name for this mapper, must not be empty
 	 */
-	protected $modelClassName = 'tx_seminars_Model_Registration';
+	protected $modelClassName = 'Tx_Seminars_Model_Registration';
 
 	/**
 	 * @var string[] the (possible) relations of the created models in the format DB column name => mapper name

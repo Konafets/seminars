@@ -52,7 +52,7 @@ class Tx_Seminars_Mapper_RegistrationTest extends tx_phpunit_testcase {
 	 */
 	public function findWithUidReturnsRegistrationInstance() {
 		self::assertTrue(
-			$this->fixture->find(1) instanceof tx_seminars_Model_Registration
+			$this->fixture->find(1) instanceof Tx_Seminars_Model_Registration
 		);
 	}
 
@@ -64,7 +64,7 @@ class Tx_Seminars_Mapper_RegistrationTest extends tx_phpunit_testcase {
 			'tx_seminars_attendances', array('title' => 'registration for event')
 		);
 
-		/** @var tx_seminars_Model_Registration $model */
+		/** @var Tx_Seminars_Model_Registration $model */
 		$model = $this->fixture->find($uid);
 		self::assertEquals(
 			'registration for event',
@@ -182,7 +182,7 @@ class Tx_Seminars_Mapper_RegistrationTest extends tx_phpunit_testcase {
 			'tx_seminars_attendances', $uid, $lodging->getUid(), 'lodgings'
 		);
 
-		/** @var tx_seminars_Model_Registration $model */
+		/** @var Tx_Seminars_Model_Registration $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
 			$model->getLodgings()->first() instanceof Tx_Seminars_Model_Lodging
@@ -200,7 +200,7 @@ class Tx_Seminars_Mapper_RegistrationTest extends tx_phpunit_testcase {
 			'tx_seminars_attendances', $uid, $lodging->getUid(), 'lodgings'
 		);
 
-		/** @var tx_seminars_Model_Registration $model */
+		/** @var Tx_Seminars_Model_Registration $model */
 		$model = $this->fixture->find($uid);
 		self::assertEquals(
 			$lodging->getUid(),
@@ -234,7 +234,7 @@ class Tx_Seminars_Mapper_RegistrationTest extends tx_phpunit_testcase {
 			'tx_seminars_attendances', $uid, $food->getUid(), 'foods'
 		);
 
-		/** @var tx_seminars_Model_Registration $model */
+		/** @var Tx_Seminars_Model_Registration $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
 			$model->getFoods()->first() instanceof Tx_Seminars_Model_Food
@@ -253,7 +253,7 @@ class Tx_Seminars_Mapper_RegistrationTest extends tx_phpunit_testcase {
 			'tx_seminars_attendances', $uid, $food->getUid(), 'foods'
 		);
 
-		/** @var tx_seminars_Model_Registration $model */
+		/** @var Tx_Seminars_Model_Registration $model */
 		$model = $this->fixture->find($uid);
 		self::assertEquals(
 			$food->getUid(),
@@ -287,7 +287,7 @@ class Tx_Seminars_Mapper_RegistrationTest extends tx_phpunit_testcase {
 			'tx_seminars_attendances', $uid, $checkbox->getUid(), 'checkboxes'
 		);
 
-		/** @var tx_seminars_Model_Registration $model */
+		/** @var Tx_Seminars_Model_Registration $model */
 		$model = $this->fixture->find($uid);
 		self::assertEquals(
 			$checkbox->getUid(),
@@ -306,7 +306,7 @@ class Tx_Seminars_Mapper_RegistrationTest extends tx_phpunit_testcase {
 			'tx_seminars_attendances', $uid, $checkbox->getUid(), 'checkboxes'
 		);
 
-		/** @var tx_seminars_Model_Registration $model */
+		/** @var Tx_Seminars_Model_Registration $model */
 		$model = $this->fixture->find($uid);
 		self::assertEquals(
 			$checkbox->getUid(),
@@ -330,7 +330,7 @@ class Tx_Seminars_Mapper_RegistrationTest extends tx_phpunit_testcase {
 			'', array('tx_seminars_registration' => $registrationUid)
 		);
 
-		/** @var tx_seminars_Model_Registration $model */
+		/** @var Tx_Seminars_Model_Registration $model */
 		$model = $this->fixture->find($registrationUid);
 		self::assertEquals(
 			(string) $personUid,

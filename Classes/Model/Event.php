@@ -1635,13 +1635,13 @@ class Tx_Seminars_Model_Event extends Tx_Seminars_Model_AbstractTimeSpan {
 	/**
 	 * Attaches a registration to this event.
 	 *
-	 * @param tx_seminars_Model_Registration $registration
+	 * @param Tx_Seminars_Model_Registration $registration
 	 *        the registration to attach
 	 *
 	 * @return void
 	 */
 	public function attachRegistration(
-		tx_seminars_Model_Registration $registration
+		Tx_Seminars_Model_Registration $registration
 	) {
 		$registration->setEvent($this);
 		$this->getRegistrations()->add($registration);
@@ -1659,7 +1659,7 @@ class Tx_Seminars_Model_Event extends Tx_Seminars_Model_AbstractTimeSpan {
 		/** @var Tx_Oelib_List $regularRegistrations */
 		$regularRegistrations = GeneralUtility::makeInstance('Tx_Oelib_List');
 
-		/** @var tx_seminars_Model_Registration $registration */
+		/** @var Tx_Seminars_Model_Registration $registration */
 		foreach ($this->getRegistrations() as $registration) {
 			if (!$registration->isOnRegistrationQueue()) {
 				$regularRegistrations->add($registration);
@@ -1680,7 +1680,7 @@ class Tx_Seminars_Model_Event extends Tx_Seminars_Model_AbstractTimeSpan {
 		/** @var Tx_Oelib_List $queueRegistrations */
 		$queueRegistrations = GeneralUtility::makeInstance('Tx_Oelib_List');
 
-		/** @var tx_seminars_Model_Registration $registration */
+		/** @var Tx_Seminars_Model_Registration $registration */
 		foreach ($this->getRegistrations() as $registration) {
 			if ($registration->isOnRegistrationQueue()) {
 				$queueRegistrations->add($registration);
@@ -1713,7 +1713,7 @@ class Tx_Seminars_Model_Event extends Tx_Seminars_Model_AbstractTimeSpan {
 	public function getRegisteredSeats() {
 		$registeredSeats = $this->getOfflineRegistrations();
 
-		/** @var tx_seminars_Model_Registration $registration */
+		/** @var Tx_Seminars_Model_Registration $registration */
 		foreach ($this->getRegularRegistrations() as $registration) {
 			$registeredSeats += $registration->getSeats();
 		}
