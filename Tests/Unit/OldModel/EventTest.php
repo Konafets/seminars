@@ -6472,7 +6472,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getLanguageKeySuffixForTypeForMaleSpeakerReturnsMaleMarkerPart() {
 		$this->addLeaderRelation(
-			array('gender' => tx_seminars_speaker::GENDER_MALE)
+			array('gender' => Tx_Seminars_Speaker::GENDER_MALE)
 		);
 
 		self::assertContains(
@@ -6486,7 +6486,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getLanguageKeySuffixForTypeForFemaleSpeakerReturnsFemaleMarkerPart() {
 		$this->addLeaderRelation(
-			array('gender' => tx_seminars_speaker::GENDER_FEMALE)
+			array('gender' => Tx_Seminars_Speaker::GENDER_FEMALE)
 		);
 
 		self::assertContains(
@@ -6500,7 +6500,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getLanguageKeySuffixForTypeForSingleSpeakerWithoutGenderReturnsUnknownMarkerPart() {
 		$this->addLeaderRelation(
-			array('gender' => tx_seminars_speaker::GENDER_UNKNOWN)
+			array('gender' => Tx_Seminars_Speaker::GENDER_UNKNOWN)
 		);
 
 		self::assertContains(
@@ -6539,10 +6539,10 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getLanguageKeySuffixForTypeForMultipleMaleSpeakerReturnsMultipleAndMaleMarkerPart() {
 		$this->addSpeakerRelation(
-			array('gender' => tx_seminars_speaker::GENDER_MALE)
+			array('gender' => Tx_Seminars_Speaker::GENDER_MALE)
 		);
 		$this->addSpeakerRelation(
-			array('gender' => tx_seminars_speaker::GENDER_MALE)
+			array('gender' => Tx_Seminars_Speaker::GENDER_MALE)
 		);
 
 		self::assertContains(
@@ -6556,10 +6556,10 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getLanguageKeySuffixForTypeForMultipleFemaleSpeakerReturnsMultipleAndFemaleMarkerPart() {
 		$this->addSpeakerRelation(
-			array('gender' => tx_seminars_speaker::GENDER_FEMALE)
+			array('gender' => Tx_Seminars_Speaker::GENDER_FEMALE)
 		);
 		$this->addSpeakerRelation(
-			array('gender' => tx_seminars_speaker::GENDER_FEMALE)
+			array('gender' => Tx_Seminars_Speaker::GENDER_FEMALE)
 		);
 
 		self::assertContains(
@@ -6573,10 +6573,10 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getLanguageKeySuffixForTypeForMultipleSpeakersWithMixedGendersReturnsSpeakerType() {
 		$this->addSpeakerRelation(
-			array('gender' => tx_seminars_speaker::GENDER_MALE)
+			array('gender' => Tx_Seminars_Speaker::GENDER_MALE)
 		);
 		$this->addSpeakerRelation(
-			array('gender' => tx_seminars_speaker::GENDER_FEMALE)
+			array('gender' => Tx_Seminars_Speaker::GENDER_FEMALE)
 		);
 
 		self::assertContains(
@@ -6590,10 +6590,10 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getLanguageKeySuffixForTypeForOneSpeakerWithoutGenderAndOneWithGenderReturnsSpeakerType() {
 		$this->addLeaderRelation(
-			array('gender' => tx_seminars_speaker::GENDER_UNKNOWN)
+			array('gender' => Tx_Seminars_Speaker::GENDER_UNKNOWN)
 		);
 		$this->addLeaderRelation(
-			array('gender' => tx_seminars_speaker::GENDER_MALE)
+			array('gender' => Tx_Seminars_Speaker::GENDER_MALE)
 		);
 
 		self::assertContains(
@@ -6607,7 +6607,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getLanguageKeySuffixForTypeForSingleMaleTutorReturnsCorrespondingMarkerPart() {
 		$this->addTutorRelation(
-			array('gender' => tx_seminars_speaker::GENDER_MALE)
+			array('gender' => Tx_Seminars_Speaker::GENDER_MALE)
 		);
 
 		self::assertSame(

@@ -28,12 +28,12 @@ class tx_seminars_OldModel_SpeakerTest extends tx_phpunit_testcase {
 	private $testingFramework;
 
 	/**
-	 * @var tx_seminars_speaker
+	 * @var Tx_Seminars_Speaker
 	 */
 	private $fixture;
 
 	/**
-	 * @var tx_seminars_speaker a maximal filled speaker
+	 * @var Tx_Seminars_Speaker a maximal filled speaker
 	 */
 	private $maximalFixture;
 
@@ -46,7 +46,7 @@ class tx_seminars_OldModel_SpeakerTest extends tx_phpunit_testcase {
 				'email' => 'foo@test.com'
 			)
 		);
-		$this->fixture = new tx_seminars_speaker($fixtureUid);
+		$this->fixture = new Tx_Seminars_Speaker($fixtureUid);
 
 		$maximalFixtureUid = $this->testingFramework->createRecord(
 			'tx_seminars_speakers',
@@ -64,7 +64,7 @@ class tx_seminars_OldModel_SpeakerTest extends tx_phpunit_testcase {
 				'email' => 'maximal-foo@test.com'
 			)
 		);
-		$this->maximalFixture = new tx_seminars_speaker($maximalFixtureUid);
+		$this->maximalFixture = new Tx_Seminars_Speaker($maximalFixtureUid);
 	}
 
 	protected function tearDown() {
@@ -94,7 +94,7 @@ class tx_seminars_OldModel_SpeakerTest extends tx_phpunit_testcase {
 			$this->fixture->getUid(), $uid, 'skills'
 		);
 
-		$this->fixture = new tx_seminars_speaker($this->fixture->getUid());
+		$this->fixture = new Tx_Seminars_Speaker($this->fixture->getUid());
 
 		return $uid;
 	}
@@ -416,16 +416,16 @@ class tx_seminars_OldModel_SpeakerTest extends tx_phpunit_testcase {
 
 	public function testGetGenderForNoGenderSetReturnsUnknownGenderValue() {
 		self::assertEquals(
-			tx_seminars_speaker::GENDER_UNKNOWN,
+			Tx_Seminars_Speaker::GENDER_UNKNOWN,
 			$this->fixture->getGender()
 		);
 	}
 
 	public function testGetGenderForKnownGenderReturnsGender() {
-		$this->fixture->setGender(tx_seminars_speaker::GENDER_MALE);
+		$this->fixture->setGender(Tx_Seminars_Speaker::GENDER_MALE);
 
 		self::assertEquals(
-			tx_seminars_speaker::GENDER_MALE,
+			Tx_Seminars_Speaker::GENDER_MALE,
 			$this->fixture->getGender()
 		);
 	}

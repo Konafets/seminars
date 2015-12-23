@@ -83,7 +83,7 @@ class tx_seminars_configcheck extends tx_oelib_configcheck {
 	}
 
 	/**
-	 * Checks the configuration for: tx_seminars_speaker/.
+	 * Checks the configuration for: Tx_Seminars_Speaker/.
 	 *
 	 * @return void
 	 */

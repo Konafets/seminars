@@ -788,7 +788,7 @@ class tx_seminars_seminar extends Tx_Seminars_Timespan {
 
 		$result = '';
 
-		/** @var tx_seminars_speaker $speaker */
+		/** @var Tx_Seminars_Speaker $speaker */
 		foreach ($this->getSpeakerBag($speakerRelation) as $speaker) {
 			$name = $speaker->getLinkedTitle($plugin);
 			if ($speaker->hasOrganization()) {
@@ -834,7 +834,7 @@ class tx_seminars_seminar extends Tx_Seminars_Timespan {
 
 		$result = '';
 
-		/** @var tx_seminars_speaker $speaker */
+		/** @var Tx_Seminars_Speaker $speaker */
 		foreach ($this->getSpeakerBag($speakerRelation) as $speaker) {
 			$result .= $speaker->getTitle();
 			if ($speaker->hasOrganization()) {
@@ -879,7 +879,7 @@ class tx_seminars_seminar extends Tx_Seminars_Timespan {
 
 		$result = array();
 
-		/** @var tx_seminars_speaker $speaker */
+		/** @var Tx_Seminars_Speaker $speaker */
 		foreach ($this->getSpeakerBag($speakerRelation) as $speaker) {
 			$result[] = $speaker->getLinkedTitle($plugin);
 		}
@@ -1033,13 +1033,13 @@ class tx_seminars_seminar extends Tx_Seminars_Timespan {
 			$result .= '_single';
 		}
 
-		/** @var tx_seminars_speaker $speaker */
+		/** @var Tx_Seminars_Speaker $speaker */
 		foreach ($speakers as $speaker) {
 			switch ($speaker->getGender()) {
-				case tx_seminars_speaker::GENDER_MALE:
+				case Tx_Seminars_Speaker::GENDER_MALE:
 					$hasMaleSpeakers = TRUE;
 					break;
-				case tx_seminars_speaker::GENDER_FEMALE:
+				case Tx_Seminars_Speaker::GENDER_FEMALE:
 					$hasFemaleSpeakers = TRUE;
 					break;
 				default:
@@ -4482,7 +4482,7 @@ class tx_seminars_seminar extends Tx_Seminars_Timespan {
 		$deadline = $beginDate;
 		$speakers = $this->getSpeakerBag();
 
-		/** @var tx_seminars_speaker $organizer */
+		/** @var Tx_Seminars_Speaker $organizer */
 		foreach ($speakers as $speaker) {
 			$speakerDeadline = $beginDate -
 				($speaker->getCancelationPeriodInDays()

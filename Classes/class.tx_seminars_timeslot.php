@@ -76,7 +76,7 @@ class Tx_Seminars_TimeSlot extends Tx_Seminars_Timespan {
 		$result = array();
 		$speakerBag = $this->getSpeakerBag();
 
-		/** @var tx_seminars_speaker $organizer */
+		/** @var Tx_Seminars_Speaker $organizer */
 		foreach ($speakerBag as $speaker) {
 			$result[] = $speaker->getTitle();
 		}
