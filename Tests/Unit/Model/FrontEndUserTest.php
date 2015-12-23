@@ -45,7 +45,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getPublishSettingsForUserWithOneGroupAndGroupPublishSettingZeroReturnsPublishAll() {
-		$userGroup = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_FrontEndUserGroup')
+		$userGroup = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUserGroup')
 			->getLoadedTestingModel(array(
 				'tx_seminars_publish_events'
 					=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_IMMEDIATELY
@@ -66,7 +66,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getPublishSettingsForUserWithOneGroupAndGroupPublishSettingOneReturnsHideNew() {
-		$userGroup = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_FrontEndUserGroup')
+		$userGroup = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUserGroup')
 			->getLoadedTestingModel(array(
 				'tx_seminars_publish_events'
 					=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW
@@ -87,7 +87,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getPublishSettingsForUserWithOneGroupAndGroupPublishSettingTwoReturnsHideEdited() {
-		$userGroup = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_FrontEndUserGroup')
+		$userGroup = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUserGroup')
 			->getLoadedTestingModel(array(
 				'tx_seminars_publish_events'
 					=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_EDITED
@@ -121,7 +121,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getPublishSettingsForUserWithTwoGroupsAndGroupPublishSettingZeroAndOneReturnsHideNew() {
-		$groupMapper = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_FrontEndUserGroup');
+		$groupMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUserGroup');
 		$userGroup = $groupMapper->getLoadedTestingModel(array(
 			'tx_seminars_publish_events'
 				=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_IMMEDIATELY
@@ -147,7 +147,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getPublishSettingsForUserWithTwoGroupsAndGroupPublishSettingOneAndTwoReturnsHideEdited() {
-		$groupMapper = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_FrontEndUserGroup');
+		$groupMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUserGroup');
 		$userGroup = $groupMapper->getLoadedTestingModel(array(
 			'tx_seminars_publish_events'
 				=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW
@@ -173,7 +173,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getPublishSettingsForUserWithTwoGroupsAndGroupPublishSettingTwoAndZeroReturnsHideEdited() {
-		$groupMapper = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_FrontEndUserGroup');
+		$groupMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUserGroup');
 		$userGroup = $groupMapper->getLoadedTestingModel(array(
 			'tx_seminars_publish_events'
 				=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_EDITED
@@ -199,7 +199,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getPublishSettingsForUserWithTwoGroupsAndBothGroupPublishSettingsOneReturnsHideNew() {
-		$groupMapper = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_FrontEndUserGroup');
+		$groupMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUserGroup');
 		$userGroup = $groupMapper->getLoadedTestingModel(array(
 			'tx_seminars_publish_events'
 				=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW
@@ -244,7 +244,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function getAuxiliaryRecordsPidWithUserGroupWithoutPidReturnsZero() {
 		$groupMapper = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup'
+			'Tx_Seminars_Mapper_FrontEndUserGroup'
 		);
 		$userGroup = $groupMapper->getLoadedTestingModel(array());
 
@@ -264,7 +264,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function getAuxiliaryRecordsPidWithUserGroupWithPidReturnsPid() {
 		$groupMapper = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup'
+			'Tx_Seminars_Mapper_FrontEndUserGroup'
 		);
 		$userGroup = $groupMapper->getLoadedTestingModel(
 			array('tx_seminars_auxiliary_records_pid' => 42)
@@ -286,7 +286,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function getAuxiliaryRecordsPidWithTwoUserGroupsAndSecondUserGroupHasPidReturnsPid() {
 		$groupMapper = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup'
+			'Tx_Seminars_Mapper_FrontEndUserGroup'
 		);
 		$userGroup = $groupMapper->getLoadedTestingModel(array());
 
@@ -311,7 +311,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function getAuxiliaryRecordPidWithTwoUserGroupsAndBothUserGroupsHavePidReturnPidOfFirstUserGroup() {
 		$groupMapper = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup'
+			'Tx_Seminars_Mapper_FrontEndUserGroup'
 		);
 		$userGroup = $groupMapper->getLoadedTestingModel(
 			array('tx_seminars_auxiliary_records_pid' => 24)
@@ -459,7 +459,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function getEventRecordsPidWithUserGroupWithoutPidReturnsZero() {
 		$groupMapper = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup'
+			'Tx_Seminars_Mapper_FrontEndUserGroup'
 		);
 		$userGroup = $groupMapper->getLoadedTestingModel(array());
 
@@ -479,7 +479,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function getEventRecordsPidWithUserGroupWithPidReturnsPid() {
 		$groupMapper = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup'
+			'Tx_Seminars_Mapper_FrontEndUserGroup'
 		);
 		$userGroup = $groupMapper->getLoadedTestingModel(
 			array('tx_seminars_events_pid' => 42)
@@ -501,7 +501,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function getEventRecordsPidWithTwoUserGroupsAndSecondUserGroupHasPidReturnsPid() {
 		$groupMapper = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup'
+			'Tx_Seminars_Mapper_FrontEndUserGroup'
 		);
 		$userGroup = $groupMapper->getLoadedTestingModel(array());
 
@@ -526,7 +526,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function getAuxiliaryRecordPidWithTwoUserGroupsAndBothUserGroupsHavePidReturnsPidOfFirstUserGroup() {
 		$groupMapper = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup'
+			'Tx_Seminars_Mapper_FrontEndUserGroup'
 		);
 		$userGroup = $groupMapper->getLoadedTestingModel(
 			array('tx_seminars_events_pid' => 24)
@@ -558,7 +558,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function getDefaultCategoriesFromGroupForUserWithGroupWithoutCategoriesReturnsEmptyList() {
 		$userGroup = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup')->getNewGhost();
+			'Tx_Seminars_Mapper_FrontEndUserGroup')->getNewGhost();
 		$userGroup->setData(
 			array('tx_seminars_default_categories' => new tx_oelib_List())
 		);
@@ -583,7 +583,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		);
 
 		$userGroup = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup')->getNewGhost();
+			'Tx_Seminars_Mapper_FrontEndUserGroup')->getNewGhost();
 		$userGroup->setData(
 			array('tx_seminars_default_categories' => $categories)
 		);
@@ -609,7 +609,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$categories->add($categoryMapper->getNewGhost());
 
 		$userGroup = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup')->getNewGhost();
+			'Tx_Seminars_Mapper_FrontEndUserGroup')->getNewGhost();
 		$userGroup->setData(
 			array('tx_seminars_default_categories' => $categories)
 		);
@@ -629,7 +629,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function getDefaultCategoriesFromGroupForUserWithTwoGroupsOneWithCategoryReturnsOneCategory() {
 		$frontEndGroupMapper = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup');
+			'Tx_Seminars_Mapper_FrontEndUserGroup');
 		$userGroup1 = $frontEndGroupMapper->getNewGhost();
 		$userGroup1->setData(
 			array('tx_seminars_default_categories' => new tx_oelib_List())
@@ -667,7 +667,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$categories->add($categoryGhost);
 
 		$frontEndGroupMapper = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup');
+			'Tx_Seminars_Mapper_FrontEndUserGroup');
 		$userGroup1 = $frontEndGroupMapper->getNewGhost();
 		$userGroup1->setData(
 			array('tx_seminars_default_categories' => $categories)
@@ -697,7 +697,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 			'Tx_Seminars_Mapper_Category'
 		);
 		$frontEndGroupMapper = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup');
+			'Tx_Seminars_Mapper_FrontEndUserGroup');
 
 		$categoryGhost1 = $categoryMapper->getNewGhost();
 		$categories1 = new tx_oelib_List();
@@ -736,7 +736,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function hasDefaultCategoriesForUserWithOneGroupWithoutCategoryReturnsFalse() {
 		$userGroup = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup')->getNewGhost();
+			'Tx_Seminars_Mapper_FrontEndUserGroup')->getNewGhost();
 		$userGroup->setData(
 			array('tx_seminars_default_categories' => new tx_oelib_List())
 		);
@@ -761,7 +761,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		);
 
 		$userGroup = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup')->getNewGhost();
+			'Tx_Seminars_Mapper_FrontEndUserGroup')->getNewGhost();
 		$userGroup->setData(
 			array('tx_seminars_default_categories' => $categories)
 		);
@@ -829,7 +829,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function getDefaultOrganizersForGroupWithoutDefaultOrganizersReturnsEmptyList() {
 		$userGroup = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_FrontEndUserGroup')->getNewGhost();
+			::get('Tx_Seminars_Mapper_FrontEndUserGroup')->getNewGhost();
 		$userGroup->setData(array('tx_seminars_default_organizer' => NULL));
 		$groups = new tx_oelib_List();
 		$groups->add($userGroup);
@@ -847,7 +847,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$organizer = tx_oelib_MapperRegistry
 			::get('tx_seminars_Mapper_Organizer')->getNewGhost();
 		$userGroup = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_FrontEndUserGroup')->getNewGhost();
+			::get('Tx_Seminars_Mapper_FrontEndUserGroup')->getNewGhost();
 		$userGroup->setData(array('tx_seminars_default_organizer' => $organizer));
 		$groups = new tx_oelib_List();
 		$groups->add($userGroup);
@@ -866,13 +866,13 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$organizer1 = tx_oelib_MapperRegistry
 			::get('tx_seminars_Mapper_Organizer')->getNewGhost();
 		$userGroup1 = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_FrontEndUserGroup')->getNewGhost();
+			::get('Tx_Seminars_Mapper_FrontEndUserGroup')->getNewGhost();
 		$userGroup1->setData(array('tx_seminars_default_organizer' => $organizer1));
 
 		$organizer2 = tx_oelib_MapperRegistry
 			::get('tx_seminars_Mapper_Organizer')->getNewGhost();
 		$userGroup2 = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_FrontEndUserGroup')->getNewGhost();
+			::get('Tx_Seminars_Mapper_FrontEndUserGroup')->getNewGhost();
 		$userGroup2->setData(array('tx_seminars_default_organizer' => $organizer2));
 
 		$groups = new tx_oelib_List();

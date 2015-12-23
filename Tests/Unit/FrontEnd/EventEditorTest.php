@@ -1410,7 +1410,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 		$organizerUid = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Organizer')
 			->getLoadedTestingModel(array())->getUid();
 		$frontEndUserGroupUid = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_FrontEndUserGroup')->getLoadedTestingModel(
+			::get('Tx_Seminars_Mapper_FrontEndUserGroup')->getLoadedTestingModel(
 				array('tx_seminars_default_organizer' => $organizerUid)
 			)->getUid();
 
@@ -1440,7 +1440,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 
 		$organizerUid = $organizerMapper->getLoadedTestingModel(array())->getUid();
 		$frontEndUserGroupUid = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_FrontEndUserGroup')->getLoadedTestingModel(
+			::get('Tx_Seminars_Mapper_FrontEndUserGroup')->getLoadedTestingModel(
 				array('tx_seminars_default_organizer' => $organizerUid)
 			)->getUid();
 		$this->testingFramework
@@ -2485,7 +2485,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 		$this->fixture->setConfigurationValue('createEventsPID', 42);
 
 		$userGroup = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup')->getLoadedTestingModel(
+			'Tx_Seminars_Mapper_FrontEndUserGroup')->getLoadedTestingModel(
 				array('tx_seminars_events_pid' => 21)
 		);
 
@@ -2528,7 +2528,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 		$categories->add($category);
 
 		$userGroup = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup')->getNewGhost();
+			'Tx_Seminars_Mapper_FrontEndUserGroup')->getNewGhost();
 		$userGroup->setData(
 			array(
 				'tx_seminars_default_categories' => $categories,
@@ -2562,7 +2562,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 		$categories->add($category2);
 
 		$userGroup = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup')->getNewGhost();
+			'Tx_Seminars_Mapper_FrontEndUserGroup')->getNewGhost();
 		$userGroup->setData(
 			array(
 				'tx_seminars_default_categories' => $categories,
@@ -2593,7 +2593,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 		$categories->add($category);
 
 		$userGroup = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup')->getNewGhost();
+			'Tx_Seminars_Mapper_FrontEndUserGroup')->getNewGhost();
 		$userGroup->setData(
 			array(
 				'tx_seminars_default_categories' => $categories,
@@ -2868,7 +2868,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 		);
 
 		$userGroup = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_FrontEndUserGroup')->getNewGhost();
+			'Tx_Seminars_Mapper_FrontEndUserGroup')->getNewGhost();
 		$userGroup->setData(
 			array('tx_seminars_default_categories' => $categories)
 		);

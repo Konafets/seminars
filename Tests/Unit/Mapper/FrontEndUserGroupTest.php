@@ -21,9 +21,9 @@
  * @author Bernd Schönbach <bernd@oliverklee.de>
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class tx_seminars_Mapper_FrontEndUserGroupTest extends tx_phpunit_testcase {
+class Tx_Seminars_Mapper_FrontEndUserGroupTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_seminars_Mapper_FrontEndUserGroup the object to test
+	 * @var Tx_Seminars_Mapper_FrontEndUserGroup the object to test
 	 */
 	private $fixture;
 
@@ -33,7 +33,7 @@ class tx_seminars_Mapper_FrontEndUserGroupTest extends tx_phpunit_testcase {
 	private $testingFramework;
 
 	protected function setUp() {
-		$this->fixture = new tx_seminars_Mapper_FrontEndUserGroup();
+		$this->fixture = new Tx_Seminars_Mapper_FrontEndUserGroup();
 		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
 	}
 
