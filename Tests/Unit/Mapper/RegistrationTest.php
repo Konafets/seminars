@@ -146,7 +146,7 @@ class tx_seminars_Mapper_RegistrationTest extends tx_phpunit_testcase {
 	 */
 	public function getPaymentMethodWithPaymentMethodReturnsPaymentMethodInstance() {
 		$paymentMethod = tx_oelib_MapperRegistry::
-			get('tx_seminars_Mapper_PaymentMethod')->getNewGhost();
+			get('Tx_Seminars_Mapper_PaymentMethod')->getNewGhost();
 
 		self::assertTrue(
 			$this->fixture->getLoadedTestingModel(

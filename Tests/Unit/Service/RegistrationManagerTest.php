@@ -5344,7 +5344,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		$paymentMethod = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_PaymentMethod')->getNewGhost();
+			::get('Tx_Seminars_Mapper_PaymentMethod')->getNewGhost();
 		$paymentMethods = new tx_oelib_List();
 		$paymentMethods->add($paymentMethod);
 
@@ -5374,9 +5374,9 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		$paymentMethod1 = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_PaymentMethod')->getNewGhost();
+			::get('Tx_Seminars_Mapper_PaymentMethod')->getNewGhost();
 		$paymentMethod2 = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_PaymentMethod')->getNewGhost();
+			::get('Tx_Seminars_Mapper_PaymentMethod')->getNewGhost();
 		$paymentMethods = new tx_oelib_List();
 		$paymentMethods->add($paymentMethod1);
 		$paymentMethods->add($paymentMethod2);
@@ -5407,7 +5407,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		$paymentMethod = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_PaymentMethod')->getNewGhost();
+			::get('Tx_Seminars_Mapper_PaymentMethod')->getNewGhost();
 		$paymentMethods = new tx_oelib_List();
 		$paymentMethods->add($paymentMethod);
 
@@ -5461,8 +5461,8 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		/** @var tx_seminars_registrationmanager $fixture */
 		$fixture = new $className();
 
-		$paymentMethod1 = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_PaymentMethod')->getNewGhost();
-		$paymentMethod2 = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_PaymentMethod')->getNewGhost();
+		$paymentMethod1 = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_PaymentMethod')->getNewGhost();
+		$paymentMethod2 = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_PaymentMethod')->getNewGhost();
 		$paymentMethods = new tx_oelib_List();
 		$paymentMethods->add($paymentMethod1);
 		$paymentMethods->add($paymentMethod2);
@@ -5492,7 +5492,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		$paymentMethod = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_PaymentMethod')->getNewGhost();
+			::get('Tx_Seminars_Mapper_PaymentMethod')->getNewGhost();
 		$paymentMethods = new tx_oelib_List();
 		$paymentMethods->add($paymentMethod);
 
@@ -5522,9 +5522,9 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		$paymentMethod1 = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_PaymentMethod')->getNewGhost();
+			::get('Tx_Seminars_Mapper_PaymentMethod')->getNewGhost();
 		$paymentMethod2 = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_PaymentMethod')->getNewGhost();
+			::get('Tx_Seminars_Mapper_PaymentMethod')->getNewGhost();
 		$paymentMethods = new tx_oelib_List();
 		$paymentMethods->add($paymentMethod1);
 		$paymentMethods->add($paymentMethod2);
@@ -5556,7 +5556,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 		$fixture = new $className();
 
 		$paymentMethod = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_PaymentMethod')->getNewGhost();
+			::get('Tx_Seminars_Mapper_PaymentMethod')->getNewGhost();
 		$paymentMethods = new tx_oelib_List();
 		$paymentMethods->add($paymentMethod);
 
