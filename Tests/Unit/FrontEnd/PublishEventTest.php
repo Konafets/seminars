@@ -20,9 +20,9 @@
  *
  * @author 2009 Bernd Schönbach <bernd@oliverklee.de>
  */
-class tx_seminars_FrontEnd_PublishEventTest extends tx_phpunit_testcase {
+class Tx_Seminars_FrontEnd_PublishEventTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_seminars_FrontEnd_PublishEvent
+	 * @var Tx_Seminars_FrontEnd_PublishEvent
 	 */
 	private $fixture;
 
@@ -34,7 +34,7 @@ class tx_seminars_FrontEnd_PublishEventTest extends tx_phpunit_testcase {
 	protected function setUp() {
 		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
 		$this->testingFramework->createFakeFrontEnd();
-		$this->fixture = new tx_seminars_FrontEnd_PublishEvent();
+		$this->fixture = new Tx_Seminars_FrontEnd_PublishEvent();
 	}
 
 	protected function tearDown() {

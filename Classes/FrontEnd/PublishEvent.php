@@ -20,7 +20,7 @@
  *
  * @author Bernd Schönbach <bernd@oliverklee.de>
  */
-class tx_seminars_FrontEnd_PublishEvent extends tx_oelib_templatehelper {
+class Tx_Seminars_FrontEnd_PublishEvent extends tx_oelib_templatehelper {
 	/**
 	 * @var int
 	 */
