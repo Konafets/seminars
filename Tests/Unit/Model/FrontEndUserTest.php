@@ -48,7 +48,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$userGroup = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUserGroup')
 			->getLoadedTestingModel(array(
 				'tx_seminars_publish_events'
-					=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_IMMEDIATELY
+					=> Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_IMMEDIATELY
 			)
 		);
 
@@ -57,7 +57,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$this->fixture->setData(array('usergroup' => $list));
 
 		self::assertEquals(
-			tx_seminars_Model_FrontEndUserGroup::PUBLISH_IMMEDIATELY,
+			Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_IMMEDIATELY,
 			$this->fixture->getPublishSetting()
 		);
 	}
@@ -69,7 +69,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$userGroup = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUserGroup')
 			->getLoadedTestingModel(array(
 				'tx_seminars_publish_events'
-					=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW
+					=> Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW
 			)
 		);
 
@@ -78,7 +78,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$this->fixture->setData(array('usergroup' => $list));
 
 		self::assertEquals(
-			tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW,
+			Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW,
 			$this->fixture->getPublishSetting()
 		);
 	}
@@ -90,7 +90,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$userGroup = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUserGroup')
 			->getLoadedTestingModel(array(
 				'tx_seminars_publish_events'
-					=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_EDITED
+					=> Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_EDITED
 			)
 		);
 
@@ -99,7 +99,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$this->fixture->setData(array('usergroup' => $list));
 
 		self::assertEquals(
-			tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_EDITED,
+			Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_EDITED,
 			$this->fixture->getPublishSetting()
 		);
 	}
@@ -112,7 +112,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$this->fixture->setData(array('usergroup' => $list));
 
 		self::assertEquals(
-			tx_seminars_Model_FrontEndUserGroup::PUBLISH_IMMEDIATELY,
+			Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_IMMEDIATELY,
 			$this->fixture->getPublishSetting()
 		);
 	}
@@ -124,12 +124,12 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$groupMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUserGroup');
 		$userGroup = $groupMapper->getLoadedTestingModel(array(
 			'tx_seminars_publish_events'
-				=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_IMMEDIATELY
+				=> Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_IMMEDIATELY
 		));
 
 		$userGroup2 = $groupMapper->getLoadedTestingModel(array(
 			'tx_seminars_publish_events'
-				=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW
+				=> Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW
 		));
 
 		$list = new tx_oelib_List();
@@ -138,7 +138,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$this->fixture->setData(array('usergroup' => $list));
 
 		self::assertEquals(
-			tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW,
+			Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW,
 			$this->fixture->getPublishSetting()
 		);
 	}
@@ -150,12 +150,12 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$groupMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUserGroup');
 		$userGroup = $groupMapper->getLoadedTestingModel(array(
 			'tx_seminars_publish_events'
-				=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW
+				=> Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW
 		));
 
 		$userGroup2 = $groupMapper->getLoadedTestingModel(array(
 			'tx_seminars_publish_events'
-				=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_EDITED
+				=> Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_EDITED
 		));
 
 		$list = new tx_oelib_List();
@@ -164,7 +164,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$this->fixture->setData(array('usergroup' => $list));
 
 		self::assertEquals(
-			tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_EDITED,
+			Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_EDITED,
 			$this->fixture->getPublishSetting()
 		);
 	}
@@ -176,12 +176,12 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$groupMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUserGroup');
 		$userGroup = $groupMapper->getLoadedTestingModel(array(
 			'tx_seminars_publish_events'
-				=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_EDITED
+				=> Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_EDITED
 		));
 
 		$userGroup2 = $groupMapper->getLoadedTestingModel(array(
 			'tx_seminars_publish_events'
-				=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_IMMEDIATELY
+				=> Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_IMMEDIATELY
 		));
 
 		$list = new tx_oelib_List();
@@ -190,7 +190,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$this->fixture->setData(array('usergroup' => $list));
 
 		self::assertEquals(
-			tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_EDITED,
+			Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_EDITED,
 			$this->fixture->getPublishSetting()
 		);
 	}
@@ -202,12 +202,12 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$groupMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUserGroup');
 		$userGroup = $groupMapper->getLoadedTestingModel(array(
 			'tx_seminars_publish_events'
-				=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW
+				=> Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW
 		));
 
 		$userGroup2 = $groupMapper->getLoadedTestingModel(array(
 			'tx_seminars_publish_events'
-				=> tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW
+				=> Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW
 		));
 
 		$list = new tx_oelib_List();
@@ -216,7 +216,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$this->fixture->setData(array('usergroup' => $list));
 
 		self::assertEquals(
-			tx_seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW,
+			Tx_Seminars_Model_FrontEndUserGroup::PUBLISH_HIDE_NEW,
 			$this->fixture->getPublishSetting()
 		);
 	}
@@ -354,7 +354,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getReviewerFromGroupForUserWithGroupWithNoReviewerReturnsNull() {
-		$userGroup = new tx_seminars_Model_FrontEndUserGroup();
+		$userGroup = new Tx_Seminars_Model_FrontEndUserGroup();
 		$userGroup->setData(array('tx_seminars_reviewer' => NULL));
 
 		$list = new tx_oelib_List();
@@ -373,7 +373,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	public function getReviewerFromGroupForUserWithGroupWithReviewerReturnsReviewer() {
 		$backEndUser = new tx_oelib_Model_BackEndUser();
 
-		$userGroup = new tx_seminars_Model_FrontEndUserGroup();
+		$userGroup = new Tx_Seminars_Model_FrontEndUserGroup();
 		$userGroup->setData(array('tx_seminars_reviewer' => $backEndUser));
 
 		$list = new tx_oelib_List();
@@ -393,8 +393,8 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	public function getReviewerFromGroupForUserWithTwoGroupsOneWithReviewerOneWithoutReviewerReturnsReviewer() {
 		$backEndUser = new tx_oelib_Model_BackEndUser();
 
-		$userGroup1 = new tx_seminars_Model_FrontEndUserGroup();
-		$userGroup2 = new tx_seminars_Model_FrontEndUserGroup();
+		$userGroup1 = new Tx_Seminars_Model_FrontEndUserGroup();
+		$userGroup2 = new Tx_Seminars_Model_FrontEndUserGroup();
 
 		$userGroup1->setData(array('tx_seminars_reviewer' => NULL));
 		$userGroup2->setData(array('tx_seminars_reviewer' => $backEndUser));
@@ -418,8 +418,8 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 		$backEndUser1 = new tx_oelib_Model_BackEndUser();
 		$backEndUser2 = new tx_oelib_Model_BackEndUser();
 
-		$userGroup1 = new tx_seminars_Model_FrontEndUserGroup();
-		$userGroup2 = new tx_seminars_Model_FrontEndUserGroup();
+		$userGroup1 = new Tx_Seminars_Model_FrontEndUserGroup();
+		$userGroup2 = new Tx_Seminars_Model_FrontEndUserGroup();
 
 		$userGroup1->setData(array('tx_seminars_reviewer' => $backEndUser1));
 		$userGroup2->setData(array('tx_seminars_reviewer' => $backEndUser2));
