@@ -1394,7 +1394,7 @@ class Tx_seminars_Service_RegistrationManagerTest extends Tx_Phpunit_TestCase {
 
 	public function testGetMissingRequiredTopicsReturnsSeminarBag() {
 		self::assertInstanceOf(
-			'tx_seminars_Bag_Event',
+			'Tx_Seminars_Bag_Event',
 			$this->fixture->getMissingRequiredTopics($this->seminar)
 		);
 	}

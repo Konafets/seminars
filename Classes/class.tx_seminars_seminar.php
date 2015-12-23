@@ -3791,8 +3791,8 @@ class tx_seminars_seminar extends tx_seminars_timespan {
 					'tx_seminars_attendances.seminar' .
 				' AND tx_seminars_attendances.user = ' . $feUserUid;
 
-			/** @var tx_seminars_Bag_Event $seminarBag */
-			$seminarBag = GeneralUtility::makeInstance('tx_seminars_Bag_Event', $queryWhere, $additionalTables);
+			/** @var Tx_Seminars_Bag_Event $seminarBag */
+			$seminarBag = GeneralUtility::makeInstance('Tx_Seminars_Bag_Event', $queryWhere, $additionalTables);
 
 			// One blocking event is enough.
 			$result = !$seminarBag->isEmpty();
@@ -4394,7 +4394,7 @@ class tx_seminars_seminar extends tx_seminars_timespan {
 	 * Returns the required events for the current event topic, ie. topics that
 	 * are prerequisites for this event.
 	 *
-	 * @return tx_seminars_Bag_Event the required events, will be empty if this
+	 * @return Tx_Seminars_Bag_Event the required events, will be empty if this
 	 *                               event has no required events
 	 */
 	public function getRequirements() {
@@ -4409,7 +4409,7 @@ class tx_seminars_seminar extends tx_seminars_timespan {
 	 * Returns the depending events for the current event topic, ie. topics for
 	 * which this event is a prerequisite.
 	 *
-	 * @return tx_seminars_Bag_Event the depending events, will be empty if
+	 * @return Tx_Seminars_Bag_Event the depending events, will be empty if
 	 *                               this event has no depending events
 	 */
 	public function getDependencies() {

@@ -21,9 +21,9 @@
  * @author Mario Rimann <typo3-coding@rimann.org>
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_Bag_EventTest extends tx_phpunit_testcase {
+class Tx_Seminars_Bag_EventTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_seminars_Bag_Event
+	 * @var Tx_Seminars_Bag_Event
 	 */
 	private $fixture;
 
@@ -40,7 +40,7 @@ class tx_seminars_Bag_EventTest extends tx_phpunit_testcase {
 			array('title' => 'test event')
 		);
 
-		$this->fixture = new tx_seminars_Bag_Event('is_dummy_record=1');
+		$this->fixture = new Tx_Seminars_Bag_Event('is_dummy_record=1');
 	}
 
 	protected function tearDown() {

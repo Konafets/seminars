@@ -6919,7 +6919,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getRequirementsReturnsSeminarBag() {
 		self::assertTrue(
-			$this->fixture->getRequirements() instanceof tx_seminars_Bag_Event
+			$this->fixture->getRequirements() instanceof Tx_Seminars_Bag_Event
 		);
 	}
 
@@ -7043,7 +7043,7 @@ class tx_seminars_OldModel_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getDependenciesReturnsSeminarBag() {
 		self::assertTrue(
-			$this->fixture->getDependencies() instanceof tx_seminars_Bag_Event
+			$this->fixture->getDependencies() instanceof Tx_Seminars_Bag_Event
 		);
 	}
 
