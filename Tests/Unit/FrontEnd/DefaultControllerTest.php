@@ -1192,7 +1192,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 
 		/** @var tx_seminars_Model_Event $event */
 		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')->find($this->seminarUid);
-		$hook = $this->getMock('tx_seminars_Interface_Hook_EventSingleView');
+		$hook = $this->getMock('Tx_Seminars_Interface_Hook_EventSingleView');
 		$hook->expects(self::once())->method('modifyEventSingleView')
 			->with($event, self::anything());
 		// We don't test for the second parameter (the template instance here)
@@ -1878,7 +1878,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 	public function timeSlotHookForEventWithoutTimeslotsNotGetsCalled() {
 		$this->fixture->setConfigurationValue('what_to_display', 'single_view');
 
-		$hook = $this->getMock('tx_seminars_Interface_Hook_EventSingleView');
+		$hook = $this->getMock('Tx_Seminars_Interface_Hook_EventSingleView');
 		$hook->expects(self::never())->method('modifyTimeSlotListRow');
 
 		$hookClass = get_class($hook);
@@ -1908,7 +1908,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 
 		/** @var tx_seminars_Model_TimeSlot $timeSlot */
 		$timeSlot = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_TimeSlot')->find($timeSlotUid);
-		$hook = $this->getMock('tx_seminars_Interface_Hook_EventSingleView');
+		$hook = $this->getMock('Tx_Seminars_Interface_Hook_EventSingleView');
 		$hook->expects(self::once())->method('modifyTimeSlotListRow')
 			->with($timeSlot, self::anything());
 		// We don't test for the second parameter (the template instance here)
@@ -1946,7 +1946,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 			array('timeslots' => $timeSlotUid1 . ',' . $timeSlotUid2)
 		);
 
-		$hook = $this->getMock('tx_seminars_Interface_Hook_EventSingleView');
+		$hook = $this->getMock('Tx_Seminars_Interface_Hook_EventSingleView');
 		$hook->expects(self::exactly(2))->method('modifyTimeSlotListRow');
 
 		$hookClass = get_class($hook);
