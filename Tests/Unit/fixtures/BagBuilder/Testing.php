@@ -21,11 +21,11 @@
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_tests_fixtures_BagBuilder_Testing extends tx_seminars_BagBuilder_Abstract {
+class Tx_Seminars_Tests_Fixtures_BagBuilder_Testing extends tx_seminars_BagBuilder_Abstract {
 	/**
 	 * @var string class name of the bag class that will be built
 	 */
-	protected $bagClassName = 'tx_seminars_tests_fixtures_Bag_Testing';
+	protected $bagClassName = 'Tx_Seminars_Tests_Fixtures_Bag_Testing';
 
 	/**
 	 * @var string the table name of the bag to build

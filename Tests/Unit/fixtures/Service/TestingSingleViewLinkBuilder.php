@@ -20,7 +20,7 @@
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class tx_seminars_tests_fixtures_Service_TestingSingleViewLinkBuilder extends tx_seminars_Service_SingleViewLinkBuilder {
+class Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder extends tx_seminars_Service_SingleViewLinkBuilder {
 	/**
 	 * Retrieves a content object to be used for creating typolinks.
 	 *

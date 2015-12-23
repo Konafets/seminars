@@ -68,7 +68,7 @@ class tx_seminars_ViewHelper_CommaSeparatedTitlesTest extends tx_phpunit_testcas
 	 * @expectedExceptionCode 1333658899
 	 */
 	public function renderWithElementsInListWithoutGetTitleMethodThrowsBadMethodCallException() {
-		$model = new tx_seminars_tests_fixtures_Model_UntitledTestingModel();
+		$model = new Tx_Seminars_Tests_Fixtures_Model_UntitledTestingModel();
 		$model->setData(array());
 
 		$this->list->add($model);
@@ -80,7 +80,7 @@ class tx_seminars_ViewHelper_CommaSeparatedTitlesTest extends tx_phpunit_testcas
 	 * @test
 	 */
 	public function renderWithOneElementListReturnsOneElementsTitle() {
-		$model = new tx_seminars_tests_fixtures_Model_TitledTestingModel();
+		$model = new Tx_Seminars_Tests_Fixtures_Model_TitledTestingModel();
 		$model->setData(array('title' => 'Testing model'));
 
 		$this->list->add($model);
@@ -95,9 +95,9 @@ class tx_seminars_ViewHelper_CommaSeparatedTitlesTest extends tx_phpunit_testcas
 	 * @test
 	 */
 	public function renderWithTwoElementsListReturnsTwoElementTitlesSeparatedByComma() {
-		$firstModel = new tx_seminars_tests_fixtures_Model_TitledTestingModel();
+		$firstModel = new Tx_Seminars_Tests_Fixtures_Model_TitledTestingModel();
 		$firstModel->setData(array('title' => 'First testing model'));
-		$secondModel = new tx_seminars_tests_fixtures_Model_TitledTestingModel();
+		$secondModel = new Tx_Seminars_Tests_Fixtures_Model_TitledTestingModel();
 		$secondModel->setData(array('title' => 'Second testing model'));
 
 		$this->list->add($firstModel);
@@ -113,7 +113,7 @@ class tx_seminars_ViewHelper_CommaSeparatedTitlesTest extends tx_phpunit_testcas
 	 * @test
 	 */
 	public function renderWithOneElementListReturnsOneElementsTitleHtmlspecialchared() {
-		$model = new tx_seminars_tests_fixtures_Model_TitledTestingModel();
+		$model = new Tx_Seminars_Tests_Fixtures_Model_TitledTestingModel();
 		$model->setData(array('title' => '<test>Testing model</test>'));
 
 		$this->list->add($model);

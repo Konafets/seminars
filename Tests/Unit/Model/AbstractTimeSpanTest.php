@@ -22,12 +22,12 @@
  */
 class tx_seminars_Model_AbstractTimeSpanTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_seminars_tests_fixtures_TestingTimeSpan
+	 * @var Tx_Seminars_Tests_Fixtures_TestingTimeSpan
 	 */
 	private $fixture;
 
 	protected function setUp() {
-		$this->fixture = new tx_seminars_tests_fixtures_TestingTimeSpan();
+		$this->fixture = new Tx_Seminars_Tests_Fixtures_TestingTimeSpan();
 	}
 
 	/**

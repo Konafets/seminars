@@ -23,7 +23,7 @@
  */
 class tx_seminars_BagBuilder_AbstractTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_seminars_tests_fixtures_BagBuilder_Testing
+	 * @var Tx_Seminars_Tests_Fixtures_BagBuilder_Testing
 	 */
 	private $fixture;
 	/**
@@ -37,7 +37,7 @@ class tx_seminars_BagBuilder_AbstractTest extends tx_phpunit_testcase {
 	protected function setUp() {
 		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
 
-		$this->fixture = new tx_seminars_tests_fixtures_BagBuilder_Testing();
+		$this->fixture = new Tx_Seminars_Tests_Fixtures_BagBuilder_Testing();
 		$this->fixture->setTestMode();
 
 		$this->dummySysFolderPid = $this->testingFramework->createSystemFolder();
@@ -58,7 +58,7 @@ class tx_seminars_BagBuilder_AbstractTest extends tx_phpunit_testcase {
 			'The attribute $this->tableName must not be empty.'
 		);
 
-		new tx_seminars_tests_fixtures_BagBuilder_BrokenTesting();
+		new Tx_Seminars_Tests_Fixtures_BagBuilder_BrokenTesting();
 	}
 
 	public function testBuilderBuildsAnObject() {

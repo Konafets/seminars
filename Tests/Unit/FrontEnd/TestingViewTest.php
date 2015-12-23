@@ -24,7 +24,7 @@ class tx_seminars_FrontEnd_TestingViewTest extends tx_phpunit_testcase {
 	/**
 	 * the fixture to test
 	 *
-	 * @var tx_seminars_tests_fixtures_FrontEnd_TestingView
+	 * @var Tx_Seminars_Tests_Fixtures_FrontEnd_TestingView
 	 */
 	private $fixture;
 
@@ -36,7 +36,7 @@ class tx_seminars_FrontEnd_TestingViewTest extends tx_phpunit_testcase {
 	protected function setUp() {
 		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
 		$this->testingFramework->createFakeFrontEnd();
-		$this->fixture = new tx_seminars_tests_fixtures_FrontEnd_TestingView(
+		$this->fixture = new Tx_Seminars_Tests_Fixtures_FrontEnd_TestingView(
 			array('templateFile' => 'EXT:seminars/Resources/Private/Templates/FrontEnd/FrontEnd.html'),
 			$GLOBALS['TSFE']->cObj
 		);

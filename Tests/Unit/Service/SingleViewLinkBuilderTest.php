@@ -86,7 +86,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 			->will(self::returnValue('42'));
 
 		$fixture = $this->getMock(
-			'tx_seminars_tests_fixtures_Service_TestingSingleViewLinkBuilder',
+			'Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder',
 			array(
 				'configurationHasSingleViewPage',
 				'getSingleViewPageFromConfiguration',
@@ -118,7 +118,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 			->will(self::returnValue(''));
 
 		$fixture = $this->getMock(
-			'tx_seminars_tests_fixtures_Service_TestingSingleViewLinkBuilder',
+			'Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder',
 			array(
 				'configurationHasSingleViewPage',
 				'getSingleViewPageFromConfiguration',
@@ -150,7 +150,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 			->will(self::returnValue('42'));
 
 		$fixture = $this->getMock(
-			'tx_seminars_tests_fixtures_Service_TestingSingleViewLinkBuilder',
+			'Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder',
 			array(
 				'configurationHasSingleViewPage',
 				'getSingleViewPageFromConfiguration',
@@ -182,7 +182,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 			->will(self::returnValue(''));
 
 		$fixture = $this->getMock(
-			'tx_seminars_tests_fixtures_Service_TestingSingleViewLinkBuilder',
+			'Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder',
 			array(
 				'configurationHasSingleViewPage',
 				'getSingleViewPageFromConfiguration',
@@ -210,7 +210,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 	 */
 	public function configurationHasSingleViewPageForZeroPageFromConfigurationReturnsFalse() {
 		$fixture = $this->getMock(
-			'tx_seminars_tests_fixtures_Service_TestingSingleViewLinkBuilder',
+			'Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder',
 			array('getSingleViewPageFromConfiguration')
 		);
 		$fixture->expects(self::any())
@@ -227,7 +227,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 	 */
 	public function configurationHasSingleViewPageForNonZeroPageFromConfigurationReturnsTrue() {
 		$fixture = $this->getMock(
-			'tx_seminars_tests_fixtures_Service_TestingSingleViewLinkBuilder',
+			'Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder',
 			array('getSingleViewPageFromConfiguration')
 		);
 		$fixture->expects(self::any())
@@ -257,7 +257,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 		$plugin->expects(self::any())->method('getConfValueInteger')
 			->with('detailPID')->will(self::returnValue(42));
 
-		$fixture = new tx_seminars_tests_fixtures_Service_TestingSingleViewLinkBuilder();
+		$fixture = new Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder();
 		$fixture->setPlugin($plugin);
 
 		self::assertEquals(
@@ -273,7 +273,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 		tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars_pi1')
 			->set('detailPID', 91);
 
-		$fixture = new tx_seminars_tests_fixtures_Service_TestingSingleViewLinkBuilder();
+		$fixture = new Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder();
 
 		self::assertEquals(
 			91,
@@ -294,7 +294,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 		$event = $this->getMock('tx_seminars_Model_Event');
 
 		$fixture = $this->getMock(
-			'tx_seminars_tests_fixtures_Service_TestingSingleViewLinkBuilder',
+			'Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder',
 			array('createRelativeUrlForEvent')
 		);
 		$fixture->expects(self::any())->method('createRelativeUrlForEvent')
@@ -325,7 +325,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 			));
 
 		$fixture = $this->getMock(
-			'tx_seminars_tests_fixtures_Service_TestingSingleViewLinkBuilder',
+			'Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder',
 			array('getContentObject', 'getSingleViewPageForEvent')
 		);
 		$fixture->expects(self::any())->method('getContentObject')
@@ -348,7 +348,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 			->will(self::returnValue($relativeUrl));
 
 		$fixture = $this->getMock(
-			'tx_seminars_tests_fixtures_Service_TestingSingleViewLinkBuilder',
+			'Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder',
 			array('getContentObject', 'getSingleViewPageForEvent')
 		);
 		$fixture->expects(self::any())->method('getContentObject')
@@ -369,7 +369,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')
 			->getLoadedTestingModel(array('details_page' => 'www.example.com'));
 
-		$fixture = new tx_seminars_tests_fixtures_Service_TestingSingleViewLinkBuilder();
+		$fixture = new Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder();
 
 		self::assertEquals(
 			'http://www.example.com',
@@ -386,7 +386,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 		$event = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Event')
 			->getLoadedTestingModel(array('details_page' => $pageUid));
 
-		$fixture = new tx_seminars_tests_fixtures_Service_TestingSingleViewLinkBuilder();
+		$fixture = new Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder();
 
 		self::assertContains(
 			'?id=' . $pageUid . '&tx_seminars_pi1%5BshowUid%5D=' . $event->getUid(),
@@ -405,7 +405,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 	public function getContentObjectForAvailableFrontEndReturnsFrontEndContentObject() {
 		$this->testingFramework->createFakeFrontEnd();
 
-		$fixture = new tx_seminars_tests_fixtures_Service_TestingSingleViewLinkBuilder();
+		$fixture = new Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder();
 
 		self::assertSame(
 			$GLOBALS['TSFE']->cObj,
@@ -417,7 +417,7 @@ class tx_seminars_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase 
 	 * @test
 	 */
 	public function getContentObjectForNoFrontEndReturnsContentObject() {
-		$fixture = new tx_seminars_tests_fixtures_Service_TestingSingleViewLinkBuilder();
+		$fixture = new Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder();
 
 		self::assertTrue(
 			$fixture->getContentObject() instanceof \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer

@@ -80,7 +80,7 @@ class tx_seminars_ViewHelper_TimeRangeTest extends Tx_Phpunit_TestCase {
 	 * @test
 	 */
 	public function renderWithTimeSpanWithNoDatesReturnMessageWillBeAnnounced() {
-		$timeSpan = new tx_seminars_tests_fixtures_TestingTimeSpan();
+		$timeSpan = new Tx_Seminars_Tests_Fixtures_TestingTimeSpan();
 		$timeSpan->setData(array());
 
 		self::assertSame(
@@ -93,7 +93,7 @@ class tx_seminars_ViewHelper_TimeRangeTest extends Tx_Phpunit_TestCase {
 	 * @test
 	 */
 	public function renderWithTimeSpanWithBeginDateWithZeroHoursReturnsMessageWillBeAnnounced() {
-		$timeSpan = new tx_seminars_tests_fixtures_TestingTimeSpan();
+		$timeSpan = new Tx_Seminars_Tests_Fixtures_TestingTimeSpan();
 		$timeSpan->setBeginDateAsUnixTimeStamp(self::BEGIN_DATE);
 
 		self::assertSame(
@@ -106,7 +106,7 @@ class tx_seminars_ViewHelper_TimeRangeTest extends Tx_Phpunit_TestCase {
 	 * @test
 	 */
 	public function renderWithTimeSpanWithBeginDateOnlyReturnsTimePortionOfBeginDate() {
-		$timeSpan = new tx_seminars_tests_fixtures_TestingTimeSpan();
+		$timeSpan = new Tx_Seminars_Tests_Fixtures_TestingTimeSpan();
 		$timeSpan->setBeginDateAsUnixTimeStamp(self::BEGIN_DATE + tx_oelib_Time::SECONDS_PER_HOUR);
 
 		self::assertSame(
@@ -119,7 +119,7 @@ class tx_seminars_ViewHelper_TimeRangeTest extends Tx_Phpunit_TestCase {
 	 * @test
 	 */
 	public function renderWithTimeSpanWithEqualBeginAndEndTimestampsReturnsOnlyTimePortionOfBeginDate() {
-		$timeSpan = new tx_seminars_tests_fixtures_TestingTimeSpan();
+		$timeSpan = new Tx_Seminars_Tests_Fixtures_TestingTimeSpan();
 		$timeSpan->setBeginDateAsUnixTimeStamp(self::BEGIN_DATE + tx_oelib_Time::SECONDS_PER_HOUR);
 		$timeSpan->setEndDateAsUnixTimeStamp(self::BEGIN_DATE + tx_oelib_Time::SECONDS_PER_HOUR);
 
@@ -133,7 +133,7 @@ class tx_seminars_ViewHelper_TimeRangeTest extends Tx_Phpunit_TestCase {
 	 * @test
 	 */
 	public function renderWithTimeSpanWithBeginAndEndDateReturnsTimePortionsOfBeginDateAndEndDate() {
-		$timeSpan = new tx_seminars_tests_fixtures_TestingTimeSpan();
+		$timeSpan = new Tx_Seminars_Tests_Fixtures_TestingTimeSpan();
 		$timeSpan->setBeginDateAsUnixTimeStamp(self::BEGIN_DATE + tx_oelib_Time::SECONDS_PER_HOUR);
 		$timeSpan->setEndDateAsUnixTimeStamp(self::BEGIN_DATE + 2 * tx_oelib_Time::SECONDS_PER_HOUR);
 
@@ -149,7 +149,7 @@ class tx_seminars_ViewHelper_TimeRangeTest extends Tx_Phpunit_TestCase {
 	 */
 	public function renderWithTimeSpanWithBeginAndEndDateReturnsTimePortionsOfBeginDateAndEndDateSeparatedBySpecifiedDash() {
 		$dash = '#DASH#';
-		$timeSpan = new tx_seminars_tests_fixtures_TestingTimeSpan();
+		$timeSpan = new Tx_Seminars_Tests_Fixtures_TestingTimeSpan();
 		$timeSpan->setBeginDateAsUnixTimeStamp(self::BEGIN_DATE + tx_oelib_Time::SECONDS_PER_HOUR);
 		$timeSpan->setEndDateAsUnixTimeStamp(self::BEGIN_DATE + 2 * tx_oelib_Time::SECONDS_PER_HOUR);
 
