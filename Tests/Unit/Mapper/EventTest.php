@@ -303,7 +303,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getSpeakersWithOneSpeakerReturnsListOfSpeakers() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_seminars');
-		$speaker = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Speaker')
+		$speaker = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $uid, $speaker->getUid(), 'speakers'
@@ -321,7 +321,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getSpeakersWithOneSpeakerReturnsOneSpeaker() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_seminars');
-		$speaker = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Speaker')
+		$speaker = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $uid, $speaker->getUid(), 'speakers'
@@ -355,7 +355,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getPartnersWithOnePartnerReturnsListOfSpeakers() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_seminars');
-		$speaker = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Speaker')
+		$speaker = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $uid, $speaker->getUid(), 'partners'
@@ -373,7 +373,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getPartnersWithOnePartnerReturnsOnePartner() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_seminars');
-		$speaker = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Speaker')
+		$speaker = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $uid, $speaker->getUid(), 'partners'
@@ -407,7 +407,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getTutorsWithOneTutorReturnsListOfSpeakers() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_seminars');
-		$speaker = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Speaker')
+		$speaker = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $uid, $speaker->getUid(), 'tutors'
@@ -425,7 +425,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getTutorsWithOneTutorReturnsOneTutor() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_seminars');
-		$speaker = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Speaker')
+		$speaker = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $uid, $speaker->getUid(), 'tutors'
@@ -459,7 +459,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getLeadersWithOneLeaderReturnsListOfSpeakers() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_seminars');
-		$speaker = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Speaker')
+		$speaker = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $uid, $speaker->getUid(), 'leaders'
@@ -477,7 +477,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getLeadersWithOneLeaderReturnsOneLeader() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_seminars');
-		$speaker = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Speaker')
+		$speaker = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $uid, $speaker->getUid(), 'leaders'
