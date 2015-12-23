@@ -73,7 +73,7 @@ class tx_seminars_BagBuilder_AbstractTest extends tx_phpunit_testcase {
 		$bag = $this->fixture->build();
 
 		self::assertTrue(
-			is_subclass_of($bag, 'tx_seminars_Bag_Abstract')
+			is_subclass_of($bag, 'Tx_Seminars_Bag_Abstract')
 		);
 	}
 

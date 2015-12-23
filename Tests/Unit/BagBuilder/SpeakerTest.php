@@ -48,7 +48,7 @@ class tx_seminars_BagBuilder_SpeakerTest extends tx_phpunit_testcase {
 
 	public function testBuilderBuildsABag() {
 		self::assertTrue(
-			$this->fixture->build() instanceof tx_seminars_Bag_Abstract
+			$this->fixture->build() instanceof Tx_Seminars_Bag_Abstract
 		);
 	}
 }

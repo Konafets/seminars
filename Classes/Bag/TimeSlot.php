@@ -20,7 +20,7 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_Bag_TimeSlot extends tx_seminars_Bag_Abstract {
+class tx_seminars_Bag_TimeSlot extends Tx_Seminars_Bag_Abstract {
 	/**
 	 * The constructor. Creates a bag that contains test records and allows to iterate over them.
 	 *

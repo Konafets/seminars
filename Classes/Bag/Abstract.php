@@ -22,7 +22,7 @@
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-abstract class tx_seminars_Bag_Abstract implements Iterator {
+abstract class Tx_Seminars_Bag_Abstract implements Iterator {
 	/**
 	 * @var string the name of the main DB table from which we get the records
 	 *             for this bag

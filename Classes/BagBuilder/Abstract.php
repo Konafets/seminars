@@ -80,10 +80,10 @@ abstract class tx_seminars_BagBuilder_Abstract {
 	/**
 	 * Creates and returns the customized bag.
 	 *
-	 * @return tx_seminars_Bag_Abstract customized, newly-created bag
+	 * @return Tx_Seminars_Bag_Abstract customized, newly-created bag
 	 */
 	public function build() {
-		/** @var tx_seminars_Bag_Abstract $bag */
+		/** @var Tx_Seminars_Bag_Abstract $bag */
 		$bag = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
 			$this->bagClassName,
 			$this->getWhereClause(),
