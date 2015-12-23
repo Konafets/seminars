@@ -188,7 +188,7 @@ class tx_seminars_Mapper_SingleEventTest extends tx_phpunit_testcase {
 		/** @var Tx_Seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
-			$model->getPaymentMethods()->first() instanceof tx_seminars_Model_PaymentMethod
+			$model->getPaymentMethods()->first() instanceof Tx_Seminars_Model_PaymentMethod
 		);
 	}
 

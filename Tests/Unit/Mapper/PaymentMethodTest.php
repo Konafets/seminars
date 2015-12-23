@@ -51,7 +51,7 @@ class Tx_Seminars_Mapper_PaymentMethodTest extends tx_phpunit_testcase {
 	 */
 	public function findWithUidReturnsPaymentMethodInstance() {
 		self::assertTrue(
-			$this->fixture->find(1) instanceof tx_seminars_Model_PaymentMethod
+			$this->fixture->find(1) instanceof Tx_Seminars_Model_PaymentMethod
 		);
 	}
 
@@ -63,7 +63,7 @@ class Tx_Seminars_Mapper_PaymentMethodTest extends tx_phpunit_testcase {
 			'tx_seminars_payment_methods', array('title' => 'Cash')
 		);
 
-		/** @var tx_seminars_Model_PaymentMethod $model */
+		/** @var Tx_Seminars_Model_PaymentMethod $model */
 		$model = $this->fixture->find($uid);
 		self::assertEquals(
 			'Cash',

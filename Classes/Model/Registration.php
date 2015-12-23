@@ -312,7 +312,7 @@ class tx_seminars_Model_Registration extends tx_oelib_Model implements tx_semina
 	/**
 	 * Returns the payment method of this registration.
 	 *
-	 * @return tx_seminars_Model_PaymentMethod the payment method of this registration
+	 * @return Tx_Seminars_Model_PaymentMethod the payment method of this registration
 	 */
 	public function getPaymentMethod() {
 		return $this->getAsModel('method_of_payment');
@@ -321,12 +321,12 @@ class tx_seminars_Model_Registration extends tx_oelib_Model implements tx_semina
 	/**
 	 * Sets the payment method of this registration.
 	 *
-	 * @param tx_seminars_Model_PaymentMethod $paymentMethod
+	 * @param Tx_Seminars_Model_PaymentMethod $paymentMethod
 	 *        the payment method of this registration to set, use NULL to set no payment method
 	 *
 	 * @return void
 	 */
-	public function setPaymentMethod(tx_seminars_Model_PaymentMethod $paymentMethod = NULL) {
+	public function setPaymentMethod(Tx_Seminars_Model_PaymentMethod $paymentMethod = NULL) {
 		$this->set('method_of_payment', $paymentMethod);
 	}
 
