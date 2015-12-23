@@ -21,7 +21,7 @@
  * @author Bernd Schönbach <bernd@oliverklee.de>
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class tx_seminars_FrontEnd_RequirementsList extends Tx_Seminars_FrontEnd_AbstractView {
+class Tx_Seminars_FrontEnd_RequirementsList extends Tx_Seminars_FrontEnd_AbstractView {
 	/**
 	 * @var tx_seminars_seminar the event to build the requirements list for
 	 */

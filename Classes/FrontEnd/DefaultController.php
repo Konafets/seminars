@@ -2195,12 +2195,12 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	/**
 	 * Returns a pi1_frontEndRequirementsList object.
 	 *
-	 * @return tx_seminars_FrontEnd_RequirementsList
+	 * @return Tx_Seminars_FrontEnd_RequirementsList
 	 *         the object to build the requirements list with
 	 */
 	private function createRequirementsList() {
-		/** @var tx_seminars_FrontEnd_RequirementsList $list */
-		$list = GeneralUtility::makeInstance('tx_seminars_FrontEnd_RequirementsList', $this->conf, $this->cObj);
+		/** @var Tx_Seminars_FrontEnd_RequirementsList $list */
+		$list = GeneralUtility::makeInstance('Tx_Seminars_FrontEnd_RequirementsList', $this->conf, $this->cObj);
 		return $list;
 	}
 
