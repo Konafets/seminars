@@ -62,7 +62,7 @@ class Tx_Seminars_Bag_Category extends Tx_Seminars_Bag_Abstract {
 	 */
 	protected function createItemFromDbResult() {
 		$this->currentItem = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-			'tx_seminars_OldModel_Category', 0, $this->dbResult
+			'Tx_Seminars_OldModel_Category', 0, $this->dbResult
 		);
 		$this->valid();
 	}
