@@ -4099,7 +4099,7 @@ class tx_seminars_seminar extends Tx_Seminars_Timespan {
 		// Creates an array with all place UIDs which should be related to this
 		// event.
 		$placesOfTimeSlots = array();
-		/** @var tx_seminars_timeslot $organizer */
+		/** @var Tx_Seminars_TimeSlot $organizer */
 		foreach ($timeSlotBag as $timeSlot) {
 			if ($timeSlot->hasPlace()) {
 				$placesOfTimeSlots[] = $timeSlot->getPlace();
@@ -4154,7 +4154,7 @@ class tx_seminars_seminar extends Tx_Seminars_Timespan {
 			'tx_seminars_timeslots.begin_date ASC'
 		);
 
-		/** @var tx_seminars_timeslot $organizer */
+		/** @var Tx_Seminars_TimeSlot $organizer */
 		foreach ($timeSlotBag as $timeSlot) {
 			$result[] = array(
 				'uid' => $timeSlot->getUid(),

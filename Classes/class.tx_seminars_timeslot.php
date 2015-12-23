@@ -20,7 +20,7 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_timeslot extends Tx_Seminars_Timespan {
+class Tx_Seminars_TimeSlot extends Tx_Seminars_Timespan {
 	/**
 	 * @var string the name of the SQL table this class corresponds to
 	 */
