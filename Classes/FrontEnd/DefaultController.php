@@ -963,8 +963,8 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 
 		$this->hideSubparts('date,time', 'field_wrapper');
 
-		/** @var tx_seminars_Mapper_TimeSlot $timeSlotMapper */
-		$timeSlotMapper = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_TimeSlot');
+		/** @var Tx_Seminars_Mapper_TimeSlot $timeSlotMapper */
+		$timeSlotMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_TimeSlot');
 
 		$timeSlotsOutput = '';
 		$timeSlots = $this->seminar->getTimeSlotsAsArrayWithMarkers();

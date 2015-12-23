@@ -20,21 +20,21 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_Mapper_TimeSlotTest extends tx_phpunit_testcase {
+class Tx_Seminars_Mapper_TimeSlotTest extends tx_phpunit_testcase {
 	/**
 	 * @var tx_oelib_testingFramework
 	 */
 	private $testingFramework;
 
 	/**
-	 * @var tx_seminars_Mapper_TimeSlot
+	 * @var Tx_Seminars_Mapper_TimeSlot
 	 */
 	private $fixture;
 
 	protected function setUp() {
 		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
 
-		$this->fixture = new tx_seminars_Mapper_TimeSlot();
+		$this->fixture = new Tx_Seminars_Mapper_TimeSlot();
 	}
 
 	protected function tearDown() {
