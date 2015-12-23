@@ -27,7 +27,7 @@ if ((TYPO3_MODE == 'BE') && is_object($LANG)) {
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-abstract class tx_seminars_OldModel_Abstract extends tx_oelib_templatehelper {
+abstract class Tx_Seminars_OldModel_Abstract extends tx_oelib_templatehelper {
 	/**
 	 * @var string the extension key
 	 */

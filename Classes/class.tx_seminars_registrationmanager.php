@@ -350,7 +350,7 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	 * @return bool TRUE the UID is valid, FALSE otherwise
 	 */
 	public function existsSeminar($seminarUid) {
-		return tx_seminars_OldModel_Abstract::recordExists($seminarUid, 'tx_seminars_seminars');
+		return Tx_Seminars_OldModel_Abstract::recordExists($seminarUid, 'tx_seminars_seminars');
 	}
 
 	/**
@@ -369,7 +369,7 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 			tx_oelib_headerProxyFactory::getInstance()->getHeaderProxy()->addHeader('Status: 404 Not Found');
 			return $this->translate('message_missingSeminarNumber');
 		}
-		if (!tx_seminars_OldModel_Abstract::recordExists($seminarUid, 'tx_seminars_seminars')) {
+		if (!Tx_Seminars_OldModel_Abstract::recordExists($seminarUid, 'tx_seminars_seminars')) {
 			tx_oelib_headerProxyFactory::getInstance()->getHeaderProxy()->addHeader('Status: 404 Not Found');
 			return $this->translate('message_wrongSeminarNumber');
 		}
@@ -644,7 +644,7 @@ class tx_seminars_registrationmanager extends tx_oelib_templatehelper {
 	 * @return void
 	 */
 	public function removeRegistration($uid, AbstractPlugin $plugin) {
-		if (!tx_seminars_OldModel_Abstract::recordExists($uid, 'tx_seminars_attendances')) {
+		if (!Tx_Seminars_OldModel_Abstract::recordExists($uid, 'tx_seminars_attendances')) {
 			return;
 		}
 		$this->registration = GeneralUtility::makeInstance(

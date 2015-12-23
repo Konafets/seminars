@@ -84,7 +84,7 @@ abstract class Tx_Seminars_Bag_Abstract implements Iterator {
 	/**
 	 * the current object (may be NULL)
 	 *
-	 * @var tx_seminars_OldModel_Abstract
+	 * @var Tx_Seminars_OldModel_Abstract
 	 */
 	protected $currentItem = NULL;
 
@@ -230,7 +230,7 @@ abstract class Tx_Seminars_Bag_Abstract implements Iterator {
 	/**
 	 * Advances to the next record and returns a reference to that object.
 	 *
-	 * @return tx_seminars_OldModel_Abstract the now current object, will be
+	 * @return Tx_Seminars_OldModel_Abstract the now current object, will be
 	 *                                       NULL if there is no next object
 	 */
 	public function next() {
@@ -259,7 +259,7 @@ abstract class Tx_Seminars_Bag_Abstract implements Iterator {
 	/**
 	 * Returns the current object (which may be NULL).
 	 *
-	 * @return tx_seminars_OldModel_Abstract a reference to the current object,
+	 * @return Tx_Seminars_OldModel_Abstract a reference to the current object,
 	 *                                       will be NULL if there is no current
 	 *                                       object
 	 */
@@ -375,7 +375,7 @@ abstract class Tx_Seminars_Bag_Abstract implements Iterator {
 	public function getUids() {
 		$uids = array();
 
-		/** @var tx_seminars_OldModel_Abstract $currentItem */
+		/** @var Tx_Seminars_OldModel_Abstract $currentItem */
 		foreach ($this as $currentItem) {
 			$uids[] = $currentItem->getUid();
 		}

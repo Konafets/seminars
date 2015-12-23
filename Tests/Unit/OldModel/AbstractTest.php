@@ -20,7 +20,7 @@
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class tx_seminars_OldModel_AbstractTest extends tx_phpunit_testcase {
+class Tx_Seminars_OldModel_AbstractTest extends tx_phpunit_testcase {
 	/**
 	 * @var Tx_Seminars_Tests_Fixtures_OldModel_Testing
 	 */
