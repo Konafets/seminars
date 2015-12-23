@@ -1407,7 +1407,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 	 * @test
 	 */
 	public function populateListOrganizersShowsDefaultOrganizerFromUserGroup() {
-		$organizerUid = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Organizer')
+		$organizerUid = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Organizer')
 			->getLoadedTestingModel(array())->getUid();
 		$frontEndUserGroupUid = tx_oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_FrontEndUserGroup')->getLoadedTestingModel(
@@ -1430,7 +1430,7 @@ class Tx_Seminars_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCase {
 	 */
 	public function populateListOrganizersForDefaultOrganizerInUserGroupNotIncludesOtherOrganizer() {
 		$organizerMapper = tx_oelib_MapperRegistry::get(
-			'tx_seminars_Mapper_Organizer'
+			'Tx_Seminars_Mapper_Organizer'
 		);
 		$organizerUidFromDatabase = $this->testingFramework->createRecord(
 			'tx_seminars_organizers'

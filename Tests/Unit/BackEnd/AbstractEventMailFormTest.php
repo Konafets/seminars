@@ -583,7 +583,7 @@ class Tx_Seminars_BackEnd_AbstractEventMailFormTest extends Tx_Phpunit_TestCase 
 	 */
 	public function sendEmailToAttendeesUsesSelectedOrganizerAsSender() {
 		$secondOrganizer = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_Organizer')->getLoadedTestingModel(array(
+			::get('Tx_Seminars_Mapper_Organizer')->getLoadedTestingModel(array(
 				'title' => 'Second Organizer',
 				'email' => 'bar@example.org',
 			));

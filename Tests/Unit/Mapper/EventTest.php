@@ -513,7 +513,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 		$uid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars', array('organizers' => 1)
 		);
-		$organizer = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Organizer')
+		$organizer = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Organizer')
 			->getNewGhost();
 		$this->testingFramework->createRelation(
 			'tx_seminars_seminars_organizers_mm', $uid, $organizer->getUid()
@@ -533,7 +533,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 		$uid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars', array('organizers' => 1)
 		);
-		$organizer = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Organizer')
+		$organizer = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Organizer')
 			->getNewGhost();
 		$this->testingFramework->createRelation(
 			'tx_seminars_seminars_organizers_mm', $uid, $organizer->getUid()
@@ -567,7 +567,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getOrganizingPartnersWithOneOrganizingReturnsListOfOrganizers() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_seminars');
-		$organizer = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Organizer')
+		$organizer = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Organizer')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $uid, $organizer->getUid(), 'organizing_partners'
@@ -585,7 +585,7 @@ class Tx_Seminars_Mapper_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getOrganizingPartnersWithOneOrganizingPartnersReturnsOneOrganizingPartner() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_seminars');
-		$organizer = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Organizer')
+		$organizer = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Organizer')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $uid, $organizer->getUid(), 'organizing_partners'

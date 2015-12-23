@@ -845,7 +845,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function getDefaultOrganizerForGroupWithDefaultOrganizerReturnsThatOrganizer() {
 		$organizer = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_Organizer')->getNewGhost();
+			::get('Tx_Seminars_Mapper_Organizer')->getNewGhost();
 		$userGroup = tx_oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_FrontEndUserGroup')->getNewGhost();
 		$userGroup->setData(array('tx_seminars_default_organizer' => $organizer));
@@ -864,13 +864,13 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function getDefaultOrganizersForTwoGroupsWithDefaultOrganizersReturnsBothOrganizers() {
 		$organizer1 = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_Organizer')->getNewGhost();
+			::get('Tx_Seminars_Mapper_Organizer')->getNewGhost();
 		$userGroup1 = tx_oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_FrontEndUserGroup')->getNewGhost();
 		$userGroup1->setData(array('tx_seminars_default_organizer' => $organizer1));
 
 		$organizer2 = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_Organizer')->getNewGhost();
+			::get('Tx_Seminars_Mapper_Organizer')->getNewGhost();
 		$userGroup2 = tx_oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_FrontEndUserGroup')->getNewGhost();
 		$userGroup2->setData(array('tx_seminars_default_organizer' => $organizer2));
@@ -917,7 +917,7 @@ class tx_seminars_Model_FrontEndUserTest extends tx_phpunit_testcase {
 	 */
 	public function hasDefaultOrganizersForNonEmptyDefaultOrganizersReturnsTrue() {
 		$organizer = tx_oelib_MapperRegistry
-			::get('tx_seminars_Mapper_Organizer')->getNewGhost();
+			::get('Tx_Seminars_Mapper_Organizer')->getNewGhost();
 		$organizers = new tx_oelib_List();
 		$organizers->add($organizer);
 

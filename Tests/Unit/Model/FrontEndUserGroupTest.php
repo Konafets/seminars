@@ -319,7 +319,7 @@ class tx_seminars_Model_FrontEndUserGroupTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getDefaultOrganizerForSetOrganizerReturnsIt() {
-		$organizer = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Organizer')
+		$organizer = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Organizer')
 			->getNewGhost();
 		$this->fixture->setData(array('tx_seminars_default_organizer' => $organizer));
 
@@ -333,7 +333,7 @@ class tx_seminars_Model_FrontEndUserGroupTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function hasDefaultOrganizerForSetOrganizerReturnsTrue() {
-		$organizer = tx_oelib_MapperRegistry::get('tx_seminars_Mapper_Organizer')
+		$organizer = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Organizer')
 			->getNewGhost();
 		$this->fixture->setData(array('tx_seminars_default_organizer' => $organizer));
 
