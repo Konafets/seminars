@@ -99,7 +99,7 @@ class Tx_Seminars_Mapper_FrontEndUserGroupTest extends tx_phpunit_testcase {
 		/** @var tx_seminars_Model_FrontEndUserGroup $model */
 		$model = $this->fixture->find($frontEndUserGroupUid);
 		self::assertTrue(
-			$model->getDefaultCategories()->first() instanceof tx_seminars_Model_Category
+			$model->getDefaultCategories()->first() instanceof Tx_Seminars_Model_Category
 		);
 	}
 

@@ -93,7 +93,7 @@ class tx_seminars_Mapper_SingleEventTest extends tx_phpunit_testcase {
 		/** @var tx_seminars_Model_Event $model */
 		$model = $this->fixture->find($uid);
 		self::assertTrue(
-			$model->getCategories()->first() instanceof tx_seminars_Model_Category
+			$model->getCategories()->first() instanceof Tx_Seminars_Model_Category
 		);
 	}
 

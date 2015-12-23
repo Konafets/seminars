@@ -21,14 +21,14 @@
  * @author Niels Pardon <mail@niels-pardon.de>
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class tx_seminars_Model_CategoryTest extends tx_phpunit_testcase {
+class Tx_Seminars_Model_CategoryTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_seminars_Model_Category
+	 * @var Tx_Seminars_Model_Category
 	 */
 	private $fixture;
 
 	protected function setUp() {
-		$this->fixture = new tx_seminars_Model_Category();
+		$this->fixture = new Tx_Seminars_Model_Category();
 	}
 
 	///////////////////////////////
