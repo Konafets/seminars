@@ -300,7 +300,7 @@ class Tx_Seminars_Mapper_EventDateTest extends tx_phpunit_testcase {
 			)
 		);
 		$targetGroup = tx_oelib_MapperRegistry::
-			get('tx_seminars_Mapper_TargetGroup')->getNewGhost();
+			get('Tx_Seminars_Mapper_TargetGroup')->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $topicUid, $targetGroup->getUid(), 'target_groups'
 		);
@@ -325,7 +325,7 @@ class Tx_Seminars_Mapper_EventDateTest extends tx_phpunit_testcase {
 			)
 		);
 		$targetGroup = tx_oelib_MapperRegistry::
-			get('tx_seminars_Mapper_TargetGroup')->getNewGhost();
+			get('Tx_Seminars_Mapper_TargetGroup')->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_seminars', $topicUid, $targetGroup->getUid(), 'target_groups'
 		);

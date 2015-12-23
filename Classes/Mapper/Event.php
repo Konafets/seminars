@@ -50,7 +50,7 @@ class Tx_Seminars_Mapper_Event extends tx_oelib_DataMapper {
 		'payment_methods' => 'Tx_Seminars_Mapper_PaymentMethod',
 		'organizers' => 'Tx_Seminars_Mapper_Organizer',
 		'organizing_partners' => 'Tx_Seminars_Mapper_Organizer',
-		'target_groups' => 'tx_seminars_Mapper_TargetGroup',
+		'target_groups' => 'Tx_Seminars_Mapper_TargetGroup',
 		'owner_feuser' => 'tx_oelib_Mapper_FrontEndUser',
 		'vips' => 'tx_oelib_Mapper_FrontEndUser',
 		'checkboxes' => 'Tx_Seminars_Mapper_Checkbox',
