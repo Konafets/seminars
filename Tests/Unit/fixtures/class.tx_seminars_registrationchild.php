@@ -22,7 +22,7 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_registrationchild extends Tx_Seminars_Registration {
+class Tx_Seminars_RegistrationChild extends Tx_Seminars_Registration {
 	/**
 	 * The constructor.
 	 *

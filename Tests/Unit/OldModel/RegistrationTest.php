@@ -23,7 +23,7 @@
  */
 class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_seminars_registrationchild
+	 * @var Tx_Seminars_RegistrationChild
 	 */
 	protected $fixture = NULL;
 
@@ -48,7 +48,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 	protected $feUserUid = 0;
 
 	protected function setUp() {
-		tx_seminars_registrationchild::purgeCachedSeminars();
+		Tx_Seminars_RegistrationChild::purgeCachedSeminars();
 
 		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
 		$this->testingFramework->createFakeFrontEnd();
@@ -94,7 +94,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 			)
 		);
 
-		$this->fixture = new tx_seminars_registrationchild($this->registrationUid);
+		$this->fixture = new Tx_Seminars_RegistrationChild($this->registrationUid);
 		$this->fixture->setConfigurationValue(
 			'templateFile', 'EXT:seminars/Resources/Private/Templates/Mail/e-mail.html'
 		);
@@ -482,7 +482,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 	 */
 	public function commitToDbCanCreateNewRecord() {
 		$seminar = new Tx_Seminars_Seminar($this->seminarUid);
-		$registration = new tx_seminars_registrationchild(0);
+		$registration = new Tx_Seminars_RegistrationChild(0);
 		$registration->setRegistrationData($seminar, 0, array());
 		$registration->enableTestMode();
 		$this->testingFramework->markTableAsDirty('tx_seminars_attendances');
@@ -512,7 +512,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 			'tx_seminars_lodgings'
 		);
 
-		$registration = new tx_seminars_registrationchild(0);
+		$registration = new Tx_Seminars_RegistrationChild(0);
 		$registration->setRegistrationData(
 			$seminar, 0, array('lodgings' => array($lodgingsUid))
 		);
@@ -556,7 +556,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 			'tx_seminars_foods'
 		);
 
-		$registration = new tx_seminars_registrationchild(0);
+		$registration = new Tx_Seminars_RegistrationChild(0);
 		$registration->setRegistrationData(
 			$seminar, 0, array('foods' => array($foodsUid))
 		);
@@ -600,7 +600,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 			'tx_seminars_checkboxes'
 		);
 
-		$registration = new tx_seminars_registrationchild(0);
+		$registration = new Tx_Seminars_RegistrationChild(0);
 		$registration->setRegistrationData(
 			$seminar, 0, array('checkboxes' => array($checkboxesUid))
 		);
@@ -661,7 +661,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 			)
 		);
 
-		$fixture = new tx_seminars_registrationchild($this->registrationUid);
+		$fixture = new Tx_Seminars_RegistrationChild($this->registrationUid);
 
 		self::assertTrue(
 			$fixture->getSeminarObject() instanceof Tx_Seminars_Seminar
@@ -703,8 +703,8 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 			array('title' => 'test title 2')
 		);
 
-		tx_seminars_registrationchild::purgeCachedSeminars();
-		$fixture = new tx_seminars_registrationchild($registrationUid);
+		Tx_Seminars_RegistrationChild::purgeCachedSeminars();
+		$fixture = new Tx_Seminars_RegistrationChild($registrationUid);
 
 		self::assertSame(
 			'test title 2',
@@ -723,7 +723,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 	public function instantiationWithoutLoggedInUserDoesNotThrowException() {
 		$this->testingFramework->logoutFrontEndUser();
 
-		new tx_seminars_registrationchild(
+		new Tx_Seminars_RegistrationChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_attendances',
 				array('seminar' => $this->seminarUid)
@@ -1622,7 +1622,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 		$registrationUid = $this->testingFramework->createRecord(
 			'tx_seminars_attendances', array('gender' => '0')
 		);
-		$fixture = new tx_seminars_registrationchild($registrationUid);
+		$fixture = new Tx_Seminars_RegistrationChild($registrationUid);
 
 		self::assertContains(
 			$fixture->translate('label_gender.I.0'),
@@ -1637,7 +1637,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 		$registrationUid = $this->testingFramework->createRecord(
 			'tx_seminars_attendances', array('gender' => '1')
 		);
-		$fixture = new tx_seminars_registrationchild($registrationUid);
+		$fixture = new Tx_Seminars_RegistrationChild($registrationUid);
 
 		self::assertContains(
 			$fixture->translate('label_gender.I.1'),
@@ -1652,7 +1652,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 		$registrationUid = $this->testingFramework->createRecord(
 			'tx_seminars_attendances', array('name' => 'John Doe')
 		);
-		$fixture = new tx_seminars_registrationchild($registrationUid);
+		$fixture = new Tx_Seminars_RegistrationChild($registrationUid);
 
 		self::assertContains(
 			'John Doe',
@@ -1667,7 +1667,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 		$registrationUid = $this->testingFramework->createRecord(
 			'tx_seminars_attendances', array('address' => 'Main Street 123')
 		);
-		$fixture = new tx_seminars_registrationchild($registrationUid);
+		$fixture = new Tx_Seminars_RegistrationChild($registrationUid);
 
 		self::assertContains(
 			'Main Street 123',
@@ -1682,7 +1682,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 		$registrationUid = $this->testingFramework->createRecord(
 			'tx_seminars_attendances', array('zip' => '12345')
 		);
-		$fixture = new tx_seminars_registrationchild($registrationUid);
+		$fixture = new Tx_Seminars_RegistrationChild($registrationUid);
 
 		self::assertContains(
 			'12345',
@@ -1697,7 +1697,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 		$registrationUid = $this->testingFramework->createRecord(
 			'tx_seminars_attendances', array('city' => 'Big City')
 		);
-		$fixture = new tx_seminars_registrationchild($registrationUid);
+		$fixture = new Tx_Seminars_RegistrationChild($registrationUid);
 
 		self::assertContains(
 			'Big City',
@@ -1712,7 +1712,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 		$registrationUid = $this->testingFramework->createRecord(
 			'tx_seminars_attendances', array('country' => 'Takka-Tukka-Land')
 		);
-		$fixture = new tx_seminars_registrationchild($registrationUid);
+		$fixture = new Tx_Seminars_RegistrationChild($registrationUid);
 
 		self::assertContains(
 			'Takka-Tukka-Land',
@@ -1727,7 +1727,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 		$registrationUid = $this->testingFramework->createRecord(
 			'tx_seminars_attendances', array('telephone' => '01234-56789')
 		);
-		$fixture = new tx_seminars_registrationchild($registrationUid);
+		$fixture = new Tx_Seminars_RegistrationChild($registrationUid);
 
 		self::assertContains(
 			'01234-56789',
@@ -1742,7 +1742,7 @@ class tx_seminars_OldModel_RegistrationTest extends tx_phpunit_testcase {
 		$registrationUid = $this->testingFramework->createRecord(
 			'tx_seminars_attendances', array('email' => 'john@doe.com')
 		);
-		$fixture = new tx_seminars_registrationchild($registrationUid);
+		$fixture = new Tx_Seminars_RegistrationChild($registrationUid);
 
 		self::assertContains(
 			'john@doe.com',
