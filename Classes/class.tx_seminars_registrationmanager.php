@@ -1371,8 +1371,8 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	 * @return void
 	 */
 	private function setEMailIntroduction($helloSubjectPrefix, Tx_Seminars_Registration $registration) {
-		/** @var $salutation tx_seminars_EmailSalutation */
-		$salutation = GeneralUtility::makeInstance('tx_seminars_EmailSalutation');
+		/** @var $salutation Tx_Seminars_EmailSalutation */
+		$salutation = GeneralUtility::makeInstance('Tx_Seminars_EmailSalutation');
 		$salutationText = $salutation->getSalutation($registration->getFrontEndUser());
 		$this->setMarker('salutation', $salutationText);
 
