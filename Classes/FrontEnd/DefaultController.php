@@ -61,7 +61,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	private $seminar = NULL;
 
 	/**
-	 * @var tx_seminars_registration the registration which we want to
+	 * @var Tx_Seminars_Registration the registration which we want to
 	 *                               list/show in the "my events" view
 	 */
 	private $registration = NULL;
@@ -498,7 +498,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 				'tx_seminars_attendances',
 				'tx_seminars_attendances.uid = ' . $registrationUid . tx_oelib_db::enableFields('tx_seminars_attendances')
 			);
-			$this->registration = GeneralUtility::makeInstance('tx_seminars_registration', $this->cObj, $dbResult);
+			$this->registration = GeneralUtility::makeInstance('Tx_Seminars_Registration', $this->cObj, $dbResult);
 			if ($dbResult !== FALSE) {
 				$GLOBALS['TYPO3_DB']->sql_free_result($dbResult);
 			}
@@ -540,7 +540,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	/**
 	 * Returns the current registration.
 	 *
-	 * @return tx_seminars_registration the current registration
+	 * @return Tx_Seminars_Registration the current registration
 	 */
 	public function getRegistration() {
 		return $this->registration;
@@ -1880,7 +1880,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 
 		foreach ($seminarOrRegistrationBag as $currentItem) {
 			if ($whatToDisplay == 'my_events') {
-				/** @var tx_seminars_registration $currentItem */
+				/** @var Tx_Seminars_Registration $currentItem */
 				$this->registration = $currentItem;
 				$this->setSeminar($this->registration->getSeminarObject());
 			} else {

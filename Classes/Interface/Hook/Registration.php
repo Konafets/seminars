@@ -24,20 +24,20 @@ interface Tx_Seminars_Interface_Hook_Registration {
 	/**
 	 * Modifies the registration notification e-mail to an organizer.
 	 *
-	 * @param tx_seminars_registration $registration
+	 * @param Tx_Seminars_Registration $registration
 	 * @param tx_oelib_Template $emailTemplate
 	 *
 	 * @return void
 	 */
-	public function modifyOrganizerNotificationEmail(tx_seminars_registration $registration, tx_oelib_Template $emailTemplate);
+	public function modifyOrganizerNotificationEmail(Tx_Seminars_Registration $registration, tx_oelib_Template $emailTemplate);
 
 	/**
 	 * Modifies the registration or unregistration e-mail to an attendee.
 	 *
-	 * @param tx_seminars_registration $registration
+	 * @param Tx_Seminars_Registration $registration
 	 * @param tx_oelib_Template $emailTemplate
 	 *
 	 * @return void
 	 */
-	public function modifyAttendeeEmailText(tx_seminars_registration $registration, tx_oelib_Template $emailTemplate);
+	public function modifyAttendeeEmailText(Tx_Seminars_Registration $registration, tx_oelib_Template $emailTemplate);
 }

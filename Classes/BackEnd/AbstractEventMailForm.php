@@ -437,7 +437,7 @@ abstract class Tx_Seminars_BackEnd_AbstractEventMailForm {
 
 			/** @var Tx_Seminars_Mapper_Registration $registrationMapper */
 			$registrationMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Registration');
-			/** @var tx_seminars_registration $oldRegistration */
+			/** @var Tx_Seminars_Registration $oldRegistration */
 			foreach ($registrations as $oldRegistration) {
 				/** @var Tx_Seminars_Model_Registration $registration */
 				$registration = $registrationMapper->find($oldRegistration->getUid());

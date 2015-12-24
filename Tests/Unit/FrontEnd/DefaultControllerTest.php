@@ -644,7 +644,7 @@ class Tx_Seminars_FrontEnd_DefaultControllerTest extends tx_phpunit_testcase {
 
 		self::assertTrue(
 			$this->fixture->getRegistration()
-				instanceof tx_seminars_registration
+				instanceof Tx_Seminars_Registration
 		);
 	}
 

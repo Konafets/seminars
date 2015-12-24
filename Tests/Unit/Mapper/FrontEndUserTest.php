@@ -66,7 +66,7 @@ class Tx_Seminars_Mapper_FrontEndUserTest extends tx_phpunit_testcase {
 			::get('Tx_Seminars_Mapper_Registration')->getNewGhost();
 
 		$model = $this->fixture->getLoadedTestingModel(
-			array('tx_seminars_registration' => $registration->getUid())
+			array('Tx_Seminars_Registration' => $registration->getUid())
 		);
 
 		self::assertSame(

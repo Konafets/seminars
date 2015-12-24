@@ -34,7 +34,7 @@ class tx_seminars_configcheck extends tx_oelib_configcheck {
 		// The registration manager needs to be able to create registration
 		// objects. So we check whether the prerequisites for registrations
 		// are fulfilled as well.
-		$this->check_tx_seminars_registration();
+		$this->check_Tx_Seminars_Registration();
 	}
 
 	/**
@@ -60,11 +60,11 @@ class tx_seminars_configcheck extends tx_oelib_configcheck {
 	}
 
 	/**
-	 * Checks the configuration for: tx_seminars_registration/.
+	 * Checks the configuration for: Tx_Seminars_Registration/.
 	 *
 	 * @return void
 	 */
-	protected function check_tx_seminars_registration() {
+	protected function check_Tx_Seminars_Registration() {
 		$this->checkStaticIncluded();
 		$this->checkTemplateFile();
 		$this->checkSalutationMode();

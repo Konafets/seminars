@@ -78,7 +78,7 @@ class Tx_Seminars_BackEnd_RegistrationsListTest extends tx_phpunit_testcase {
 		$GLOBALS['LANG']->lang = $this->backEndLanguageBackup;
 
 		$this->testingFramework->cleanUp();
-		tx_seminars_registration::purgeCachedSeminars();
+		Tx_Seminars_Registration::purgeCachedSeminars();
 	}
 
 

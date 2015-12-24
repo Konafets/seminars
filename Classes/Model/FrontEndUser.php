@@ -202,7 +202,7 @@ class Tx_Seminars_Model_FrontEndUser extends tx_oelib_Model_FrontEndUser {
 	 *                                        might be NULL
 	 */
 	public function getRegistration() {
-		return $this->getAsModel('tx_seminars_registration');
+		return $this->getAsModel('Tx_Seminars_Registration');
 	}
 
 	/**
@@ -215,7 +215,7 @@ class Tx_Seminars_Model_FrontEndUser extends tx_oelib_Model_FrontEndUser {
 	 * @return void
 	 */
 	public function setRegistration(Tx_Seminars_Model_Registration $registration = NULL) {
-		$this->set('tx_seminars_registration', $registration);
+		$this->set('Tx_Seminars_Registration', $registration);
 	}
 }
 

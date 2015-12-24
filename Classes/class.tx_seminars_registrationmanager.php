@@ -47,7 +47,7 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	private static $instance = NULL;
 
 	/**
-	 * @var tx_seminars_registration the current registration
+	 * @var Tx_Seminars_Registration the current registration
 	 */
 	private $registration = NULL;
 
@@ -328,11 +328,11 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	 * Creates an HTML link to the unregistration page (if a user is logged in).
 	 *
 	 * @param AbstractPlugin $plugin an object for a live page
-	 * @param tx_seminars_registration $registration a registration from which we'll get the UID for our GET parameters
+	 * @param Tx_Seminars_Registration $registration a registration from which we'll get the UID for our GET parameters
 	 *
 	 * @return string HTML code with the link
 	 */
-	public function getLinkToUnregistrationPage(AbstractPlugin $plugin, tx_seminars_registration $registration) {
+	public function getLinkToUnregistrationPage(AbstractPlugin $plugin, Tx_Seminars_Registration $registration) {
 		return $plugin->cObj->getTypoLink(
 			$plugin->translate('label_onlineUnregistration'),
 			$plugin->getConfValueInteger('registerPID'),
@@ -480,7 +480,7 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	 * @return Tx_Seminars_Model_Registration the created, saved registration
 	 */
 	public function createRegistration(Tx_Seminars_Seminar $seminar, array $formData, AbstractPlugin $plugin) {
-		$this->registration = GeneralUtility::makeInstance('tx_seminars_registration', $plugin->cObj);
+		$this->registration = GeneralUtility::makeInstance('Tx_Seminars_Registration', $plugin->cObj);
 		$this->registration->setRegistrationData($seminar, $this->getLoggedInFrontEndUserUid(), $formData);
 		$this->registration->commitToDb();
 		$seminar->calculateStatistics();
@@ -501,12 +501,12 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	/**
 	 * Sends the e-mails for a new registration.
 	 *
-	 * @param tx_seminars_registration $registration
+	 * @param Tx_Seminars_Registration $registration
 	 * @param AbstractPlugin $plugin
 	 *
 	 * @return void
 	 */
-	public function sendEmailsForNewRegistration(tx_seminars_registration $registration, AbstractPlugin $plugin) {
+	public function sendEmailsForNewRegistration(Tx_Seminars_Registration $registration, AbstractPlugin $plugin) {
 		if ($this->registration->isOnRegistrationQueue()) {
 			$this->notifyAttendee($this->registration, $plugin, 'confirmationOnRegistrationForQueue');
 			$this->notifyOrganizers($this->registration, 'notificationOnRegistrationForQueue');
@@ -648,7 +648,7 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 			return;
 		}
 		$this->registration = GeneralUtility::makeInstance(
-			'tx_seminars_registration',
+			'Tx_Seminars_Registration',
 			$plugin->cObj,
 			tx_oelib_db::select(
 				'*', 'tx_seminars_attendances', 'uid = ' . $uid . tx_oelib_db::enableFields('tx_seminars_attendances')
@@ -701,7 +701,7 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 		$registrationBagBuilder->limitToSeatsAtMost($vacancies);
 
 		$bag = $registrationBagBuilder->build();
-		/** @var tx_seminars_registration $registration */
+		/** @var Tx_Seminars_Registration $registration */
 		foreach ($bag as $registration) {
 			if ($vacancies <= 0) {
 				break;
@@ -768,7 +768,7 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	/**
 	 * Sends an e-mail to the attendee with a message concerning his/her registration or unregistration.
 	 *
-	 * @param tx_seminars_registration $oldRegistration the registration for which the notification should be sent
+	 * @param Tx_Seminars_Registration $oldRegistration the registration for which the notification should be sent
 	 * @param AbstractPlugin $plugin a live plugin
 	 * @param string $helloSubjectPrefix
 	 *        prefix for the locallang key of the localized hello and subject
@@ -783,7 +783,7 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	 * @return void
 	 */
 	public function notifyAttendee(
-		tx_seminars_registration $oldRegistration, AbstractPlugin $plugin, $helloSubjectPrefix = 'confirmation'
+		Tx_Seminars_Registration $oldRegistration, AbstractPlugin $plugin, $helloSubjectPrefix = 'confirmation'
 	) {
 		if (!$this->getConfValueBoolean('send' . ucfirst($helloSubjectPrefix))) {
 			return;
@@ -841,7 +841,7 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	/**
 	 * Sends an e-mail to all organizers with a message about a registration or unregistration.
 	 *
-	 * @param tx_seminars_registration $registration
+	 * @param Tx_Seminars_Registration $registration
 	 *        the registration for which the notification should be send
 	 * @param string $helloSubjectPrefix
 	 *        prefix for the locallang key of the localized hello and subject string, Allowed values are:
@@ -853,7 +853,7 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	 *
 	 * @return void
 	 */
-	public function notifyOrganizers(tx_seminars_registration $registration, $helloSubjectPrefix = 'notification') {
+	public function notifyOrganizers(Tx_Seminars_Registration $registration, $helloSubjectPrefix = 'notification') {
 		if (!$this->getConfValueBoolean('send' . ucfirst($helloSubjectPrefix))) {
 			return;
 		}
@@ -923,13 +923,13 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	/**
 	 * Calls the modifyOrganizerNotificationEmail hooks.
 	 *
-	 * @param tx_seminars_registration $registration
+	 * @param Tx_Seminars_Registration $registration
 	 * @param Tx_Oelib_Template $emailTemplate
 	 *
 	 * @return void
 	 */
 	protected function callModifyOrganizerNotificationEmailHooks(
-		tx_seminars_registration $registration, Tx_Oelib_Template $emailTemplate
+		Tx_Seminars_Registration $registration, Tx_Oelib_Template $emailTemplate
 	) {
 		foreach ($this->getHooks() as $hook) {
 			if ($hook instanceof Tx_Seminars_Interface_Hook_Registration) {
@@ -945,22 +945,22 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	 * This method is intended to be overridden in XClasses if needed.
 	 *
 	 * @param tx_oelib_Mail $emailNotification
-	 * @param tx_seminars_registration $registration
+	 * @param Tx_Seminars_Registration $registration
 	 *
 	 * @return void
 	 */
-	protected function modifyNotificationEmail(tx_oelib_Mail $emailNotification, tx_seminars_registration $registration) {
+	protected function modifyNotificationEmail(tx_oelib_Mail $emailNotification, Tx_Seminars_Registration $registration) {
 	}
 
 	/**
 	 * Calls the modifyAttendeeEmailText hooks.
 	 *
-	 * @param tx_seminars_registration $registration
+	 * @param Tx_Seminars_Registration $registration
 	 * @param Tx_Oelib_Template $emailTemplate
 	 *
 	 * @return void
 	 */
-	protected function callModifyAttendeeEmailTextHooks(tx_seminars_registration $registration, Tx_Oelib_Template $emailTemplate) {
+	protected function callModifyAttendeeEmailTextHooks(Tx_Seminars_Registration $registration, Tx_Oelib_Template $emailTemplate) {
 		foreach ($this->getHooks() as $hook) {
 			if ($hook instanceof Tx_Seminars_Interface_Hook_Registration) {
 				/** @var $hook Tx_Seminars_Interface_Hook_Registration */
@@ -979,12 +979,12 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	 * If both things happen at the same time (minimum and maximum count of
 	 * attendees are the same), only the "event is full" message will be sent.
 	 *
-	 * @param tx_seminars_registration $registration the registration for which the notification should be send
+	 * @param Tx_Seminars_Registration $registration the registration for which the notification should be send
 	 *
 	 * @return void
 	 */
 	public function sendAdditionalNotification(
-		tx_seminars_registration $registration
+		Tx_Seminars_Registration $registration
 	) {
 		if ($registration->isOnRegistrationQueue()) {
 			return;
@@ -1020,12 +1020,12 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	/**
 	 * Returns the topic for the additional notification e-mail.
 	 *
-	 * @param tx_seminars_registration $registration the registration for which the notification should be send
+	 * @param Tx_Seminars_Registration $registration the registration for which the notification should be send
 	 *
 	 * @return string "EnoughRegistrations" if the event has enough attendances,
 	 *                "IsFull" if the event is fully booked, otherwise an empty string
 	 */
-	private function getReasonForNotification(tx_seminars_registration $registration) {
+	private function getReasonForNotification(Tx_Seminars_Registration $registration) {
 		$result = '';
 
 		$event = $registration->getSeminarObject();
@@ -1047,14 +1047,14 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	 * Returns the message for an e-mail according to the reason
 	 * $reasonForNotification provided.
 	 *
-	 * @param tx_seminars_registration $registration
+	 * @param Tx_Seminars_Registration $registration
 	 *        the registration for which the notification should be send
 	 * @param string $reasonForNotification
 	 *        reason for the notification, must be either "IsFull" or "EnoughRegistrations", must not be empty
 	 *
 	 * @return string the message, will not be empty
 	 */
-	private function getMessageForNotification(tx_seminars_registration $registration, $reasonForNotification) {
+	private function getMessageForNotification(Tx_Seminars_Registration $registration, $reasonForNotification) {
 		$localLanguageKey = 'email_additionalNotification' . $reasonForNotification;
 		$this->initializeTemplate();
 
@@ -1090,7 +1090,7 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	/**
 	 * Builds the e-mail body for an e-mail to the attendee.
 	 *
-	 * @param tx_seminars_registration $registration
+	 * @param Tx_Seminars_Registration $registration
 	 *        the registration for which the notification should be send
 	 * @param AbstractPlugin $plugin a live plugin
 	 * @param string $helloSubjectPrefix
@@ -1106,7 +1106,7 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	 * @return string the e-mail body for the attendee e-mail, will not be empty
 	 */
 	private function buildEmailContent(
-		tx_seminars_registration $registration, AbstractPlugin $plugin, $helloSubjectPrefix , $useHtml = FALSE
+		Tx_Seminars_Registration $registration, AbstractPlugin $plugin, $helloSubjectPrefix , $useHtml = FALSE
 	) {
 		if ($this->linkBuilder === NULL) {
 			/** @var $linkBuilder Tx_Seminars_Service_SingleViewLinkBuilder */
@@ -1298,12 +1298,12 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	/**
 	 * Fills the attendees_names marker or hides it if necessary.
 	 *
-	 * @param tx_seminars_registration $registration the current registration
+	 * @param Tx_Seminars_Registration $registration the current registration
 	 * @param bool $useHtml whether to create HTML instead of plain text
 	 *
 	 * @return void
 	 */
-	private function fillOrHideAttendeeMarker(tx_seminars_registration $registration, $useHtml) {
+	private function fillOrHideAttendeeMarker(Tx_Seminars_Registration $registration, $useHtml) {
 		if (!$registration->hasAttendeesNames()) {
 			$this->hideSubparts('attendees_names', ($useHtml ? 'html_' : '') . 'field_wrapper');
 			return;
@@ -1366,11 +1366,11 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	 *          - confirmationOnQueueUpdate
 	 *          In the following the parameter is prefixed with
 	 *          "email_" and postfixed with "Hello".
-	 * @param tx_seminars_registration $registration the registration the introduction should be created for
+	 * @param Tx_Seminars_Registration $registration the registration the introduction should be created for
 	 *
 	 * @return void
 	 */
-	private function setEMailIntroduction($helloSubjectPrefix, tx_seminars_registration $registration) {
+	private function setEMailIntroduction($helloSubjectPrefix, Tx_Seminars_Registration $registration) {
 		/** @var $salutation tx_seminars_EmailSalutation */
 		$salutation = GeneralUtility::makeInstance('tx_seminars_EmailSalutation');
 		$salutationText = $salutation->getSalutation($registration->getFrontEndUser());
@@ -1398,12 +1398,12 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	 *          - confirmationOnUnregistration
 	 *          - confirmationOnRegistrationForQueue
 	 *          - confirmationOnQueueUpdate
-	 * @param tx_seminars_registration $registration the registration the introduction should be created for
+	 * @param Tx_Seminars_Registration $registration the registration the introduction should be created for
 	 * @param bool $useHtml whether to send HTML instead of plain text e-mail
 	 *
 	 * @return void
 	 */
-	private function fillOrHideUnregistrationNotice($helloSubjectPrefix, tx_seminars_registration $registration, $useHtml) {
+	private function fillOrHideUnregistrationNotice($helloSubjectPrefix, Tx_Seminars_Registration $registration, $useHtml) {
 		$event = $registration->getSeminarObject();
 		if (($helloSubjectPrefix === 'confirmationOnUnregistration') || !$event->isUnregistrationPossible()) {
 			$this->hideSubparts('unregistration_notice', ($useHtml ? 'html_' : '') . 'field_wrapper');
@@ -1432,7 +1432,7 @@ class Tx_Seminars_RegistrationManager extends tx_oelib_templatehelper {
 	/**
 	 * Returns the (old) registration created via createRegistration.
 	 *
-	 * @return tx_seminars_registration the created registration, will be NULL if no registration has been created
+	 * @return Tx_Seminars_Registration the created registration, will be NULL if no registration has been created
 	 */
 	public function getRegistration() {
 		return $this->registration;

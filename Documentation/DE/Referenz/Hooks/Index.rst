@@ -138,7 +138,7 @@ then should expect two parameters:
 ::
 
    public function modifyOrganizerNotificationEmail(
-         tx_seminars_registration $registration, tx_oelib_Template $emailTemplate
+         Tx_Seminars_Registration $registration, tx_oelib_Template $emailTemplate
    ) {
 
 Your class then needs to be included and registered like in this
@@ -189,7 +189,7 @@ then should expect two parameters:
 ::
 
     public function modifyAttendeeEmailText(
-                 tx_seminars_registration $registration, tx_oelib_Template $emailTemplate
+                 Tx_Seminars_Registration $registration, tx_oelib_Template $emailTemplate
        ) {
 
 Your class then needs to be included and registered like in this
