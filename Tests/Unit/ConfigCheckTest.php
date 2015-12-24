@@ -22,7 +22,7 @@
  */
 class tx_seminars_ConfigCheckTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_seminars_configcheck
+	 * @var Tx_Seminars_ConfigCheck
 	 */
 	private $fixture;
 
@@ -35,7 +35,7 @@ class tx_seminars_ConfigCheckTest extends tx_phpunit_testcase {
 		tx_oelib_configurationProxy::getInstance('seminars')->setAsBoolean('enableConfigCheck', TRUE);
 
 		$this->objectToCheck = new Tx_Oelib_Tests_Unit_Fixtures_DummyObjectToCheck(array());
-		$this->fixture = new tx_seminars_configcheck($this->objectToCheck);
+		$this->fixture = new Tx_Seminars_ConfigCheck($this->objectToCheck);
 	}
 
 	//////////////////////////////////////

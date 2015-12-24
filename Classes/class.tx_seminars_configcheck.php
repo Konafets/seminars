@@ -24,7 +24,7 @@
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_configcheck extends tx_oelib_configcheck {
+class Tx_Seminars_ConfigCheck extends tx_oelib_configcheck {
 	/**
 	 * Checks the configuration for: Tx_Seminars_RegistrationManager/.
 	 *
