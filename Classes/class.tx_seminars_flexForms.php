@@ -21,7 +21,7 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_flexForms {
+class Tx_Seminars_FlexForms {
 	/**
 	 * Returns the configuration for the flex forms field
 	 * "showFeUserFieldsInRegistrationsList" with the selectable database
