@@ -49,7 +49,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	protected $eventMapper = NULL;
 
 	/**
-	 * @var tx_seminars_configgetter a config getter that gets us the
+	 * @var Tx_Seminars_ConfigGetter a config getter that gets us the
 	 *                               configuration in plugin.tx_seminars
 	 */
 	private $configGetter = NULL;
@@ -520,7 +520,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 */
 	public function createHelperObjects() {
 		if ($this->configGetter === NULL) {
-			$this->configGetter = GeneralUtility::makeInstance('tx_seminars_configgetter');
+			$this->configGetter = GeneralUtility::makeInstance('Tx_Seminars_ConfigGetter');
 		}
 
 		if ($this->eventMapper === NULL) {
@@ -561,7 +561,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 *
 	 * This function is intended for testing purposes only.
 	 *
-	 * @return tx_seminars_configgetter our config getter, might be NULL
+	 * @return Tx_Seminars_ConfigGetter our config getter, might be NULL
 	 */
 	public function getConfigGetter() {
 		return $this->configGetter;
