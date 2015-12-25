@@ -21,7 +21,7 @@ use TYPO3\CMS\Backend\Utility\BackendUtility;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class Tx_Seminars_Tests_Csv_BackEndRegistrationAccessCheckTest extends Tx_Phpunit_TestCase {
+class Tx_Seminars_Tests_Unit_Csv_BackEndRegistrationAccessCheckTest extends Tx_Phpunit_TestCase {
 	/**
 	 * @var Tx_Seminars_Csv_BackEndRegistrationAccessCheck
 	 */

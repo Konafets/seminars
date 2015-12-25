@@ -20,7 +20,7 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_ConfigCheckTest extends tx_phpunit_testcase {
+class Tx_Seminars_Tests_Unit_ConfigCheckTest extends tx_phpunit_testcase {
 	/**
 	 * @var Tx_Seminars_ConfigCheck
 	 */

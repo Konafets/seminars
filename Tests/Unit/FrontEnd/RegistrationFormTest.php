@@ -22,7 +22,7 @@
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  * @author Philipp Kitzberger <philipp@cron-it.de>
  */
-class Tx_Seminars_FrontEnd_RegistrationFormTest extends tx_phpunit_testcase {
+class Tx_Seminars_Tests_Unit_FrontEnd_RegistrationFormTest extends tx_phpunit_testcase {
 	/**
 	 * @var Tx_Seminars_FrontEnd_RegistrationForm
 	 */

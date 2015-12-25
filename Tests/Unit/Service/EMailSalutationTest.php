@@ -20,7 +20,7 @@
  *
  * @author Bernd Schönbach <bernd@oliverklee.de>
  */
-class tx_seminars_Service_EMailSalutationTest extends tx_phpunit_testcase {
+class Tx_Seminars_Tests_Unit_Service_EMailSalutationTest extends tx_phpunit_testcase {
 	/**
 	 * @var Tx_Oelib_TestingFramework the testing framework
 	 */

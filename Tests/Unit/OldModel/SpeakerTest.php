@@ -21,7 +21,7 @@
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_OldModel_SpeakerTest extends tx_phpunit_testcase {
+class Tx_Seminars_Tests_Unit_OldModel_SpeakerTest extends tx_phpunit_testcase {
 	/**
 	 * @var tx_oelib_testingFramework
 	 */

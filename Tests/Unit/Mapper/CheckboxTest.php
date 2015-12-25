@@ -20,7 +20,7 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class Tx_Seminars_Mapper_CheckboxTest extends tx_phpunit_testcase {
+class Tx_Seminars_Tests_Unit_Mapper_CheckboxTest extends tx_phpunit_testcase {
 	/**
 	 * @var tx_oelib_testingFramework
 	 */

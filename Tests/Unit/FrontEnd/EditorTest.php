@@ -20,7 +20,7 @@
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class Tx_Seminars_FrontEnd_EditorTest extends tx_phpunit_testcase {
+class Tx_Seminars_Tests_Unit_FrontEnd_EditorTest extends tx_phpunit_testcase {
 	/**
 	 * @var Tx_Seminars_FrontEnd_Editor
 	 */

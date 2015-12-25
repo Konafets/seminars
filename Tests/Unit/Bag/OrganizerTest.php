@@ -20,7 +20,7 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class Tx_Seminars_Bag_OrganizerTest extends tx_phpunit_testcase {
+class Tx_Seminars_Tests_Unit_Bag_OrganizerTest extends tx_phpunit_testcase {
 	/**
 	 * @var Tx_Seminars_Bag_Organizer
 	 */

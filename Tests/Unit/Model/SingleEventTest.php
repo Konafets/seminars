@@ -20,7 +20,7 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class tx_seminars_Model_SingleEventTest extends tx_phpunit_testcase {
+class Tx_Seminars_Tests_Unit_Model_SingleEventTest extends tx_phpunit_testcase {
 	/**
 	 * @var Tx_Seminars_Model_Event
 	 */
