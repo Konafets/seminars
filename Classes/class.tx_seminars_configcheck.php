@@ -42,7 +42,7 @@ class Tx_Seminars_ConfigCheck extends tx_oelib_configcheck {
 	 *
 	 * @return void
 	 */
-	protected function check_tx_seminars_seminar() {
+	protected function check_Tx_Seminars_Seminar() {
 		$this->checkStaticIncluded();
 		$this->checkSalutationMode();
 		$this->checkTimeAndDate();
@@ -87,7 +87,7 @@ class Tx_Seminars_ConfigCheck extends tx_oelib_configcheck {
 	 *
 	 * @return void
 	 */
-	protected function check_tx_seminars_speaker() {
+	protected function check_Tx_Seminars_Speaker() {
 		$this->checkStaticIncluded();
 	}
 
@@ -110,11 +110,11 @@ class Tx_Seminars_ConfigCheck extends tx_oelib_configcheck {
 	}
 
 	/**
-	 * Checks the configuration for: tx_seminars_test/.
+	 * Checks the configuration for: Tx_Seminars_Test/.
 	 *
 	 * @return void
 	 */
-	protected function check_tx_seminars_test() {
+	protected function check_Tx_Seminars_Test() {
 		$this->checkStaticIncluded();
 	}
 
@@ -1675,7 +1675,7 @@ class Tx_Seminars_ConfigCheck extends tx_oelib_configcheck {
 	 *
 	 * @return void
 	 */
-	protected function check_tx_seminars_Bag_Event_csv() {
+	protected function check_Tx_Seminars_Bag_Event_csv() {
 		$this->checkCharsetForCsv();
 		$this->checkFilenameForEventsCsv();
 		$this->checkFilenameForRegistrationsCsv();
