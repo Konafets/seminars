@@ -26,7 +26,7 @@ class Tx_Seminars_Tests_Unit_OldModel_TimeSlotTest extends tx_phpunit_testcase {
 
 	protected function setUp() {
 		$this->testingFramework
-			= new tx_oelib_testingFramework('tx_seminars');
+			= new Tx_Oelib_TestingFramework('tx_seminars');
 
 		$seminarUid = $this->testingFramework->createRecord(
 			'tx_seminars_seminars'

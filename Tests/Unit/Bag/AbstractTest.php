@@ -28,7 +28,7 @@ class Tx_Seminars_Tests_Unit_Bag_AbstractTest extends tx_phpunit_testcase {
 	private $fixture;
 
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
@@ -43,7 +43,7 @@ class Tx_Seminars_Tests_Unit_Bag_AbstractTest extends tx_phpunit_testcase {
 	private $uidOfSecondRecord = 0;
 
 	protected function setUp() {
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 
 		$this->uidOfFirstRecord = $this->testingFramework->createRecord(
 			'tx_seminars_test',

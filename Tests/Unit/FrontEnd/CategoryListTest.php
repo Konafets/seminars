@@ -28,7 +28,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_CategoryListTest extends tx_phpunit_testca
 	private $fixture;
 
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
@@ -45,7 +45,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_CategoryListTest extends tx_phpunit_testca
 	protected function setUp() {
 		Tx_Oelib_ConfigurationProxy::getInstance('seminars')->setAsBoolean('enableConfigCheck', FALSE);
 
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 		$this->testingFramework->createFakeFrontEnd();
 
 		$this->systemFolderPid = $this->testingFramework->createSystemFolder();

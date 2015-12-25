@@ -27,7 +27,7 @@ class Tx_Seminars_Tests_Unit_BackEnd_AbstractEventMailFormTest extends Tx_Phpuni
 	 */
 	private $fixture;
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
@@ -80,10 +80,10 @@ class Tx_Seminars_Tests_Unit_BackEnd_AbstractEventMailFormTest extends Tx_Phpuni
 		$mailerFactory->enableTestMode();
 		$this->mailer = $mailerFactory->getMailer();
 
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 
 		$this->dummySysFolderUid = $this->testingFramework->createSystemFolder();
-		tx_oelib_PageFinder::getInstance()->setPageUid($this->dummySysFolderUid);
+		Tx_Oelib_PageFinder::getInstance()->setPageUid($this->dummySysFolderUid);
 
 		$this->organizerUid = $this->testingFramework->createRecord(
 			'tx_seminars_organizers',
@@ -184,7 +184,7 @@ class Tx_Seminars_Tests_Unit_BackEnd_AbstractEventMailFormTest extends Tx_Phpuni
 	 * @test
 	 */
 	public function formActionContainsCurrentPage() {
-		tx_oelib_PageFinder::getInstance()->setPageUid(42);
+		Tx_Oelib_PageFinder::getInstance()->setPageUid(42);
 
 		self::assertContains(
 			'&amp;id=42',
@@ -582,7 +582,7 @@ class Tx_Seminars_Tests_Unit_BackEnd_AbstractEventMailFormTest extends Tx_Phpuni
 	 * @test
 	 */
 	public function sendEmailToAttendeesUsesSelectedOrganizerAsSender() {
-		$secondOrganizer = tx_oelib_MapperRegistry
+		$secondOrganizer = Tx_Oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_Organizer')->getLoadedTestingModel(array(
 				'title' => 'Second Organizer',
 				'email' => 'bar@example.org',
@@ -674,7 +674,7 @@ class Tx_Seminars_Tests_Unit_BackEnd_AbstractEventMailFormTest extends Tx_Phpuni
 		);
 
 		$organizerFooter = 'organizer footer';
-		$secondOrganizer = tx_oelib_MapperRegistry
+		$secondOrganizer = Tx_Oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_Organizer')->getLoadedTestingModel(array(
 				'title' => 'Second Organizer',
 				'email' => 'bar@example.org',
@@ -807,7 +807,7 @@ class Tx_Seminars_Tests_Unit_BackEnd_AbstractEventMailFormTest extends Tx_Phpuni
 		self::assertSame(
 			'Location: ' . \TYPO3\CMS\Backend\Utility\BackendUtility::getModuleUrl(
 				Tx_Seminars_BackEnd_AbstractEventMailForm::MODULE_NAME,
-				array('id' => tx_oelib_PageFinder::getInstance()->getPageUid()), FALSE, TRUE
+				array('id' => Tx_Oelib_PageFinder::getInstance()->getPageUid()), FALSE, TRUE
 			),
 			tx_oelib_headerProxyFactory::getInstance()->getHeaderProxy()->getLastAddedHeader()
 		);

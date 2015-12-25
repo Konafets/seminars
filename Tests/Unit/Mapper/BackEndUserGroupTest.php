@@ -22,7 +22,7 @@
  */
 class Tx_Seminars_Tests_Unit_Mapper_BackEndUserGroupTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_oelib_testingFramework for creating dummy records
+	 * @var Tx_Oelib_TestingFramework for creating dummy records
 	 */
 	private $testingFramework;
 	/**
@@ -31,9 +31,9 @@ class Tx_Seminars_Tests_Unit_Mapper_BackEndUserGroupTest extends tx_phpunit_test
 	private $fixture;
 
 	protected function setUp() {
-		$this->testingFramework = new tx_oelib_testingFramework('tx_oelib');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_oelib');
 
-		$this->fixture = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_BackEndUserGroup');
+		$this->fixture = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_BackEndUserGroup');
 	}
 
 	protected function tearDown() {

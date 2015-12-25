@@ -101,7 +101,7 @@ abstract class Tx_Seminars_BackEnd_AbstractEventMailForm {
 		}
 
 		/** @var Tx_Seminars_Mapper_Event $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 		$this->event = $mapper->find($eventUid);
 	}
 
@@ -133,7 +133,7 @@ abstract class Tx_Seminars_BackEnd_AbstractEventMailForm {
 		}
 
 		$formAction = BackendUtility::getModuleUrl(
-			self::MODULE_NAME, array('id' => tx_oelib_PageFinder::getInstance()->getPageUid())
+			self::MODULE_NAME, array('id' => Tx_Oelib_PageFinder::getInstance()->getPageUid())
 		);
 
 		return '<fieldset id="EventMailForm"><form action="' . htmlspecialchars($formAction) . '" method="post">' .
@@ -421,7 +421,7 @@ abstract class Tx_Seminars_BackEnd_AbstractEventMailForm {
 	 */
 	private function sendEmailToAttendees() {
 		/** @var Tx_Seminars_Mapper_Organizer $organizerMapper */
-		$organizerMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Organizer');
+		$organizerMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Organizer');
 		/** @var Tx_Seminars_Model_Organizer $organizer */
 		$organizer = $organizerMapper->find((int)$this->getPostData('sender'));
 
@@ -436,7 +436,7 @@ abstract class Tx_Seminars_BackEnd_AbstractEventMailForm {
 			$mailer = $mailerFactory->getMailer();
 
 			/** @var Tx_Seminars_Mapper_Registration $registrationMapper */
-			$registrationMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Registration');
+			$registrationMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Registration');
 			/** @var Tx_Seminars_Registration $oldRegistration */
 			foreach ($registrations as $oldRegistration) {
 				/** @var Tx_Seminars_Model_Registration $registration */
@@ -445,8 +445,8 @@ abstract class Tx_Seminars_BackEnd_AbstractEventMailForm {
 				if (($user === NULL) || !$user->hasEMailAddress()) {
 					continue;
 				}
-				/** @var tx_oelib_Mail $eMail */
-				$eMail = GeneralUtility::makeInstance('tx_oelib_Mail');
+				/** @var Tx_Oelib_Mail $eMail */
+				$eMail = GeneralUtility::makeInstance('Tx_Oelib_Mail');
 				$eMail->setSender($organizer);
 				$eMail->setSubject($this->getPostData('subject'));
 				$eMail->addRecipient($registration->getFrontEndUser());
@@ -495,13 +495,13 @@ abstract class Tx_Seminars_BackEnd_AbstractEventMailForm {
 	 *
 	 * @param Tx_Seminars_Model_Registration $registration
 	 *        the registration to which the e-mail refers
-	 * @param tx_oelib_Mail $eMail
+	 * @param Tx_Oelib_Mail $eMail
 	 *        the e-mail to be sent
 	 *
 	 * @return void
 	 */
 	protected function modifyEmailWithHook(
-		Tx_Seminars_Model_Registration $registration, tx_oelib_Mail $eMail
+		Tx_Seminars_Model_Registration $registration, Tx_Oelib_Mail $eMail
 	) {}
 
 	/**
@@ -519,7 +519,7 @@ abstract class Tx_Seminars_BackEnd_AbstractEventMailForm {
 	 */
 	private function redirectToListView() {
 		$url = BackendUtility::getModuleUrl(
-			self::MODULE_NAME, array('id' => tx_oelib_PageFinder::getInstance()->getPageUid()), FALSE, TRUE
+			self::MODULE_NAME, array('id' => Tx_Oelib_PageFinder::getInstance()->getPageUid()), FALSE, TRUE
 		);
 		tx_oelib_headerProxyFactory::getInstance()->getHeaderProxy()->addHeader('Location: ' .  $url);
 	}

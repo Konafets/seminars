@@ -190,7 +190,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 	 */
 	public function populateListCategories() {
 		/** @var Tx_Seminars_Mapper_Category $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Category');
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Category');
 		$categories = $mapper->findByPageUid($this->getPidsForAuxiliaryRecords(), 'title ASC');
 
 		return self::makeListToFormidableList($categories);
@@ -205,7 +205,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 	 */
 	public function populateListEventTypes() {
 		/** @var Tx_Seminars_Mapper_EventType $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_EventType');
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_EventType');
 		$eventTypes = $mapper->findByPageUid($this->getPidsForAuxiliaryRecords(), 'title ASC');
 
 		return self::makeListToFormidableList($eventTypes);
@@ -220,7 +220,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 	 */
 	public function populateListLodgings() {
 		/** @var Tx_Seminars_Mapper_Lodging $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Lodging');
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Lodging');
 		$lodgings = $mapper->findByPageUid($this->getPidsForAuxiliaryRecords(), 'title ASC');
 
 		return self::makeListToFormidableList($lodgings);
@@ -235,7 +235,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 	 */
 	public function populateListFoods() {
 		/** @var Tx_Seminars_Mapper_Food $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Food');
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Food');
 		$foods = $mapper->findByPageUid($this->getPidsForAuxiliaryRecords(), 'title ASC');
 
 		return self::makeListToFormidableList($foods);
@@ -250,7 +250,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 	 */
 	public function populateListPaymentMethods() {
 		/** @var Tx_Seminars_Mapper_PaymentMethod $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_PaymentMethod');
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_PaymentMethod');
 		$paymentMethods = $mapper->findByPageUid($this->getPidsForAuxiliaryRecords(), 'title ASC');
 
 		return self::makeListToFormidableList($paymentMethods);
@@ -270,7 +270,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 			$organizers = $frontEndUser->getDefaultOrganizers();
 		} else {
 			/** @var Tx_Seminars_Mapper_Organizer $mapper */
-			$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Organizer');
+			$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Organizer');
 			$organizers = $mapper->findByPageUid($this->getPidsForAuxiliaryRecords(), 'title ASC');
 		}
 
@@ -301,7 +301,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		$result = $items;
 
 		/** @var Tx_Seminars_Mapper_Place $placeMapper */
-		$placeMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Place');
+		$placeMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Place');
 		$places = $placeMapper->findByPageUid($this->getPidsForAuxiliaryRecords(), 'title ASC');
 
 		if ($formidable !== NULL) {
@@ -373,7 +373,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		$result = $items;
 
 		/** @var Tx_Seminars_Mapper_Speaker $speakerMapper */
-		$speakerMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker');
+		$speakerMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker');
 		$speakers = $speakerMapper->findByPageUid($this->getPidsForAuxiliaryRecords(), 'title ASC');
 
 		if (is_object($formidable)) {
@@ -448,7 +448,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		$result = $items;
 
 		/** @var Tx_Seminars_Mapper_Checkbox $checkboxMapper */
-		$checkboxMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Checkbox');
+		$checkboxMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Checkbox');
 		$checkboxes = $checkboxMapper->findByPageUid($this->getPidsForAuxiliaryRecords(), 'title ASC');
 
 		if (is_object($formidable)) {
@@ -520,7 +520,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		$result = $items;
 
 		/** @var Tx_Seminars_Mapper_TargetGroup $targetGroupMapper */
-		$targetGroupMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_TargetGroup');
+		$targetGroupMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_TargetGroup');
 		$targetGroups = $targetGroupMapper->findByPageUid($this->getPidsForAuxiliaryRecords(), 'title ASC');
 
 		if (is_object($formidable)) {
@@ -1272,8 +1272,8 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		$event = $mapper->findByPublicationHash($this->publicationHash);
 
 		if ($event !== NULL && $event->isHidden()) {
-			/** @var tx_oelib_Mail $eMail */
-			$eMail = GeneralUtility::makeInstance('tx_oelib_Mail');
+			/** @var Tx_Oelib_Mail $eMail */
+			$eMail = GeneralUtility::makeInstance('Tx_Oelib_Mail');
 			$eMail->addRecipient($reviewer);
 			$eMail->setSender(self::getLoggedInUser());
 			$eMail->setSubject($this->translate('publish_event_subject'));
@@ -1364,8 +1364,8 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 			return;
 		}
 
-		/** @var tx_oelib_Mail $eMail */
-		$eMail = GeneralUtility::makeInstance('tx_oelib_Mail');
+		/** @var Tx_Oelib_Mail $eMail */
+		$eMail = GeneralUtility::makeInstance('Tx_Oelib_Mail');
 		$eMail->addRecipient($reviewer);
 		$eMail->setSender(self::getLoggedInUser());
 		$eMail->setSubject($this->translate('save_event_subject'));
@@ -1484,7 +1484,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		$formData = $formidable->oMajixEvent->getParams();
 		$frontEndUser = self::getLoggedInUser();
 		/** @var Tx_Seminars_Mapper_Place $placeMapper */
-		$placeMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Place');
+		$placeMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Place');
 
 		try {
 			/** @var Tx_Seminars_Model_Place $place */
@@ -1641,7 +1641,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		}
 
 		/** @var Tx_Seminars_Mapper_Place $placeMapper */
-		$placeMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Place');
+		$placeMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Place');
 
 		try {
 			/** @var Tx_Seminars_Model_Place $place */
@@ -1742,7 +1742,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		self::setSpeakerData($speaker, 'newSpeaker_', $formData);
 		$speaker->markAsDirty();
 		/** @var Tx_Seminars_Mapper_Speaker $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker');
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker');
 		$mapper->save($speaker);
 
 		$editButtonConfiguration =& $formidable->_navConf(
@@ -1786,7 +1786,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		$formData = $formidable->oMajixEvent->getParams();
 		$frontEndUser = self::getLoggedInUser();
 		/** @var Tx_Seminars_Mapper_Speaker $speakerMapper */
-		$speakerMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker');
+		$speakerMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker');
 
 		try {
 			/** @var Tx_Seminars_Model_Speaker $speaker */
@@ -1877,7 +1877,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 	 */
 	private static function setSpeakerData(Tx_Seminars_Model_Speaker $speaker, $prefix, array $formData) {
 		/** @var Tx_Seminars_Mapper_Skill $skillMapper */
-		$skillMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Skill');
+		$skillMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Skill');
 		/** @var tx_oelib_List $skills */
 		$skills = GeneralUtility::makeInstance('tx_oelib_List');
 
@@ -1926,7 +1926,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		}
 
 		/** @var Tx_Seminars_Mapper_Speaker $speakerMapper */
-		$speakerMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker');
+		$speakerMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker');
 
 		try {
 			/** @var Tx_Seminars_Model_Speaker $speaker */
@@ -2012,7 +2012,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		self::setCheckboxData($checkbox, 'newCheckbox_', $formData);
 		$checkbox->markAsDirty();
 		/** @var Tx_Seminars_Mapper_Checkbox $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Checkbox');
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Checkbox');
 		$mapper->save($checkbox);
 
 		$editButtonConfiguration =& $formidable->_navConf(
@@ -2056,7 +2056,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		$formData = $formidable->oMajixEvent->getParams();
 		$frontEndUser = self::getLoggedInUser();
 		/** @var Tx_Seminars_Mapper_Checkbox $checkboxMapper */
-		$checkboxMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Checkbox');
+		$checkboxMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Checkbox');
 
 		try {
 			/** @var Tx_Seminars_Model_Checkbox $checkbox */
@@ -2152,7 +2152,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		}
 
 		/** @var Tx_Seminars_Mapper_Checkbox $checkboxMapper */
-		$checkboxMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Checkbox');
+		$checkboxMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Checkbox');
 
 		try {
 			/** @var Tx_Seminars_Model_Checkbox $checkbox */
@@ -2220,7 +2220,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		self::setTargetGroupData($targetGroup, 'newTargetGroup_', $formData);
 		$targetGroup->markAsDirty();
 		/** @var Tx_Seminars_Mapper_TargetGroup $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_TargetGroup');
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_TargetGroup');
 		$mapper->save($targetGroup);
 
 		$editButtonConfiguration =& $formidable->_navConf(
@@ -2265,7 +2265,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		$formData = $formidable->oMajixEvent->getParams();
 		$frontEndUser = self::getLoggedInUser();
 		/** @var Tx_Seminars_Mapper_TargetGroup $targetGroupMapper */
-		$targetGroupMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_TargetGroup');
+		$targetGroupMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_TargetGroup');
 
 		try {
 			/** @var Tx_Seminars_Model_TargetGroup $targetGroup */
@@ -2391,7 +2391,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		}
 
 		/** @var Tx_Seminars_Mapper_TargetGroup $targetGroupMapper */
-		$targetGroupMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_TargetGroup');
+		$targetGroupMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_TargetGroup');
 
 		try {
 			/** @var Tx_Seminars_Model_TargetGroup $targetGroup */
@@ -2441,7 +2441,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 		$result = array();
 
 		/** @var tx_oelib_Mapper_Country $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('tx_oelib_Mapper_Country');
+		$mapper = Tx_Oelib_MapperRegistry::get('tx_oelib_Mapper_Country');
 		$countries = $mapper->findAll('cn_short_local');
 		/** @var tx_oelib_Model_Country $country */
 		foreach ($countries as $country) {
@@ -2461,7 +2461,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 	 */
 	public static function populateListSkills() {
 		/** @var Tx_Seminars_Mapper_Skill $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Skill');
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Skill');
 		$skills = $mapper->findAll('title ASC');
 
 		return self::makeListToFormidableList($skills);
@@ -2591,7 +2591,7 @@ class Tx_Seminars_FrontEnd_EventEditor extends Tx_Seminars_FrontEnd_Editor {
 	 * @return Tx_Oelib_Configuration
 	 */
 	static protected function getSeminarsConfiguration() {
-		return tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars_pi1');
+		return Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars_pi1');
 	}
 
 	/**

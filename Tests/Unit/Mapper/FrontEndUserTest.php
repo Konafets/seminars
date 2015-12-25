@@ -27,9 +27,9 @@ class Tx_Seminars_Tests_Unit_Mapper_FrontEndUserTest extends tx_phpunit_testcase
 	private $fixture;
 
 	protected function setUp() {
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 
-		$this->fixture = tx_oelib_MapperRegistry::get(
+		$this->fixture = Tx_Oelib_MapperRegistry::get(
 			'Tx_Seminars_Mapper_FrontEndUser'
 		);
 	}
@@ -62,7 +62,7 @@ class Tx_Seminars_Tests_Unit_Mapper_FrontEndUserTest extends tx_phpunit_testcase
 	 * @test
 	 */
 	public function relationToRegistrationIsReadFromRegistrationMapper() {
-		$registration = tx_oelib_MapperRegistry
+		$registration = Tx_Oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_Registration')->getNewGhost();
 
 		$model = $this->fixture->getLoadedTestingModel(

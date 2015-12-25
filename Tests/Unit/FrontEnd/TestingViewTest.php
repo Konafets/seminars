@@ -29,12 +29,12 @@ class Tx_Seminars_Tests_Unit_FrontEnd_TestingViewTest extends tx_phpunit_testcas
 	private $fixture;
 
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
 	protected function setUp() {
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 		$this->testingFramework->createFakeFrontEnd();
 		$this->fixture = new Tx_Seminars_Tests_Fixtures_FrontEnd_TestingView(
 			array('templateFile' => 'EXT:seminars/Resources/Private/Templates/FrontEnd/FrontEnd.html'),

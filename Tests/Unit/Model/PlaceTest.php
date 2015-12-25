@@ -258,7 +258,7 @@ class Tx_Seminars_Tests_Unit_Model_PlaceTest extends tx_phpunit_testcase {
 	 */
 	public function getCountryWithCountryReturnsCountryInstance() {
 		/** @var tx_oelib_Mapper_Country $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('tx_oelib_Mapper_Country');
+		$mapper = Tx_Oelib_MapperRegistry::get('tx_oelib_Mapper_Country');
 		/** @var tx_oelib_Model_Country $country */
 		$country = $mapper->find(54);
 		$this->fixture->setData(array('country' => $country->getIsoAlpha2Code()));
@@ -273,7 +273,7 @@ class Tx_Seminars_Tests_Unit_Model_PlaceTest extends tx_phpunit_testcase {
 	 */
 	public function getCountryWithCountryReturnsCountryAsModel() {
 		/** @var tx_oelib_Mapper_Country $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('tx_oelib_Mapper_Country');
+		$mapper = Tx_Oelib_MapperRegistry::get('tx_oelib_Mapper_Country');
 		/** @var tx_oelib_Model_Country $country */
 		$country = $mapper->find(54);
 		$this->fixture->setData(array('country' => $country->getIsoAlpha2Code()));
@@ -289,7 +289,7 @@ class Tx_Seminars_Tests_Unit_Model_PlaceTest extends tx_phpunit_testcase {
 	 */
 	public function setCountrySetsCountry() {
 		/** @var tx_oelib_Mapper_Country $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('tx_oelib_Mapper_Country');
+		$mapper = Tx_Oelib_MapperRegistry::get('tx_oelib_Mapper_Country');
 		/** @var tx_oelib_Model_Country $country */
 		$country = $mapper->find(54);
 		$this->fixture->setCountry($country);
@@ -338,7 +338,7 @@ class Tx_Seminars_Tests_Unit_Model_PlaceTest extends tx_phpunit_testcase {
 	 */
 	public function hasCountryWithCountryReturnsTrue() {
 		/** @var tx_oelib_Mapper_Country $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('tx_oelib_Mapper_Country');
+		$mapper = Tx_Oelib_MapperRegistry::get('tx_oelib_Mapper_Country');
 		/** @var tx_oelib_Model_Country $country */
 		$country = $mapper->find(54);
 		$this->fixture->setCountry($country);

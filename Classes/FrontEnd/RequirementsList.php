@@ -97,7 +97,7 @@ class Tx_Seminars_FrontEnd_RequirementsList extends Tx_Seminars_FrontEnd_Abstrac
 		$output = '';
 
 		/** @var Tx_Seminars_Mapper_Event $eventMapper */
-		$eventMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
+		$eventMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 		$requirements = $this->getRequirements();
 		/** @var Tx_Seminars_Seminar $requirement */
 		foreach ($requirements as $requirement) {

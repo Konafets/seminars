@@ -27,7 +27,7 @@ if ((TYPO3_MODE == 'BE') && is_object($LANG)) {
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-abstract class Tx_Seminars_OldModel_Abstract extends tx_oelib_templatehelper {
+abstract class Tx_Seminars_OldModel_Abstract extends Tx_Oelib_TemplateHelper {
 	/**
 	 * @var string the extension key
 	 */
@@ -312,11 +312,11 @@ abstract class Tx_Seminars_OldModel_Abstract extends tx_oelib_templatehelper {
 
 		if (!$this->isInDb || !$this->hasUid()) {
 			$this->setRecordPropertyInteger('crdate', $now);
-			tx_oelib_db::insert(
+			Tx_Oelib_Db::insert(
 				$this->tableName, $this->recordData
 			);
 		} else {
-			tx_oelib_db::update(
+			Tx_Oelib_Db::update(
 				$this->tableName,
 				'uid = ' . $this->getUid(),
 				$this->recordData
@@ -340,7 +340,7 @@ abstract class Tx_Seminars_OldModel_Abstract extends tx_oelib_templatehelper {
 			return;
 		}
 
-		tx_oelib_db::update(
+		Tx_Oelib_Db::update(
 			$this->tableName,
 			'uid = ' . $this->getUid(),
 			$updateArray
@@ -389,7 +389,7 @@ abstract class Tx_Seminars_OldModel_Abstract extends tx_oelib_templatehelper {
 					'sorting' => $sorting,
 					'is_dummy_record' => $isDummyRecord
 				);
-				tx_oelib_db::insert(
+				Tx_Oelib_Db::insert(
 					$mmTable, $dataToInsert
 				);
 				$sorting++;
@@ -421,7 +421,7 @@ abstract class Tx_Seminars_OldModel_Abstract extends tx_oelib_templatehelper {
 		$dbResult = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
 			'COUNT(*) AS num',
 			$tableName,
-			'uid = ' . (int)$uid . tx_oelib_db::enableFields($tableName, (int)$allowHiddenRecords)
+			'uid = ' . (int)$uid . Tx_Oelib_Db::enableFields($tableName, (int)$allowHiddenRecords)
 		);
 
 		if ($dbResult) {
@@ -454,7 +454,7 @@ abstract class Tx_Seminars_OldModel_Abstract extends tx_oelib_templatehelper {
 		return $GLOBALS['TYPO3_DB']->exec_SELECTquery(
 			'*',
 			$this->tableName,
-			'uid=' . (int)$uid . tx_oelib_db::enableFields($this->tableName, $allowHiddenRecords),
+			'uid=' . (int)$uid . Tx_Oelib_Db::enableFields($this->tableName, $allowHiddenRecords),
 			'',
 			'',
 			'1'

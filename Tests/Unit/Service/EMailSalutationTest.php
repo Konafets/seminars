@@ -67,17 +67,17 @@ class Tx_Seminars_Tests_Unit_Service_EMailSalutationTest extends tx_phpunit_test
 	 *
 	 * @param int $gender
 	 *        the gender for the FE user, must be one of
-	 *        "tx_oelib_Model_FrontEndUser::GENDER_MALE",
-	 *        "tx_oelib_Model_FrontEndUser::GENDER_FEMALE" or
-	 *        "tx_oelib_Model_FrontEndUser::GENDER_UNKNOWN", may be empty
+	 *        "Tx_Oelib_Model_FrontEndUser::GENDER_MALE",
+	 *        "Tx_Oelib_Model_FrontEndUser::GENDER_FEMALE" or
+	 *        "Tx_Oelib_Model_FrontEndUser::GENDER_UNKNOWN", may be empty
 	 *
 	 * @return Tx_Seminars_Model_FrontEndUser the loaded testing model of a
 	 *                                        FE user
 	 */
 	private function createFrontEndUser(
-		$gender = tx_oelib_Model_FrontEndUser::GENDER_MALE
+		$gender = Tx_Oelib_Model_FrontEndUser::GENDER_MALE
 	) {
-		return tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUser')
+		return Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUser')
 			->getLoadedTestingModel(
 				array('name' => 'Foo', 'gender' => $gender)
 		);
@@ -117,8 +117,8 @@ class Tx_Seminars_Tests_Unit_Service_EMailSalutationTest extends tx_phpunit_test
 		$this->skipWithoutGenderField();
 
 		self::assertSame(
-			tx_oelib_Model_FrontEndUser::GENDER_FEMALE,
-			$this->createFrontEndUser(tx_oelib_Model_FrontEndUser::GENDER_FEMALE)->getGender()
+			Tx_Oelib_Model_FrontEndUser::GENDER_FEMALE,
+			$this->createFrontEndUser(Tx_Oelib_Model_FrontEndUser::GENDER_FEMALE)->getGender()
 		);
 	}
 
@@ -142,7 +142,7 @@ class Tx_Seminars_Tests_Unit_Service_EMailSalutationTest extends tx_phpunit_test
 	public function getSalutationForMaleUserReturnsMaleSalutation() {
 		$this->skipWithoutGenderField();
 
-		$user = $this->createFrontEndUser(tx_oelib_Model_FrontEndUser::GENDER_MALE);
+		$user = $this->createFrontEndUser(Tx_Oelib_Model_FrontEndUser::GENDER_MALE);
 
 		self::assertContains(
 			tx_oelib_TranslatorRegistry::getInstance()->get('seminars')->translate('email_hello_formal_0'),
@@ -156,7 +156,7 @@ class Tx_Seminars_Tests_Unit_Service_EMailSalutationTest extends tx_phpunit_test
 	public function getSalutationForMaleUserReturnsUsersNameWithGenderSpecificTitle() {
 		$this->skipWithoutGenderField();
 
-		$user = $this->createFrontEndUser(tx_oelib_Model_FrontEndUser::GENDER_MALE);
+		$user = $this->createFrontEndUser(Tx_Oelib_Model_FrontEndUser::GENDER_MALE);
 
 		self::assertContains(
 			tx_oelib_TranslatorRegistry::getInstance()->get('seminars')->translate('email_salutation_title_0') .
@@ -171,7 +171,7 @@ class Tx_Seminars_Tests_Unit_Service_EMailSalutationTest extends tx_phpunit_test
 	public function getSalutationForFemaleUserReturnsFemaleSalutation() {
 		$this->skipWithoutGenderField();
 
-		$user = $this->createFrontEndUser(tx_oelib_Model_FrontEndUser::GENDER_FEMALE);
+		$user = $this->createFrontEndUser(Tx_Oelib_Model_FrontEndUser::GENDER_FEMALE);
 
 		self::assertContains(
 			tx_oelib_TranslatorRegistry::getInstance()->get('seminars')
@@ -186,7 +186,7 @@ class Tx_Seminars_Tests_Unit_Service_EMailSalutationTest extends tx_phpunit_test
 	public function getSalutationForFemaleUserReturnsUsersNameWithGenderSpecificTitle() {
 		$this->skipWithoutGenderField();
 
-		$user = $this->createFrontEndUser(tx_oelib_Model_FrontEndUser::GENDER_FEMALE);
+		$user = $this->createFrontEndUser(Tx_Oelib_Model_FrontEndUser::GENDER_FEMALE);
 
 		self::assertContains(
 			tx_oelib_TranslatorRegistry::getInstance()->get('seminars')->translate('email_salutation_title_1') .
@@ -200,7 +200,7 @@ class Tx_Seminars_Tests_Unit_Service_EMailSalutationTest extends tx_phpunit_test
 	 */
 	public function getSalutationForUnknownUserReturnsUnknownSalutation() {
 		$user = $this->createFrontEndUser(
-			tx_oelib_Model_FrontEndUser::GENDER_UNKNOWN
+			Tx_Oelib_Model_FrontEndUser::GENDER_UNKNOWN
 		);
 
 		self::assertContains(
@@ -215,7 +215,7 @@ class Tx_Seminars_Tests_Unit_Service_EMailSalutationTest extends tx_phpunit_test
 	 */
 	public function getSalutationForUnknownUserReturnsUsersNameWithGenderSpecificTitle() {
 		$user = $this->createFrontEndUser(
-			tx_oelib_Model_FrontEndUser::GENDER_UNKNOWN
+			Tx_Oelib_Model_FrontEndUser::GENDER_UNKNOWN
 		);
 
 		self::assertContains(
@@ -231,7 +231,7 @@ class Tx_Seminars_Tests_Unit_Service_EMailSalutationTest extends tx_phpunit_test
 	 */
 	public function getSalutationForInformalSalutationReturnsInformalSalutation() {
 		$user = $this->createFrontEndUser();
-		tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars')
+		Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars')
 			->setAsString('salutation', 'informal');
 
 		self::assertContains(
@@ -246,7 +246,7 @@ class Tx_Seminars_Tests_Unit_Service_EMailSalutationTest extends tx_phpunit_test
 	 */
 	public function getSalutationForInformalSalutationReturnsUsersName() {
 		$user = $this->createFrontEndUser();
-		tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars')
+		Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars')
 			->setAsString('salutation', 'informal');
 
 		self::assertContains(
@@ -275,7 +275,7 @@ class Tx_Seminars_Tests_Unit_Service_EMailSalutationTest extends tx_phpunit_test
 	 * @dataProvider genderDataProvider
 	 */
 	public function getSalutationForFormalSalutationModeContainsNoRawLabelKeys($gender) {
-		tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars')->setAsString('salutation', 'formal');
+		Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars')->setAsString('salutation', 'formal');
 
 		$user = $this->createFrontEndUser($gender);
 		$salutation = $this->subject->getSalutation($user);
@@ -304,7 +304,7 @@ class Tx_Seminars_Tests_Unit_Service_EMailSalutationTest extends tx_phpunit_test
 	 * @dataProvider genderDataProvider
 	 */
 	public function getSalutationForInformalSalutationModeContainsNoRawLabelKeys($gender) {
-		tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars')->setAsString('salutation', 'informal');
+		Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars')->setAsString('salutation', 'informal');
 
 		$user = $this->createFrontEndUser($gender);
 		$salutation = $this->subject->getSalutation($user);
@@ -318,7 +318,7 @@ class Tx_Seminars_Tests_Unit_Service_EMailSalutationTest extends tx_phpunit_test
 	 * @dataProvider genderDataProvider
 	 */
 	public function getSalutationForNoSalutationModeContainsNoRawLabelKeys($gender) {
-		tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars')->setAsString('salutation', '');
+		Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars')->setAsString('salutation', '');
 
 		$user = $this->createFrontEndUser($gender);
 		$salutation = $this->subject->getSalutation($user);
@@ -528,7 +528,7 @@ class Tx_Seminars_Tests_Unit_Service_EMailSalutationTest extends tx_phpunit_test
 	 */
 	public function createIntroductionForFormalSalutationModeContainsNoRawLabelKeys() {
 		$salutation = 'formal';
-		tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars')->setAsString('salutation', $salutation);
+		Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars')->setAsString('salutation', $salutation);
 
 		$dateFormatYMD = '%d.%m.%Y';
 		$eventUid = $this->testingFramework->createRecord(
@@ -551,7 +551,7 @@ class Tx_Seminars_Tests_Unit_Service_EMailSalutationTest extends tx_phpunit_test
 	 */
 	public function createIntroductionForInformalSalutationModeContainsNoRawLabelKeys() {
 		$salutation = 'informal';
-		tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars')->setAsString('salutation', $salutation);
+		Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars')->setAsString('salutation', $salutation);
 
 		$dateFormatYMD = '%d.%m.%Y';
 		$eventUid = $this->testingFramework->createRecord(
@@ -574,7 +574,7 @@ class Tx_Seminars_Tests_Unit_Service_EMailSalutationTest extends tx_phpunit_test
 	 */
 	public function createIntroductionForNoSalutationModeContainsNoRawLabelKeys() {
 		$salutation = '';
-		tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars')->setAsString('salutation', $salutation);
+		Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars')->setAsString('salutation', $salutation);
 
 		$dateFormatYMD = '%d.%m.%Y';
 		$eventUid = $this->testingFramework->createRecord(

@@ -28,7 +28,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 */
 	private $fixture;
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
@@ -88,14 +88,14 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 		$this->t3VarBackup = $GLOBALS['T3_VAR']['getUserObj'];
 		$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['seminars'] = array();
 
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 		$this->testingFramework->createFakeFrontEnd();
 		tx_oelib_headerProxyFactory::getInstance()->enableTestMode();
 		$this->headerCollector = tx_oelib_headerProxyFactory::getInstance()->getHeaderProxy();
 
-		$configuration = new tx_oelib_Configuration();
+		$configuration = new Tx_Oelib_Configuration();
 		$configuration->setAsString('currency', 'EUR');
-		tx_oelib_ConfigurationRegistry::getInstance()->set('plugin.tx_seminars', $configuration);
+		Tx_Oelib_ConfigurationRegistry::getInstance()->set('plugin.tx_seminars', $configuration);
 
 		$this->systemFolderPid = $this->testingFramework->createSystemFolder();
 		$this->seminarUid = $this->testingFramework->createRecord(
@@ -132,10 +132,10 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 		$this->fixture->getTemplateCode();
 		$this->fixture->setLabels();
 		$this->fixture->createHelperObjects();
-		tx_oelib_templatehelper::setCachedConfigurationValue(
+		Tx_Oelib_TemplateHelper::setCachedConfigurationValue(
 			'dateFormatYMD', '%d.%m.%Y'
 		);
-		tx_oelib_templatehelper::setCachedConfigurationValue(
+		Tx_Oelib_TemplateHelper::setCachedConfigurationValue(
 			'timeFormat', '%H:%M'
 		);
 
@@ -1191,7 +1191,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 		$this->fixture->setConfigurationValue('what_to_display', 'single_view');
 
 		/** @var Tx_Seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->find($this->seminarUid);
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->find($this->seminarUid);
 		$hook = $this->getMock('Tx_Seminars_Interface_Hook_EventSingleView');
 		$hook->expects(self::once())->method('modifyEventSingleView')
 			->with($event, self::anything());
@@ -1907,7 +1907,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 		);
 
 		/** @var Tx_Seminars_Model_TimeSlot $timeSlot */
-		$timeSlot = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_TimeSlot')->find($timeSlotUid);
+		$timeSlot = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_TimeSlot')->find($timeSlotUid);
 		$hook = $this->getMock('Tx_Seminars_Interface_Hook_EventSingleView');
 		$hook->expects(self::once())->method('modifyTimeSlotListRow')
 			->with($timeSlot, self::anything());
@@ -8744,7 +8744,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 */
 	public function eventsListCallsModifyListRowHook() {
 		/** @var Tx_Seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->find($this->seminarUid);
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->find($this->seminarUid);
 
 		$hook = $this->getMock('Tx_Seminars_Interface_Hook_EventListView');
 		$hook->expects(self::once())->method('modifyListRow')->with($event, self::anything());
@@ -8781,7 +8781,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 
 		$registrationUid = $this->createLogInAndRegisterFeUser();
 		/** @var Tx_Seminars_Model_Registration $registration */
-		$registration = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Registration')->find($registrationUid);
+		$registration = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Registration')->find($registrationUid);
 
 		$hook = $this->getMock('Tx_Seminars_Interface_Hook_EventListView');
 		$hook->expects(self::once())->method('modifyMyEventsListRow')->with($registration, self::anything());
@@ -8800,7 +8800,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 */
 	public function myEventsListCallsModifyListRowHook() {
 		/** @var Tx_Seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->find($this->seminarUid);
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->find($this->seminarUid);
 
 		$this->testingFramework->createAndLoginFrontEndUser();
 
@@ -8859,7 +8859,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 */
 	public function createSingleViewLinkCreatesLinkToSingleViewPage() {
 		/** @var Tx_Seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 
 		self::assertContains(
 			'href="index.php?id=42&amp;tx_seminars_pi1%5BshowUid%5D=1337"',
@@ -8873,7 +8873,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	public function createSingleViewForEventWithoutDescriptionWithAlwaysLinkSettingLinkUsesLinkText() {
 		$this->fixture->setConfigurationValue('linkToSingleView', 'always');
 		/** @var Tx_Seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
 			array('description' => '')
 		);
 
@@ -8889,7 +8889,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	public function createSingleViewForEventWithDescriptionWithAlwaysLinkSettingLinkUsesLinkText() {
 		$this->fixture->setConfigurationValue('linkToSingleView', 'always');
 		/** @var Tx_Seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
 			array('description' => 'Hello world!')
 		);
 
@@ -8905,7 +8905,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	public function createSingleViewForEventWithoutDescriptionWithNeverLinkSettingReturnsOnlyLabel() {
 		$this->fixture->setConfigurationValue('linkToSingleView', 'never');
 		/** @var Tx_Seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
 			array('description' => '')
 		);
 
@@ -8921,7 +8921,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	public function createSingleViewForEventWithDescriptionWithConditionalLinkSettingLinkUsesLinkText() {
 		$this->fixture->setConfigurationValue('linkToSingleView', 'onlyForNonEmptyDescription');
 		/** @var Tx_Seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
 			array('description' => 'Hello world!')
 		);
 
@@ -8937,7 +8937,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	public function createSingleViewForEventWithoutDescriptionWithConditionalLinkSettingReturnsOnlyLabel() {
 		$this->fixture->setConfigurationValue('linkToSingleView', 'onlyForNonEmptyDescription');
 		/** @var Tx_Seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
 			array('description' => '')
 		);
 
@@ -8953,7 +8953,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	public function createSingleViewForEventWithDescriptionWithNeverLinkSettingReturnsOnlyLabel() {
 		$this->fixture->setConfigurationValue('linkToSingleView', 'never');
 		/** @var Tx_Seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(
 			array('description' => 'Hello world!')
 		);
 
@@ -8968,7 +8968,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 */
 	public function createSingleViewLinkByDefaultHtmlSpecialCharsLinkText() {
 		/** @var Tx_Seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 
 		self::assertContains(
 			'Chaos &amp; Confusion',
@@ -8981,7 +8981,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 */
 	public function createSingleViewLinkByWithHtmlSpecialCharsTrueHtmlSpecialCharsLinkText() {
 		/** @var Tx_Seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 
 		self::assertContains(
 			'Chaos &amp; Confusion',
@@ -8994,7 +8994,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 */
 	public function createSingleViewLinkByWithHtmlSpecialCharsFalseNotHtmlSpecialCharsLinkText() {
 		/** @var Tx_Seminars_Model_Event $event */
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')->getLoadedTestingModel(array());
 
 		self::assertContains(
 			'Chaos & Confusion',

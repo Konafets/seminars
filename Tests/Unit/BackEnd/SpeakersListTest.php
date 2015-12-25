@@ -26,7 +26,7 @@ class Tx_Seminars_Tests_Unit_BackEnd_SpeakersListTest extends tx_phpunit_testcas
 	 */
 	private $fixture;
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
@@ -57,7 +57,7 @@ class Tx_Seminars_Tests_Unit_BackEnd_SpeakersListTest extends tx_phpunit_testcas
 		$GLOBALS['LANG']->includeLLFile('EXT:seminars/BackEnd/locallang.xml');
 
 		$this->testingFramework
-			= new tx_oelib_testingFramework('tx_seminars');
+			= new Tx_Oelib_TestingFramework('tx_seminars');
 
 		$this->dummySysFolderPid
 			= $this->testingFramework->createSystemFolder();
@@ -151,11 +151,11 @@ class Tx_Seminars_Tests_Unit_BackEnd_SpeakersListTest extends tx_phpunit_testcas
 
 	public function testNewButtonForSpeakerStorageSettingSetInUsersGroupSetsThisPidAsNewRecordPid() {
 		$newSpeakerFolder = $this->dummySysFolderPid + 1;
-		$backEndGroup = tx_oelib_MapperRegistry::get(
+		$backEndGroup = Tx_Oelib_MapperRegistry::get(
 			'Tx_Seminars_Mapper_BackEndUserGroup')->getLoadedTestingModel(
 			array('tx_seminars_auxiliaries_folder' => $newSpeakerFolder)
 		);
-		$backEndUser = tx_oelib_MapperRegistry::get(
+		$backEndUser = Tx_Oelib_MapperRegistry::get(
 			'Tx_Seminars_Mapper_BackEndUser')->getLoadedTestingModel(
 				array('usergroup' => $backEndGroup->getUid())
 		);

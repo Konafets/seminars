@@ -57,13 +57,13 @@ class Tx_Seminars_BackEnd_ConfirmEventMailForm extends Tx_Seminars_BackEnd_Abstr
 	 *
 	 * @param Tx_Seminars_Model_Registration $registration
 	 *        the registration to which the e-mail refers
-	 * @param tx_oelib_Mail $eMail
+	 * @param Tx_Oelib_Mail $eMail
 	 *        the e-mail to be sent
 	 *
 	 * @return void
 	 */
 	protected function modifyEmailWithHook(
-		Tx_Seminars_Model_Registration $registration, tx_oelib_Mail $eMail
+		Tx_Seminars_Model_Registration $registration, Tx_Oelib_Mail $eMail
 	) {
 		foreach ($this->getHooks() as $hook) {
 			$hook->modifyConfirmEmail($registration, $eMail);
@@ -79,7 +79,7 @@ class Tx_Seminars_BackEnd_ConfirmEventMailForm extends Tx_Seminars_BackEnd_Abstr
 	protected function setEventStatus() {
 		$this->getEvent()->setStatus(Tx_Seminars_Model_Event::STATUS_CONFIRMED);
 		/** @var Tx_Seminars_Mapper_Event $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 		$mapper->save($this->getEvent());
 
 		/** @var \TYPO3\CMS\Core\Messaging\FlashMessage $message */

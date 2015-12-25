@@ -27,7 +27,7 @@ class Tx_Seminars_Tests_Unit_ViewHelper_CommaSeparatedTitlesTest extends tx_phpu
 	private $fixture;
 
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
@@ -42,7 +42,7 @@ class Tx_Seminars_Tests_Unit_ViewHelper_CommaSeparatedTitlesTest extends tx_phpu
 	const TIME_FORMAT = '%H:%M';
 
 	protected function setUp() {
-		$this->testingFramework	= new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework	= new Tx_Oelib_TestingFramework('tx_seminars');
 		$this->list = new tx_oelib_List();
 		$this->fixture = new Tx_Seminars_ViewHelper_CommaSeparatedTitles();
 	}

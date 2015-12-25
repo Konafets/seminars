@@ -23,7 +23,7 @@
  */
 class Tx_Seminars_Tests_Unit_OldModel_SpeakerTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
@@ -38,7 +38,7 @@ class Tx_Seminars_Tests_Unit_OldModel_SpeakerTest extends tx_phpunit_testcase {
 	private $maximalFixture;
 
 	protected function setUp() {
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 		$fixtureUid = $this->testingFramework->createRecord(
 			'tx_seminars_speakers',
 			array(
@@ -497,7 +497,7 @@ class Tx_Seminars_Tests_Unit_OldModel_SpeakerTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getOwnerWithOwnerReturnsOwner() {
-		$frontEndUser = tx_oelib_MapperRegistry::get(
+		$frontEndUser = Tx_Oelib_MapperRegistry::get(
 			'Tx_Seminars_Mapper_FrontEndUser'
 		)->getNewGhost();
 		$this->fixture->setOwner($frontEndUser);

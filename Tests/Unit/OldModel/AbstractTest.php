@@ -26,7 +26,7 @@ class Tx_Seminars_Tests_Unit_OldModel_AbstractTest extends tx_phpunit_testcase {
 	 */
 	protected $fixture = NULL;
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	protected $testingFramework = NULL;
 
@@ -36,7 +36,7 @@ class Tx_Seminars_Tests_Unit_OldModel_AbstractTest extends tx_phpunit_testcase {
 	private $fixtureUid = 0;
 
 	protected function setUp() {
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 		$systemFolderUid = $this->testingFramework->createSystemFolder();
 		$this->testingFramework->createTemplate(
 			$systemFolderUid,
@@ -95,7 +95,7 @@ class Tx_Seminars_Tests_Unit_OldModel_AbstractTest extends tx_phpunit_testcase {
 	}
 
 	public function testCreateFromDbResult() {
-		$dbResult = tx_oelib_db::select(
+		$dbResult = Tx_Oelib_Db::select(
 			'*',
 			'tx_seminars_test',
 			'uid = ' . $this->fixtureUid

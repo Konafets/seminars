@@ -127,7 +127,7 @@ class Tx_Seminars_Speaker extends Tx_Seminars_OldModel_Abstract {
 			'title',
 			'tx_seminars_skills, tx_seminars_speakers_skills_mm',
 			'uid_local = ' . $this->getUid() . ' AND uid = uid_foreign' .
-				tx_oelib_db::enableFields('tx_seminars_skills'),
+				Tx_Oelib_Db::enableFields('tx_seminars_skills'),
 			'',
 			'sorting ASC'
 		);
@@ -220,13 +220,13 @@ class Tx_Seminars_Speaker extends Tx_Seminars_OldModel_Abstract {
 	/**
 	 * Creates a link to this speaker's homepage, with the title as link text.
 	 *
-	 * @param tx_oelib_templatehelper $plugin templatehelper object with current configuration values
+	 * @param Tx_Oelib_TemplateHelper $plugin templatehelper object with current configuration values
 	 *
 	 * @return string this speaker's title wrapped in an link tag, or if the
 	 *                speaker has no homepage just the speaker name, will not
 	 *                be empty
 	 */
-	public function getLinkedTitle(tx_oelib_templatehelper $plugin) {
+	public function getLinkedTitle(Tx_Oelib_TemplateHelper $plugin) {
 		$safeTitle = htmlspecialchars($this->getTitle());
 
 		if ($this->hasHomepage()) {
@@ -310,7 +310,7 @@ class Tx_Seminars_Speaker extends Tx_Seminars_OldModel_Abstract {
 		}
 
 		/** @var Tx_Seminars_Mapper_FrontEndUser $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUser');
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUser');
 		return $mapper->find($this->getRecordPropertyInteger('owner'));
 	}
 

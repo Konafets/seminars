@@ -28,7 +28,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_EventHeadlineTest extends tx_phpunit_testc
 	private $fixture;
 
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
@@ -58,7 +58,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_EventHeadlineTest extends tx_phpunit_testc
 
 		Tx_Oelib_ConfigurationProxy::getInstance('seminars')->setAsBoolean('enableConfigCheck', FALSE);
 
-		$this->testingFramework	= new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework	= new Tx_Oelib_TestingFramework('tx_seminars');
 		$this->testingFramework->createFakeFrontEnd();
 
 		// just picked some random date (2001-01-01 00:00:00)
@@ -136,9 +136,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_EventHeadlineTest extends tx_phpunit_testc
 	 */
 	public function renderWithUidOfExistingEventReturnsDateOfSelectedEvent() {
 		$dateFormat = '%d.%m.%Y';
-		$configuration = new tx_oelib_Configuration();
+		$configuration = new Tx_Oelib_Configuration();
 		$configuration->setAsString('dateFormatYMD', $dateFormat);
-		tx_oelib_ConfigurationRegistry::getInstance()->set('plugin.tx_seminars_seminars', $configuration);
+		Tx_Oelib_ConfigurationRegistry::getInstance()->set('plugin.tx_seminars_seminars', $configuration);
 
 		$this->fixture->piVars['uid'] = $this->eventId;
 

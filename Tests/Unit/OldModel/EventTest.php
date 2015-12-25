@@ -29,7 +29,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 	protected $fixture = NULL;
 
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	protected $testingFramework = NULL;
 
@@ -60,7 +60,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 
 	protected function setUp() {
 		$GLOBALS['LANG']->includeLLFile(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('seminars') . 'locallang.xml');
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 
 		$this->now = $GLOBALS['SIM_EXEC_TIME'];
 		$this->beginDate = ($this->now + tx_oelib_Time::SECONDS_PER_WEEK);
@@ -6064,7 +6064,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 		$this->fixture->setOwnerUid($ownerUid);
 
 		self::assertTrue(
-			$this->fixture->getOwner() instanceof tx_oelib_Model_FrontEndUser
+			$this->fixture->getOwner() instanceof Tx_Oelib_Model_FrontEndUser
 		);
 	}
 

@@ -21,7 +21,7 @@
  * @author Niels Pardon <mail@niels-pardon.de>
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class Tx_Seminars_Model_Place extends tx_oelib_Model implements tx_seminars_Interface_Titled {
+class Tx_Seminars_Model_Place extends Tx_Oelib_Model implements tx_seminars_Interface_Titled {
 	/**
 	 * Returns our title.
 	 *
@@ -141,7 +141,7 @@ class Tx_Seminars_Model_Place extends tx_oelib_Model implements tx_seminars_Inte
 
 		try {
 			/** @var tx_oelib_Mapper_Country $mapper */
-			$mapper = tx_oelib_MapperRegistry::get('tx_oelib_Mapper_Country');
+			$mapper = Tx_Oelib_MapperRegistry::get('tx_oelib_Mapper_Country');
 			$country = $mapper->findByIsoAlpha2Code($countryCode);
 		} catch (tx_oelib_Exception_NotFound $exception) {
 			$country = NULL;

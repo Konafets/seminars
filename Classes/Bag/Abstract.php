@@ -156,7 +156,7 @@ abstract class Tx_Seminars_Bag_Abstract implements Iterator {
 
 	/**
 	 * For the main DB table and the additional tables, writes the corresponding
-	 * concatenated output from tx_oelib_db::enableFields into
+	 * concatenated output from Tx_Oelib_Db::enableFields into
 	 * $this->enabledFieldsQuery.
 	 *
 	 * @param int $showHiddenRecords If $showHiddenRecords is set (0/1), any hidden-fields in records are ignored.
@@ -186,7 +186,7 @@ abstract class Tx_Seminars_Bag_Abstract implements Iterator {
 			// Is there a TCA entry for that table?
 			$ctrl = $GLOBALS['TCA'][$currentTableName]['ctrl'];
 			if (is_array($ctrl)) {
-				$this->enabledFieldsQuery .= tx_oelib_db::enableFields(
+				$this->enabledFieldsQuery .= Tx_Oelib_Db::enableFields(
 						$currentTableName, $showHiddenRecords, $ignoreColumns
 				);
 			}
@@ -213,7 +213,7 @@ abstract class Tx_Seminars_Bag_Abstract implements Iterator {
 			// overwritten immediately anyway.
 		}
 
-		$this->dbResult = tx_oelib_db::select(
+		$this->dbResult = Tx_Oelib_Db::select(
 			$this->dbTableName . '.*',
 			$this->dbTableName . $this->additionalTableNames,
 			$this->queryParameters . $this->enabledFieldsQuery,
@@ -330,7 +330,7 @@ abstract class Tx_Seminars_Bag_Abstract implements Iterator {
 			return $this->countWithoutLimit;
 		}
 
-		$dbResultRow = tx_oelib_db::selectSingle(
+		$dbResultRow = Tx_Oelib_Db::selectSingle(
 			'COUNT(*) AS number ',
 			$this->dbTableName . $this->additionalTableNames,
 			$this->queryParameters . $this->enabledFieldsQuery

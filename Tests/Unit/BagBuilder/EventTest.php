@@ -42,7 +42,7 @@ class Tx_Seminars_Tests_Unit_BagBuilder_EventTest extends tx_phpunit_testcase {
 	private $future = 0;
 
 	protected function setUp() {
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 
 		$this->fixture = new Tx_Seminars_BagBuilder_Event();
 		$this->fixture->setTestMode();

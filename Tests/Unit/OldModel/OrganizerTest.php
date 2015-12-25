@@ -26,7 +26,7 @@ class Tx_Seminars_Tests_Unit_OldModel_OrganizerTest extends tx_phpunit_testcase 
 	 */
 	private $fixture;
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 	/**
@@ -37,7 +37,7 @@ class Tx_Seminars_Tests_Unit_OldModel_OrganizerTest extends tx_phpunit_testcase 
 	private $maximalFixture;
 
 	protected function setUp() {
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 		$fixtureUid = $this->testingFramework->createRecord(
 			'tx_seminars_organizers',
 			array(

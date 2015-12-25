@@ -28,7 +28,7 @@ class Tx_Seminars_Tests_Unit_OldModel_RegistrationTest extends tx_phpunit_testca
 	protected $fixture = NULL;
 
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	protected $testingFramework = NULL;
 
@@ -50,10 +50,10 @@ class Tx_Seminars_Tests_Unit_OldModel_RegistrationTest extends tx_phpunit_testca
 	protected function setUp() {
 		Tx_Seminars_RegistrationChild::purgeCachedSeminars();
 
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 		$this->testingFramework->createFakeFrontEnd();
 
-		tx_oelib_ConfigurationRegistry::getInstance()->set('plugin.tx_seminars', new tx_oelib_Configuration());
+		Tx_Oelib_ConfigurationRegistry::getInstance()->set('plugin.tx_seminars', new Tx_Oelib_Configuration());
 
 		$organizerUid = $this->testingFramework->createRecord(
 			'tx_seminars_organizers',
@@ -184,7 +184,7 @@ class Tx_Seminars_Tests_Unit_OldModel_RegistrationTest extends tx_phpunit_testca
 	 * @test
 	 */
 	public function setRegistrationDataForNoPaymentMethodSetAndPositiveTotalPriceWithSeminarWithOnePaymentMethodSelectsThatPaymentMethod() {
-		tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars')
+		Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars')
 			->setAsString('currency', 'EUR');
 		$this->testingFramework->changeRecord(
 			'tx_seminars_seminars', $this->seminarUid,
@@ -1066,7 +1066,7 @@ class Tx_Seminars_Tests_Unit_OldModel_RegistrationTest extends tx_phpunit_testca
 	 */
 	public function getFrontEndUserWithExistingFrontEndUserReturnsFrontEndUser() {
 		self::assertTrue(
-			$this->fixture->getFrontEndUser() instanceof tx_oelib_Model_FrontEndUser
+			$this->fixture->getFrontEndUser() instanceof Tx_Oelib_Model_FrontEndUser
 		);
 	}
 
@@ -1509,7 +1509,7 @@ class Tx_Seminars_Tests_Unit_OldModel_RegistrationTest extends tx_phpunit_testca
 	 * @test
 	 */
 	public function setTotalPriceWithTotalPriceSetsTotalPrice() {
-		tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars')
+		Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars')
 			->setAsString('currency', 'EUR');
 		$this->fixture->setTotalPrice('42.42');
 

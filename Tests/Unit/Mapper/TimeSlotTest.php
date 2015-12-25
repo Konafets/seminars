@@ -22,7 +22,7 @@
  */
 class Tx_Seminars_Tests_Unit_Mapper_TimeSlotTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
@@ -32,7 +32,7 @@ class Tx_Seminars_Tests_Unit_Mapper_TimeSlotTest extends tx_phpunit_testcase {
 	private $fixture;
 
 	protected function setUp() {
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 
 		$this->fixture = new Tx_Seminars_Mapper_TimeSlot();
 	}
@@ -96,7 +96,7 @@ class Tx_Seminars_Tests_Unit_Mapper_TimeSlotTest extends tx_phpunit_testcase {
 		$timeSlotUid = $this->testingFramework->createRecord(
 			'tx_seminars_timeslots'
 		);
-		$speaker = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker')
+		$speaker = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_timeslots', $timeSlotUid, $speaker->getUid(), 'speakers'
@@ -116,7 +116,7 @@ class Tx_Seminars_Tests_Unit_Mapper_TimeSlotTest extends tx_phpunit_testcase {
 		$timeSlotUid = $this->testingFramework->createRecord(
 			'tx_seminars_timeslots'
 		);
-		$speaker = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker')
+		$speaker = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Speaker')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_timeslots', $timeSlotUid, $speaker->getUid(), 'speakers'
@@ -152,7 +152,7 @@ class Tx_Seminars_Tests_Unit_Mapper_TimeSlotTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function getPlaceWithPlaceReturnsPlaceInstance() {
-		$place = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Place')->getNewGhost();
+		$place = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Place')->getNewGhost();
 		$timeSlotUid = $this->testingFramework->createRecord(
 			'tx_seminars_timeslots', array('place' => $place->getUid())
 		);

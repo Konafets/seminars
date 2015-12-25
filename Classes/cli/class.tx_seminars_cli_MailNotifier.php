@@ -51,7 +51,7 @@ class Tx_Seminars_cli_MailNotifier {
 		}
 
 		$uid = (int)$_SERVER['argv'][1];
-		if (($uid == 0) || (tx_oelib_db::selectSingle('COUNT(*) AS number', 'pages', 'uid = ' . $uid) != array('number' => 1))) {
+		if (($uid == 0) || (Tx_Oelib_Db::selectSingle('COUNT(*) AS number', 'pages', 'uid = ' . $uid) != array('number' => 1))) {
 			throw new InvalidArgumentException(
 				'The provided UID for the page with the configuration was ' . $_SERVER['argv'][1] .
 					', which was not found to be a UID of an existing page. Please provide the UID of an existing page.',
@@ -59,7 +59,7 @@ class Tx_Seminars_cli_MailNotifier {
 			);
 		}
 
-		tx_oelib_PageFinder::getInstance()->setPageUid($uid);
+		Tx_Oelib_PageFinder::getInstance()->setPageUid($uid);
 	}
 
 	/**
@@ -167,7 +167,7 @@ class Tx_Seminars_cli_MailNotifier {
 	 *               organizers, will be empty if there are none
 	 */
 	private function getEventsToSendCancellationDeadlineReminderFor() {
-		if (!tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars')->getAsBoolean('sendCancelationDeadlineReminder')) {
+		if (!Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars')->getAsBoolean('sendCancelationDeadlineReminder')) {
 			return array();
 		}
 
@@ -198,7 +198,7 @@ class Tx_Seminars_cli_MailNotifier {
 	 *                 enabled, zero disables sending the reminder
 	 */
 	private function getDaysBeforeBeginDate() {
-		return tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars')
+		return Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars')
 			->getAsInteger('sendEventTakesPlaceReminderDaysBeforeBeginDate');
 	}
 
@@ -237,7 +237,7 @@ class Tx_Seminars_cli_MailNotifier {
 		$attachment->setContent($csvString);
 		$attachment->setContentType('text/csv');
 		$attachment->setFileName(
-			tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars')->getAsString('filenameForRegistrationsCsv')
+			Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars')->getAsString('filenameForRegistrationsCsv')
 		);
 
 		return $attachment;
@@ -258,7 +258,7 @@ class Tx_Seminars_cli_MailNotifier {
 	 */
 	private function customizeMessage($locallangKey, Tx_Seminars_Seminar $event, $organizerName = '') {
 		/** @var tx_oelib_Mapper_BackEndUser $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('tx_oelib_Mapper_BackEndUser');
+		$mapper = Tx_Oelib_MapperRegistry::get('tx_oelib_Mapper_BackEndUser');
 		/** @var Tx_Oelib_Model_BackEndUser $user */
 		$user = $mapper->findByCliKey();
 		$GLOBALS['LANG']->lang = $user->getLanguage();
@@ -289,7 +289,7 @@ class Tx_Seminars_cli_MailNotifier {
 	 */
 	private function getDate($timestamp) {
 		return strftime(
-			tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars')->getAsString('dateFormatYMD'), $timestamp
+			Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars')->getAsString('dateFormatYMD'), $timestamp
 		);
 	}
 
@@ -301,7 +301,7 @@ class Tx_Seminars_cli_MailNotifier {
 	 * @return bool TRUE if the CSV file should be added, FALSE otherwise
 	 */
 	private function shouldCsvFileBeAdded(Tx_Seminars_Seminar $event) {
-		return tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars')
+		return Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars')
 			->getAsBoolean('addRegistrationCsvToOrganizerReminderMail')
 			&& ($event->getAttendances() > 0);
 	}

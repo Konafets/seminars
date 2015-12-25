@@ -26,7 +26,7 @@ class Tx_Seminars_Tests_Unit_BackEnd_OrganizersListTest extends tx_phpunit_testc
 	 */
 	private $fixture;
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
@@ -57,7 +57,7 @@ class Tx_Seminars_Tests_Unit_BackEnd_OrganizersListTest extends tx_phpunit_testc
 		$GLOBALS['LANG']->includeLLFile('EXT:seminars/BackEnd/locallang.xml');
 
 		$this->testingFramework
-			= new tx_oelib_testingFramework('tx_seminars');
+			= new Tx_Oelib_TestingFramework('tx_seminars');
 
 		$this->dummySysFolderPid
 			= $this->testingFramework->createSystemFolder();
@@ -115,11 +115,11 @@ class Tx_Seminars_Tests_Unit_BackEnd_OrganizersListTest extends tx_phpunit_testc
 
 	public function testNewButtonForOrganizerStorageSettingSetInUsersGroupSetsThisPidAsNewRecordPid() {
 		$newOrganizerFolder = $this->dummySysFolderPid + 1;
-		$backEndGroup = tx_oelib_MapperRegistry::get(
+		$backEndGroup = Tx_Oelib_MapperRegistry::get(
 			'Tx_Seminars_Mapper_BackEndUserGroup')->getLoadedTestingModel(
 			array('tx_seminars_auxiliaries_folder' => $newOrganizerFolder)
 		);
-		$backEndUser = tx_oelib_MapperRegistry::get(
+		$backEndUser = Tx_Oelib_MapperRegistry::get(
 			'Tx_Seminars_Mapper_BackEndUser')->getLoadedTestingModel(
 				array('usergroup' => $backEndGroup->getUid())
 		);

@@ -687,7 +687,7 @@ class Tx_Seminars_Model_Event extends Tx_Seminars_Model_AbstractTimeSpan {
 		}
 
 		/** @var tx_oelib_Mapper_Language $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('tx_oelib_Mapper_Language');
+		$mapper = Tx_Oelib_MapperRegistry::get('tx_oelib_Mapper_Language');
 		return $mapper->findByIsoAlpha2Code($this->getAsString('language'));
 	}
 
@@ -1337,7 +1337,7 @@ class Tx_Seminars_Model_Event extends Tx_Seminars_Model_AbstractTimeSpan {
 	/**
 	 * Returns our owner.
 	 *
-	 * @return tx_oelib_Model_FrontEndUser our owner, will be NULL if this event
+	 * @return Tx_Oelib_Model_FrontEndUser our owner, will be NULL if this event
 	 *                                     has no owner
 	 */
 	public function getOwner() {

@@ -392,11 +392,11 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 	 * links. Returns a localized string "will be announced" if the seminar has
 	 * no places set.
 	 *
-	 * @param tx_oelib_templatehelper $plugin the current FE plugin
+	 * @param Tx_Oelib_TemplateHelper $plugin the current FE plugin
 	 *
 	 * @return string our places description (or '' if there is an error)
 	 */
-	public function getPlaceWithDetails(tx_oelib_templatehelper $plugin) {
+	public function getPlaceWithDetails(Tx_Oelib_TemplateHelper $plugin) {
 		if (!$this->hasPlace()) {
 			$plugin->setMarker(
 				'message_will_be_announced',
@@ -484,7 +484,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 
 		$countries = array();
 
-		$countryData = tx_oelib_db::selectMultiple(
+		$countryData = Tx_Oelib_Db::selectMultiple(
 			'country',
 			'tx_seminars_sites LEFT JOIN ' .
 				'tx_seminars_seminars_place_mm ON tx_seminars_sites' .
@@ -494,7 +494,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 				'tx_seminars_seminars.uid',
 			'tx_seminars_seminars.uid = ' . $this->getUid() .
 				' AND tx_seminars_sites.country <> ""' .
-				tx_oelib_db::enableFields('tx_seminars_sites'),
+				Tx_Oelib_Db::enableFields('tx_seminars_sites'),
 			'country'
 		);
 
@@ -582,7 +582,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 		$cities = array();
 
 		// Fetches the city name from the corresponding place record(s).
-		$cityData = tx_oelib_db::selectMultiple(
+		$cityData = Tx_Oelib_Db::selectMultiple(
 			'city',
 			'tx_seminars_sites LEFT JOIN tx_seminars_seminars_place_mm' .
 				' ON tx_seminars_sites.uid = ' .
@@ -614,7 +614,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 		$isoCode = $GLOBALS['TYPO3_DB']->quoteStr($isoCode, 'static_countries');
 
 		try {
-			$dbResultRow = tx_oelib_db::selectSingle(
+			$dbResultRow = Tx_Oelib_Db::selectSingle(
 				'cn_short_local',
 				'static_countries',
 				'cn_iso_2 = "' . $isoCode . '"'
@@ -690,11 +690,11 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 	 * @return array[] all places as a two-dimensional array, will be empty if there are no places assigned
 	 */
 	protected function getPlacesAsArray() {
-		return tx_oelib_db::selectMultiple(
+		return Tx_Oelib_Db::selectMultiple(
 			'title, address, zip, city, country, homepage, directions',
 			'tx_seminars_sites, tx_seminars_seminars_place_mm',
 			'uid_local = ' . $this->getUid() . ' AND uid = uid_foreign' .
-				tx_oelib_db::enableFields('tx_seminars_sites'),
+				Tx_Oelib_Db::enableFields('tx_seminars_sites'),
 			'',
 			'sorting ASC'
 		);
@@ -716,11 +716,11 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 
 		$result = array();
 
-		$places = tx_oelib_db::selectMultiple(
+		$places = Tx_Oelib_Db::selectMultiple(
 			'title',
 			'tx_seminars_sites, tx_seminars_seminars_place_mm',
 			'uid_local = ' . $this->getUid() . ' AND uid = uid_foreign' .
-				tx_oelib_db::enableFields('tx_seminars_sites')
+				Tx_Oelib_Db::enableFields('tx_seminars_sites')
 		);
 		foreach ($places as $place) {
 			$result[] = $place['title'];
@@ -861,7 +861,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 	 * As speakers can be related to this event as speakers, partners, tutors or
 	 * leaders, the type relation can be specified. The default is "speakers".
 	 *
-	 * @param tx_oelib_templatehelper $plugin the live pibase object
+	 * @param Tx_Oelib_TemplateHelper $plugin the live pibase object
 	 * @param string $speakerRelation
 	 *        the relation in which the speakers stand to this event:
 	 *        "speakers" (default), "partners", "tutors" or "leaders"
@@ -870,7 +870,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 	 *                during processing
 	 */
 	public function getSpeakersShort(
-		tx_oelib_templatehelper $plugin,
+		Tx_Oelib_TemplateHelper $plugin,
 		$speakerRelation = 'speakers'
 	) {
 		if (!$this->hasSpeakersOfType($speakerRelation)) {
@@ -1151,7 +1151,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 		/** @var tx_oelib_ViewHelper_Price $priceViewHelper */
 		$priceViewHelper = GeneralUtility::makeInstance('tx_oelib_ViewHelper_Price');
 		$priceViewHelper->setCurrencyFromIsoAlpha3Code(
-			tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars')->getAsString('currency')
+			Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars')->getAsString('currency')
 		);
 		$priceViewHelper->setValue((float)$value);
 
@@ -1420,14 +1420,14 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 			return array();
 		}
 
-		$rows = tx_oelib_db::selectMultiple(
+		$rows = Tx_Oelib_Db::selectMultiple(
 			'title',
 			'tx_seminars_payment_methods, tx_seminars_seminars_payment_methods_mm',
 			'tx_seminars_payment_methods.uid = ' .
 				'tx_seminars_seminars_payment_methods_mm.uid_foreign ' .
 				'AND tx_seminars_seminars_payment_methods_mm.uid_local = ' .
 				$this->getTopicUid() .
-				tx_oelib_db::enableFields('tx_seminars_payment_methods'),
+				Tx_Oelib_Db::enableFields('tx_seminars_payment_methods'),
 			'',
 			'tx_seminars_seminars_payment_methods_mm.sorting'
 		);
@@ -1452,14 +1452,14 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 			return '';
 		}
 
-		$rows = tx_oelib_db::selectMultiple(
+		$rows = Tx_Oelib_Db::selectMultiple(
 			'title, description',
 			'tx_seminars_payment_methods, tx_seminars_seminars_payment_methods_mm',
 			'tx_seminars_payment_methods.uid = ' .
 				'tx_seminars_seminars_payment_methods_mm.uid_foreign ' .
 				'AND tx_seminars_seminars_payment_methods_mm.uid_local = ' .
 				$this->getTopicUid() .
-				tx_oelib_db::enableFields('tx_seminars_payment_methods'),
+				Tx_Oelib_Db::enableFields('tx_seminars_payment_methods'),
 			'',
 			'tx_seminars_seminars_payment_methods_mm.sorting'
 		);
@@ -1506,7 +1506,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 		$dbResultPaymentMethod = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
 			'title, description',
 			'tx_seminars_payment_methods',
-			'uid = ' . $paymentMethodUid . tx_oelib_db::enableFields('tx_seminars_payment_methods')
+			'uid = ' . $paymentMethodUid . Tx_Oelib_Db::enableFields('tx_seminars_payment_methods')
 		);
 		if ($dbResultPaymentMethod === FALSE) {
 			return '';
@@ -1547,7 +1547,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 		$dbResultPaymentMethod = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
 			'title',
 			'tx_seminars_payment_methods',
-			'uid = ' . $paymentMethodUid . tx_oelib_db::enableFields('tx_seminars_payment_methods')
+			'uid = ' . $paymentMethodUid . Tx_Oelib_Db::enableFields('tx_seminars_payment_methods')
 		);
 		if ($dbResultPaymentMethod === FALSE) {
 			return '';
@@ -1656,7 +1656,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 			'title',
 			'tx_seminars_event_types',
 			'uid = ' . $this->getTopicInteger('event_type') .
-				tx_oelib_db::enableFields('tx_seminars_event_types'),
+				Tx_Oelib_Db::enableFields('tx_seminars_event_types'),
 			'',
 			'',
 			'1'
@@ -1863,7 +1863,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 			'tx_seminars_seminars_target_groups_mm.uid_local = ' .
 				$this->getTopicUid() . ' AND tx_seminars_target_groups' .
 				'.uid = tx_seminars_seminars_target_groups_mm.uid_foreign' .
-				tx_oelib_db::enableFields('tx_seminars_target_groups'),
+				Tx_Oelib_Db::enableFields('tx_seminars_target_groups'),
 			'',
 			'tx_seminars_seminars_target_groups_mm.sorting'
 		);
@@ -1897,7 +1897,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 				$this->getTopicUid() . ' AND ' .
 				'tx_seminars_target_groups.uid = ' .
 				'tx_seminars_seminars_target_groups_mm.uid_foreign' .
-				tx_oelib_db::enableFields('tx_seminars_target_groups'),
+				Tx_Oelib_Db::enableFields('tx_seminars_target_groups'),
 			'',
 			'tx_seminars_seminars_target_groups_mm.sorting'
 		);
@@ -2445,7 +2445,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 			'COUNT(*) AS num',
 			'tx_seminars_attendances',
 			'seminar = ' . $this->getUid() . ' AND user = ' . $feUserUid .
-				tx_oelib_db::enableFields('tx_seminars_attendances')
+				Tx_Oelib_Db::enableFields('tx_seminars_attendances')
 		);
 
 		if ($dbResult) {
@@ -2956,7 +2956,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 			$queryParameters .
 				' AND seminar = ' . $this->getUid() .
 				' AND seats = 0' .
-				tx_oelib_db::enableFields('tx_seminars_attendances')
+				Tx_Oelib_Db::enableFields('tx_seminars_attendances')
 		);
 
 		if ($dbResultSingleSeats) {
@@ -2972,7 +2972,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 			$queryParameters .
 				' AND seminar = ' . $this->getUid() .
 				' AND seats <> 0' .
-				tx_oelib_db::enableFields('tx_seminars_attendances')
+				Tx_Oelib_Db::enableFields('tx_seminars_attendances')
 		);
 
 		if ($dbResultMultiSeats) {
@@ -3327,7 +3327,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 			// uid_local and uid_foreign are from the m:m table;
 			// uid and sorting are from the foreign table.
 			'uid_local=' . $uid . ' AND uid_foreign=uid' .
-				tx_oelib_db::enableFields($foreignTable),
+				Tx_Oelib_Db::enableFields($foreignTable),
 			'',
 			'sorting'
 		);
@@ -3397,7 +3397,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 	/**
 	 * Gets this event's owner (the FE user who has created this event).
 	 *
-	 * @return tx_oelib_Model_FrontEndUser the owner, will be NULL if the event
+	 * @return Tx_Oelib_Model_FrontEndUser the owner, will be NULL if the event
 	 *                                     has no owner
 	 */
 	public function getOwner() {
@@ -3406,7 +3406,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 		}
 
 		/** @var tx_oelib_Mapper_FrontEndUser $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('tx_oelib_Mapper_FrontEndUser');
+		$mapper = Tx_Oelib_MapperRegistry::get('tx_oelib_Mapper_FrontEndUser');
 		return $mapper->find($this->getRecordPropertyInteger('owner_feuser'));
 	}
 
@@ -4028,7 +4028,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 			'MIN(tx_seminars_timeslots.begin_date) AS begin_date',
 			'tx_seminars_timeslots',
 			'tx_seminars_timeslots.seminar = ' . $this->getUid() .
-				tx_oelib_db::enableFields('tx_seminars_timeslots')
+				Tx_Oelib_Db::enableFields('tx_seminars_timeslots')
 		);
 
 		if ($dbResult) {
@@ -4057,7 +4057,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 			'tx_seminars_timeslots.end_date AS end_date',
 			'tx_seminars_timeslots',
 			'tx_seminars_timeslots.seminar = ' . $this->getUid() .
-				tx_oelib_db::enableFields('tx_seminars_timeslots'),
+				Tx_Oelib_Db::enableFields('tx_seminars_timeslots'),
 			'',
 			'tx_seminars_timeslots.begin_date DESC',
 			'0,1'
@@ -4091,7 +4091,7 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 		}
 
 		// Removes all place relations of the current event.
-		tx_oelib_db::delete(
+		Tx_Oelib_Db::delete(
 			'tx_seminars_seminars_place_mm',
 			'tx_seminars_seminars_place_mm.uid_local = ' . $this->getUid()
 		);
@@ -4599,11 +4599,11 @@ class Tx_Seminars_Seminar extends Tx_Seminars_Timespan {
 			return $list;
 		}
 
-		$places = tx_oelib_db::selectMultiple(
+		$places = Tx_Oelib_Db::selectMultiple(
 			'uid, title, address, zip, city, country, homepage, directions',
 			'tx_seminars_sites, tx_seminars_seminars_place_mm',
 			'uid_local = ' . $this->getUid() . ' AND uid = uid_foreign' .
-				tx_oelib_db::enableFields('tx_seminars_sites')
+				Tx_Oelib_Db::enableFields('tx_seminars_sites')
 		);
 
 		/** @var Tx_Seminars_Mapper_Place $mapper */

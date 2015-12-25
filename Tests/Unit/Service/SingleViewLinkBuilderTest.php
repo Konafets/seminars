@@ -22,7 +22,7 @@
  */
 class Tx_Seminars_Tests_Unit_Service_SingleViewLinkBuilderTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
@@ -49,14 +49,14 @@ class Tx_Seminars_Tests_Unit_Service_SingleViewLinkBuilderTest extends tx_phpuni
 
 
 	protected function setUp() {
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 
 		$this->postBackup = $_POST;
 		$this->getBackup = $_GET;
 		$this->typo3confVarsBackup = $GLOBALS['TYPO3_CONF_VARS'];
 
-		tx_oelib_ConfigurationRegistry::getInstance()
-			->set('plugin.tx_seminars_pi1', new tx_oelib_Configuration());
+		Tx_Oelib_ConfigurationRegistry::getInstance()
+			->set('plugin.tx_seminars_pi1', new Tx_Oelib_Configuration());
 	}
 
 	protected function tearDown() {
@@ -249,7 +249,7 @@ class Tx_Seminars_Tests_Unit_Service_SingleViewLinkBuilderTest extends tx_phpuni
 	 */
 	public function getSingleViewPageFromConfigurationForPluginSetReturnsPageUidFromPluginConfiguration() {
 		$plugin = $this->getMock(
-			'tx_oelib_templatehelper',
+			'Tx_Oelib_TemplateHelper',
 			array('hasConfValueInteger', 'getConfValueInteger')
 		);
 		$plugin->expects(self::any())->method('hasConfValueInteger')
@@ -270,7 +270,7 @@ class Tx_Seminars_Tests_Unit_Service_SingleViewLinkBuilderTest extends tx_phpuni
 	 * @test
 	 */
 	public function getSingleViewPageFromConfigurationForNoPluginSetReturnsPageUidFromTypoScriptSetup() {
-		tx_oelib_ConfigurationRegistry::get('plugin.tx_seminars_pi1')
+		Tx_Oelib_ConfigurationRegistry::get('plugin.tx_seminars_pi1')
 			->set('detailPID', 91);
 
 		$fixture = new Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder();
@@ -366,7 +366,7 @@ class Tx_Seminars_Tests_Unit_Service_SingleViewLinkBuilderTest extends tx_phpuni
 	 * @test
 	 */
 	public function createAbsoluteUrlForEventWithExternalDetailsPageAddsProtocolAndNoSeminarParameter() {
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getLoadedTestingModel(array('details_page' => 'www.example.com'));
 
 		$fixture = new Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder();
@@ -383,7 +383,7 @@ class Tx_Seminars_Tests_Unit_Service_SingleViewLinkBuilderTest extends tx_phpuni
 	public function createAbsoluteUrlForEventWithInternalDetailsPageAddsSeminarParameter() {
 		$pageUid = $this->testingFramework->createFrontEndPage();
 
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getLoadedTestingModel(array('details_page' => $pageUid));
 
 		$fixture = new Tx_Seminars_Tests_Fixtures_Service_TestingSingleViewLinkBuilder();

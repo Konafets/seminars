@@ -887,7 +887,7 @@ class Tx_Seminars_Tests_Unit_Model_EventTest extends tx_phpunit_testcase {
 		$this->fixture->setData(array('language' => 'DE'));
 
 		/** @var tx_oelib_Mapper_Language $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('tx_oelib_Mapper_Language');
+		$mapper = Tx_Oelib_MapperRegistry::get('tx_oelib_Mapper_Language');
 		self::assertSame(
 			$mapper->findByIsoAlpha2Code('DE'),
 			$this->fixture->getLanguage()
@@ -899,7 +899,7 @@ class Tx_Seminars_Tests_Unit_Model_EventTest extends tx_phpunit_testcase {
 	 */
 	public function setLanguageSetsLanguage() {
 		/** @var tx_oelib_Mapper_Language $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('tx_oelib_Mapper_Language');
+		$mapper = Tx_Oelib_MapperRegistry::get('tx_oelib_Mapper_Language');
 		$language = $mapper->findByIsoAlpha2Code('DE');
 		$this->fixture->setLanguage($language);
 
@@ -925,7 +925,7 @@ class Tx_Seminars_Tests_Unit_Model_EventTest extends tx_phpunit_testcase {
 	 */
 	public function hasLanguageWithLanguageReturnsTrue() {
 		/** @var tx_oelib_Mapper_Language $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('tx_oelib_Mapper_Language');
+		$mapper = Tx_Oelib_MapperRegistry::get('tx_oelib_Mapper_Language');
 		$language = $mapper->findByIsoAlpha2Code('DE');
 		$this->fixture->setLanguage($language);
 
@@ -1696,7 +1696,7 @@ class Tx_Seminars_Tests_Unit_Model_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getRegularRegistrationsReturnsRegularRegistrations() {
 		$registrations = new tx_oelib_List();
-		$registration = tx_oelib_MapperRegistry
+		$registration = Tx_Oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_Registration')->getLoadedTestingModel(
 				array('registration_queue' => 0)
 			);
@@ -1714,7 +1714,7 @@ class Tx_Seminars_Tests_Unit_Model_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getRegularRegistrationsNotReturnsQueueRegistrations() {
 		$registrations = new tx_oelib_List();
-		$registration = tx_oelib_MapperRegistry
+		$registration = Tx_Oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_Registration')->getLoadedTestingModel(
 				array('registration_queue' => 1)
 			);
@@ -1731,7 +1731,7 @@ class Tx_Seminars_Tests_Unit_Model_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getQueueRegistrationsReturnsQueueRegistrations() {
 		$registrations = new tx_oelib_List();
-		$registration = tx_oelib_MapperRegistry
+		$registration = Tx_Oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_Registration')->getLoadedTestingModel(
 				array('registration_queue' => 1)
 			);
@@ -1749,7 +1749,7 @@ class Tx_Seminars_Tests_Unit_Model_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getQueueRegistrationsNotReturnsRegularRegistrations() {
 		$registrations = new tx_oelib_List();
-		$registration = tx_oelib_MapperRegistry
+		$registration = Tx_Oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_Registration')->getLoadedTestingModel(
 				array('registration_queue' => 0)
 			);
@@ -1766,7 +1766,7 @@ class Tx_Seminars_Tests_Unit_Model_EventTest extends tx_phpunit_testcase {
 	 */
 	public function hasQueueRegistrationsForOneQueueRegistrationReturnsTrue() {
 		$registrations = new tx_oelib_List();
-		$registration = tx_oelib_MapperRegistry
+		$registration = Tx_Oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_Registration')->getLoadedTestingModel(
 				array('registration_queue' => 1)
 			);
@@ -1851,7 +1851,7 @@ class Tx_Seminars_Tests_Unit_Model_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getRegisteredSeatsCountsSingleSeatRegularRegistrations() {
 		$registrations = new tx_oelib_List();
-		$registration = tx_oelib_MapperRegistry
+		$registration = Tx_Oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_Registration')->getLoadedTestingModel(
 				array('seats' => 1)
 			);
@@ -1874,7 +1874,7 @@ class Tx_Seminars_Tests_Unit_Model_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getRegisteredSeatsCountsMultiSeatRegularRegistrations() {
 		$registrations = new tx_oelib_List();
-		$registration = tx_oelib_MapperRegistry
+		$registration = Tx_Oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_Registration')->getLoadedTestingModel(
 				array('seats' => 2)
 			);
@@ -1897,7 +1897,7 @@ class Tx_Seminars_Tests_Unit_Model_EventTest extends tx_phpunit_testcase {
 	 */
 	public function getRegisteredSeatsNotCountsQueueRegistrations() {
 		$queueRegistrations = new tx_oelib_List();
-		$registration = tx_oelib_MapperRegistry
+		$registration = Tx_Oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_Registration')->getLoadedTestingModel(
 				array('seats' => 1)
 			);
@@ -2242,7 +2242,7 @@ class Tx_Seminars_Tests_Unit_Model_EventTest extends tx_phpunit_testcase {
 	public function attachRegistrationAddsRegistration() {
 		$this->fixture->setRegistrations(new tx_oelib_List());
 
-		$registration = tx_oelib_MapperRegistry
+		$registration = Tx_Oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_Registration')
 			->getLoadedTestingModel(array());
 		$this->fixture->attachRegistration($registration);
@@ -2257,12 +2257,12 @@ class Tx_Seminars_Tests_Unit_Model_EventTest extends tx_phpunit_testcase {
 	 */
 	public function attachRegistrationNotRemovesExistingRegistration() {
 		$registrations = new tx_oelib_List();
-		$oldRegistration = tx_oelib_MapperRegistry
+		$oldRegistration = Tx_Oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_Registration')->getNewGhost();
 		$registrations->add($oldRegistration);
 		$this->fixture->setRegistrations($registrations);
 
-		$newRegistration = tx_oelib_MapperRegistry
+		$newRegistration = Tx_Oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_Registration')
 			->getLoadedTestingModel(array());
 		$this->fixture->attachRegistration($newRegistration);
@@ -2278,7 +2278,7 @@ class Tx_Seminars_Tests_Unit_Model_EventTest extends tx_phpunit_testcase {
 	public function attachRegistrationSetsEventForRegistration() {
 		$this->fixture->setRegistrations(new tx_oelib_List());
 
-		$registration = tx_oelib_MapperRegistry
+		$registration = Tx_Oelib_MapperRegistry
 			::get('Tx_Seminars_Mapper_Registration')
 			->getLoadedTestingModel(array());
 		$this->fixture->attachRegistration($registration);

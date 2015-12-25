@@ -26,7 +26,7 @@ class Tx_Seminars_Tests_Unit_BackEnd_RegistrationsListTest extends tx_phpunit_te
 	 */
 	private $fixture;
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
@@ -48,7 +48,7 @@ class Tx_Seminars_Tests_Unit_BackEnd_RegistrationsListTest extends tx_phpunit_te
 	protected function setUp() {
 		Tx_Oelib_ConfigurationProxy::getInstance('seminars')->setAsBoolean('enableConfigCheck', FALSE);
 
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 
 		$this->dummySysFolderPid = $this->testingFramework->createSystemFolder();
 		$this->backEndLanguageBackup = $GLOBALS['LANG']->lang;
@@ -503,11 +503,11 @@ class Tx_Seminars_Tests_Unit_BackEnd_RegistrationsListTest extends tx_phpunit_te
 
 	public function testNewButtonForRegistrationStorageSettingSetInUsersGroupSetsThisPidAsNewRecordPid() {
 		$newRegistrationFolder = $this->dummySysFolderPid + 1;
-		$backEndGroup = tx_oelib_MapperRegistry::get(
+		$backEndGroup = Tx_Oelib_MapperRegistry::get(
 			'Tx_Seminars_Mapper_BackEndUserGroup')->getLoadedTestingModel(
 			array('tx_seminars_registrations_folder' => $newRegistrationFolder)
 		);
-		$backEndUser = tx_oelib_MapperRegistry::get(
+		$backEndUser = Tx_Oelib_MapperRegistry::get(
 			'Tx_Seminars_Mapper_BackEndUser')->getLoadedTestingModel(
 				array('usergroup' => $backEndGroup->getUid())
 		);

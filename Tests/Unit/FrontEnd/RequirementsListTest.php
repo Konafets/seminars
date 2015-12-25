@@ -32,7 +32,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_RequirementsListTest extends tx_phpunit_te
 	protected $seminarUid = 0;
 
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	protected $testingFramework = NULL;
 
@@ -42,7 +42,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_RequirementsListTest extends tx_phpunit_te
 	protected $systemFolderPid = 0;
 
 	protected function setUp() {
-		$this->testingFramework	= new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework	= new Tx_Oelib_TestingFramework('tx_seminars');
 		$this->testingFramework->createFakeFrontEnd();
 
 		$this->systemFolderPid = $this->testingFramework->createSystemFolder();

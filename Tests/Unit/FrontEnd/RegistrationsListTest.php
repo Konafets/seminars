@@ -27,7 +27,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_RegistrationsListTest extends tx_phpunit_t
 	 */
 	private $fixture;
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
@@ -51,7 +51,7 @@ class Tx_Seminars_Tests_Unit_FrontEnd_RegistrationsListTest extends tx_phpunit_t
 
 		tx_oelib_headerProxyFactory::getInstance()->enableTestMode();
 
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 		$this->testingFramework->createFakeFrontEnd();
 
 		$this->seminarUid = $this->testingFramework->createRecord(

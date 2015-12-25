@@ -230,7 +230,7 @@ class Tx_Seminars_FrontEnd_SelectorWidget extends Tx_Seminars_FrontEnd_AbstractV
 			return;
 		}
 
-		$dataOfPlaces = tx_oelib_db::selectMultiple(
+		$dataOfPlaces = Tx_Oelib_Db::selectMultiple(
 			'tx_seminars_sites.*',
 			'tx_seminars_sites, tx_seminars_seminars_place_mm',
 			'tx_seminars_sites.uid = tx_seminars_seminars_place_mm.uid_foreign ' .
@@ -239,7 +239,7 @@ class Tx_Seminars_FrontEnd_SelectorWidget extends Tx_Seminars_FrontEnd_AbstractV
 		);
 
 		/** @var Tx_Seminars_Mapper_Place $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Place');
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Place');
 		$this->places = $mapper->getListOfModels($dataOfPlaces);
 	}
 

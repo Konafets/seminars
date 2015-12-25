@@ -21,7 +21,7 @@
  * @author Niels Pardon <mail@niels-pardon.de>
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class Tx_Seminars_Mapper_Event extends tx_oelib_DataMapper {
+class Tx_Seminars_Mapper_Event extends Tx_Oelib_DataMapper {
 	/**
 	 * @var string the name of the database table for this mapper
 	 */
@@ -127,7 +127,7 @@ class Tx_Seminars_Mapper_Event extends tx_oelib_DataMapper {
 			' AND object_type <> ' . Tx_Seminars_Model_Event::TYPE_TOPIC . ' AND begin_date > ' . $GLOBALS['SIM_ACCESS_TIME'];
 
 		try {
-			$row = tx_oelib_db::selectSingle(
+			$row = Tx_Oelib_Db::selectSingle(
 				$this->columns,
 				$this->tableName,
 				$whereClause,

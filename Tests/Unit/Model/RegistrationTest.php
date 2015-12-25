@@ -28,12 +28,12 @@ class Tx_Seminars_Tests_Unit_Model_RegistrationTest extends tx_phpunit_testcase 
 	private $fixture;
 
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
 	protected function setUp() {
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 		$this->fixture = new Tx_Seminars_Model_Registration();
 	}
 
@@ -91,7 +91,7 @@ class Tx_Seminars_Tests_Unit_Model_RegistrationTest extends tx_phpunit_testcase 
 	 * @test
 	 */
 	public function setFrontEndUserSetsFrontEndUser() {
-		$frontEndUser = tx_oelib_MapperRegistry::get('tx_oelib_Mapper_FrontEndUser')
+		$frontEndUser = Tx_Oelib_MapperRegistry::get('tx_oelib_Mapper_FrontEndUser')
 			->getNewGhost();
 		$this->fixture->setFrontEndUser($frontEndUser);
 
@@ -110,7 +110,7 @@ class Tx_Seminars_Tests_Unit_Model_RegistrationTest extends tx_phpunit_testcase 
 	 * @test
 	 */
 	public function getEventReturnsEvent() {
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getNewGhost();
 		$this->fixture->setData(array('seminar' => $event));
 
@@ -124,7 +124,7 @@ class Tx_Seminars_Tests_Unit_Model_RegistrationTest extends tx_phpunit_testcase 
 	 * @test
 	 */
 	public function getSeminarReturnsEvent() {
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getNewGhost();
 		$this->fixture->setData(array('seminar' => $event));
 
@@ -138,7 +138,7 @@ class Tx_Seminars_Tests_Unit_Model_RegistrationTest extends tx_phpunit_testcase 
 	 * @test
 	 */
 	public function setEventSetsEvent() {
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getNewGhost();
 		$this->fixture->setEvent($event);
 
@@ -152,7 +152,7 @@ class Tx_Seminars_Tests_Unit_Model_RegistrationTest extends tx_phpunit_testcase 
 	 * @test
 	 */
 	public function setSeminarSetsEvent() {
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getNewGhost();
 		$this->fixture->setSeminar($event);
 
@@ -530,7 +530,7 @@ class Tx_Seminars_Tests_Unit_Model_RegistrationTest extends tx_phpunit_testcase 
 	 * @test
 	 */
 	public function setPaymentMethodSetsPaymentMethod() {
-		$paymentMethod = tx_oelib_MapperRegistry::get(
+		$paymentMethod = Tx_Oelib_MapperRegistry::get(
 			'Tx_Seminars_Mapper_PaymentMethod'
 		)->getNewGhost();
 		$this->fixture->setPaymentMethod($paymentMethod);
@@ -810,7 +810,7 @@ class Tx_Seminars_Tests_Unit_Model_RegistrationTest extends tx_phpunit_testcase 
 		$this->fixture->setData(array());
 
 		self::assertEquals(
-			tx_oelib_Model_FrontEndUser::GENDER_MALE,
+			Tx_Oelib_Model_FrontEndUser::GENDER_MALE,
 			$this->fixture->getGender()
 		);
 	}
@@ -820,11 +820,11 @@ class Tx_Seminars_Tests_Unit_Model_RegistrationTest extends tx_phpunit_testcase 
 	 */
 	public function getGenderWithGenderFemaleReturnsGenderFemale() {
 		$this->fixture->setData(
-			array('gender' => tx_oelib_Model_FrontEndUser::GENDER_FEMALE)
+			array('gender' => Tx_Oelib_Model_FrontEndUser::GENDER_FEMALE)
 		);
 
 		self::assertEquals(
-			tx_oelib_Model_FrontEndUser::GENDER_FEMALE,
+			Tx_Oelib_Model_FrontEndUser::GENDER_FEMALE,
 			$this->fixture->getGender()
 		);
 	}
@@ -834,11 +834,11 @@ class Tx_Seminars_Tests_Unit_Model_RegistrationTest extends tx_phpunit_testcase 
 	 */
 	public function getGenderWithGenderUnknownReturnsGenderUnknown() {
 		$this->fixture->setData(
-			array('gender' => tx_oelib_Model_FrontEndUser::GENDER_UNKNOWN)
+			array('gender' => Tx_Oelib_Model_FrontEndUser::GENDER_UNKNOWN)
 		);
 
 		self::assertEquals(
-			tx_oelib_Model_FrontEndUser::GENDER_UNKNOWN,
+			Tx_Oelib_Model_FrontEndUser::GENDER_UNKNOWN,
 			$this->fixture->getGender()
 		);
 	}
@@ -849,8 +849,8 @@ class Tx_Seminars_Tests_Unit_Model_RegistrationTest extends tx_phpunit_testcase 
 	public function setGenderWithUnsupportedGenderThrowsException() {
 		$this->setExpectedException(
 			'InvalidArgumentException',
-			'The parameter $gender must be one of the following: tx_oelib_Model_FrontEndUser::GENDER_MALE, ' .
-				'tx_oelib_Model_FrontEndUser::GENDER_FEMALE, tx_oelib_Model_FrontEndUser::GENDER_UNKNOWN'
+			'The parameter $gender must be one of the following: Tx_Oelib_Model_FrontEndUser::GENDER_MALE, ' .
+				'Tx_Oelib_Model_FrontEndUser::GENDER_FEMALE, Tx_Oelib_Model_FrontEndUser::GENDER_UNKNOWN'
 		);
 
 		$this->fixture->setGender(-1);
@@ -860,10 +860,10 @@ class Tx_Seminars_Tests_Unit_Model_RegistrationTest extends tx_phpunit_testcase 
 	 * @test
 	 */
 	public function setGenderWithGenderMaleSetsGender() {
-		$this->fixture->setGender(tx_oelib_Model_FrontEndUser::GENDER_MALE);
+		$this->fixture->setGender(Tx_Oelib_Model_FrontEndUser::GENDER_MALE);
 
 		self::assertEquals(
-			tx_oelib_Model_FrontEndUser::GENDER_MALE,
+			Tx_Oelib_Model_FrontEndUser::GENDER_MALE,
 			$this->fixture->getGender()
 		);
 	}
@@ -872,10 +872,10 @@ class Tx_Seminars_Tests_Unit_Model_RegistrationTest extends tx_phpunit_testcase 
 	 * @test
 	 */
 	public function setGenderWithGenderFemaleSetsGender() {
-		$this->fixture->setGender(tx_oelib_Model_FrontEndUser::GENDER_FEMALE);
+		$this->fixture->setGender(Tx_Oelib_Model_FrontEndUser::GENDER_FEMALE);
 
 		self::assertEquals(
-			tx_oelib_Model_FrontEndUser::GENDER_FEMALE,
+			Tx_Oelib_Model_FrontEndUser::GENDER_FEMALE,
 			$this->fixture->getGender()
 		);
 	}
@@ -884,10 +884,10 @@ class Tx_Seminars_Tests_Unit_Model_RegistrationTest extends tx_phpunit_testcase 
 	 * @test
 	 */
 	public function setGenderWithGenderUnknownSetsGender() {
-		$this->fixture->setGender(tx_oelib_Model_FrontEndUser::GENDER_UNKNOWN);
+		$this->fixture->setGender(Tx_Oelib_Model_FrontEndUser::GENDER_UNKNOWN);
 
 		self::assertEquals(
-			tx_oelib_Model_FrontEndUser::GENDER_UNKNOWN,
+			Tx_Oelib_Model_FrontEndUser::GENDER_UNKNOWN,
 			$this->fixture->getGender()
 		);
 	}

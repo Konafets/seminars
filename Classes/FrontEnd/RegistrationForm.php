@@ -362,11 +362,11 @@ class Tx_Seminars_FrontEnd_RegistrationForm extends Tx_Seminars_FrontEnd_Editor 
 		}
 
 		/** @var $userMapper Tx_Seminars_Mapper_FrontEndUser */
-		$userMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUser');
+		$userMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUser');
 		$pageUid = $this->getConfValueInteger('sysFolderForAdditionalAttendeeUsersPID', 's_registration');
 
 		/** @var $userGroupMapper Tx_Seminars_Mapper_FrontEndUserGroup */
-		$userGroupMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUserGroup');
+		$userGroupMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_FrontEndUserGroup');
 		/** @var  Tx_Oelib_List $userGroups */
 		$userGroups = GeneralUtility::makeInstance('Tx_Oelib_List');
 		$userGroupUids = GeneralUtility::intExplode(
@@ -417,7 +417,7 @@ class Tx_Seminars_FrontEnd_RegistrationForm extends Tx_Seminars_FrontEnd_Editor 
 		}
 
 		/** @var Tx_Seminars_Mapper_Registration $registrationMapper */
-		$registrationMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Registration');
+		$registrationMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Registration');
 		$registrationMapper->save($registration);
 	}
 
@@ -754,12 +754,12 @@ class Tx_Seminars_FrontEnd_RegistrationForm extends Tx_Seminars_FrontEnd_Editor 
 			return array();
 		}
 
-		$rows = tx_oelib_db::selectMultiple(
+		$rows = Tx_Oelib_Db::selectMultiple(
 			'uid, title',
 			'tx_seminars_payment_methods, tx_seminars_seminars_payment_methods_mm',
 			'tx_seminars_payment_methods.uid = tx_seminars_seminars_payment_methods_mm.uid_foreign ' .
 				'AND tx_seminars_seminars_payment_methods_mm.uid_local=' . $this->getSeminar()->getTopicUid() .
-				tx_oelib_db::enableFields('tx_seminars_payment_methods')
+				Tx_Oelib_Db::enableFields('tx_seminars_payment_methods')
 		);
 
 		$result = array();
@@ -1208,7 +1208,7 @@ class Tx_Seminars_FrontEnd_RegistrationForm extends Tx_Seminars_FrontEnd_Editor 
 	 * @return string the default country's localized name, will be empty if there is no default country
 	 */
 	private function getDefaultCountry() {
-		$defaultCountryCode = tx_oelib_ConfigurationRegistry::get('plugin.tx_staticinfotables_pi1')->getAsString('countryCode');
+		$defaultCountryCode = Tx_Oelib_ConfigurationRegistry::get('plugin.tx_staticinfotables_pi1')->getAsString('countryCode');
 		if ($defaultCountryCode === '') {
 			return '';
 		}

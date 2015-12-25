@@ -26,12 +26,12 @@ class Tx_Seminars_Tests_Unit_BagBuilder_CategoryTest extends tx_phpunit_testcase
 	 */
 	private $fixture;
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
 	protected function setUp() {
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 
 		$this->fixture = new Tx_Seminars_BagBuilder_Category();
 		$this->fixture->setTestMode();

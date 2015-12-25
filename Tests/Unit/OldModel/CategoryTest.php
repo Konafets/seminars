@@ -26,7 +26,7 @@ class Tx_Seminars_Tests_Unit_OldModel_CategoryTest extends tx_phpunit_testcase {
 	 */
 	private $fixture;
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 	/**
@@ -37,7 +37,7 @@ class Tx_Seminars_Tests_Unit_OldModel_CategoryTest extends tx_phpunit_testcase {
 	private $fixtureUid = 0;
 
 	protected function setUp() {
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 		$this->fixtureUid = $this->testingFramework->createRecord(
 			'tx_seminars_categories',
 			array('title' => 'Test category')
@@ -73,7 +73,7 @@ class Tx_Seminars_Tests_Unit_OldModel_CategoryTest extends tx_phpunit_testcase {
 	}
 
 	public function testCreateFromDbResult() {
-		$dbResult = tx_oelib_db::select(
+		$dbResult = Tx_Oelib_Db::select(
 			'*',
 			'tx_seminars_categories',
 			'uid = '.$this->fixtureUid

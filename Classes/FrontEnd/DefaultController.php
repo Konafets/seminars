@@ -25,7 +25,7 @@ require(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('seminars') 
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
+class Tx_Seminars_FrontEnd_DefaultController extends Tx_Oelib_TemplateHelper {
 	/**
 	 * @var string same as class name
 	 */
@@ -496,7 +496,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 			$dbResult = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
 				'*',
 				'tx_seminars_attendances',
-				'tx_seminars_attendances.uid = ' . $registrationUid . tx_oelib_db::enableFields('tx_seminars_attendances')
+				'tx_seminars_attendances.uid = ' . $registrationUid . Tx_Oelib_Db::enableFields('tx_seminars_attendances')
 			);
 			$this->registration = GeneralUtility::makeInstance('Tx_Seminars_Registration', $this->cObj, $dbResult);
 			if ($dbResult !== FALSE) {
@@ -716,7 +716,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 	 */
 	protected function createSingleViewForExistingEvent() {
 		/** @var Tx_Seminars_Mapper_Event $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 		/** @var Tx_Seminars_Model_Event $event */
 		$event = $mapper->find($this->showUid);
 
@@ -964,7 +964,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 		$this->hideSubparts('date,time', 'field_wrapper');
 
 		/** @var Tx_Seminars_Mapper_TimeSlot $timeSlotMapper */
-		$timeSlotMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_TimeSlot');
+		$timeSlotMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_TimeSlot');
 
 		$timeSlotsOutput = '';
 		$timeSlots = $this->seminar->getTimeSlotsAsArrayWithMarkers();
@@ -1338,7 +1338,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 		$output = '';
 
 		/** @var Tx_Seminars_Mapper_Event $eventMapper */
-		$eventMapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
+		$eventMapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 
 		$dependencies = $this->seminar->getDependencies();
 		/** @var Tx_Seminars_Seminar $dependency */
@@ -1975,7 +1975,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 
 		if ($this->seminar->isOk()) {
 			/** @var Tx_Seminars_Mapper_Event $mapper */
-			$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
+			$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 			/** @var Tx_Seminars_Model_Event $event */
 			$event = $mapper->find($this->getSeminar()->getUid());
 
@@ -2137,7 +2137,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 
 			if ($whatToDisplay === 'my_events') {
 				/** @var Tx_Seminars_Mapper_Registration $mapper */
-				$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Registration');
+				$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Registration');
 				/** @var Tx_Seminars_Model_Registration $registration */
 				$registration = $mapper->find($this->registration->getUid());
 
@@ -3422,7 +3422,7 @@ class Tx_Seminars_FrontEnd_DefaultController extends tx_oelib_templatehelper {
 		}
 
 		/** @var Tx_Seminars_Mapper_Event $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 		/** @var Tx_Seminars_Model_Event $event */
 		$event = $mapper->find($this->piVars['seminar']);
 		if (!$event->isPublished()) {

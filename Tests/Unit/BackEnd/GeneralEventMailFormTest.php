@@ -27,7 +27,7 @@ class Tx_Seminars_Tests_Unit_BackEnd_GeneralEventMailFormTest extends Tx_Phpunit
 	private $fixture;
 
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
@@ -98,10 +98,10 @@ class Tx_Seminars_Tests_Unit_BackEnd_GeneralEventMailFormTest extends Tx_Phpunit
 		$mailerFactory->enableTestMode();
 		$this->mailer = $mailerFactory->getMailer();
 
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 
 		$this->dummySysFolderUid = $this->testingFramework->createSystemFolder();
-		tx_oelib_PageFinder::getInstance()->setPageUid($this->dummySysFolderUid);
+		Tx_Oelib_PageFinder::getInstance()->setPageUid($this->dummySysFolderUid);
 
 		$this->organizerUid = $this->testingFramework->createRecord(
 			'tx_seminars_organizers',
@@ -250,7 +250,7 @@ class Tx_Seminars_Tests_Unit_BackEnd_GeneralEventMailFormTest extends Tx_Phpunit
 		);
 
 		/** @var Tx_Seminars_Model_Registration $registration */
-		$registration = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Registration')->find($registrationUid);
+		$registration = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Registration')->find($registrationUid);
 		$hook = $this->getMock('Tx_Seminars_Interface_Hook_BackEndModule');
 		$hook->expects(self::once())->method('modifyGeneralEmail')
 			->with($registration, self::anything());

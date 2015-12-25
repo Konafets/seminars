@@ -22,7 +22,7 @@
  */
 class Tx_Seminars_ViewHelper_DateRange {
 	/**
-	 * @var tx_oelib_Configuration
+	 * @var Tx_Oelib_Configuration
 	 */
 	protected $configuration = NULL;
 
@@ -35,7 +35,7 @@ class Tx_Seminars_ViewHelper_DateRange {
 	 * The constructor.
 	 */
 	public function __construct() {
-		$this->configuration = tx_oelib_ConfigurationRegistry::getInstance()->get('plugin.tx_seminars');
+		$this->configuration = Tx_Oelib_ConfigurationRegistry::getInstance()->get('plugin.tx_seminars');
 		$this->translator = tx_oelib_TranslatorRegistry::getInstance()->get('seminars');
 	}
 

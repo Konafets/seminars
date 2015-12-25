@@ -20,7 +20,7 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class Tx_Seminars_Model_Speaker extends tx_oelib_Model implements tx_oelib_Interface_MailRole {
+class Tx_Seminars_Model_Speaker extends Tx_Oelib_Model implements Tx_Oelib_Interface_MailRole {
 	/**
 	 * @var int the gender type for speakers without gender
 	 */
@@ -41,7 +41,7 @@ class Tx_Seminars_Model_Speaker extends tx_oelib_Model implements tx_oelib_Inter
 	 *
 	 * @return string our name, will not be empty
 	 *
-	 * @see EXT:oelib/Interface/tx_oelib_Interface_MailRole#getName()
+	 * @see EXT:oelib/Interface/Tx_Oelib_Interface_MailRole#getName()
 	 */
 	public function getName() {
 		return $this->getAsString('title');
@@ -328,7 +328,7 @@ class Tx_Seminars_Model_Speaker extends tx_oelib_Model implements tx_oelib_Inter
 	 *
 	 * @return string our e-mail address, will not be empty
 	 *
-	 * @see EXT:oelib/Interface/tx_oelib_Interface_MailRole#getEMailAddress()
+	 * @see EXT:oelib/Interface/Tx_Oelib_Interface_MailRole#getEMailAddress()
 	 */
 	public function getEMailAddress() {
 		return $this->getAsString('email');

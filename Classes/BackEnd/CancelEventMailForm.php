@@ -120,7 +120,7 @@ class Tx_Seminars_BackEnd_CancelEventMailForm extends Tx_Seminars_BackEnd_Abstra
 	protected function setEventStatus() {
 		$this->getEvent()->setStatus(Tx_Seminars_Model_Event::STATUS_CANCELED);
 		/** @var Tx_Seminars_Mapper_Event $mapper */
-		$mapper = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
+		$mapper = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event');
 		$mapper->save($this->getEvent());
 
 		/** @var FlashMessage $message */
@@ -153,13 +153,13 @@ class Tx_Seminars_BackEnd_CancelEventMailForm extends Tx_Seminars_BackEnd_Abstra
 	 *
 	 * @param Tx_Seminars_Model_Registration $registration
 	 *        the registration to which the e-mail refers
-	 * @param tx_oelib_Mail $eMail
+	 * @param Tx_Oelib_Mail $eMail
 	 *        the e-mail to be sent
 	 *
 	 * @return void
 	 */
 	protected function modifyEmailWithHook(
-		Tx_Seminars_Model_Registration $registration, tx_oelib_Mail $eMail
+		Tx_Seminars_Model_Registration $registration, Tx_Oelib_Mail $eMail
 	) {
 		foreach ($this->getHooks() as $hook) {
 			$hook->modifyCancelEmail($registration, $eMail);

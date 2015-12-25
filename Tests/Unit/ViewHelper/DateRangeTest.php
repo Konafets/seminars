@@ -27,12 +27,12 @@ class Tx_Seminars_Tests_Unit_ViewHelper_DateRangeTest extends tx_phpunit_testcas
 	private $fixture;
 
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
 	/**
-	 * @var tx_oelib_Configuration
+	 * @var Tx_Oelib_Configuration
 	 */
 	private $configuration;
 
@@ -56,16 +56,16 @@ class Tx_Seminars_Tests_Unit_ViewHelper_DateRangeTest extends tx_phpunit_testcas
 		DATE_FORMAT_D = '%d.';
 
 	protected function setUp() {
-		$this->testingFramework	= new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework	= new Tx_Oelib_TestingFramework('tx_seminars');
 
-		$this->configuration = new tx_oelib_Configuration();
+		$this->configuration = new Tx_Oelib_Configuration();
 		$this->configuration->setAsString('dateFormatYMD', self::DATE_FORMAT_YMD);
 		$this->configuration->setAsString('dateFormatY', self::DATE_FORMAT_Y);
 		$this->configuration->setAsString('dateFormatM', self::DATE_FORMAT_M);
 		$this->configuration->setAsString('dateFormatMD', self::DATE_FORMAT_MD);
 		$this->configuration->setAsString('dateFormatD', self::DATE_FORMAT_D);
 
-		tx_oelib_ConfigurationRegistry::getInstance()->set('plugin.tx_seminars', $this->configuration);
+		Tx_Oelib_ConfigurationRegistry::getInstance()->set('plugin.tx_seminars', $this->configuration);
 
 		$this->translator = tx_oelib_TranslatorRegistry::getInstance()->get('seminars');
 

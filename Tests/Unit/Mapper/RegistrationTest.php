@@ -23,7 +23,7 @@
  */
 class Tx_Seminars_Tests_Unit_Mapper_RegistrationTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_oelib_testingFramework
+	 * @var Tx_Oelib_TestingFramework
 	 */
 	private $testingFramework;
 
@@ -33,7 +33,7 @@ class Tx_Seminars_Tests_Unit_Mapper_RegistrationTest extends tx_phpunit_testcase
 	private $fixture;
 
 	protected function setUp() {
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 
 		$this->fixture = new Tx_Seminars_Mapper_Registration();
 	}
@@ -81,7 +81,7 @@ class Tx_Seminars_Tests_Unit_Mapper_RegistrationTest extends tx_phpunit_testcase
 	 * @test
 	 */
 	public function getEventWithEventReturnsEventInstance() {
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getNewGhost();
 
 		self::assertTrue(
@@ -96,7 +96,7 @@ class Tx_Seminars_Tests_Unit_Mapper_RegistrationTest extends tx_phpunit_testcase
 	 * @test
 	 */
 	public function getSeminarWithEventReturnsEventInstance() {
-		$event = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
+		$event = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Event')
 			->getNewGhost();
 
 		self::assertTrue(
@@ -116,7 +116,7 @@ class Tx_Seminars_Tests_Unit_Mapper_RegistrationTest extends tx_phpunit_testcase
 	 * @test
 	 */
 	public function getFrontEndUserWithFrontEndUserReturnsFrontEndUserInstance() {
-		$frontEndUser = tx_oelib_MapperRegistry::
+		$frontEndUser = Tx_Oelib_MapperRegistry::
 			get('Tx_Seminars_Mapper_FrontEndUser')->getNewGhost();
 
 		self::assertTrue(
@@ -145,7 +145,7 @@ class Tx_Seminars_Tests_Unit_Mapper_RegistrationTest extends tx_phpunit_testcase
 	 * @test
 	 */
 	public function getPaymentMethodWithPaymentMethodReturnsPaymentMethodInstance() {
-		$paymentMethod = tx_oelib_MapperRegistry::
+		$paymentMethod = Tx_Oelib_MapperRegistry::
 			get('Tx_Seminars_Mapper_PaymentMethod')->getNewGhost();
 
 		self::assertTrue(
@@ -176,7 +176,7 @@ class Tx_Seminars_Tests_Unit_Mapper_RegistrationTest extends tx_phpunit_testcase
 	 */
 	public function getLodgingsWithOneLodgingReturnsListOfLodgings() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_attendances');
-		$lodging = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Lodging')
+		$lodging = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Lodging')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_attendances', $uid, $lodging->getUid(), 'lodgings'
@@ -194,7 +194,7 @@ class Tx_Seminars_Tests_Unit_Mapper_RegistrationTest extends tx_phpunit_testcase
 	 */
 	public function getLodgingsWithOneLodgingReturnsOneLodging() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_attendances');
-		$lodging = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Lodging')
+		$lodging = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Lodging')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_attendances', $uid, $lodging->getUid(), 'lodgings'
@@ -228,7 +228,7 @@ class Tx_Seminars_Tests_Unit_Mapper_RegistrationTest extends tx_phpunit_testcase
 	 */
 	public function getFoodsWithOneFoodReturnsListOfFoods() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_attendances');
-		$food = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Food')
+		$food = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Food')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_attendances', $uid, $food->getUid(), 'foods'
@@ -247,7 +247,7 @@ class Tx_Seminars_Tests_Unit_Mapper_RegistrationTest extends tx_phpunit_testcase
 	 */
 	public function getFoodsWithOneFoodReturnsOneFood() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_attendances');
-		$food = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Food')
+		$food = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Food')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_attendances', $uid, $food->getUid(), 'foods'
@@ -281,7 +281,7 @@ class Tx_Seminars_Tests_Unit_Mapper_RegistrationTest extends tx_phpunit_testcase
 	 */
 	public function getCheckboxesWithOneCheckboxReturnsListOfCheckboxes() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_attendances');
-		$checkbox = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Checkbox')
+		$checkbox = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Checkbox')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_attendances', $uid, $checkbox->getUid(), 'checkboxes'
@@ -300,7 +300,7 @@ class Tx_Seminars_Tests_Unit_Mapper_RegistrationTest extends tx_phpunit_testcase
 	 */
 	public function getCheckboxesWithOneCheckboxReturnsOneCheckbox() {
 		$uid = $this->testingFramework->createRecord('tx_seminars_attendances');
-		$checkbox = tx_oelib_MapperRegistry::get('Tx_Seminars_Mapper_Checkbox')
+		$checkbox = Tx_Oelib_MapperRegistry::get('Tx_Seminars_Mapper_Checkbox')
 			->getNewGhost();
 		$this->testingFramework->createRelationAndUpdateCounter(
 			'tx_seminars_attendances', $uid, $checkbox->getUid(), 'checkboxes'

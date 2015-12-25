@@ -125,7 +125,7 @@ abstract class Tx_Seminars_BagBuilder_Abstract {
 			return;
 		}
 
-		$recursivePidList = tx_oelib_db::createRecursivePageList(
+		$recursivePidList = Tx_Oelib_Db::createRecursivePageList(
 			$sourcePagePids, $recursionDepth
 		);
 

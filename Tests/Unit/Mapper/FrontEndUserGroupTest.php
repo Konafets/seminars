@@ -28,13 +28,13 @@ class Tx_Seminars_Tests_Unit_Mapper_FrontEndUserGroupTest extends tx_phpunit_tes
 	private $fixture;
 
 	/**
-	 * @var tx_oelib_testingFramework the testing framework	 *
+	 * @var Tx_Oelib_TestingFramework the testing framework	 *
 	 */
 	private $testingFramework;
 
 	protected function setUp() {
 		$this->fixture = new Tx_Seminars_Mapper_FrontEndUserGroup();
-		$this->testingFramework = new tx_oelib_testingFramework('tx_seminars');
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 	}
 
 	protected function tearDown() {
@@ -65,7 +65,7 @@ class Tx_Seminars_Tests_Unit_Mapper_FrontEndUserGroupTest extends tx_phpunit_tes
 	 * @test
 	 */
 	public function frontEndUserGroupCanReturnBackEndUserModel() {
-		$backEndUser = tx_oelib_MapperRegistry::get(
+		$backEndUser = Tx_Oelib_MapperRegistry::get(
 			'tx_oelib_Mapper_BackEndUser')->getNewGhost();
 		$frontEndUserGroup = $this->fixture->getLoadedTestingModel(
 			array('tx_seminars_reviewer' => $backEndUser->getUid())
