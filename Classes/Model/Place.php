@@ -272,7 +272,3 @@ class Tx_Seminars_Model_Place extends Tx_Oelib_Model implements Tx_Seminars_Inte
 		$this->setAsString('notes', $notes);
 	}
 }
-
-if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/Model/Place.php']) {
-	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/Model/Place.php']);
-}

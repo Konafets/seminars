@@ -38,7 +38,3 @@ class Tx_Seminars_ConfigGetter extends Tx_Oelib_TemplateHelper {
 		$this->init();
 	}
 }
-
-if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/class.tx_seminars_configgetter.php']) {
-	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/class.tx_seminars_configgetter.php']);
-}

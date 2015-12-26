@@ -54,7 +54,3 @@ class Tx_Seminars_Model_BackEndUserGroup extends Tx_Oelib_Model_BackEndUserGroup
 		return $this->getAsInteger('tx_seminars_auxiliaries_folder');
 	}
 }
-
-if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/Model/BackEndUserGroup.php']) {
-	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/Model/BackEndUserGroup.php']);
-}

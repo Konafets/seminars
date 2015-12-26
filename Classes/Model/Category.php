@@ -96,7 +96,3 @@ class Tx_Seminars_Model_Category extends Tx_Oelib_Model implements Tx_Seminars_I
 		return $this->hasInteger('single_view_page');
 	}
 }
-
-if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/Model/Category.php']) {
-	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/Model/Category.php']);
-}

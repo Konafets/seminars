@@ -218,7 +218,3 @@ class Tx_Seminars_Model_FrontEndUser extends Tx_Oelib_Model_FrontEndUser {
 		$this->set('Tx_Seminars_Registration', $registration);
 	}
 }
-
-if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/Model/FrontEndUser.php']) {
-	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/Model/FrontEndUser.php']);
-}

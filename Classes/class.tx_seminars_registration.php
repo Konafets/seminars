@@ -1265,7 +1265,3 @@ class Tx_Seminars_Registration extends Tx_Seminars_OldModel_Abstract {
 		return $this->getRecordPropertyBoolean('registered_themselves');
 	}
 }
-
-if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/class.tx_seminars_registration.php']) {
-	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/class.tx_seminars_registration.php']);
-}

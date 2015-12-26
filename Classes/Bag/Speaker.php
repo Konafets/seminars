@@ -70,7 +70,3 @@ class Tx_Seminars_Bag_Speaker extends Tx_Seminars_Bag_Abstract {
 		$this->valid();
 	}
 }
-
-if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/Bag/Speaker.php']) {
-	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/Bag/Speaker.php']);
-}

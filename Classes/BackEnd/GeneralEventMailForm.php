@@ -71,7 +71,3 @@ class Tx_Seminars_BackEnd_GeneralEventMailForm extends Tx_Seminars_BackEnd_Abstr
 		}
 	}
 }
-
-if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/BackEnd/GeneralEventMailForm.php']) {
-	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/BackEnd/GeneralEventMailForm.php']);
-}

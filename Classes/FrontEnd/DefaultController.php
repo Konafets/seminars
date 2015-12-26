@@ -3556,7 +3556,3 @@ class Tx_Seminars_FrontEnd_DefaultController extends Tx_Oelib_TemplateHelper {
 		$this->linkBuilder = $linkBuilder;
 	}
 }
-
-if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/FrontEnd/DefaultController.php']) {
-	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/FrontEnd/DefaultController.php']);
-}

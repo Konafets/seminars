@@ -306,7 +306,3 @@ class Tx_Seminars_Cli_MailNotifier {
 			&& ($event->getAttendances() > 0);
 	}
 }
-
-if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/cli/class.tx_seminars_cli_MailNotifier.php']) {
-	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/cli/class.tx_seminars_cli_MailNotifier.php']);
-}

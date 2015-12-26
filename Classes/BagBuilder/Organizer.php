@@ -55,7 +55,3 @@ class Tx_Seminars_BagBuilder_Organizer extends Tx_Seminars_BagBuilder_Abstract {
 			$eventUid . ' AND uid_foreign = tx_seminars_organizers.uid)';
 	}
 }
-
-if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/BagBuilder/Organizer.php']) {
-	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/BagBuilder/Organizer.php']);
-}

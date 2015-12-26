@@ -31,7 +31,3 @@ class Tx_Seminars_BagBuilder_Speaker extends Tx_Seminars_BagBuilder_Abstract {
 	 */
 	protected $tableName = 'tx_seminars_speakers';
 }
-
-if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/BagBuilder/Speaker.php']) {
-	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/seminars/BagBuilder/Speaker.php']);
-}
