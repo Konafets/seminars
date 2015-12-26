@@ -44,6 +44,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_EventEditorTest extends Tx_Phpunit_TestCas
 
 	protected function setUp() {
 		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		$this->testingFramework->createFakeFrontEnd();
 		Tx_Oelib_MapperRegistry::getInstance()->activateTestingMode($this->testingFramework);
 		Tx_Oelib_ConfigurationProxy::getInstance('seminars')->setAsBoolean('useStoragePid', FALSE);

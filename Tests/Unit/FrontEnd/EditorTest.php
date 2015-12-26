@@ -32,6 +32,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_EditorTest extends tx_phpunit_testcase {
 
 	protected function setUp() {
 		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		$this->testingFramework->createFakeFrontEnd();
 
 		$this->fixture = new Tx_Seminars_FrontEnd_Editor(array(), $GLOBALS['TSFE']->cObj);

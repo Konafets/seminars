@@ -82,6 +82,10 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	private $headerCollector = NULL;
 
 	protected function setUp() {
+		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		Tx_Oelib_ConfigurationProxy::getInstance('seminars')->setAsBoolean('enableConfigCheck', FALSE);
 
 		$this->extConfBackup = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'];
@@ -6795,6 +6799,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function registrationFormHtmlspecialcharsEventTitle() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		$registrationFormMock = $this->getMock('Tx_Seminars_FrontEnd_RegistrationForm', array(), array(), '', FALSE);
 		GeneralUtility::addInstance('Tx_Seminars_FrontEnd_RegistrationForm', $registrationFormMock);
 
@@ -7312,6 +7319,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function myEnteredEventViewShowsHiddenRecords() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		$editorGroupUid = $this->testingFramework->createFrontEndUserGroup();
 
 		$this->fixture->setConfigurationValue(
@@ -7344,6 +7354,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function myEnteredEventViewShowsStatusColumnByDefault() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		$editorGroupUid = $this->testingFramework->createFrontEndUserGroup();
 
 		$this->fixture->setConfigurationValue(
@@ -7377,6 +7390,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function myEnteredEventViewForHiddenEventShowsStatusPendingLabel() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		$editorGroupUid = $this->testingFramework->createFrontEndUserGroup();
 
 		$this->fixture->setConfigurationValue(
@@ -7407,6 +7423,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function myEnteredEventViewForVisibleEventShowsStatusPublishedLabel() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		$editorGroupUid = $this->testingFramework->createFrontEndUserGroup();
 
 		$this->fixture->setConfigurationValue(
@@ -7436,6 +7455,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function myEnteredEventViewForTimeFrameSetToCurrentShowsEventEndedInPast() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		$editorGroupUid = $this->testingFramework->createFrontEndUserGroup();
 
 		$this->fixture->setConfigurationValue(
@@ -7471,6 +7493,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function myEnteredEventsViewHidesRegistrationColumn() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		$editorGroupUid = $this->testingFramework->createFrontEndUserGroup();
 
 		$this->fixture->setConfigurationValue(
@@ -7852,6 +7877,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function myEnteredEventsListCallsProcessEventEditorActions() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		$this->testingFramework->createAndLoginFrontEndUser();
 
 		/** @var Tx_Seminars_FrontEnd_DefaultController|PHPUnit_Framework_MockObject_MockObject $fixture */
@@ -7927,6 +7955,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function processEventEditorActionsWithPositiveSeminarPivarCreatesEventEditor() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		Tx_Oelib_MapperRegistry::denyDatabaseAccess();
 
 		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
@@ -7947,6 +7978,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function processEventEditorActionsWithUidOfExistingEventChecksPermissions() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		Tx_Oelib_MapperRegistry::denyDatabaseAccess();
 
 		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
@@ -7970,6 +8004,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function processEventEditorActionsForHideActionWithAccessGrantedCallsHideEvent() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue(''));
@@ -7995,6 +8032,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function processEventEditorActionsForHideActionWithUnpublishedEventAndAccessGrantedNotCallsHideEvent() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue(''));
@@ -8020,6 +8060,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function processEventEditorActionsForHideActionWithAccessDeniedNotCallsHideEvent() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue('access denied'));
@@ -8045,6 +8088,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function processEventEditorActionsForUnhideActionWithAccessGrantedCallsUnhideEvent() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::once())->method('hasAccessMessage')->will(self::returnValue(''));
@@ -8070,6 +8116,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function processEventEditorActionsForUnhideActionWithUnpublishedEventAccessGrantedNotCallsUnhideEvent() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'),array(), '', FALSE);
 		$eventEditor->expects(self::once())->method('hasAccessMessage')->will(self::returnValue(''));
@@ -8095,6 +8144,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function processEventEditorActionsForUnhideActionWithAccessDeniedNotCallsUnhideEvent() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::once())->method('hasAccessMessage')->will(self::returnValue('access denied'));
@@ -8120,6 +8172,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function processEventEditorActionsForCopyActionWithAccessGrantedCallsCopyEvent() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue(''));
@@ -8145,6 +8200,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function processEventEditorActionsForCopyActionWithUnpublishedEventAndAccessGrantedNotCallsCopyEvent() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue(''));
@@ -8170,6 +8228,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function processEventEditorActionsForCopyActionWithAccessDeniedNotCallsCopyEvent() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::atLeastOnce())->method('hasAccessMessage')->will(self::returnValue('access denied'));
@@ -8195,6 +8256,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function processEventEditorActionsForEmptyActionWithPublishedEventAndAccessGrantedNotCallsHideEventOrUnhideEvent() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::once())->method('hasAccessMessage')->will(self::returnValue(''));
@@ -8221,6 +8285,9 @@ class Tx_Seminars_Tests_Unit_FrontEnd_DefaultControllerTest extends tx_phpunit_t
 	 * @test
 	 */
 	public function processEventEditorActionsForInvalidActionWithPublishedEventAndAccessGrantedNotCallsHideEventOrUnhideEvent() {
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		/** @var Tx_Seminars_FrontEnd_EventEditor|PHPUnit_Framework_MockObject_MockObject $eventEditor */
 		$eventEditor = $this->getMock('Tx_Seminars_FrontEnd_EventEditor', array('hasAccessMessage'), array(), '', FALSE);
 		$eventEditor->expects(self::once())->method('hasAccessMessage')->will(self::returnValue(''));

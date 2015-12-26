@@ -44,12 +44,15 @@ class Tx_Seminars_Tests_Unit_FrontEnd_RegistrationFormTest extends tx_phpunit_te
 	protected $seminarUid = 0;
 
 	/**
-	 * @var tx_seminars_seminars
+	 * @var \Tx_Seminars_Seminar
 	 */
 	protected $seminar = NULL;
 
 	protected function setUp() {
 		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
+		if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_formidable')) {
+			$this->markTestSkipped('EXT:ameos_formidable not loaded');
+		}
 		$frontEndPageUid = $this->testingFramework->createFrontEndPage();
 		$this->testingFramework->createFakeFrontEnd($frontEndPageUid);
 
