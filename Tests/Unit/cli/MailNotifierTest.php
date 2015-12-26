@@ -44,13 +44,14 @@ class Tx_Seminars_Tests_Unit_Cli_MailNotifierTest extends Tx_Phpunit_TestCase {
 	protected $mailer = NULL;
 
 	/**
-	 * @var language
+	 * @var \TYPO3\CMS\Lang\LanguageService
 	 */
 	private $languageBackup = NULL;
 
 	protected function setUp() {
 		$this->languageBackup = $GLOBALS['LANG'];
-		$GLOBALS['LANG'] = new \language();
+		$GLOBALS['LANG'] = new \TYPO3\CMS\Lang\LanguageService();
+		$GLOBALS['LANG']->init('en');
 
 		$this->testingFramework = new Tx_Oelib_TestingFramework('tx_seminars');
 		/** @var Tx_Oelib_MailerFactory $mailerFactory */
