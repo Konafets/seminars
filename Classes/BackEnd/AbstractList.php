@@ -151,7 +151,7 @@ abstract class Tx_Seminars_BackEnd_AbstractList {
 
 			$confirmation = htmlspecialchars(
 				'if (confirm('
-				.$LANG->JScharCode(
+				.GeneralUtility::quoteJSvalue(
 					$LANG->getLL('deleteWarning')
 					.$referenceWarning)
 				.')) {return true;} else {return false;}');
