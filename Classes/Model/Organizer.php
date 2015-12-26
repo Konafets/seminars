@@ -20,7 +20,7 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-class Tx_Seminars_Model_Organizer extends Tx_Oelib_Model implements Tx_Oelib_Interface_MailRole, tx_seminars_Interface_Titled {
+class Tx_Seminars_Model_Organizer extends Tx_Oelib_Model implements Tx_Oelib_Interface_MailRole, Tx_Seminars_Interface_Titled {
 	/**
 	 * Returns our name.
 	 *
