@@ -37,7 +37,7 @@ class Tx_Seminars_Tests_Unit_Service_RegistrationManagerTest extends Tx_Phpunit_
 	protected $seminarUid = 0;
 
 	/**
-	 * @var tx_seminars_seminarchild
+	 * @var Tx_Seminars_SeminarChild
 	 */
 	protected $seminar = NULL;
 
@@ -62,12 +62,12 @@ class Tx_Seminars_Tests_Unit_Service_RegistrationManagerTest extends Tx_Phpunit_
 	protected $pi1 = NULL;
 
 	/**
-	 * @var tx_seminars_seminarchild a fully booked seminar
+	 * @var Tx_Seminars_SeminarChild a fully booked seminar
 	 */
 	protected $fullyBookedSeminar = NULL;
 
 	/**
-	 * @var tx_seminars_seminarchild a seminar
+	 * @var Tx_Seminars_SeminarChild a seminar
 	 */
 	protected $cachedSeminar = NULL;
 
@@ -151,7 +151,7 @@ class Tx_Seminars_Tests_Unit_Service_RegistrationManagerTest extends Tx_Phpunit_
 		$headerProxyFactory->enableTestMode();
 		$this->headerCollector = $headerProxyFactory->getHeaderProxy();
 
-		$this->seminar = new tx_seminars_seminarchild($this->seminarUid);
+		$this->seminar = new Tx_Seminars_SeminarChild($this->seminarUid);
 		$this->fixture = Tx_Seminars_RegistrationManager::getInstance();
 
 		$this->linkBuilder = $this->getMock('Tx_Seminars_Service_SingleViewLinkBuilder', array('createAbsoluteUrlForEvent'));
@@ -214,7 +214,7 @@ class Tx_Seminars_Tests_Unit_Service_RegistrationManagerTest extends Tx_Phpunit_
 	 * @return void
 	 */
 	private function createBookedOutSeminar() {
-		$this->fullyBookedSeminar = new tx_seminars_seminarchild(
+		$this->fullyBookedSeminar = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -644,7 +644,7 @@ class Tx_Seminars_Tests_Unit_Service_RegistrationManagerTest extends Tx_Phpunit_
 		$this->createFrontEndPages();
 		$this->createAndLogInFrontEndUser();
 
-		$this->cachedSeminar = new tx_seminars_seminarchild(
+		$this->cachedSeminar = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -667,7 +667,7 @@ class Tx_Seminars_Tests_Unit_Service_RegistrationManagerTest extends Tx_Phpunit_
 		$this->createFrontEndPages();
 		$this->createAndLogInFrontEndUser();
 
-		$this->cachedSeminar = new tx_seminars_seminarchild(
+		$this->cachedSeminar = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -819,7 +819,7 @@ class Tx_Seminars_Tests_Unit_Service_RegistrationManagerTest extends Tx_Phpunit_
 			)
 		);
 
-		$this->cachedSeminar = new tx_seminars_seminarchild(
+		$this->cachedSeminar = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -1068,7 +1068,7 @@ class Tx_Seminars_Tests_Unit_Service_RegistrationManagerTest extends Tx_Phpunit_
 			)
 		);
 
-		$this->cachedSeminar = new tx_seminars_seminarchild(
+		$this->cachedSeminar = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -1291,7 +1291,7 @@ class Tx_Seminars_Tests_Unit_Service_RegistrationManagerTest extends Tx_Phpunit_
 			'tx_seminars_seminars',
 			array('object_type' => Tx_Seminars_Model_Event::TYPE_TOPIC)
 		);
-		$this->cachedSeminar = new tx_seminars_seminarchild(
+		$this->cachedSeminar = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -1335,7 +1335,7 @@ class Tx_Seminars_Tests_Unit_Service_RegistrationManagerTest extends Tx_Phpunit_
 			$topicUid, $requiredTopicUid, 'requirements'
 		);
 
-		$this->cachedSeminar = new tx_seminars_seminarchild(
+		$this->cachedSeminar = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -1372,7 +1372,7 @@ class Tx_Seminars_Tests_Unit_Service_RegistrationManagerTest extends Tx_Phpunit_
 			$topicUid, $requiredTopicUid, 'requirements'
 		);
 
-		$this->cachedSeminar = new tx_seminars_seminarchild(
+		$this->cachedSeminar = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -1421,7 +1421,7 @@ class Tx_Seminars_Tests_Unit_Service_RegistrationManagerTest extends Tx_Phpunit_
 			$topicUid, $requiredTopicUid, 'requirements'
 		);
 
-		$this->cachedSeminar = new tx_seminars_seminarchild(
+		$this->cachedSeminar = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -1462,7 +1462,7 @@ class Tx_Seminars_Tests_Unit_Service_RegistrationManagerTest extends Tx_Phpunit_
 			$topicUid, $requiredTopicUid, 'requirements'
 		);
 
-		$this->cachedSeminar = new tx_seminars_seminarchild(
+		$this->cachedSeminar = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -1520,7 +1520,7 @@ class Tx_Seminars_Tests_Unit_Service_RegistrationManagerTest extends Tx_Phpunit_
 			$topicUid, $requiredTopicUid2, 'requirements'
 		);
 
-		$this->cachedSeminar = new tx_seminars_seminarchild(
+		$this->cachedSeminar = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -1575,7 +1575,7 @@ class Tx_Seminars_Tests_Unit_Service_RegistrationManagerTest extends Tx_Phpunit_
 			$topicUid, $requiredTopicUid2, 'requirements'
 		);
 
-		$this->cachedSeminar = new tx_seminars_seminarchild(
+		$this->cachedSeminar = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -1630,7 +1630,7 @@ class Tx_Seminars_Tests_Unit_Service_RegistrationManagerTest extends Tx_Phpunit_
 			$topicUid, $requiredTopicUid2, 'requirements'
 		);
 
-		$this->cachedSeminar = new tx_seminars_seminarchild(
+		$this->cachedSeminar = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(

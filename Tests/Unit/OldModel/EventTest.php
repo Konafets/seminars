@@ -24,7 +24,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 	/**
-	 * @var tx_seminars_seminarchild
+	 * @var Tx_Seminars_SeminarChild
 	 */
 	protected $fixture = NULL;
 
@@ -79,7 +79,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 			)
 		);
 
-		$this->fixture = new tx_seminars_seminarchild(
+		$this->fixture = new Tx_Seminars_SeminarChild(
 			$uid,
 			array(
 				'dateFormatYMD' => '%d.%m.%Y',
@@ -3722,7 +3722,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 				'organizers' => 'foo',
 			)
 		);
-		$fixture = new tx_seminars_seminarchild($eventUid);
+		$fixture = new Tx_Seminars_SeminarChild($eventUid);
 		$hasOrganizers = $fixture->hasOrganizers();
 
 		self::assertFalse(
@@ -5205,7 +5205,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 				'details_page' => $detailsPageUid
 			)
 		);
-		$event = new tx_seminars_seminarchild($eventUid);
+		$event = new Tx_Seminars_SeminarChild($eventUid);
 
 		self::assertTrue(
 			$event->hasSeparateDetailsPage()
@@ -5223,7 +5223,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 				'details_page' => 'www.test.com'
 			)
 		);
-		$event = new tx_seminars_seminarchild($eventUid);
+		$event = new Tx_Seminars_SeminarChild($eventUid);
 
 		self::assertTrue(
 			$event->hasSeparateDetailsPage()
@@ -5257,7 +5257,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 				'details_page' => $detailsPageUid,
 			)
 		);
-		$event = new tx_seminars_seminarchild($eventUid);
+		$event = new Tx_Seminars_SeminarChild($eventUid);
 
 		self::assertSame(
 			(string) $detailsPageUid,
@@ -5277,7 +5277,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 				'details_page' => $externalUrl,
 			)
 		);
-		$event = new tx_seminars_seminarchild($eventUid);
+		$event = new Tx_Seminars_SeminarChild($eventUid);
 
 		self::assertSame(
 			$externalUrl,
@@ -6625,7 +6625,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function hasRequirementsForTopicWithoutRequirementsReturnsFalse() {
-		$topic = new tx_seminars_seminarchild(
+		$topic = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -6651,7 +6651,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 				'requirements' => 0,
 			)
 		);
-		$date = new tx_seminars_seminarchild(
+		$date = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -6682,7 +6682,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			$topicUid, $requiredTopicUid, 'requirements'
 		);
-		$topic = new tx_seminars_seminarchild($topicUid);
+		$topic = new Tx_Seminars_SeminarChild($topicUid);
 
 		self::assertTrue(
 			$topic->hasRequirements()
@@ -6705,7 +6705,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			$topicUid, $requiredTopicUid, 'requirements'
 		);
-		$date = new tx_seminars_seminarchild(
+		$date = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -6744,7 +6744,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			$topicUid, $requiredTopicUid2, 'requirements'
 		);
-		$topic = new tx_seminars_seminarchild($topicUid);
+		$topic = new Tx_Seminars_SeminarChild($topicUid);
 
 		self::assertTrue(
 			$topic->hasRequirements()
@@ -6760,7 +6760,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 	 * @test
 	 */
 	public function hasDependenciesForTopicWithoutDependenciesReturnsFalse() {
-		$topic = new tx_seminars_seminarchild(
+		$topic = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -6786,7 +6786,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 				'dependencies' => 0,
 			)
 		);
-		$date = new tx_seminars_seminarchild(
+		$date = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -6823,7 +6823,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars_requirements_mm',
 			$dependentTopicUid, $topicUid
 		);
-		$topic = new tx_seminars_seminarchild($topicUid);
+		$topic = new Tx_Seminars_SeminarChild($topicUid);
 
 		self::assertTrue(
 			$topic->hasDependencies()
@@ -6852,7 +6852,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars_requirements_mm',
 			$dependentTopicUid, $topicUid
 		);
-		$date = new tx_seminars_seminarchild(
+		$date = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -6900,7 +6900,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars_requirements_mm',
 			$dependentTopicUid2, $topicUid
 		);
-		$topic = new tx_seminars_seminarchild($topicUid);
+		$topic = new Tx_Seminars_SeminarChild($topicUid);
 
 		$result = $topic->hasDependencies();
 
@@ -6948,7 +6948,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			$topicUid, $requiredTopicUid, 'requirements'
 		);
-		$topic = new tx_seminars_seminarchild($topicUid);
+		$topic = new Tx_Seminars_SeminarChild($topicUid);
 
 		$result = $topic->getRequirements();
 
@@ -6978,7 +6978,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			$topicUid, $requiredTopicUid, 'requirements'
 		);
-		$date = new tx_seminars_seminarchild(
+		$date = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -7024,7 +7024,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars',
 			$topicUid, $requiredTopicUid2, 'requirements'
 		);
-		$topic = new tx_seminars_seminarchild($topicUid);
+		$topic = new Tx_Seminars_SeminarChild($topicUid);
 		$requirements = $topic->getRequirements();
 
 		self::assertSame(
@@ -7078,7 +7078,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars_requirements_mm',
 			$dependentTopicUid, $topicUid
 		);
-		$topic = new tx_seminars_seminarchild($topicUid);
+		$topic = new Tx_Seminars_SeminarChild($topicUid);
 
 		$result = $topic->getDependencies();
 
@@ -7114,7 +7114,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars_requirements_mm',
 			$dependentTopicUid, $topicUid
 		);
-		$date = new tx_seminars_seminarchild(
+		$date = new Tx_Seminars_SeminarChild(
 			$this->testingFramework->createRecord(
 				'tx_seminars_seminars',
 				array(
@@ -7169,7 +7169,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 			'tx_seminars_seminars_requirements_mm',
 			$dependentTopicUid2, $topicUid
 		);
-		$topic = new tx_seminars_seminarchild($topicUid);
+		$topic = new Tx_Seminars_SeminarChild($topicUid);
 		$dependencies = $topic->getDependencies();
 
 		self::assertSame(
@@ -8023,7 +8023,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 				'end_date' => 0,
 			)
 		);
-		$fixture = new tx_seminars_seminarchild($uid, array());
+		$fixture = new Tx_Seminars_SeminarChild($uid, array());
 
 		self::assertSame(
 			0,
@@ -8045,7 +8045,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 				'end_date' => 0,
 			)
 		);
-		$fixture = new tx_seminars_seminarchild($uid, array());
+		$fixture = new Tx_Seminars_SeminarChild($uid, array());
 
 		self::assertSame(
 			$this->now,
@@ -8067,7 +8067,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 				'end_date' => 0,
 			)
 		);
-		$fixture = new tx_seminars_seminarchild($uid, array());
+		$fixture = new Tx_Seminars_SeminarChild($uid, array());
 
 		self::assertSame(
 			$this->now,
@@ -8089,7 +8089,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 				'end_date' => $this->now + 1000,
 			)
 		);
-		$fixture = new tx_seminars_seminarchild(
+		$fixture = new Tx_Seminars_SeminarChild(
 			$uid, array('allowRegistrationForStartedEvents' => 1)
 		);
 
@@ -8113,7 +8113,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 				'end_date' => $this->now + 1000,
 			)
 		);
-		$fixture = new tx_seminars_seminarchild(
+		$fixture = new Tx_Seminars_SeminarChild(
 			$uid, array('allowRegistrationForStartedEvents' => 1)
 		);
 
@@ -8137,7 +8137,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 				'end_date' => 0,
 			)
 		);
-		$fixture = new tx_seminars_seminarchild(
+		$fixture = new Tx_Seminars_SeminarChild(
 			$uid, array('allowRegistrationForStartedEvents' => 1)
 		);
 
@@ -8321,7 +8321,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 			)
 		);
 
-		$date = new tx_seminars_seminarchild($dateRecordUid);
+		$date = new Tx_Seminars_SeminarChild($dateRecordUid);
 
 		self::assertSame(
 			42,
@@ -8386,7 +8386,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 			)
 		);
 
-		$date = new tx_seminars_seminarchild($dateRecordUid);
+		$date = new Tx_Seminars_SeminarChild($dateRecordUid);
 
 		self::assertFalse(
 			$date->hasTopicInteger('credit_points')
@@ -8412,7 +8412,7 @@ class Tx_Seminars_Tests_Unit_OldModel_EventTest extends tx_phpunit_testcase {
 			)
 		);
 
-		$date = new tx_seminars_seminarchild($dateRecordUid);
+		$date = new Tx_Seminars_SeminarChild($dateRecordUid);
 
 		self::assertTrue(
 			$date->hasTopicInteger('credit_points')

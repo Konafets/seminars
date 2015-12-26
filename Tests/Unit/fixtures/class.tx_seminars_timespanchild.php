@@ -25,7 +25,7 @@ final class tx_seminars_timespanchild extends Tx_Seminars_Timespan {
 	public $prefixId = 'tx_seminars_timespanchild';
 	/**  path to this script relative to the extension dir */
 	public $scriptRelPath
-		= 'tests/fixtures/class.tx_seminars_timespanchild.php';
+		= 'tests/Fixtures/class.tx_seminars_timespanchild.php';
 
 	/** string with the name of the SQL table this class corresponds to */
 	public $tableName = 'tx_seminars_unit_testing';

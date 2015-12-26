@@ -20,15 +20,15 @@
  *
  * @author Niels Pardon <mail@niels-pardon.de>
  */
-final class tx_seminars_seminarchild extends Tx_Seminars_Seminar {
+final class Tx_Seminars_SeminarChild extends Tx_Seminars_Seminar {
 	/**
 	 * @var string same as class name
 	 */
-	public $prefixId = 'tx_seminars_seminarchild';
+	public $prefixId = 'Tx_Seminars_SeminarChild';
 	/**
 	 * @var string path to this script relative to the extension dir
 	 */
-	public $scriptRelPath = 'tests/fixtures/class.tx_seminars_seminarchild.php';
+	public $scriptRelPath = 'Tests/Unit/Fixtures/class.Tx_Seminars_SeminarChild.php';
 
 	/**
 	 * The constructor.
