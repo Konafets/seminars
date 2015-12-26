@@ -66,7 +66,7 @@ class Tx_Seminars_Module2 extends Tx_Seminars_BackEnd_Module {
 	public function main() {
 		global $LANG, $BACK_PATH, $BE_USER;
 
-		$this->doc = GeneralUtility::makeInstance('bigDoc');
+		$this->doc = GeneralUtility::makeInstance('TYPO3\CMS\Backend\Template\DocumentTemplate');
 		$this->doc->backPath = $BACK_PATH;
 		$this->doc->docType = 'xhtml_strict';
 

@@ -64,7 +64,7 @@ class Tx_Seminars_Tests_Unit_BackEnd_RegistrationsListTest extends tx_phpunit_te
 			'doktype' => Tx_Seminars_BackEnd_AbstractList::SYSFOLDER_TYPE,
 		));
 
-		$document = new bigDoc();
+		$document = new \TYPO3\CMS\Backend\Template\DocumentTemplate();
 		$this->backEndModule->doc = $document;
 		$document->backPath = $GLOBALS['BACK_PATH'];
 		$document->docType = 'xhtml_strict';
