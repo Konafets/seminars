@@ -46,7 +46,7 @@ ExtensionManagementUtility::addUserTSConfig('
 
 // Adds our custom function to a hook in \TYPO3\CMS\Core\DataHandling\DataHandler
 // Used for post-validation of fields in back-end forms.
-$GLOBALS ['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = 'EXT:seminars/Classes/class.tx_seminars_tcemain.php:Tx_Seminars_TceMainProcDm';
+$GLOBALS ['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = 'EXT:seminars/Classes/TceMain.php:Tx_Seminars_TceMainProcDm';
 
 ExtensionManagementUtility::addPItoST43(
 	$_EXTKEY, 'Classes/FrontEnd/DefaultController.php', '_pi1', 'list_type', 0
@@ -77,5 +77,5 @@ if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(
 
 // registers the seminars command line interface
 $TYPO3_CONF_VARS['SC_OPTIONS']['GLOBAL']['cliKeys']['seminars'] = array(
-	'EXT:seminars/Classes/cli/tx_seminars_cli.php', '_CLI_seminars',
+	'EXT:seminars/Classes/Cli/tx_seminars_cli.php', '_CLI_seminars',
 );

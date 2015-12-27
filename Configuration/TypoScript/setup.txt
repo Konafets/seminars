@@ -3755,7 +3755,7 @@ tx_seminars_pi2 {
 		xhtml_cleaning >
 	}
 
-	includeLibs.tx_seminars_pi2 = EXT:seminars/pi2/class.tx_seminars_pi2.php
+	includeLibs.tx_seminars_pi2 = EXT:seminars/Pi2/Pi2.php
 
 	10 = USER
 	10 {

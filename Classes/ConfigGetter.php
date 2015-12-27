@@ -24,7 +24,7 @@ class Tx_Seminars_ConfigGetter extends Tx_Oelib_TemplateHelper {
 	/** Same as class name */
 	public $prefixId = 'Tx_Seminars_ConfigGetter';
 	/**  Path to this script relative to the extension dir. */
-	public $scriptRelPath = 'class.tx_seminars_configgetter.php';
+	public $scriptRelPath = 'ConfigGetter.php';
 
 	/**
 	 * @var string the extension key

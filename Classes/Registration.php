@@ -42,7 +42,7 @@ class Tx_Seminars_Registration extends Tx_Seminars_OldModel_Abstract {
 	 *
 	 * @var string
 	 */
-	public $scriptRelPath = 'class.tx_seminars_registration.php';
+	public $scriptRelPath = 'Registration.php';
 
 	/**
 	 * @var Tx_Seminars_Seminar the event to which this registration relates

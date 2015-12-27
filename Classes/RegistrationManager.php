@@ -34,7 +34,7 @@ class Tx_Seminars_RegistrationManager extends Tx_Oelib_TemplateHelper {
 	/**
 	 * @var string path to this script relative to the extension directory
 	 */
-	public $scriptRelPath = 'class.tx_seminars_registrationmanager.php';
+	public $scriptRelPath = 'RegistrationManager.php';
 
 	/**
 	 * @var string the extension key
